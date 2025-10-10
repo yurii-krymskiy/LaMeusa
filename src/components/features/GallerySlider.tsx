@@ -89,23 +89,22 @@ const GallerySlider = () => {
         style={{ height: 500, gap: GAP }}
       >
         {images.map((src, i) => {
-          const isActive = i === index;
-          const height = isActive ? 500 : 480;
-          const opacity = isActive ? 1 : 0.9;
-
+          // const isActive = i === index;
+          // const height = isActive ? 500 : 480;
+          // const opacity = isActive ? 1 : 0.9;
           return (
             <div
               key={i + "-slide"}
               className="flex-shrink-0 flex items-center justify-center"
               // apply opacity to the wrapper so it transitions together with height
-              style={{ width: SLIDE_W, height, opacity, transition: "height 600ms ease, opacity 600ms ease" }}
+              style={{ width: SLIDE_W, transition: "height 600ms ease, opacity 600ms ease" }}
             >
               <img
                 src={src}
                 alt={`gallery-${i}`}
                 className="object-cover"
                 // image itself keeps width/height but opacity/height transitions are handled by wrapper
-                style={{ width: SLIDE_W, height }}
+                style={{ width: SLIDE_W }}
                 draggable={false}
               />
             </div>
