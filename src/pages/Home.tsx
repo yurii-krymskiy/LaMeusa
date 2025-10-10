@@ -109,6 +109,32 @@ const Home = () => {
           <GallerySlider />
         </div>
       </section>
+      <div className="max-w-[1400px] mx-auto">
+        <section className="my-15 flex flex-row items-start h-[734px] gap-6">
+          <img src="/images/header/image-11.png" alt="image" className="w-[20%] h-[536px] object-cover self-start" />
+          <div className="flex flex-col w-[20%] self-end h-fit gap-6">
+            <img src="/images/header/image-12.png" alt="image" className="w-[100%] h-[271px] object-cover" />
+            <img src="/images/header/image-13.png" alt="image" className="w-[100%] h-[382px] object-cover" />
+          </div>
+          <div className="self-center w-[60%]">
+            <p className="decorative text-[34px] mb-2.5">
+              Food Story
+            </p>
+            <p className="title text-[48px] mb-6">
+              Fresh Ingredients, Authentic Taste
+            </p>
+            <p className="simple-text mb-2.5">
+              Sea, sun and soul - all this in every plate. We prefer local and fresh products, combined with delicate execution: this is the path to true taste.
+            </p>
+            <p className="simple-text mb-2.5">
+              Our dishes combine simplicity and sophistication, because the main thing is to preserve the true taste of the products.
+            </p>
+            <p className="simple-text">
+              In each plate you will find harmony: the tenderness of textures, the brightness of colors, and the strength of aroma.
+            </p>
+          </div>
+        </section>
+      </div>
     </>
   );
 };
