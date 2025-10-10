@@ -104,10 +104,7 @@ const Home = () => {
         <p className="simple-text text-center mb-10">
           Take a peek into our heart - browse the gallery and get a feel for La Medusa<br /> before you visit. From the interior to the food, every frame tells a story.
         </p>
-        {/* Automatic infinite slider: center active slide, neighbors slightly smaller and semi-transparent */}
-        <div className="w-full flex justify-center overflow-hidden select-none pointer-events-none">
-          <GallerySlider />
-        </div>
+        <GallerySlider />
       </section>
       <div className="max-w-[1400px] mx-auto">
         <section className="my-15 flex flex-row items-start h-[734px] gap-6">
