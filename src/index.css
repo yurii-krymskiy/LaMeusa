@@ -1,3 +1,29 @@
 @import "tailwindcss";
 
+@layer base {
+  #root,
+  html,
+  body {
+    background-color: #fff;
+    font-family: "Inter", sans-serif;
+    height: 100%;
+    color: #1B1B1B;
+  }
 
+  /* Simple text */
+  .simple-text {
+    font-family: 'Montserrat', sans-serif;
+    color: #505050;
+  }
+
+  /* Brooklyn (titles) */
+  .titles {
+    font-family: 'Playfair Display', serif;
+    color: #0E1A47;
+  }
+
+  /* Gardena Holmes (decorative text) */
+  .decorative {
+    font-family: 'Great Vibes', cursive;
+  }
+}
