@@ -8,6 +8,7 @@
     font-family: "Inter", sans-serif;
     height: 100%;
     color: #1B1B1B;
+    font-size: 18px;
   }
 
   /* Simple text */
@@ -17,13 +18,18 @@
   }
 
   /* Brooklyn (titles) */
-  .titles {
+  .title {
     font-family: 'Playfair Display', serif;
     color: #0E1A47;
+    font-weight: 600;
+    text-transform: uppercase;
   }
 
   /* Gardena Holmes (decorative text) */
   .decorative {
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Kapakana', cursive;
+    color: #037DCD;
+    font-weight: 300;
+    line-height: 100%;
   }
 }
