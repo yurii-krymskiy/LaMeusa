@@ -1,35 +1,178 @@
 @import "tailwindcss";
+@import "swiper/css";
+@font-face {
+    font-family: GardenaHolmes;
+    font-style: normal;
+    font-weight: 200 700;
+    font-display: swap;
+    src: url("/src/fonts/Gardena Holmes.otf") format("opentype");
+}
+
+@theme {
+    /* color setup */
+    --color-white: #fff;
+    --color-white-100: #f9f9f9;
+    --color-royal-blue: #2e3e7b;
+    --color-navy: #0e1a47;
+    --color-sky: #037dcd;
+    --color-gray-200: #bfc4d6;
+    --color-gray-700: #505050;
+
+    /* text setup */
+    --font-GardenaHolmes: "GardenaHolmes", sans-serif;
+    --text-6xl: 64px;
+}
 
 @layer base {
-  #root,
-  html,
-  body {
-    background-color: #fff;
-    font-family: "Inter", sans-serif;
-    height: 100%;
-    color: #1B1B1B;
-    font-size: 18px;
-  }
+    body {
+        scroll-behavior: smooth;
+        background-color: #fff;
+        font-family: "Montserrat", sans-serif;
+        height: 100%;
+        color: #1b1b1b;
+        font-size: 18px;
+        overflow-x: hidden;
+    }
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
 
-  /* Simple text */
-  .simple-text {
-    font-family: 'Montserrat', sans-serif;
-    color: #505050;
-  }
+    /* Brooklyn (titles) */
+    .title {
+        font-family: "Playfair Display", serif;
+        color: #0e1a47;
+        font-weight: 500;
+        text-transform: uppercase;
+        line-height: 130% !important;
+    }
 
-  /* Brooklyn (titles) */
-  .title {
-    font-family: 'Playfair Display', serif;
-    color: #0E1A47;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
+    .description {
+        font-family: "Montserrat", sans-serif;
+        color: #505050;
+    }
 
-  /* Gardena Holmes (decorative text) */
-  .decorative {
-    font-family: 'Kapakana', cursive;
-    color: #037DCD;
-    font-weight: 300;
-    line-height: 100%;
-  }
+    .decorative {
+        color: #037dcd;
+        font-weight: 100;
+        line-height: 100%;
+
+        @apply font-GardenaHolmes text-[24px] md:text-[34px];
+    }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* container */
+.container {
+    @apply mx-auto w-full px-5 md:max-w-[1360px];
+}
+
+/* section */
+.section {
+    @apply relative py-16;
+}
+
+.section-title {
+    @apply mb-6 text-3xl md:text-5xl;
+}
+
+.section-description {
+    @apply text-base md:text-lg;
+}
+/* button */
+
+.button {
+    @apply w-full cursor-pointer px-12 py-4 text-base leading-0 font-bold uppercase transition duration-200 ease-in-out disabled:cursor-not-allowed disabled:opacity-70 md:w-fit md:text-lg;
+}
+
+.button-blue {
+    @apply bg-royal-blue border-royal-blue hover:text-royal-blue border text-white hover:bg-white;
+}
+
+.button-blue-outline {
+    @apply border-royal-blue text-royal-blue hover:bg-royal-blue border-2 bg-transparent hover:text-white;
+}
+
+.button-white-outline {
+    @apply border-2 border-white bg-transparent text-white;
+}
+
+.button-arrow {
+    @apply text-royal-blue relative inline-flex cursor-pointer py-1 text-base font-semibold md:text-lg;
+}
+
+.button-default {
+    @apply text-royal-blue inline-flex items-center gap-5;
+}
+
+/* hero */
+.hero {
+    @apply relative min-h-[500px] bg-cover bg-no-repeat px-3 md:min-h-[640px];
+}
+
+.hero-title {
+    @apply mb-5 text-center text-4xl text-white md:text-6xl;
+}
+
+.hero-description {
+    @apply mx-auto block max-w-4xl text-center text-lg text-white;
+}
+
+.home-hero {
+    @apply flex flex-col items-center bg-[url('/images/home-bg.jpg')] bg-bottom pt-20 pb-10;
+}
+
+.about-hero {
+    @apply flex flex-col items-center justify-center bg-[url('/images/about/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.jpg')] bg-bottom;
+}
+
+.decorative-line::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 200px;
+    left: 0;
+    display: block;
+    width: 900px;
+    height: 1px;
+    transform-origin: left;
+    rotate: -36deg;
+
+    @apply bg-sky/50;
+}
+
+/* input */
+
+.input {
+    @apply w-full border border-gray-200 p-5 font-semibold placeholder:text-gray-700;
+}
+
+input[type="time"]:invalid:before {
+    content: "Choose a time";
+    position: absolute;
+    background: #fff;
+}
+
+input[type="time"]:focus:before {
+    width: 0;
+    content: "";
+}
+
+input[type="date"]:invalid:before {
+    content: "Choose a date";
+    position: absolute;
+    background: #fff;
+}
+
+input[type="date"]:focus:before {
+    width: 0;
+    content: "";
 }

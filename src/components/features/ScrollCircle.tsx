@@ -1,11 +1,13 @@
-import React from "react";
-
 const ScrollCircle = () => {
-  return (
-    <div className="w-[85px] h-[85px] rounded-[50%] bg-[#00000080] border border-white flex items-center justify-center">
-      <img src="/icons/arrow-bottom-header.svg" alt="arrow-bottom-header" />
-    </div>
-  );
+    return (
+        <div className="flex size-[50px] items-center justify-center rounded-[50%] border border-white bg-[#00000080] md:size-[100px]">
+            <img
+                src="/icons/arrow-bottom-header.svg"
+                alt="arrow-bottom-header"
+                className="h-4 md:h-8"
+            />
+        </div>
+    );
 };
 
 export default ScrollCircle;
