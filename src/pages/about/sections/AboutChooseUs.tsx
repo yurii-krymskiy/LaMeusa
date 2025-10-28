@@ -51,9 +51,9 @@ export const AboutChooseUs = () => {
                                 Taste and Quality
                             </span>
                             <p className="description md:text-lg">
-                                We use only fresh local and imported products,
-                                and we pay close attention to every flavor and
-                                combination.
+                                A restaurant with a panoramic view of the sea,
+                                where every moment is filled with light and
+                                space.
                             </p>
                         </div>
                     </div>
@@ -64,12 +64,12 @@ export const AboutChooseUs = () => {
                         />
                         <div>
                             <span className="title mb-2.5 inline-block text-lg md:text-xl">
-                                Taste and Quality
+                                Service with a soul
                             </span>
                             <p className="description md:text-lg">
-                                We use only fresh local and imported products,
-                                and we pay close attention to every flavor and
-                                combination.
+                                Our team takes care of you with sincerity,
+                                paying attention to the little things: from
+                                serving to dish recommendations.
                             </p>
                         </div>
                     </div>

@@ -1,9 +1,9 @@
-import type Swiper from "swiper";
+import type SwiperType from "swiper";
 import { Swiper } from "swiper/react";
 
 type Props = {
     children: React.ReactNode;
-    ref?: React.RefObject<Swiper>;
+    ref?: React.RefObject<SwiperType>;
 };
 
 export const ControlledSwiper = ({ children, ref }: Props) => {

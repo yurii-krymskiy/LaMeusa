@@ -27,7 +27,7 @@ export const TableBook = () => {
     });
 
     const isDisabledPromo = !promoValue;
-
+    console.log(form.formState.errors)
     const onSubmit = (data: BookTableSchemaPickType) => {
         setData(data);
         setStep(1);

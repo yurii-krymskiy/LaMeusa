@@ -1,4 +1,4 @@
-import { Button } from "../../../components/ui/Button";
+import { ButtonOpenReservation } from "../../../components/features/reservation-form/ButtonOpenReservation";
 
 export const HomeReserve = () => {
     return (
@@ -27,7 +27,9 @@ export const HomeReserve = () => {
                             will want to return to.
                         </p>
                     </div>
-                    <Button variant="blue">Make a reservation</Button>
+                    <ButtonOpenReservation variant="blue">
+                        Make a reservation
+                    </ButtonOpenReservation>
                 </div>
             </div>
         </section>

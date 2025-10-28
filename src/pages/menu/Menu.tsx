@@ -7,6 +7,7 @@ import {
 import { MenuSidebar } from "../../components/features/menu/sidebar/MenuSidebar";
 import { MenuList } from "../../components/features/menu/content/MenuList";
 import { MobileCategoryTabs } from "../../components/features/menu/content/MobileCaregoryTabs";
+import { MenuReserve } from "./sections/MenuReserve";
 
 const dictionary = new CategoryDictionary(
     [
@@ -82,31 +83,30 @@ export const Menu = () => {
                 onSelect={setActiveSlug}
                 headerOffset={96}
             />
-            <section className="section hidden bg-white md:block">
-                <div className="container flex flex-col items-center text-center">
-                    <p className="decorative mb-2.5">Our Menu</p>
-                    <h1 className="title section-title text-4xl md:text-5xl">
-                        Discover La Meusa Specialties
+            <section className="hero menu-hero hidden bg-white md:block">
+                <div className="container flex max-w-[1050px] flex-col items-start text-left">
+                    <h1 className="title hero-title !ml-0 !text-left text-4xl md:text-5xl">
+                        discover new facets of flavor
                     </h1>
-                    <p className="description max-w-2xl text-base md:text-lg">
-                        Carefully curated dishes celebrating Mediterranean
-                        flavors, fresh seafood, and family classics. Browse each
-                        category to find your next favorite plate.
+                    <p className="description hero-description !ml-0 max-w-2xl !text-left text-base md:text-lg">
+                        Experience the taste of Mediterranean cuisine against
+                        the backdrop of the Atlantic Ocean. At La Medusa, we
+                        create an atmosphere where every moment is a pleasure
+                        and every dish is a story.
                     </p>
                 </div>
             </section>
 
             <section className="section bg-white-100">
                 <div className="container flex flex-col gap-10 lg:flex-row">
-                    <div className="hidden md:block">
-                        <MenuSidebar
-                            items={resolved.sidebar}
-                            activeSlug={activeSlug}
-                            onSelect={setActiveSlug}
-                        />
-                    </div>
+                    <MenuSidebar
+                        items={resolved.sidebar}
+                        activeSlug={activeSlug}
+                        onSelect={setActiveSlug}
+                    />
                     <MenuList categories={resolved.categories} />
                 </div>
+                <MenuReserve />
             </section>
         </main>
     );

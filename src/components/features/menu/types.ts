@@ -7,14 +7,7 @@ export type PortionUnit =
     | "for_2"
     | "for_3+";
 
-export type BadgeCode =
-    | "top_seller"
-    | "spicy"
-    | "vegan"
-    | "gluten_free"
-    | "chef"
-    | "recommended"
-    | "ok";
+export type BadgeCode = "time" | "hot" | "vegan" | "star" | "ukraine";
 
 export type MenuItemType = {
     id: string | number;
@@ -24,11 +17,16 @@ export type MenuItemType = {
     category: string;
     price: number | string;
     unit?: PortionUnit | string;
-    badges?: BadgeCode[] | string[];
+    badges?: BadgeCode[];
     order?: number;
 };
 
-export type MenuBadge = { code: BadgeCode; label: string; icon?: string };
+export type MenuBadge = {
+    code: BadgeCode;
+    label?: string;
+    icon?: string;
+    color?: string;
+};
 
 export type MenuPrice = {
     price: Price;

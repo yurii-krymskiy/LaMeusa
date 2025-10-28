@@ -3,7 +3,7 @@ import { Button } from "../../ui/Button";
 import { useBookingStore } from "./store";
 
 type Props = {
-    variant?: "blue" | "white" | "blue-outline" | "white-outline";
+    variant?: "blue" | "white" | "blue-outline" | "white-outline" | "default";
     children: React.ReactNode;
     className?: string;
 };

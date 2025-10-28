@@ -57,13 +57,28 @@ export class UnitNormalizer {
 
 export class BadgeCatalog {
     private readonly map: Record<BadgeCode, MenuBadge> = {
-        top_seller: { code: "top_seller", label: "Top seller", icon: "⭐" },
-        spicy: { code: "spicy", label: "Spicy", icon: "🌶️" },
-        vegan: { code: "vegan", label: "Vegan", icon: "🌱" },
-        gluten_free: { code: "gluten_free", label: "Gluten-free", icon: "✅" },
-        chef: { code: "chef", label: "Chef's", icon: "👨‍🍳" },
-        recommended: { code: "recommended", label: "Recommended", icon: "👍" },
-        ok: { code: "ok", label: "OK", icon: "✅" },
+        vegan: {
+            code: "vegan",
+            icon: "/icons/badgets/vegetarian.svg",
+        },
+        star: {
+            code: "star",
+            label: "Top seller",
+            icon: "/icons/badgets/star.svg",
+            color: "#FFC107"
+        },
+        time: {
+            code: "time",
+            icon: "/icons/badgets/clock.svg",
+        },
+        ukraine: {
+            code: "ukraine",
+            icon: "/icons/badgets/ukraine.svg",
+        },
+        hot: {
+            code: "hot",
+            icon: "/icons/badgets/inflammable.svg",
+        },
     };
 
     resolve(codes?: (BadgeCode | string)[]): MenuBadge[] {
@@ -263,7 +278,7 @@ export const rawItems: MenuItemType[] = [
         category: "tapas_and_appetizers",
         price: "29.50",
         unit: "pp",
-        badges: ["top_seller"],
+        badges: ["time"],
     },
     {
         id: 3,
@@ -280,7 +295,7 @@ export const rawItems: MenuItemType[] = [
         imageUrl: "/images/home/image-3.jpg",
         category: "tapas_and_appetizers",
         price: 9,
-        badges: ["vegan", "ok"],
+        badges: ["vegan", "hot"],
     },
     {
         id: 5,
@@ -289,7 +304,7 @@ export const rawItems: MenuItemType[] = [
         imageUrl: "/images/home/image-3.jpg",
         category: "tapas_and_appetizers",
         price: 15,
-        badges: ["spicy"],
+        badges: ["hot"],
     },
     {
         id: 6,
@@ -308,7 +323,7 @@ export const rawItems: MenuItemType[] = [
         category: "fish_and_seafood",
         price: 32,
         unit: "pp",
-        badges: ["top_seller"],
+        badges: ["ukraine"],
     },
     {
         id: 8,
@@ -317,7 +332,7 @@ export const rawItems: MenuItemType[] = [
         imageUrl: "/images/home/image-3.jpg",
         category: "pasta",
         price: 14,
-        badges: ["chef"],
+        badges: ["star"],
     },
     {
         id: 9,
@@ -327,7 +342,6 @@ export const rawItems: MenuItemType[] = [
         imageUrl: "/images/home/image-3.jpg",
         category: "pasta",
         price: 17,
-        badges: ["recommended"],
     },
     {
         id: 10,
@@ -344,7 +358,6 @@ export const rawItems: MenuItemType[] = [
         imageUrl: "/images/home/image-3.jpg",
         category: "meat",
         price: 24,
-        badges: ["top_seller", "chef"],
     },
     {
         id: 12,
@@ -356,6 +369,7 @@ export const rawItems: MenuItemType[] = [
         id: 13,
         title: "Spaghetti bolognese",
         category: "children_menu",
+        badges: ["star"],
         price: 8,
     },
 ];

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { nav } from "../../navigation";
+import { pagesLabels } from "../../router";
 
 export const Menu = () => {
     const [open, setOpen] = useState(false);
@@ -95,10 +95,10 @@ export const Menu = () => {
 
                         <div className="mx-auto  flex w-full max-w-5xl items-center justify-between px-4 pt-20 md:pt-0">
                             <ul className="flex flex-col gap-9 text-2xl font-semibold text-white uppercase md:text-3xl">
-                                {nav.map((item) => (
-                                    <li key={item.to}>
+                                {pagesLabels.map((item) => (
+                                    <li key={item.path}>
                                         <Link
-                                            to={item.to}
+                                            to={item.path}
                                             onClick={closeThen()}
                                         >
                                             {item.label}

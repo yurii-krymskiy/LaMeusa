@@ -4,7 +4,7 @@ export const BookingTable = () => {
     return (
         <section>
             <div className="mb-10">
-                <span className="title mb-5 block md:text-2xl font-semibold uppercase">
+                <span className="title mb-5 block font-semibold uppercase md:text-2xl">
                     Book a table
                 </span>
                 <span className="description md:text-lg">
@@ -21,7 +21,6 @@ export const BookingTable = () => {
                         href="mailto:lamedusarestaurants@gmail.com"
                         className="font-bold"
                     >
-                        {" "}
                         lamedusarestaurants@gmail.com
                     </a>
                 </span>

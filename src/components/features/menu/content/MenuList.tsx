@@ -24,7 +24,12 @@ export const MenuList = ({ categories }: MenuListProps) => {
                     />
                     <div className="grid">
                         {category.items.map((item) => (
-                            <MenuItem key={item.id} item={item} />
+                            <div
+                                key={item.id}
+                                className="border-sky border-b last:border-none py-7 last:pb-0"
+                            >
+                                <MenuItem item={item} />
+                            </div>
                         ))}
                     </div>
                 </section>

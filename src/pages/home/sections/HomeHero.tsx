@@ -1,4 +1,3 @@
-
 import ScrollCircle from "../../../components/features/ScrollCircle";
 import { Button } from "../../../components/ui/Button";
 
@@ -16,10 +15,9 @@ export const HomeHero = () => {
                     every dish is a story.
                 </p>
             </div>
-            <Button
-                variant="white-outline"
-                className="mb-20"
-            >Book Now</Button>
+            <Button variant="white-outline" className="mb-20">
+                Book Now
+            </Button>
             <ScrollCircle />
         </main>
     );

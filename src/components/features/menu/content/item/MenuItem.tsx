@@ -13,7 +13,7 @@ export const MenuItem = ({ item }: MenuItemProps) => {
     return (
         <article
             id={item.anchorId}
-            className="border-sky flex flex-row gap-4 border-b py-7 last:border-none last:pb-0 md:flex-row md:items-start"
+            className="flex flex-row gap-4  md:flex-row md:items-start"
         >
             <MenuItemImage src={item.imageUrl} alt={item.title} />
             <div className="flex h-full flex-1 flex-col justify-between gap-4">

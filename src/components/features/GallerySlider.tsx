@@ -6,25 +6,19 @@ import {
     type TransitionEvent,
 } from "react";
 
+type Props = {
+    slides: { src: string; alt: string }[];
+};
 // Automatic infinite slider with center-focused active slide.
 // - Active slide: w-[900px] h-[500px]
 // - Inactive slides: h-[420px] and opacity 0.9 (width kept 900 to stabilize layout)
 // - Smooth transitions; side slides are partially visible in the viewport
-const GallerySlider = () => {
+const GallerySlider = ({ slides }: Props) => {
     // Config (px)
     const SLIDE_WIDTH = 900; // matches w-[900px]
     const GAP = 24; // Tailwind gap-6 (1.5rem)
     const AUTOPLAY_MS = 3000; // change slide every 3s
     const TRANSITION_MS = 600; // slide animation duration
-
-    const slides = useMemo(
-        () => [
-            { src: "/images/home/gallery-1.jpg", alt: "Gallery image 1" },
-            { src: "/images/home/gallery-2.jpg", alt: "Gallery image 2" },
-            { src: "/images/home/gallery-3.jpg", alt: "Gallery image 3" },
-        ],
-        []
-    );
 
     // Duplicate slides to allow seamless infinite looping
     const extendedSlides = useMemo(

@@ -14,7 +14,7 @@ export const MenuSidebar = ({
     if (!items.length) return null;
 
     return (
-        <aside className="w-[266px]">
+        <aside className="hidden w-[266px] md:block">
             <div className="sticky top-28 space-y-6">
                 <div>
                     <h3 className="title text-2xl text-gray-700 uppercase">
@@ -31,7 +31,7 @@ export const MenuSidebar = ({
                                         href={`#menu-section-${item.slug}`}
                                         onClick={() => onSelect?.(item.slug)}
                                         className={[
-                                            "flex items-center justify-between rounded-full p-1 text-2xl description font-semibold uppercase transition-colors",
+                                            "description flex items-center justify-between rounded-full p-1 text-2xl font-semibold uppercase transition-colors",
                                             isActive
                                                 ? "text-sky"
                                                 : "hover:text-sky text-royal-blue",

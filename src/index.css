@@ -131,7 +131,31 @@
 }
 
 .about-hero {
-    @apply flex flex-col items-center justify-center bg-[url('/images/about/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.jpg')] bg-bottom;
+    @apply flex flex-col items-center justify-center bg-[url('/images/about/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.jpg')] pt-8 bg-bottom;
+}
+
+.contact-hero {
+    @apply flex flex-col items-center justify-center bg-[url('/images/contact/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.jpg')] pt-8 bg-bottom;
+}
+
+.seafood-hero {
+    @apply flex flex-col items-start justify-center bg-[url('/images/seafood/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp')] pt-8 bg-bottom;
+}
+
+.happy-hours-hero {
+    @apply flex flex-col items-start justify-center bg-[url('/images/happy-hours/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp')] pt-8 bg-bottom;
+}
+
+.happy-hours-hero {
+    @apply flex flex-col items-start justify-center bg-[url('/images/pasta/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp')] pt-8 bg-bottom;
+}
+
+.menu-hero {
+    @apply flex flex-col items-start justify-center bg-[url('/images/menu/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp')] pt-8 bg-bottom;
+}
+
+.birthday-hero {
+    @apply flex flex-col items-start justify-center bg-[url('/images/birthday/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp')] pt-8 bg-bottom;
 }
 
 .decorative-line::after {
@@ -159,6 +183,7 @@ input[type="time"]:invalid:before {
     content: "Choose a time";
     position: absolute;
     background: #fff;
+    @apply text-gray-700;
 }
 
 input[type="time"]:focus:before {
@@ -170,6 +195,7 @@ input[type="date"]:invalid:before {
     content: "Choose a date";
     position: absolute;
     background: #fff;
+    @apply text-gray-700;
 }
 
 input[type="date"]:focus:before {

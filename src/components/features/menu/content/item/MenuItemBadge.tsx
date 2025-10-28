@@ -1,6 +1,5 @@
 import type { MenuBadge } from "../../types";
 
-
 type MenuItemBadgeProps = {
     badges: MenuBadge[];
 };
@@ -13,10 +12,16 @@ export const MenuItemBadge = ({ badges }: MenuItemBadgeProps) => {
             {badges.map((badge) => (
                 <li
                     key={badge.code}
-                    className="inline-flex items-center gap-1 rounded-full bg-sky/10 px-3 py-1 text-xs font-semibold uppercase text-sky"
+                    className="inline-flex items-center gap-1  py-1 text-xs font-semibold uppercase"
                 >
-                    {badge.icon && <span aria-hidden="true">{badge.icon}</span>}
-                    <span>{badge.label}</span>
+                    {badge.icon && (
+                        <div className="size-5">
+                            <img src={badge.icon} />
+                        </div>
+                    )}
+                    <span className={`text-[${badge.color}]`}>
+                        {badge.label}
+                    </span>
                 </li>
             ))}
         </ul>
