@@ -17,7 +17,6 @@ export const TableBook = () => {
             time: "",
             date: "",
             promoCode: "",
-            details: "",
         },
     });
 
@@ -27,7 +26,7 @@ export const TableBook = () => {
     });
 
     const isDisabledPromo = !promoValue;
-    console.log(form.formState.errors)
+    console.log(form.formState.errors);
     const onSubmit = (data: BookTableSchemaPickType) => {
         setData(data);
         setStep(1);
@@ -56,7 +55,6 @@ export const TableBook = () => {
             />
             <div className="flex flex-col gap-5 md:flex-row">
                 <Input
-                    className="w-full"
                     type="time"
                     placeholder="Time"
                     required
@@ -65,7 +63,6 @@ export const TableBook = () => {
                 />
 
                 <Input
-                    className="w-full"
                     type="date"
                     placeholder="Date"
                     required
@@ -77,7 +74,7 @@ export const TableBook = () => {
                 <Input
                     type="text"
                     className="w-full"
-                    placeholder="Promo Code"
+                    placeholder="Type Promo Code here"
                     {...form.register("promoCode")}
                 />
                 <Button
@@ -88,12 +85,7 @@ export const TableBook = () => {
                     Apply
                 </Button>
             </div>
-            <Input
-                type="textarea"
-                className="w-full"
-                placeholder="Additional wishes"
-                {...form.register("details")}
-            />
+
             <Button type="submit" className="!w-full" variant={"blue"}>
                 Reserve Now
             </Button>

@@ -5,6 +5,7 @@ import { MenuResolver } from "../../../components/features/menu/menuResolver";
 import type { MenuItemType } from "../../../components/features/menu/types";
 import { Button } from "../../../components/ui/Button";
 import { Paths } from "../../../router";
+import { useLocation } from "react-router-dom";
 
 const rawItems: MenuItemType[] = [
     {
@@ -91,6 +92,7 @@ const rawItems: MenuItemType[] = [
 ];
 
 export const MenuDelicios = () => {
+    const location = useLocation().pathname;
     const { categories } = new MenuResolver(rawItems).resolve();
     const [activeCategory, setActiveCategory] = useState(
         () => categories[3]?.slug ?? ""
@@ -107,18 +109,23 @@ export const MenuDelicios = () => {
             ?.items ?? [];
 
     return (
-        <section className="section">
+        <section className="section bg-white-100">
             <div className="container">
                 <div className="mx-auto mb-10 max-w-[850px] text-center">
-                    <img
-                        src="/icons/star.svg"
-                        alt="star"
-                        className="mx-auto mb-6 size-[22px]"
-                    />
+                    {location !== Paths.seafood ? (
+                        <img
+                            src="/icons/star.svg"
+                            alt="star"
+                            className="mx-auto mb-6 size-[22px]"
+                        />
+                    ) : (
+                        <p className="decorative">Menu</p>
+                    )}
+
                     <p className="title section-title">Our delicious menu</p>
                 </div>
 
-                <div className="mb-11 flex flex-wrap justify-center gap-8">
+                <div className="mb-11 flex flex-wrap justify-center gap-5">
                     {categories.map((category) => {
                         const isActive = category.slug === currentCategory;
                         return (
@@ -126,7 +133,7 @@ export const MenuDelicios = () => {
                                 key={category.slug}
                                 type="button"
                                 onClick={() => setActiveCategory(category.slug)}
-                                className={`text-2xl font-semibold transition-colors hover:opacity-80 ${isActive ? "text-royal-blue underline decoration-2 underline-offset-4" : "text-gray-700"}`}
+                                className={`cursor-pointer text-lg md:text-xl font-medium transition-colors hover:opacity-80 ${isActive ? "text-royal-blue font-semibold underline decoration-2 underline-offset-4" : "text-gray-700"}`}
                                 aria-pressed={isActive}
                             >
                                 {category.title}

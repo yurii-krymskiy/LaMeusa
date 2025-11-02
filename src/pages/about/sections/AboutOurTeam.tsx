@@ -80,9 +80,9 @@ export const AboutOutTeam = () => {
                             {team.map((member, index) => (
                                 <SwiperSlide key={index}>
                                     <img src={member.src} alt={member.name} />
-                                    <div>
-                                        <span>{member.name}</span>
-                                        <p>{member.role}</p>
+                                    <div className="text-center m-2.5" >
+                                        <span className="title text-xl normal-case">{member.name}</span>
+                                        <p className="description">{member.role}</p>
                                     </div>
                                 </SwiperSlide>
                             ))}
@@ -95,7 +95,7 @@ export const AboutOutTeam = () => {
                         >
                             <img
                                 src="/icons/arrow-active-slider.svg"
-                                className="size-8 rotate-180 md:size-14"
+                                className="size-8 rotate-180 md:size-10"
                             />
                         </button>
                         <button
@@ -104,7 +104,7 @@ export const AboutOutTeam = () => {
                         >
                             <img
                                 src="/icons/arrow-active-slider.svg"
-                                className="size-8 md:size-14"
+                                className="size-8 md:size-10"
                             />
                         </button>
                     </div>

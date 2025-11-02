@@ -8,8 +8,8 @@ export const BirthdayGallery = () => {
     ];
 
     return (
-        <section className="flex flex-col items-center py-15">
-            <div className="max-w-[730px]">
+        <section className="flex section flex-col items-center py-15">
+            <div className="container !max-w-[730px]">
                 <p className="title section-title my-6 text-center text-[48px]">
                     A Place to Remember
                 </p>

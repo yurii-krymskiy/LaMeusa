@@ -13,7 +13,7 @@ export const HomeMeets = () => {
                             Where the sea meets taste
                         </p>
                     </div>
-                    <div className="flex flex-col gap-16 lg:flex-row">
+                    <div className="flex flex-col gap-5 md:gap-16 lg:flex-row">
                         <div className="max-w-[730px]">
                             <img
                                 src="/images/home/image-14.jpg"

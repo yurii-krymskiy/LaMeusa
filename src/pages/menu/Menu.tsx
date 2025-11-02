@@ -97,7 +97,7 @@ export const Menu = () => {
                 </div>
             </section>
 
-            <section className="section bg-white-100">
+            <section className="bg-white-100 relative py-9 md:py-16">
                 <div className="container flex flex-col gap-10 lg:flex-row">
                     <MenuSidebar
                         items={resolved.sidebar}

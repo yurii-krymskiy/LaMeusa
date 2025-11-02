@@ -1,7 +1,7 @@
 import { SwiperSlide } from "swiper/react";
 import { BasicSwiper } from "../../../components/features/BasicSwiper";
-import { ButtonArrow } from "../../../components/ui/ButtonArrow";
 import { Button } from "../../../components/ui/Button";
+import { Paths } from "../../../router";
 
 export const HappyHoursSpecial = () => {
     const specials = [
@@ -40,7 +40,7 @@ export const HappyHoursSpecial = () => {
 
     return (
         <section className="section">
-            <div className="container !px-0 md:!px-5">
+            <div className="">
                 <div className="mb-9">
                     <img
                         src="/icons/star.svg"
@@ -61,7 +61,7 @@ export const HappyHoursSpecial = () => {
                                     className="mb-3.5 object-cover"
                                     loading="lazy"
                                 />
-                                <div className="">
+                                <div className="text-center">
                                     <span className="title mb-2 inline-block text-2xl font-bold capitalize">
                                         {item.title}
                                     </span>
@@ -72,9 +72,13 @@ export const HappyHoursSpecial = () => {
                             </SwiperSlide>
                         ))}
                     </BasicSwiper>
-                    <Button variant="blue" className="mt-5">Discover Full Menu</Button>
+                    <div className="container">
+                        <Button variant="blue" to={Paths.menu} className="mt-5">
+                            Discover Full Menu
+                        </Button>
+                    </div>
                 </div>
-                <div className="hidden grid-cols-3 gap-14 md:grid">
+                <div className="container hidden grid-cols-3 gap-14 md:grid">
                     {specials.map((item, i) => (
                         <div key={i}>
                             <img
@@ -83,7 +87,7 @@ export const HappyHoursSpecial = () => {
                                 className="mb-3.5 object-cover"
                                 loading="lazy"
                             />
-                            <div className="mb-7">
+                            <div className="mb-7 text-center">
                                 <span className="title mb-2 inline-block text-2xl font-bold capitalize">
                                     {item.title}
                                 </span>
@@ -91,7 +95,6 @@ export const HappyHoursSpecial = () => {
                                     {item.description}
                                 </p>
                             </div>
-                            <ButtonArrow>Reserve a Table</ButtonArrow>
                         </div>
                     ))}
                 </div>

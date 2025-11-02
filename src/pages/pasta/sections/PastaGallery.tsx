@@ -9,7 +9,7 @@ export const PastaGallery = () => {
 
     return (
         <section className="flex flex-col items-center py-15">
-            <div className="max-w-[765px]">
+            <div className="container !max-w-[765px]">
                 <span className="decorative mx-auto block text-center text-[34px]">
                     Gallery
                 </span>

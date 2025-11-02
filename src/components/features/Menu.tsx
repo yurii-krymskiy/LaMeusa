@@ -61,12 +61,13 @@ export const Menu = () => {
                     id="site-menu"
                     role="dialog"
                     aria-modal="true"
-                    className="fixed inset-0 z-50 overflow-y-scroll  h-full"
+                    className="fixed inset-0 z-50"
                     onTransitionEnd={onTransitionEnd}
                 >
                     <div
                         className={[
-                            "bg-royal-blue absolute h-auto flex py-20 w-full flex-col justify-center overflow-x-hidden  md:items-center",
+                            "bg-royal-blue overflow-x-hidden fixed inset-0 md:h-auto h-dvh w-full",
+                            "flex flex-col md:justify-center overflow-y-auto overscroll-contain py-20 [-webkit-overflow-scrolling:touch] md:items-center",
                             "transition-transform duration-300 ease-out will-change-transform",
                             open ? "translate-y-0" : "-translate-y-full",
                         ].join(" ")}
@@ -93,7 +94,7 @@ export const Menu = () => {
                             className="absolute bottom-0 left-0 hidden cursor-pointer md:block md:w-[180px]"
                         />
 
-                        <div className="mx-auto  flex w-full max-w-5xl items-center justify-between px-4 pt-20 md:pt-0">
+                        <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 pt-20 md:pt-0">
                             <ul className="flex flex-col gap-9 text-2xl font-semibold text-white uppercase md:text-3xl">
                                 {pagesLabels.map((item) => (
                                     <li key={item.path}>

@@ -2,7 +2,7 @@ export const HomeFoodStory = () => {
     return (
         <>
             <section className="section bg-white-100">
-                <div className="decorative-line container flex flex-col-reverse gap-16 lg:flex-row">
+                <div className="decorative-line container flex flex-col-reverse gap-5 md:gap-16 lg:flex-row">
                     <div className="grid grid-cols-2 gap-6 lg:grid-cols-[336px_309px]">
                         <img
                             src="/images/home/image-11.jpg"

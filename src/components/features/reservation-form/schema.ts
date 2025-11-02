@@ -32,9 +32,18 @@ export const BookTableSchemaPick = BookTableSchema.pick({
     time: true,
     date: true,
     promoCode: true,
+});
+
+export const LiteBookTableSchemaPick = BookTableSchema.pick({
+    name: true,
+    phone: true,
+    time: true,
+    date: true,
     details: true,
 });
+
 export type BookTableSchemaPickType = z.infer<typeof BookTableSchemaPick>;
+export type LiteBookTableSchemaPickType = z.infer<typeof LiteBookTableSchemaPick>;
 
 export const BookConfirmSchemaPick = BookTableSchema.pick({
     name: true,

@@ -7,10 +7,10 @@ export const PastaHero = () => {
         <main className="hero happy-hours-hero">
             <div className="container">
                 <div className="mb-10 max-w-[800px]">
-                    <h2 className="title hero-title !text-left">
+                    <h2 className="title hero-title md:!text-left">
                         A Symphony of Pasta
                     </h2>
-                    <p className="description hero-description !ml-0 !text-left">
+                    <p className="description hero-description !ml-0 md:!text-left">
                         Homemade pasta made with the finest ingredients is the
                         heart of Italian cuisine. At <b>La Medusa</b>, we create dishes
                         that combine tradition and originality. From classic
@@ -18,7 +18,7 @@ export const PastaHero = () => {
                         always special.
                     </p>
                 </div>
-                <div className="mb-20 flex flex-wrap">
+                <div className="mb-20 flex gap-3 flex-wrap">
                     <Button variant="white-outline" to={Paths.menu}>
                         Explore Pasta Menu
                     </Button>

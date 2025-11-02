@@ -22,7 +22,7 @@ export function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
     ];
 
     return (
-        <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props}>
+        <nav aria-label="breadcrumb" className="mb-5" data-slot="breadcrumb" {...props}>
             <BreadcrumbList>
                 {breadcrumbItems.map((crumb, index) => (
                     <BreadcrumbItem key={crumb.path}>

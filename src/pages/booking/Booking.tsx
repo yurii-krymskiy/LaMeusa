@@ -40,14 +40,24 @@ export const Booking = () => {
             onRequestClose={closeModal}
             shouldCloseOnOverlayClick
             closeTimeoutMS={200}
-            className={`absolute z-50 w-full max-w-[1440px] overflow-x-hidden overflow-y-scroll bg-white transition-all duration-200 ease-out md:inset-16 md:left-1/2 md:-translate-x-1/2 md:overflow-auto ${
-                animate ? "scale-100 opacity-100" : "scale-95 opacity-0"
-            }`}
-            overlayClassName={`fixed inset-0 z-50 bg-black/50 transition-opacity duration-200 ${
-                animate ? "opacity-100" : "opacity-0"
-            }`}
+            // 1) Прибираємо дефолтні inline-стилі content
+            style={{
+                content: {
+                    inset: "unset",
+                    position: "static",
+                    padding: 0,
+                    border: "none",
+                    background: "transparent",
+                    overflow: "visible",
+                },
+            }}
+            bodyOpenClassName="overflow-hidden touch-none"
+            overlayClassName={`fixed inset-0 z-50 transition-opacity duration-200
+        ${animate ? "opacity-100" : "opacity-0"}
+        bg-black/50 overflow-y-auto overscroll-contain`}
+            className={`mx-auto my-0 w-full max-w-[1440px] transition-all duration-200 ease-out ${animate ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}
         >
-            <div className="h-full w-full">
+            <div className="m-0 bg-white md:my-16 md:px-4">
                 <div className="flex h-full flex-col md:flex-row">
                     <div className="relative grid h-[300px] place-content-center bg-[url('/images/restoran.jpg')] bg-cover bg-top px-24 py-14 md:h-auto">
                         <img

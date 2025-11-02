@@ -16,7 +16,7 @@ export const BookingTable = () => {
             <div>
                 <TableBook />
                 <span className="mt-5 block text-sm">
-                    *More than 8 pers. please contact
+                    *More than 8 pers. please contact{" "}
                     <a
                         href="mailto:lamedusarestaurants@gmail.com"
                         className="font-bold"
