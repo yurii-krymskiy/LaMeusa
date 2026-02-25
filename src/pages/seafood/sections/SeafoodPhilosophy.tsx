@@ -5,11 +5,11 @@ export const SeafoodPhilosophy = () => {
         <section className="section-breadcrumb">
             <div className="container">
                 <Breadcrumb />
-                <div className="mx-auto mb-10 max-w-[850px] text-center">
+                <div className="mx-auto mb-5 lg:mb-10 max-w-[850px] text-center">
                     <img
                         src="/icons/star.svg"
                         alt="star"
-                        className="mx-auto mb-6 size-[22px]"
+                        className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
                     <p className="title section-title">
                         Our Philosophy of Seafood
@@ -23,7 +23,7 @@ export const SeafoodPhilosophy = () => {
                     </p>
                 </div>
 
-                <div className="mb-10 flex flex-col justify-between gap-14 md:flex-row">
+                <div className="mb-5 lg:mb-10 flex flex-col justify-between gap-5 lg:gap-14 md:flex-row">
                     <div className="">
                         <img src="/images/seafood/image-2.webp" />
                     </div>
@@ -32,13 +32,13 @@ export const SeafoodPhilosophy = () => {
                     </div>
                 </div>
 
-                <p className="description section-description mx-auto max-w-3xl mb-10 text-center">
+                <p className="description section-description mx-auto max-w-3xl mb-5 lg:mb-10 text-center">
                     Seafood at <b>La Medusa</b> is part of history and culture.
                     We want every meal to be more than just lunch or dinner, but
                     a moment to remember.
                 </p>
                 <div>
-                    <img src="/images/seafood/image-3.webp" loading="lazy" />
+                    <img src="/images/seafood/image-3.webp" loading="lazy" className="min-h-[250px] object-cover" />
                 </div>
             </div>
         </section>

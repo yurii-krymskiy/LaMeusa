@@ -6,11 +6,11 @@ export const ContactIG = () => {
     return (
         <section className="section">
             <div className="container">
-                <div className="mx-auto mb-10 max-w-[850px] text-center">
+                <div className="mx-auto mb-5 lg:mb-10 max-w-[850px] text-center">
                     <img
                         src="/icons/star.svg"
                         alt="star"
-                        className="mx-auto mb-6 size-[22px]"
+                        className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
                     <p className="title section-title">Our instagram</p>
                 </div>

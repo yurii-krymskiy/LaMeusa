@@ -12,20 +12,20 @@ export const ContactHero = () => {
                 </div>
 
                 <div className="flex justify-end">
-                    <div className="mt-[100px] flex w-full max-w-[540px] flex-col gap-10 text-white">
+                    <div className="mt-[100px] flex w-full max-w-[540px] flex-col gap-5 lg:gap-10 text-white">
                         <div className="flex justify-between">
-                            <span className="title text-lg md:text-[28px] font-semibold text-white">
+                            <span className="title text-[24px] md:text-[28px] font-semibold text-white">
                                 Open Time
                             </span>
-                            <span className="text-base md:text-2xl">Monday - Saturday</span>
+                            <span className="text-[18px] font-[300] md:text-2xl">Monday - Saturday</span>
                         </div>
 
                         <div className="w-full h-[2px] bg-[repeating-linear-gradient(to_right,white_0_8px,transparent_8px_20px)]" />
                         <div className="flex justify-between gap-3">
-                            <span className="inline-block max-w-[245px] text-base md:text-2xl">
-                                Monday - Saturday , 12.00 - 23.00
+                            <span className="inline-block max-w-[245px] text-[18px] font-[300] md:text-2xl">
+                                Monday - Saturday, 12.00 - 23.00
                             </span>
-                            <span className="inline-block max-w-[200px] text-base md:text-2xl">
+                            <span className="inline-block max-w-[200px] text-[18px] font-[300] md:text-2xl">
                                 Music 18.30 - 20.30
                             </span>
                         </div>

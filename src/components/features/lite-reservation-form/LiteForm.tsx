@@ -78,18 +78,21 @@ export const LiteForm = () => {
                 />
             </div>
 
-            <Textarea
-                type="text"
-                placeholder="Additional wishes"
-                {...form.register("details")}
-                error={form.formState.errors.details?.message}
-            />
-
-            <div className="flex flex-col justify-between gap-3 md:flex-row">
-                <p className="description max-w-[340px] text-sm">
+            <div>
+                <Textarea
+                    type="text"
+                    placeholder="Additional wishes"
+                    {...form.register("details")}
+                    error={form.formState.errors.details?.message}
+                />
+                <p className="description max-w-[340px] text-[12px]">
                     By clicking the reservation button, you agree to the
                     processing of personal data
                 </p>
+            </div>
+
+            <div className="flex flex-col justify-between gap-3 md:flex-row">
+
                 <Button type="submit" className="" variant={"blue"}>
                     Book Now
                 </Button>

@@ -13,7 +13,7 @@ export const SeafoodHappyHours = () => {
                     />
 
                     <div>
-                        <div className="mb-10">
+                        <div className="mb-5 lg:mb-10">
                             <span className="decorative mb-2.5 block">
                                 Happy Hours
                             </span>
