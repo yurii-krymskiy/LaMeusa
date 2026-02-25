@@ -27,14 +27,14 @@ export const ContactUs = () => {
 
                             <div className="grid grid-cols-1 items-start gap-y-2 md:grid-cols-[210px_1fr]">
                                 <span className="title font-bold">Address</span>
-                                <div className="text-royal-blue font-semibold">
+                                <div className="text-royal-blue hover:text-[#3650b9] transition-colors duration-200 font-semibold">
                                     Avenida La Habana 9
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-1 items-start gap-y-2 md:grid-cols-[210px_1fr]">
                                 <span className="title font-bold">Phone</span>
-                                <div className="text-royal-blue font-semibold">
+                                <div className="text-royal-blue hover:text-[#3650b9] transition-colors duration-200 font-semibold">
                                     <a href="tel:+34603839509">
                                         +34 603 83 95 09
                                     </a>
@@ -43,7 +43,7 @@ export const ContactUs = () => {
 
                             <div className="grid grid-cols-1 items-start gap-y-2 md:grid-cols-[210px_1fr]">
                                 <span className="title font-bold">Email</span>
-                                <div className="text-royal-blue font-semibold">
+                                <div className="text-royal-blue hover:text-[#3650b9] transition-colors duration-200 font-semibold">
                                     <a href="mailto:lamedusarestaurants@gmail.com">
                                         lamedusarestaurants@gmail.com
                                     </a>

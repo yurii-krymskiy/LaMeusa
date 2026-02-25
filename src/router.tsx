@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { BaseLayout } from "./components/layout/BaseLayout";
 import About from "./pages/about/About";
 import { Birthday } from "./pages/birthday/Birthday";
@@ -51,19 +52,3 @@ export const pagesLabels = [
     { path: Paths.happyHours, label: "Happy Hours" },
     { path: Paths.birthdays, label: "Birthday Celebrations" },
 ];
-
-//     { to: "/", label: "Home" },
-//     { to: "/menu", label: "Menu" },
-//     { to: "/about", label: "About" },
-//     { to: "/seafood", label: "Seafood" },
-//     { to: "/paella", label: "Paella" },
-//     { to: "/burgers", label: "Burgers" },
-//     { to: "/pizza", label: "Pizza" },
-//     {
-//         to: "/birthdays",
-//         label: "Birthday celebrations",
-//     },
-//     {
-//         to: "/happy-hours",
-//         label: "Happy hours",
-//     },

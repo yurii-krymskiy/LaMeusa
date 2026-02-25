@@ -59,17 +59,17 @@ export const Footer = () => {
                         </div>
                         <div className="flex justify-between">
                             <ul className="text-royal-blue flex flex-col gap-2.5 font-semibold md:text-lg">
-                                <li>Home</li>
-                                <li>Menu</li>
-                                <li>About</li>
-                                <li>Seafood</li>
-                                <li>Paella</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Home</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Menu</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">About</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Seafood</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Paella</li>
                             </ul>
                             <ul className="text-royal-blue flex flex-col gap-2.5 font-semibold md:text-lg">
-                                <li>Burger</li>
-                                <li>Birthday Celebrations</li>
-                                <li>Happy hours</li>
-                                <li>Pizza</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Burger</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Birthday Celebrations</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Happy hours</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Pizza</li>
                             </ul>
                         </div>
                     </div>
@@ -82,7 +82,7 @@ export const Footer = () => {
                             <li className="mb-5 last:mb-0">
                                 <a
                                     href="tel:+34603839509"
-                                    className="inline-flex items-center gap-3.5"
+                                    className="inline-flex items-center gap-3.5 hover:text-[#3650b9] transition-colors duration-200"
                                 >
                                     <img
                                         src="/icons/phone-blue.svg"
@@ -94,7 +94,7 @@ export const Footer = () => {
                             <li className="mb-5 last:mb-0">
                                 <a
                                     href="mail:email.example@gmail.com"
-                                    className="inline-flex items-center gap-3.5"
+                                    className="inline-flex items-center gap-3.5 hover:text-[#3650b9] transition-colors duration-200"
                                 >
                                     <img
                                         src="/icons/email-blue.svg"
@@ -106,7 +106,7 @@ export const Footer = () => {
                             <li className="mb-5 last:mb-0">
                                 <a
                                     href="mail:email.example@gmail.com"
-                                    className="inline-flex items-center gap-3.5"
+                                    className="inline-flex items-center gap-3.5 hover:text-[#3650b9] transition-colors duration-200"
                                 >
                                     <img
                                         src="/icons/location-pin 1.svg"
@@ -118,7 +118,7 @@ export const Footer = () => {
                         </ul>
                         <ul className="flex flex-wrap gap-6">
                             <li>
-                                <a href="">
+                                <a href="" className="hover:opacity-70 transition-opacity duration-200">
                                     <img
                                         src="/icons/facebook-blue.svg"
                                         alt="Facebok"
@@ -127,7 +127,7 @@ export const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="" className="hover:opacity-70 transition-opacity duration-200">
                                     <img
                                         src="/icons/instagram-blue.svg"
                                         alt="Instagram"
@@ -136,7 +136,7 @@ export const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="" className="hover:opacity-70 transition-opacity duration-200">
                                     <img
                                         src="/icons/whatsapp-blue.svg"
                                         alt="Whatsapp"
@@ -145,7 +145,7 @@ export const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="" className="hover:opacity-70 transition-opacity duration-200">
                                     <img
                                         src="/icons/tik-tok-blue.svg"
                                         alt="Tik Tok"
@@ -154,7 +154,7 @@ export const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="" className="hover:opacity-70 transition-opacity duration-200">
                                     <img
                                         src="/icons/youtube-blue.svg"
                                         alt="Youtube"

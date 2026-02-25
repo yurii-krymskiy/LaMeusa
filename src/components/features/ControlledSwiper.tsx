@@ -3,7 +3,7 @@ import { Swiper } from "swiper/react";
 
 type Props = {
     children: React.ReactNode;
-    ref?: React.RefObject<SwiperType>;
+    ref?: React.RefObject<SwiperType | null>;
 };
 
 export const ControlledSwiper = ({ children, ref }: Props) => {

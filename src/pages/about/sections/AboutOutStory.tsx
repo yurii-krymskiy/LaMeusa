@@ -1,10 +1,10 @@
 export const AboutOutStory = () => {
     return (
         <section className="section">
-            <div className="container flex flex-col items-center gap-14 md:flex-row">
+            <div className="container flex flex-col items-end gap-10 md:flex-row">
                 <img
                     src="/images/about/image-3.webp"
-                    className="max-w-[610px]"
+                    className="max-w-[610px] self-stretch object-cover"
                 />
 
                 <div>

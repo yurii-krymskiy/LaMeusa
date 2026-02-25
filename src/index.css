@@ -102,7 +102,12 @@
 }
 
 .button-white-outline {
-    @apply border-2 border-white bg-transparent text-white;
+    @apply border-2 border-white bg-transparent text-white 
+           transition-all duration-300 ease-in-out;
+}
+
+.button-white-outline:hover {
+    @apply bg-white text-black shadow-lg;
 }
 
 .button-arrow {

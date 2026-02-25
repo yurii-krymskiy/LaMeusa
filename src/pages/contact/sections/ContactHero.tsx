@@ -20,8 +20,7 @@ export const ContactHero = () => {
                             <span className="text-base md:text-2xl">Monday - Saturday</span>
                         </div>
 
-                        <div className="w-full border-b border-dotted border-white"></div>
-
+                        <div className="w-full h-[2px] bg-[repeating-linear-gradient(to_right,white_0_8px,transparent_8px_20px)]" />
                         <div className="flex justify-between gap-3">
                             <span className="inline-block max-w-[245px] text-base md:text-2xl">
                                 Monday - Saturday , 12.00 - 23.00

@@ -5,15 +5,14 @@ type Props = {
     error?: string;
     required?: boolean;
     className?: string;
-    placeholder?: React.ComponentProps<"input">["placeholder"];
-    ref?: Ref<HTMLInputElement>;
+    placeholder?: React.ComponentProps<"textarea">["placeholder"];
+    ref?: Ref<HTMLTextAreaElement>;
 };
 
-export const Textarea = ({ type, ref, className, required, error, ...props }: Props) => {
+export const Textarea = ({ ref, className, required, error, ...props }: Props) => {
     return (
         <label className="relative block w-full">
             <textarea
-                type={type}
                 required={required}
                 placeholder={props.placeholder}
                 ref={ref}

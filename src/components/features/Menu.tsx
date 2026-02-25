@@ -101,6 +101,7 @@ export const Menu = () => {
                                         <Link
                                             to={item.path}
                                             onClick={closeThen()}
+                                            className="hover:text-[#C0C5D7] transition-colors duration-200"
                                         >
                                             {item.label}
                                         </Link>
@@ -116,7 +117,7 @@ export const Menu = () => {
                                     <li className="mb-5 last:mb-0">
                                         <a
                                             href="tel:+34603839509"
-                                            className="inline-flex items-center gap-3.5"
+                                            className="inline-flex items-center gap-3.5 hover:text-[#C0C5D7] transition-colors duration-200"
                                         >
                                             <img
                                                 src="/icons/phone 1.svg"
@@ -129,7 +130,7 @@ export const Menu = () => {
                                     <li className="mb-5 last:mb-0">
                                         <a
                                             href="mailto:email.example@gmail.com"
-                                            className="inline-flex items-center gap-3.5"
+                                            className="inline-flex items-center gap-3.5 hover:text-[#C0C5D7] transition-colors duration-200"
                                         >
                                             <img
                                                 src="/icons/email-white.svg"
@@ -144,7 +145,7 @@ export const Menu = () => {
                                             href="https://maps.google.com?q=Avenida%20La%20Habana%209"
                                             target="_blank"
                                             rel="noreferrer"
-                                            className="inline-flex items-center gap-3.5"
+                                            className="inline-flex items-center gap-3.5 hover:text-[#C0C5D7] transition-colors duration-200"
                                         >
                                             <img
                                                 src="/icons/location-white.svg"
@@ -187,6 +188,7 @@ export const Menu = () => {
                                             <a
                                                 href={it.href}
                                                 aria-label={it.alt}
+                                                className="hover:opacity-70 transition-opacity duration-200"
                                             >
                                                 <img
                                                     src={it.src}
