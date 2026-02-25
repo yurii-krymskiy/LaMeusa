@@ -5,7 +5,7 @@ import { Paths } from "../../../router";
 export const HappyHoursReserve = () => {
     return (
         <section className="section">
-            <div className="container flex flex-col gap-20 items-center md:flex-row">
+            <div className="container flex flex-col gap-10 lg:gap-20 items-center lg:flex-row">
                 <img
                     src="/images/happy-hours/image-5.webp"
                     alt="image"

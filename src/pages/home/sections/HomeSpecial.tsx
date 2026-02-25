@@ -88,7 +88,7 @@ export const HomeSpecial = () => {
                                 className="mb-3.5 object-cover"
                                 loading="lazy"
                             />
-                            <div className="mb-7 text-center">
+                            <div className="mb-7 text-left">
                                 <span className="title mb-2 inline-block text-2xl font-bold capitalize">
                                     {item.title}
                                 </span>

@@ -18,7 +18,7 @@ export const ControlledSwiper = ({ children, ref }: Props) => {
                 },
             }}
             loop={true}
-            spaceBetween={40}
+            spaceBetween={20}
             onSwiper={(swiper) => {
                 if (!ref) return;
                 ref.current = swiper;

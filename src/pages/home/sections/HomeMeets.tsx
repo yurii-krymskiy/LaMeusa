@@ -14,7 +14,7 @@ export const HomeMeets = () => {
                         </p>
                     </div>
                     <div className="flex flex-col gap-5 md:gap-16 lg:flex-row">
-                        <div className="max-w-[730px]">
+                        <div className="w-full lg:max-w-[730px]">
                             <img
                                 src="/images/home/image-14.jpg"
                                 alt=""
@@ -44,7 +44,7 @@ export const HomeMeets = () => {
                         <img
                             src="/images/home/image-15.jpg"
                             alt=""
-                            className="max-w-[530px]"
+                            className="w-full h-[400px] lg:h-auto object-cover lg:max-w-[530px]"
                         />
                     </div>
                 </div>

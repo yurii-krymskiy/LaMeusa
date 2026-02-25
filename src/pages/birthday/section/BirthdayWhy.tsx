@@ -5,7 +5,7 @@ import { Paths } from "../../../router";
 
 export const BirthdayWhy = () => {
     return (
-        <section className="section">
+        <section className="section-breadcrumb">
             <div className="container">
                 <Breadcrumb />
                 <div className="mx-auto mb-10 max-w-[850px] text-center">

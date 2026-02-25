@@ -5,10 +5,10 @@ export const AboutGrid = () => {
     return (
         <section className="section">
             <div className="container">
-                <div className="mb-10 flex flex-col items-center gap-14 md:mb-24 md:flex-row">
+                <div className="mb-10 flex flex-col items-center gap-14 lg:mb-24 lg:flex-row">
                     <img
                         src="/images/about/image-10.jpg"
-                        className="max-w-[620px]"
+                        className="max-w-full h-[400px] lg:h-auto lg:max-w-[550px] xl:max-w-[620px] object-cover"
                     />
                     <div>
                         <div className="mb-10">
@@ -39,12 +39,12 @@ export const AboutGrid = () => {
                     </div>
                 </div>
 
-                <div className="mb-10 flex flex-col items-center gap-14 md:mb-24 md:flex-row md:gap-32">
-                    <div className="max-w-[590px]">
+                <div className="mb-10 flex flex-col items-center gap-14 lg:mb-24 lg:flex-row lg:gap-26">
+                    <div className="max-w-full lg:max-w-[590px]">
                         <div className="mb-10">
                             <img
                                 src="/images/about/image-7.jpg"
-                                className="mb-5 max-w-[515px]"
+                                className="mb-5 max-w-full h-[400px] lg:h-auto lg:max-w-[515px] object-cover"
                             />
                             <span className="section-title title mb-7 inline-block">
                                 Live Vocal Hits & Cocktails
@@ -69,15 +69,16 @@ export const AboutGrid = () => {
                         </div>
                     </div>
 
-                    <div className="max-w-[690px]">
-                        <img src="/images/about/image-9.jpg" />
-                    </div>
+                    <img
+                        src="/images/about/image-9.jpg"
+                        className="max-w-full h-[400px] lg:h-[600px] lg:max-w-[690px] object-cover"
+                    />
                 </div>
 
-                <div className="mb-10 flex flex-col items-center gap-14 md:mb-24 md:flex-row">
+                <div className="mb-10 flex flex-col-reverse items-center gap-14 lg:mb-24 lg:flex-row">
                     <img
                         src="/images/about/image-8.jpg"
-                        className="max-w-[620px]"
+                        className="max-w-full h-[400px] lg:h-auto lg:max-w-[620px] object-cover"
                     />
                     <div>
                         <div className="mb-10">

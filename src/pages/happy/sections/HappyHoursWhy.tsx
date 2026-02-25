@@ -2,12 +2,12 @@ import { Breadcrumb } from "../../../components/ui/Breadcrumb";
 
 export const HappyHoursWhy = () => {
     return (
-        <section className="section">
+        <section className="section-breadcrumb">
             <div className="container">
                 <Breadcrumb />
-                <div className="flex flex-col items-center gap-10 md:flex-row md:gap-24">
+                <div className="flex flex-col items-center gap-5 lg:flex-row lg:gap-24">
                     <div>
-                        <div className="mb-10">
+                        <div className="lg:mb-10">
                             <span className="decorative mb-2.5 block">
                                 Happy Hours
                             </span>
@@ -30,7 +30,7 @@ export const HappyHoursWhy = () => {
 
                     <img
                         src="/images/happy-hours/image-1.webp"
-                        className="max-w-[620px]"
+                        className="max-w-full h-[400px] lg:h-auto object-cover lg:max-w-[620px]"
                     />
                 </div>
             </div>

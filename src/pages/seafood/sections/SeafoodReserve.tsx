@@ -3,14 +3,14 @@ import { ButtonOpenReservation } from "../../../components/features/reservation-
 export const SeafoodReserve = () => {
     return (
         <section className="section">
-            <div className="container flex flex-col items-center md:flex-row">
+            <div className="container flex flex-col items-center lg:flex-row">
                 <img
                     src="/images/seafood/image-6.webp"
                     alt="image"
                     className="max-w-[610px]"
                 />
 
-                <div className="md:-ml-10">
+                <div className="lg:-ml-10">
                     <div className="mb-10">
                         <span className="decorative mb-2.5">
                             Reserve a Table

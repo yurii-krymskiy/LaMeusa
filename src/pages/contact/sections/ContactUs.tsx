@@ -2,10 +2,10 @@ import { Breadcrumb } from "../../../components/ui/Breadcrumb";
 
 export const ContactUs = () => {
     return (
-        <section className="section">
+        <section className="section-breadcrumb">
             <div className="container">
                 <Breadcrumb />
-                <div className="flex flex-col items-center gap-14 md:flex-row">
+                <div className="flex flex-col items-center gap-14 lg:flex-row">
                     <div className="">
                         <div className="mb-7">
                             <span className="decorative">Contact Us</span>
@@ -15,7 +15,7 @@ export const ContactUs = () => {
                         </div>
 
                         <div className="mb-4 w-full space-y-6">
-                            <div className="grid grid-cols-1 items-start gap-y-2 md:grid-cols-[210px_1fr]">
+                            <div className="grid grid-cols-1 items-start gap-y-2 lg:grid-cols-[210px_1fr]">
                                 <span className="title font-bold">
                                     Restaurant HOURS
                                 </span>
@@ -25,14 +25,14 @@ export const ContactUs = () => {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-1 items-start gap-y-2 md:grid-cols-[210px_1fr]">
+                            <div className="grid grid-cols-1 items-start gap-y-2 lg:grid-cols-[210px_1fr]">
                                 <span className="title font-bold">Address</span>
                                 <div className="text-royal-blue hover:text-[#3650b9] transition-colors duration-200 font-semibold">
                                     Avenida La Habana 9
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-1 items-start gap-y-2 md:grid-cols-[210px_1fr]">
+                            <div className="grid grid-cols-1 items-start gap-y-2 lg:grid-cols-[210px_1fr]">
                                 <span className="title font-bold">Phone</span>
                                 <div className="text-royal-blue hover:text-[#3650b9] transition-colors duration-200 font-semibold">
                                     <a href="tel:+34603839509">
@@ -41,7 +41,7 @@ export const ContactUs = () => {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-1 items-start gap-y-2 md:grid-cols-[210px_1fr]">
+                            <div className="grid grid-cols-1 items-start gap-y-2 lg:grid-cols-[210px_1fr]">
                                 <span className="title font-bold">Email</span>
                                 <div className="text-royal-blue hover:text-[#3650b9] transition-colors duration-200 font-semibold">
                                     <a href="mailto:lamedusarestaurants@gmail.com">

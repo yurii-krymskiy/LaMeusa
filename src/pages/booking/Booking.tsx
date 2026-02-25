@@ -57,7 +57,7 @@ export const Booking = () => {
         bg-black/50 overflow-y-auto overscroll-contain`}
             className={`mx-auto my-0 w-full max-w-[1440px] transition-all duration-200 ease-out ${animate ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}
         >
-            <div className="m-0 bg-white md:my-16 md:px-4">
+            <div className="m-0 bg-white md:my-16">
                 <div className="flex h-full flex-col md:flex-row">
                     <div className="relative grid h-[300px] place-content-center bg-[url('/images/restoran.jpg')] bg-cover bg-top px-24 py-14 md:h-auto">
                         <img

@@ -133,7 +133,7 @@ export const MenuDelicios = () => {
                                 key={category.slug}
                                 type="button"
                                 onClick={() => setActiveCategory(category.slug)}
-                                className={`cursor-pointer text-lg md:text-xl font-medium transition-colors hover:opacity-80 ${isActive ? "text-royal-blue font-semibold underline decoration-2 underline-offset-4" : "text-gray-700"}`}
+                                className={`cursor-pointer text-lg lg:text-xl font-medium transition-colors hover:opacity-80 ${isActive ? "text-royal-blue font-semibold underline decoration-2 underline-offset-4" : "text-gray-700"}`}
                                 aria-pressed={isActive}
                             >
                                 {category.title}
@@ -142,7 +142,7 @@ export const MenuDelicios = () => {
                     })}
                 </div>
 
-                <article className="grid-col-1 mb-10 grid gap-x-16 gap-y-10 md:grid-cols-2">
+                <article className="grid-col-1 mb-10 grid gap-x-10 gap-y-10 lg:grid-cols-2">
                     {activeItems.map((item) => (
                         <MenuItem key={item.id} item={item} />
                     ))}

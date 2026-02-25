@@ -6,7 +6,7 @@ export const BirthdayGrid = () => {
     return (
         <section className="section">
             <div className="container">
-                <div className="mb-10 flex flex-col items-center gap-14 md:mb-24 md:flex-row">
+                <div className="mb-10 flex flex-col items-center gap-14 lg:mb-24 lg:flex-row">
                     <div>
                         <div className="mb-10">
                             <span className="section-title title mb-7 inline-block">
@@ -23,14 +23,14 @@ export const BirthdayGrid = () => {
                     <img
                         loading="lazy"
                         src="/images/birthday/image-8.webp"
-                        className="max-w-[620px]"
+                        className="max-w-full h-[400px] lg:h-auto lg:max-w-[620px] object-cover"
                     />
                 </div>
-                <div className="mb-10 flex flex-col items-center gap-14 md:mb-24 md:flex-row">
+                <div className="mb-10 flex flex-col-reverse items-center gap-14 lg:mb-24 lg:flex-row">
                     <img
                         loading="lazy"
                         src="/images/birthday/image-10.webp"
-                        className="max-w-[620px]"
+                        className="max-w-full h-[400px] lg:h-auto lg:max-w-[620px] object-cover"
                     />
                     <div>
                         <div className="mb-10">
@@ -46,7 +46,7 @@ export const BirthdayGrid = () => {
                         </div>
                     </div>
                 </div>
-                <div className="mb-10 flex flex-col items-center gap-14 md:mb-24 md:flex-row">
+                <div className="mb-10 flex flex-col items-center gap-14 lg:mb-24 lg:flex-row">
                     <div>
                         <div className="mb-10">
                             <span className="section-title title mb-7 inline-block">
@@ -63,11 +63,11 @@ export const BirthdayGrid = () => {
                     <img
                         loading="lazy"
                         src="/images/birthday/image-9.webp"
-                        className="max-w-[620px]"
+                        className="max-w-full h-[400px] lg:h-auto lg:max-w-[620px] object-cover"
                     />
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-5 md:gap-10">
+                <div className="flex flex-wrap justify-center gap-5 lg:gap-10">
                     <ButtonOpenReservation variant="blue">
                         Reserve a Table
                     </ButtonOpenReservation>

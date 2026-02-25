@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import {
     LiteBookTableSchemaPick,
     type LiteBookTableSchemaPickType,
@@ -7,6 +7,8 @@ import {
 import { Input } from "../../ui/Input";
 import { Textarea } from "../../ui/Textarea";
 import { Button } from "../../ui/Button";
+import { DatePickerInput } from "../../ui/DatePickerInput";
+import { TimePickerInput } from "../../ui/TimePickerInput";
 
 export const LiteForm = () => {
     const form = useForm<LiteBookTableSchemaPickType>({
@@ -47,20 +49,32 @@ export const LiteForm = () => {
                 />
             </div>
             <div className="flex flex-col gap-5 md:flex-row">
-                <Input
-                    type="time"
-                    placeholder="Time"
-                    required
-                    {...form.register("time")}
-                    error={form.formState.errors.time?.message}
+                <Controller
+                    name="time"
+                    control={form.control}
+                    render={({ field }) => (
+                        <TimePickerInput
+                            placeholder="Time"
+                            required
+                            value={field.value}
+                            onChange={field.onChange}
+                            error={form.formState.errors.time?.message}
+                        />
+                    )}
                 />
 
-                <Input
-                    type="date"
-                    placeholder="Date"
-                    required
-                    {...form.register("date")}
-                    error={form.formState.errors.date?.message}
+                <Controller
+                    name="date"
+                    control={form.control}
+                    render={({ field }) => (
+                        <DatePickerInput
+                            placeholder="Date"
+                            required
+                            value={field.value}
+                            onChange={field.onChange}
+                            error={form.formState.errors.date?.message}
+                        />
+                    )}
                 />
             </div>
 

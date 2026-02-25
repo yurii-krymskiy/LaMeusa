@@ -8,6 +8,7 @@ import { MenuSidebar } from "../../components/features/menu/sidebar/MenuSidebar"
 import { MenuList } from "../../components/features/menu/content/MenuList";
 import { MobileCategoryTabs } from "../../components/features/menu/content/MobileCaregoryTabs";
 import { MenuReserve } from "./sections/MenuReserve";
+import { Breadcrumb } from "../../components/ui/Breadcrumb";
 
 const dictionary = new CategoryDictionary(
     [
@@ -97,14 +98,17 @@ export const Menu = () => {
                 </div>
             </section>
 
-            <section className="bg-white-100 relative py-9 md:py-16">
-                <div className="container flex flex-col gap-10 lg:flex-row">
-                    <MenuSidebar
-                        items={resolved.sidebar}
-                        activeSlug={activeSlug}
-                        onSelect={setActiveSlug}
-                    />
-                    <MenuList categories={resolved.categories} />
+            <section className="bg-white-100 relative pt-2 pb-6 lg:pt-6 lg:pb-16">
+                <div className="container">
+                    <Breadcrumb />
+                    <div className="flex flex-col gap-10 lg:flex-row">
+                        <MenuSidebar
+                            items={resolved.sidebar}
+                            activeSlug={activeSlug}
+                            onSelect={setActiveSlug}
+                        />
+                        <MenuList categories={resolved.categories} />
+                    </div>
                 </div>
                 <MenuReserve />
             </section>

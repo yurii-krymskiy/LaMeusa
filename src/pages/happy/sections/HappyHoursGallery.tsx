@@ -8,7 +8,7 @@ export const HappyHoursGallery = () => {
     ];
 
     return (
-        <section className="flex flex-col items-center py-15">
+        <section className="flex flex-col items-center py-5 lg:py-15">
             <div className="container !max-w-[765px]">
                 <span className="decorative mx-auto block text-center text-[34px]">
                     Gallery

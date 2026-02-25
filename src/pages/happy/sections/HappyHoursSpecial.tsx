@@ -40,12 +40,12 @@ export const HappyHoursSpecial = () => {
 
     return (
         <section className="section">
-            <div className="">
-                <div className="mb-9">
+            <div className="container">
+                <div className="mb-5 lg:mb-9">
                     <img
                         src="/icons/star.svg"
                         alt="star"
-                        className="mx-auto mb-6 h-[22px] w-[22px]"
+                        className="mx-auto lg:mb-6 h-[22px] w-[22px]"
                     />
                     <p className="title section-title mb-6 text-center text-[48px]">
                         Special Deals
@@ -72,13 +72,13 @@ export const HappyHoursSpecial = () => {
                             </SwiperSlide>
                         ))}
                     </BasicSwiper>
-                    <div className="container">
+                    <div>
                         <Button variant="blue" to={Paths.menu} className="mt-5">
                             Discover Full Menu
                         </Button>
                     </div>
                 </div>
-                <div className="container hidden grid-cols-3 gap-14 md:grid">
+                <div className="hidden grid-cols-3 gap-14 md:grid">
                     {specials.map((item, i) => (
                         <div key={i}>
                             <img

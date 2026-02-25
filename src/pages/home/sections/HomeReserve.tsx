@@ -3,7 +3,7 @@ import { ButtonOpenReservation } from "../../../components/features/reservation-
 export const HomeReserve = () => {
     return (
         <section className="section">
-            <div className="container flex flex-col items-center md:flex-row">
+            <div className="container flex flex-col items-center lg:flex-row">
                 <img
                     src="/images/home/image-16.png"
                     alt="image"

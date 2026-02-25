@@ -44,7 +44,7 @@ export const PastaMeets = () => {
                         <div>
                             <img
                                 src="/images/pasta/image-7.webp"
-                                className=""
+                                className="h-full object-cover"
                             />
                         </div>
                     </div>

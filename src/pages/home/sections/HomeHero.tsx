@@ -8,7 +8,7 @@ export const HomeHero = () => {
                 <h2 className="title hero-title">
                     A Morning by the Ocean, A Dinner with Elegance
                 </h2>
-                <p className="description hero-description">
+                <p className="description hero-description !font-normal">
                     Experience the taste of Mediterranean cuisine against the
                     backdrop of the Atlantic Ocean. At La <b>Medusa</b>, we
                     create an atmosphere where every moment is a pleasure and

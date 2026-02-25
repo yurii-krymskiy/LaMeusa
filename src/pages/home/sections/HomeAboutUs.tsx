@@ -3,8 +3,8 @@ import { Button } from "../../../components/ui/Button";
 export const HomeAboutUs = () => {
     return (
         <section className="section">
-            <div className="container flex flex-col items-center gap-4 md:flex-row md:gap-15">
-                <div>
+            <div className="container flex flex-col items-center gap-4 lg:flex-row lg:gap-15">
+                <div className="flex-1">
                     <div className="mb-10">
                         <p className="decorative">About Us</p>
                         <p className="title section-title">
@@ -28,12 +28,14 @@ export const HomeAboutUs = () => {
                     </div>
                     <Button variant="blue-outline">Learn More</Button>
                 </div>
-                <img
-                    src="/images/home/image-10.jpg"
-                    alt="image"
-                    className="max-w-[660px] object-cover"
-                    loading="lazy"
-                />
+                <div className="flex-1">
+                    <img
+                        src="/images/home/image-10.jpg"
+                        alt="image"
+                        className="object-cover"
+                        loading="lazy"
+                    />
+                </div>
             </div>
         </section>
     );

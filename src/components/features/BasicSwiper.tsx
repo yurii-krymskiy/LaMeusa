@@ -6,7 +6,7 @@ type Props = {
 
 export const BasicSwiper = ({ children }: Props) => {
     return (
-        <Swiper slidesPerView={1.2} centeredSlides={true} spaceBetween={20}>
+        <Swiper slidesPerView={1.1} centeredSlides={false} spaceBetween={20}>
             {children}
         </Swiper>
     );

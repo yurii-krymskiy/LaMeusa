@@ -1,9 +1,11 @@
-import { useForm, useWatch } from "react-hook-form";
+import { useForm, useWatch, Controller } from "react-hook-form";
 import { useBookingStore } from "./store";
 import { BookTableSchemaPick, type BookTableSchemaPickType } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../../ui/Input";
 import { Button } from "../../ui/Button";
+import { DatePickerInput } from "../../ui/DatePickerInput";
+import { TimePickerInput } from "../../ui/TimePickerInput";
 
 export const TableBook = () => {
     const setData = useBookingStore((state) => state.setData);
@@ -45,29 +47,52 @@ export const TableBook = () => {
                 error={form.formState.errors.name?.message}
             />
             <Input
-                type="number"
+                type="text"
                 placeholder="Number of guests"
                 required
                 {...form.register("guests", {
                     valueAsNumber: true,
+                    min: {
+                        value: 1,
+                        message: "Minimum 1 guest",
+                    },
+                    max: {
+                        value: 10,
+                        message: "Maximum 10 guests allowed",
+                    },
+                    onChange: (e) => {
+                        e.target.value = e.target.value.replace(/\D/g, "");
+                    },
                 })}
                 error={form.formState.errors.guests?.message}
             />
             <div className="flex flex-col gap-5 md:flex-row">
-                <Input
-                    type="time"
-                    placeholder="Time"
-                    required
-                    {...form.register("time")}
-                    error={form.formState.errors.time?.message}
+                <Controller
+                    name="time"
+                    control={form.control}
+                    render={({ field }) => (
+                        <TimePickerInput
+                            placeholder="Time"
+                            required
+                            value={field.value}
+                            onChange={field.onChange}
+                            error={form.formState.errors.time?.message}
+                        />
+                    )}
                 />
 
-                <Input
-                    type="date"
-                    placeholder="Date"
-                    required
-                    {...form.register("date")}
-                    error={form.formState.errors.date?.message}
+                <Controller
+                    name="date"
+                    control={form.control}
+                    render={({ field }) => (
+                        <DatePickerInput
+                            placeholder="Date"
+                            required
+                            value={field.value}
+                            onChange={field.onChange}
+                            error={form.formState.errors.date?.message}
+                        />
+                    )}
                 />
             </div>
             <div className="flex flex-col gap-5 md:flex-row">

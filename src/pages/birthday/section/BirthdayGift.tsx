@@ -29,7 +29,7 @@ export const BirthdayGift = () => {
                         </div>
                     </div>
 
-                    <div className="max-w-[590px] self-center">
+                    <div className="w-full lg:max-w-[590px] self-center">
                         <p className="decorative mb-2.5 text-[34px]">
                             Suggestions
                         </p>

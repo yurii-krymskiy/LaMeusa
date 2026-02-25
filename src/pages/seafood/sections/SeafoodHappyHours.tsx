@@ -5,7 +5,7 @@ export const SeafoodHappyHours = () => {
     return (
         <section className="section">
             <div className="container">
-                <div className="flex flex-col items-center gap-10 md:flex-row md:gap-24">
+                <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-24">
                     <img
                         src="/images/seafood/image-4.webp"
                         loading="lazy"

@@ -19,29 +19,29 @@ export const HomeStory = () => {
                     </p>
                 </div>
 
-                <div className="flex w-full flex-row items-start justify-center gap-10">
+                <div className="no-scrollbar flex w-full flex-row items-start gap-4 overflow-x-auto scroll-smooth px-4 pb-4 snap-x snap-mandatory md:gap-10 md:justify-center md:overflow-visible md:px-0 md:pb-0">
                     <img
                         src="/images/home/image-1.jpg"
                         alt="image"
-                        className="max-w-[258px] object-cover"
+                        className="min-w-[200px] max-w-[200px] snap-center object-cover transition-transform duration-300 hover:scale-[1.02] md:min-w-0 md:max-w-[258px]"
                         loading="lazy"
                     />
                     <img
                         src="/images/home/image-2.jpg"
                         alt="image"
-                        className="max-w-[320px] object-cover"
+                        className="min-w-[240px] max-w-[240px] snap-center object-cover transition-transform duration-300 hover:scale-[1.02] md:min-w-0 md:max-w-[320px]"
                         loading="lazy"
                     />
                     <img
                         src="/images/home/image-5.jpg"
                         alt="image"
-                        className="max-w-[344px] self-end object-cover"
+                        className="min-w-[260px] max-w-[260px] snap-center self-end object-cover transition-transform duration-300 hover:scale-[1.02] md:min-w-0 md:max-w-[344px]"
                         loading="lazy"
                     />
                     <img
                         src="/images/home/image-4.jpg"
                         alt="image"
-                        className="max-w-[258px] object-cover"
+                        className="min-w-[200px] max-w-[200px] snap-center object-cover transition-transform duration-300 hover:scale-[1.02] md:min-w-0 md:max-w-[258px]"
                         loading="lazy"
                     />
                 </div>

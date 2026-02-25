@@ -15,7 +15,7 @@ export const ContactIG = () => {
                     <p className="title section-title">Our instagram</p>
                 </div>
 
-                <div className="hidden gap-10 md:flex">
+                <div className="hidden gap-10 lg:flex">
                     <div className="max-w-[560px]">
                         <img src="/images/contact/meat-vegetables-stew-black-pan.jpg" />
                     </div>
@@ -34,7 +34,7 @@ export const ContactIG = () => {
                     </div>
                 </div>
 
-                <div className="block md:hidden">
+                <div className="block lg:hidden">
                     <div className="mb-5">
                         <BasicSwiper>
                             <SwiperSlide>

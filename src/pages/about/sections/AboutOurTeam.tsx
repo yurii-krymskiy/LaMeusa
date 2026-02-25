@@ -75,11 +75,11 @@ export const AboutOutTeam = () => {
                 </div>
 
                 <div className="">
-                    <div className="mb-14">
+                    <div className="mb-8 lg:mb-14">
                         <ControlledSwiper ref={swiperRef}>
                             {team.map((member, index) => (
                                 <SwiperSlide key={index}>
-                                    <img src={member.src} alt={member.name} />
+                                    <img src={member.src} alt={member.name} className="h-[370px] object-cover" />
                                     <div className="text-center m-2.5" >
                                         <span className="title text-xl normal-case">{member.name}</span>
                                         <p className="description">{member.role}</p>

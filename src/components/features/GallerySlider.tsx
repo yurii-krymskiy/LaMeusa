@@ -36,13 +36,13 @@ const GallerySlider = memo(({ slides }: Props) => {
                         style={{ width: "min(900px, 70vw)" }}
                     >
                         {({ isActive }) => (
-                            <div className="flex items-center justify-center md:h-[500px]">
+                            <div className="flex items-center justify-center h-[250px] md:h-[500px]">
                                 <img
                                     src={slide.src}
                                     alt={slide.alt}
                                     draggable={false}
                                     className={[
-                                        "w-[900px] object-contain select-none",
+                                        "w-full lg:w-[900px] object-cover h-full select-none",
                                         "transition-all duration-500 ease-in-out",
                                         isActive
                                             ? "scale-y-100 opacity-100"
