@@ -22,43 +22,43 @@ export const AboutOutTeam = () => {
     const team = [
         {
             src: "/images/about/teamate-1.png",
-            name: "Tahmina Rumi",
-            role: "Chef",
+            name: "Ruslan",
+            role: "Teammate 1",
         },
         {
             src: "/images/about/teamate-2.png",
-            name: "Tahmina Rumi",
-            role: "Chef",
+            name: "Teammate 2",
+            role: "Teammate 2",
         },
         {
             src: "/images/about/teamate-3.png",
-            name: "Tahmina Rumi",
-            role: "Chef",
+            name: "Teammate 3",
+            role: "Teammate 3",
         },
         {
             src: "/images/about/teamate-4.png",
-            name: "Tahmina Rumi",
-            role: "Chef",
+            name: "Teammate 4",
+            role: "Teammate 4",
         },
         {
-            src: "/images/about/teamate-1.png",
-            name: "Tahmina Rumi",
-            role: "Chef",
+            src: "/images/about/teamate-5.png",
+            name: "Teammate 5",
+            role: "Teammate 5",
         },
         {
-            src: "/images/about/teamate-2.png",
-            name: "Tahmina Rumi",
-            role: "Chef",
+            src: "/images/about/teamate-6.png",
+            name: "Teammate 6",
+            role: "Teammate 6",
         },
         {
-            src: "/images/about/teamate-3.png",
-            name: "Tahmina Rumi",
-            role: "Chef",
+            src: "/images/about/teamate-7.png",
+            name: "Teammate 7",
+            role: "Teammate 7",
         },
         {
-            src: "/images/about/teamate-4.png",
-            name: "Tahmina Rumi",
-            role: "Chef",
+            src: "/images/about/teamate-8.png",
+            name: "Teammate 8",
+            role: "Teammate 8",
         },
     ];
     return (

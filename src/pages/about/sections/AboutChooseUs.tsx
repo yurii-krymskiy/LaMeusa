@@ -21,7 +21,7 @@ export const AboutChooseUs = () => {
                 </div>
                 <img
                     src="/images/about/image-2.jpg"
-                    className="mb-5 lg:mb-10 min-h-[226px] object-cover"
+                    className="mb-5 lg:mb-10 min-h-[226px] max-h-[600px] object-cover"
                 />
 
                 <div className="mb-10 flex flex-col gap-5 lg:gap-14 md:flex-row">

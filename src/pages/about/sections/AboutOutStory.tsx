@@ -3,8 +3,8 @@ export const AboutOutStory = () => {
         <section className="section">
             <div className="container flex flex-col items-end gap-5 lg:gap-10 lg:flex-row">
                 <img
-                    src="/images/about/image-3.webp"
-                    className="max-w-full h-[400px] lg:h-auto lg:max-w-[610px] self-stretch object-cover"
+                    src="/images/about/teamate-3.png"
+                    className="max-w-full h-[500px] lg:h-[620px] lg:max-w-[610px] self-stretch object-cover"
                 />
 
                 <div>
