@@ -3,7 +3,7 @@ export const PastaMeets = () => {
         <>
             <section className="section">
                 <div className="container">
-                    <div className="mb-10 text-center">
+                    <div className="mb-5 lg:mb-10 text-center">
                         <span className="decorative mb-2.5">
                             Reserve a Table
                         </span>
@@ -12,12 +12,12 @@ export const PastaMeets = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col gap-14 md:flex-row">
+                    <div className="flex flex-col gap-5 lg:gap-14 md:flex-row">
                         <div className="max-w-[740px]">
                             <img
                                 src="/images/pasta/image-6.webp"
                                 alt=""
-                                className="mb-6"
+                                className="mb-6 min-h-[200px] object-cover"
                             />
                             <p className="section-description description mb-4">
                                 Pasta is a dish that has passed through the

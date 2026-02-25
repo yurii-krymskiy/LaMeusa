@@ -42,7 +42,7 @@ export const BirthdayGift = () => {
                             our chef prepares a birthday cake, which we serve
                             with congratulations from the entire staff.
                         </p>
-                        <p className="description section-description mb-10">
+                        <p className="description section-description mb-5 lg:mb-10">
                             This is the moment when the restaurant is filled
                             with sincere emotions, and your evening becomes even
                             more festive. We believe that such details create

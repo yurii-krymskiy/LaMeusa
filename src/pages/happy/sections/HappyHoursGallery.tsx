@@ -13,10 +13,10 @@ export const HappyHoursGallery = () => {
                 <span className="decorative mx-auto block text-center text-[34px]">
                     Gallery
                 </span>
-                <p className="title section-title my-6 text-center text-[48px]">
+                <p className="title section-title lg:my-6 mt-[5px] mb-[15px] text-center text-[48px]">
                     Good Vibes, Great Company
                 </p>
-                <p className="description section-description mb-10 text-center">
+                <p className="description section-description mb-5 lg:mb-10 text-center">
                     Happy Hours at <b>La Medusa</b> are more than just a
                     promotion. They are a time when people come together to
                     relax, enjoy the music, socialize, and atmosphere of our

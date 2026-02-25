@@ -6,9 +6,9 @@ export const BirthdayGrid = () => {
     return (
         <section className="section">
             <div className="container">
-                <div className="mb-10 flex flex-col items-center gap-14 lg:mb-24 lg:flex-row">
+                <div className="mb-5 lg:mb-10 flex flex-col-reverse items-center gap-5 lg:gap-14 lg:mb-24 lg:flex-row">
                     <div>
-                        <div className="mb-10">
+                        <div className="mb-0 lg:mb-10">
                             <span className="section-title title mb-7 inline-block">
                                 Seafood Celebration Set
                             </span>
@@ -23,17 +23,17 @@ export const BirthdayGrid = () => {
                     <img
                         loading="lazy"
                         src="/images/birthday/image-8.webp"
-                        className="max-w-full h-[400px] lg:h-auto lg:max-w-[620px] object-cover"
+                        className="max-w-full h-[270px] lg:h-auto lg:max-w-[620px] object-cover"
                     />
                 </div>
-                <div className="mb-10 flex flex-col-reverse items-center gap-14 lg:mb-24 lg:flex-row">
+                <div className="flex flex-col items-center gap-5 lg:gap-14 lg:mb-24 lg:flex-row">
                     <img
                         loading="lazy"
                         src="/images/birthday/image-10.webp"
-                        className="max-w-full h-[400px] lg:h-auto lg:max-w-[620px] object-cover"
+                        className="max-w-full h-[270px] lg:h-auto lg:max-w-[620px] object-cover"
                     />
                     <div>
-                        <div className="mb-10">
+                        <div className="mb-5 lg:mb-10">
                             <span className="section-title title mb-7 inline-block">
                                 Pasta & Wine Evening
                             </span>
@@ -46,9 +46,9 @@ export const BirthdayGrid = () => {
                         </div>
                     </div>
                 </div>
-                <div className="mb-10 flex flex-col items-center gap-14 lg:mb-24 lg:flex-row">
+                <div className="flex flex-col-reverse items-center gap-5 lg:gap-14 lg:mb-24 lg:flex-row">
                     <div>
-                        <div className="mb-10">
+                        <div className="mb-5 lg:mb-10">
                             <span className="section-title title mb-7 inline-block">
                                 Sweet Birthday Table
                             </span>
@@ -63,7 +63,7 @@ export const BirthdayGrid = () => {
                     <img
                         loading="lazy"
                         src="/images/birthday/image-9.webp"
-                        className="max-w-full h-[400px] lg:h-auto lg:max-w-[620px] object-cover"
+                        className="max-w-full h-[270px] lg:h-auto lg:max-w-[620px] object-cover"
                     />
                 </div>
 

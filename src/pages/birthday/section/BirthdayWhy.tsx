@@ -8,11 +8,11 @@ export const BirthdayWhy = () => {
         <section className="section-breadcrumb">
             <div className="container">
                 <Breadcrumb />
-                <div className="mx-auto mb-10 max-w-[850px] text-center">
+                <div className="mx-auto mb-5 lg:mb-10 max-w-[850px] text-center">
                     <img
                         src="/icons/star.svg"
                         alt="star"
-                        className="mx-auto mb-6 size-[22px]"
+                        className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
                     <p className="title section-title">
                         Why Choose La Medusa for Your Birthday
@@ -20,10 +20,10 @@ export const BirthdayWhy = () => {
                 </div>
                 <img
                     src="/images/birthday/image-1.webp"
-                    className="mb-10 object-cover"
+                    className="mb-5 lg:mb-10 min-h-[225px] object-cover"
                 />
 
-                <div className="mb-10 flex flex-col gap-14 md:flex-row">
+                <div className="mb-5 lg:mb-10 flex flex-col gap-5 lg:gap-14 md:flex-row">
                     <div className="text-center">
                         <img
                             src="/icons/sunrise-icon.svg"

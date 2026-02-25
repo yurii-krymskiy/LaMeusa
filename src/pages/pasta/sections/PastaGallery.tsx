@@ -8,15 +8,15 @@ export const PastaGallery = () => {
     ];
 
     return (
-        <section className="flex flex-col items-center py-15">
+        <section className="flex flex-col items-center py-10 lg:py-15">
             <div className="container !max-w-[765px]">
                 <span className="decorative mx-auto block text-center text-[34px]">
                     Gallery
                 </span>
-                <p className="title section-title my-6 text-center text-[48px]">
+                <p className="title section-title lg:my-6 mt-1 mb-3 text-center text-[48px]">
                     For Every Taste
                 </p>
-                <p className="description section-description mb-10 text-center">
+                <p className="description section-description mb-5 lg:mb-10 text-center">
                     Delicate tagliatelle, aromatic penne, exquisite ravioli or
                     classic spaghetti - our menu has a pasta for every mood. See
                     how we create real magic on your plate.

@@ -5,7 +5,7 @@ export const PastaHours = () => {
     return (
         <section className="section">
             <div className="container">
-                <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-24">
+                <div className="flex flex-col items-center gap-5 lg:flex-row lg:gap-24">
                     <img
                         src="/images/pasta/image-5.webp"
                         loading="lazy"
@@ -13,7 +13,7 @@ export const PastaHours = () => {
                     />
 
                     <div>
-                        <div className="mb-10">
+                        <div className="mb-5 lg:mb-10">
                             <span className="section-title title mb-7 inline-block">
                                 Pasta Lovers Hour
                             </span>

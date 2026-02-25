@@ -116,7 +116,7 @@ export const MenuDelicios = () => {
                         <img
                             src="/icons/star.svg"
                             alt="star"
-                            className="mx-auto mb-6 size-[22px]"
+                            className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                         />
                     ) : (
                         <p className="decorative">Menu</p>

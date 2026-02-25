@@ -13,7 +13,7 @@ export const HappyHoursReserve = () => {
                 />
 
                 <div className="">
-                    <div className="mb-10">
+                    <div className="mb-5 lg:mb-10">
                         <span className="decorative mb-2.5">
                             Reserve a Table
                         </span>
@@ -27,7 +27,7 @@ export const HappyHoursReserve = () => {
                             with us.
                         </p>
                     </div>
-                    <div className="flex flex-wrap gap-10">
+                    <div className="flex flex-wrap gap-5 lg:gap-10">
                         <ButtonOpenReservation variant="blue">
                             Reserve Now
                         </ButtonOpenReservation>

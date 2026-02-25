@@ -8,23 +8,26 @@ export const PastaWhy = () => {
         <section className="section-breadcrumb">
             <div className="container">
                 <Breadcrumb />
-                <div className="mx-auto mb-10 max-w-[850px] text-center">
+                <div className="mx-auto mb-5 lg:mb-10 max-w-[850px] text-center">
                     <img
                         src="/icons/star.svg"
                         alt="star"
-                        className="mx-auto mb-6 size-[22px]"
+                        className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
                     <p className="title section-title">Why Our Pasta?</p>
-                    <p className="description section-description inline-block">
+                    <p className="description hidden lg:inline-block section-description">
                         Pasta is not just a dish, but a moment of enjoyment.
+                    </p>
+                    <p className="description lg:hidden section-description inline-block">
+                        At <strong>La Medusa</strong>, every ingredient, every flavor is a grateful embodiment of Mediterranean tradition. Our chefs strive for each dish to be not just food, but an emotion that stays with you.
                     </p>
                 </div>
                 <img
                     src="/images/pasta/image-1.webp"
-                    className="mb-10 object-cover"
+                    className="mb-5 lg:mb-10 min-h-[225px] object-cover"
                 />
 
-                <div className="mb-10 flex flex-col gap-14 md:flex-row">
+                <div className="mb-5 lg:mb-10 flex flex-col gap-5 lg:gap-14 md:flex-row">
                     <div className="text-center">
                         <img
                             src="/icons/fruit.svg"
