@@ -33,7 +33,7 @@ const GallerySlider = memo(({ slides }: Props) => {
                 {[...slides, ...slides].map((slide, i) => (
                     <SwiperSlide
                         key={`${slide.src}-${i}`}
-                        style={{ width: "min(900px, 70vw)" }}
+                        className="!w-[340px] md:!w-[900px]"
                     >
                         {({ isActive }) => (
                             <div className="flex items-center justify-center h-[250px] md:h-[500px]">

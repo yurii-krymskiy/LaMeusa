@@ -6,7 +6,7 @@ export const HomeStory = () => {
                     <img
                         src="/icons/star.svg"
                         alt="star"
-                        className="mx-auto mb-6 h-[22px] w-[22px]"
+                        className="mx-auto mb-2 lg:mb-6 h-[22px] w-[22px]"
                     />
                     <p className="title section-title mb-6 text-center text-[48px]">
                         Every dish tells a story

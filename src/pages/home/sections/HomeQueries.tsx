@@ -28,13 +28,13 @@ export const HomeQueries = () => {
     return (
         <section className="section">
             <div className="container">
-                <div className="mb-9">
+                <div className="mb-4 lg:mb-9">
                     <img
                         src="/icons/star.svg"
                         alt="star"
-                        className="mx-auto mb-6 h-[22px] w-[22px]"
+                        className="mx-auto mb-1.5 lg:mb-6 h-[22px] w-[22px]"
                     />
-                    <p className="title section-title mb-6 text-center text-[48px]">
+                    <p className="title section-title !mb-5 lg:!mb-6 text-center text-[48px]">
                         Any Queries?
                     </p>
                 </div>

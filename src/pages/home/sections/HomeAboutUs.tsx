@@ -3,9 +3,9 @@ import { Button } from "../../../components/ui/Button";
 export const HomeAboutUs = () => {
     return (
         <section className="section">
-            <div className="container flex flex-col items-center gap-4 lg:flex-row lg:gap-15">
+            <div className="container flex flex-col items-center gap-5 lg:flex-row lg:gap-15">
                 <div className="flex-1">
-                    <div className="mb-10">
+                    <div className="mb-5 lg:mb-10">
                         <p className="decorative">About Us</p>
                         <p className="title section-title">
                             The Spirit of

@@ -5,13 +5,13 @@ export const AboutGrid = () => {
     return (
         <section className="section">
             <div className="container">
-                <div className="mb-10 flex flex-col items-center gap-14 lg:mb-24 lg:flex-row">
+                <div className="mb-10 flex flex-col items-center gap-5 lg:gap-15 lg:mb-24 lg:flex-row">
                     <img
                         src="/images/about/image-10.jpg"
-                        className="max-w-full h-[400px] lg:h-auto lg:max-w-[550px] xl:max-w-[620px] object-cover"
+                        className="max-w-full h-[270px] lg:h-auto lg:max-w-[550px] xl:max-w-[620px] object-cover"
                     />
                     <div>
-                        <div className="mb-10">
+                        <div className="mb-5 lg:mb-10">
                             <span className="section-title title mb-7 inline-block">
                                 Spanish Guitar Nights
                             </span>
@@ -39,12 +39,12 @@ export const AboutGrid = () => {
                     </div>
                 </div>
 
-                <div className="mb-10 flex flex-col items-center gap-14 lg:mb-24 lg:flex-row lg:gap-26">
+                <div className="mb-10 flex flex-col items-center gap-5 lg:mb-24 lg:flex-row lg:gap-26">
                     <div className="max-w-full lg:max-w-[590px]">
-                        <div className="mb-10">
+                        <div className="mb-5 lg:mb-10">
                             <img
                                 src="/images/about/image-7.jpg"
-                                className="mb-5 max-w-full h-[400px] lg:h-auto lg:max-w-[515px] object-cover"
+                                className="mb-5 max-w-full h-[215px] lg:h-auto lg:max-w-[515px] object-cover"
                             />
                             <span className="section-title title mb-7 inline-block">
                                 Live Vocal Hits & Cocktails
@@ -75,13 +75,13 @@ export const AboutGrid = () => {
                     />
                 </div>
 
-                <div className="mb-10 flex flex-col-reverse items-center gap-14 lg:mb-24 lg:flex-row">
+                <div className="mb-10 flex flex-col items-center gap-5 lg:gap-15 lg:mb-24 lg:flex-row">
                     <img
                         src="/images/about/image-8.jpg"
-                        className="max-w-full h-[400px] lg:h-auto lg:max-w-[620px] object-cover"
+                        className="max-w-full h-[270px] lg:h-auto lg:max-w-[620px] object-cover"
                     />
                     <div>
-                        <div className="mb-10">
+                        <div className="mb-5 lg:mb-10">
                             <span className="section-title title mb-7 inline-block">
                                 Two Burgers for One
                             </span>

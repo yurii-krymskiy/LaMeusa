@@ -31,7 +31,7 @@ export function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
                                 {crumb.label}
                             </Link>
                         ) : (
-                            <span className="font-semibold text-gray-800">
+                            <span className="font-[300] text-gray-800">
                                 {crumb.label}
                             </span>
                         )}

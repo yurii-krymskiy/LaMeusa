@@ -11,11 +11,11 @@ export const HomeReserve = () => {
                 />
 
                 <div className="md:-ml-10">
-                    <div className="mb-10">
-                        <span className="decorative mb-2.5">
+                    <div className="mb-5 lg:mb-10">
+                        <span className="decorative">
                             Reserve a Table
                         </span>
-                        <div className="title section-title">
+                        <div className="title !mb-2.5 lg:!mb-6 section-title">
                             Make your dinner special
                         </div>
                         <p className="description section-description mb-2">

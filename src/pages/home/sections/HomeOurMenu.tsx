@@ -13,7 +13,7 @@ export const HomeOurMenu = () => {
                 <div className="flex flex-col justify-between">
                     <div className="mb-3.5">
                         <div className="mb-5 lg:mb-10">
-                            <p className="decorative mb-2.5">Our Menu</p>
+                            <p className="decorative">Our Menu</p>
                             <h3 className="title section-title">
                                 Discover Our Menu
                             </h3>

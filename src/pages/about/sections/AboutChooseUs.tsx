@@ -5,11 +5,11 @@ export const AboutChooseUs = () => {
     return (
         <section className="section">
             <div className="container">
-                <div className="mx-auto mb-10 max-w-[850px] text-center">
+                <div className="mx-auto mb-5 lg:mb-10 max-w-[850px] text-center">
                     <img
                         src="/icons/star.svg"
                         alt="star"
-                        className="mx-auto mb-6 size-[22px]"
+                        className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
                     <p className="title section-title">Why Choose us</p>
                     <p className="description section-description inline-block">
@@ -21,10 +21,10 @@ export const AboutChooseUs = () => {
                 </div>
                 <img
                     src="/images/about/image-2.jpg"
-                    className="mb-10 object-cover"
+                    className="mb-5 lg:mb-10 min-h-[226px] object-cover"
                 />
 
-                <div className="mb-10 flex flex-col gap-14 md:flex-row">
+                <div className="mb-10 flex flex-col gap-5 lg:gap-14 md:flex-row">
                     <div className="text-center">
                         <img
                             src="/icons/crepe-icon.svg"

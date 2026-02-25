@@ -6,10 +6,10 @@ export const HomeMeets = () => {
             <section className="section decorative-line">
                 <div className="container">
                     <div className="text-center">
-                        <span className="decorative mb-2.5 text-[34px]">
+                        <span className="decorative">
                             Taste and atmosphere with an ocean view
                         </span>
-                        <p className="title section-title mb-6 text-[48px]">
+                        <p className="title section-title !mb-5 lg:!mb-6 text-[48px]">
                             Where the sea meets taste
                         </p>
                     </div>
@@ -18,7 +18,7 @@ export const HomeMeets = () => {
                             <img
                                 src="/images/home/image-14.jpg"
                                 alt=""
-                                className="mb-6"
+                                className="mb-6 h-[200px] object-cover lg:h-[340px]"
                             />
 
                             <p className="description section-description mb-2.5">
@@ -29,7 +29,7 @@ export const HomeMeets = () => {
                                 a single experience.
                             </p>
 
-                            <p className="description section-description mb-10">
+                            <p className="description section-description mb-5 lg:mb-10">
                                 We strive to make every dinner at La Medusa an
                                 event you'll want to remember again.
                             </p>

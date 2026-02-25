@@ -1,11 +1,12 @@
 @import "tailwindcss";
 @import "swiper/css";
+@import "swiper/css/pagination";
 @font-face {
-    font-family: GardenaHolmes;
+    font-family: Arizonia;
     font-style: normal;
     font-weight: 200 700;
     font-display: swap;
-    src: url("/src/fonts/Gardena Holmes.otf") format("opentype");
+    src: url("/src/fonts/Arizonia-Regular.ttf") format("truetype");
 }
 
 @theme {
@@ -19,7 +20,7 @@
     --color-gray-700: #505050;
 
     /* text setup */
-    --font-GardenaHolmes: "GardenaHolmes", sans-serif;
+    --font-Arizonia: "Arizonia", sans-serif;
     --text-6xl: 64px;
 }
 
@@ -58,7 +59,7 @@
         font-weight: 100;
         line-height: 100%;
 
-        @apply font-GardenaHolmes text-[24px] md:text-[34px];
+        @apply font-Arizonia text-[24px] md:text-[34px] mb-[5px] lg:mb-[10px];
     }
 }
 
@@ -81,11 +82,11 @@
 
 /* section */
 .section {
-    @apply relative overflow-x-hidden py-6 lg:py-16;
+    @apply relative overflow-x-hidden py-5 lg:py-16;
 }
 
 .section-title {
-    @apply mb-6 text-3xl md:text-5xl;
+    @apply mb-2.5 lg:mb-6 text-3xl md:text-5xl;
 }
 
 .section-description {
@@ -408,4 +409,26 @@
     color: #fff !important;
     font-weight: 600 !important;
     font-size: 14px !important;
+}
+
+/* Food Story Slider */
+.food-story-slider {
+    position: relative;
+}
+
+.food-story-slider .swiper-pagination {
+    bottom: 24px !important;
+}
+
+.food-story-slider .swiper-pagination-bullet {
+  
+    @apply size-[6px] lg:size-[12px];
+    background: #ffffff66 !important;
+    opacity: 1 !important;
+    border-radius: 50% !important;
+    transition: background 0.3s ease !important;
+}
+
+.food-story-slider .swiper-pagination-bullet-active {
+    background: #ffffff !important;
 }
