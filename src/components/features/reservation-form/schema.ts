@@ -1,28 +1,40 @@
 import z from "zod";
 
 export const BookTableSchema = z.object({
-    name: z.string().min(1, { error: "Name is required" }),
+    name: z
+        .string({ error: "We'd love to know your name" })
+        .min(1, { error: "Please let us know your name" }),
     guests: z.union([
         z
             .number()
-            .int()
-            .min(1, { error: "Guests is required" })
-            .positive({ error: "Guests must be a positive number" })
+            .int({ error: "Please enter a whole number" })
+            .min(1, { error: "How many guests will be joining?" })
+            .max(8, { error: "For parties larger than 8, please call us" })
+            .positive({ error: "How many guests will be joining?" })
             .nullable(),
         z.nan(),
     ]),
-    time: z.iso.time({ error: "Not a valid time" }).min(1),
-    date: z.iso.date({ error: "Not a valid date" }).min(1),
+    time: z.iso
+        .time({ error: "What time works best for you?" })
+        .min(1, { error: "What time would you like to dine?" }),
+    date: z.iso
+        .date({ error: "When would you like to visit us?" })
+        .min(1, { error: "Pick a date for your visit" }),
     promoCode: z.string(),
-    details: z.string().max(255).optional(),
+    details: z
+        .string()
+        .max(255, { error: "Please keep special requests under 255 characters" })
+        .optional(),
 
     // confirm recheck name, email and phone
-    email: z.union([z.literal(""), z.email()]),
+    email: z
+        .string({ error: "We need your email to confirm" })
+        .min(1, { error: "Please enter your email" })
+        .email({ error: "Please check your email address" }),
 
-    phone: z.union([
-        z.literal(""),
-        z.string({ error: "Phone is required" }).min(3),
-    ]),
+    phone: z
+        .string({ error: "How can we reach you?" })
+        .min(3, { error: "Please enter a valid phone number" }),
 });
 export type BookTableTypeSchema = z.infer<typeof BookTableSchema>;
 
@@ -39,7 +51,9 @@ export const LiteBookTableSchemaPick = BookTableSchema.pick({
     phone: true,
     time: true,
     date: true,
+    email: true,
     details: true,
+    guests: true,
 });
 
 export type BookTableSchemaPickType = z.infer<typeof BookTableSchemaPick>;
@@ -49,9 +63,6 @@ export const BookConfirmSchemaPick = BookTableSchema.pick({
     name: true,
     email: true,
     phone: true,
-}).refine((data) => data.email || data.phone, {
-    message: "Fill Email or a Phone",
-    path: ["email"],
 });
 
 export type BookConfirmSchemaPickType = z.infer<typeof BookConfirmSchemaPick>;

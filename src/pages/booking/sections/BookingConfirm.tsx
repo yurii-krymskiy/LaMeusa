@@ -9,7 +9,7 @@ export const BookingConfirm = () => {
                 </span>
                 <span className="description md:text-lg">
                     Please confirm whether you have entered everything correctly
-                    and write your name and email to confirm the booking.
+                    and write your email and phone number to confirm the booking.
                 </span>
             </div>
 

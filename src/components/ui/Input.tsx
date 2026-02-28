@@ -1,15 +1,24 @@
-import type { Ref } from "react";
+import type { Ref, InputHTMLAttributes } from "react";
 
-type Props = {
-    type: React.ComponentProps<"input">["type"];
+type Props = Omit<InputHTMLAttributes<HTMLInputElement>, "ref"> & {
     error?: string;
-    required?: boolean;
-    className?: string;
-    placeholder?: React.ComponentProps<"input">["placeholder"];
     ref?: Ref<HTMLInputElement>;
 };
 
-export const Input = ({ type, ref, className, required, error, ...props }: Props) => {
+export const Input = ({
+    type,
+    ref,
+    className = "",
+    required,
+    error,
+    disabled,
+    ...props
+}: Props) => {
+    const errorClasses = error
+        ? "border-red-400 focus:border-red-500 focus:ring-red-200"
+        : "";
+    const disabledClasses = disabled ? "opacity-50 cursor-not-allowed" : "";
+
     return (
         <label className="relative block w-full">
             <input
@@ -17,11 +26,12 @@ export const Input = ({ type, ref, className, required, error, ...props }: Props
                 required={required}
                 placeholder={props.placeholder}
                 ref={ref}
-                className={className + " input"}
+                disabled={disabled}
+                className={`${className} input ${errorClasses} ${disabledClasses}`}
                 {...props}
             />
             {error && (
-                <span className="absolute -bottom-4 left-5 block text-xs text-red-400">
+                <span className="absolute -bottom-5 left-0 block text-xs text-red-500">
                     {error}
                 </span>
             )}

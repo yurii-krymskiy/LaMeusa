@@ -16,16 +16,17 @@ type CustomInputProps = {
     onClick?: () => void;
     placeholder?: string;
     hasValue: boolean;
+    hasError?: boolean;
 };
 
 const CustomInput = forwardRef<HTMLDivElement, CustomInputProps>(
-    ({ value, onClick, placeholder, hasValue }, ref) => (
+    ({ value, onClick, placeholder, hasValue, hasError }, ref) => (
         <div
             ref={ref}
             onClick={onClick}
             className="input-datetime-wrapper cursor-pointer"
         >
-            <div className="input input-datetime input-time">
+            <div className={`input input-datetime input-time ${hasError ? "border-red-400" : ""}`}>
                 {hasValue ? (
                     <span className="text-gray-700">{value}</span>
                 ) : (
@@ -104,6 +105,7 @@ export const TimePickerInput = forwardRef<HTMLDivElement, Props>(
                             ref={ref}
                             hasValue={!!selectedTime}
                             placeholder={placeholder}
+                            hasError={!!error}
                         />
                     }
                     calendarClassName="custom-timepicker"
@@ -112,7 +114,7 @@ export const TimePickerInput = forwardRef<HTMLDivElement, Props>(
                     showPopperArrow={false}
                 />
                 {error && (
-                    <span className="absolute -bottom-4 left-5 block text-xs text-red-400">
+                    <span className="absolute -bottom-5 left-0 block text-xs text-red-500">
                         {error}
                     </span>
                 )}

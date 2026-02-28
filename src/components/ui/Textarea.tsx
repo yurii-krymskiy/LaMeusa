@@ -1,23 +1,27 @@
-import type { Ref } from "react";
+import type { Ref, TextareaHTMLAttributes } from "react";
 
-type Props = {
-    type: React.ComponentProps<"input">["type"];
+type Props = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "ref"> & {
     error?: string;
-    required?: boolean;
-    className?: string;
-    placeholder?: React.ComponentProps<"textarea">["placeholder"];
     ref?: Ref<HTMLTextAreaElement>;
 };
 
-export const Textarea = ({ ref, className, required, error, ...props }: Props) => {
+export const Textarea = ({
+    ref,
+    className = "",
+    required,
+    error,
+    disabled,
+    ...props
+}: Props) => {
     return (
         <label className="relative block w-full">
             <textarea
                 required={required}
                 placeholder={props.placeholder}
                 ref={ref}
+                disabled={disabled}
                 rows={3}
-                className={className + " input"}
+                className={`${className} input ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
                 {...props}
             />
             {error && (
