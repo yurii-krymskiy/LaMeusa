@@ -1,7 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "../Header";
 import { Footer } from "../Footer";
-import { Booking } from "../../pages/booking/Booking";
 import { useLayoutEffect } from "react";
 
 export const BaseLayout = () => {
@@ -14,7 +13,6 @@ export const BaseLayout = () => {
             <Header />
             <Outlet />
             <Footer />
-            <Booking />
         </>
     );
 };

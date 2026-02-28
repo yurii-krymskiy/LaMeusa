@@ -1,6 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../ui/Button";
-import { useBookingStore } from "./store";
+import { Paths } from "../../../router";
 
 type Props = {
     variant?: "blue" | "white" | "blue-outline" | "white-outline" | "default";
@@ -12,14 +13,14 @@ export const ButtonOpenReservation = ({
     children,
     className,
 }: Props) => {
-    const open = useBookingStore((state) => state.setIsOpen);
+    const navigate = useNavigate();
 
     return (
         <Button
             variant={variant}
             className={className}
             onClick={() => {
-                open(true);
+                navigate(Paths.booking);
             }}
         >
             {children}

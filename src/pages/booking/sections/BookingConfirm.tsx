@@ -2,8 +2,8 @@ import { TableConfirm } from "../../../components/features/reservation-form/Tabl
 
 export const BookingConfirm = () => {
     return (
-        <section>
-            <div className="mb-10">
+        <section className="w-full">
+            <div className="mb-5 md:mb-10">
                 <span className="title mb-5 block font-semibold uppercase md:text-2xl">
                     Booking confirmation
                 </span>

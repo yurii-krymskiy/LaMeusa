@@ -2,6 +2,7 @@
 import { BaseLayout } from "./components/layout/BaseLayout";
 import About from "./pages/about/About";
 import { Birthday } from "./pages/birthday/Birthday";
+import { Booking } from "./pages/booking/Booking";
 import Contact from "./pages/contact/Contact";
 import { HappyHours } from "./pages/happy/HappyHours";
 import Home from "./pages/home/Home";
@@ -24,6 +25,7 @@ export const pages = [
             { path: "birthdays", element: <Birthday /> },
         ],
     },
+    { path: "booking", element: <Booking /> },
 ];
 
 export const Paths = {
@@ -35,6 +37,7 @@ export const Paths = {
     menu: "/menu",
     happyHours: "/happy-hours",
     birthdays: "/birthdays",
+    booking: "/booking",
 } as const;
 
 export type PathsType = typeof Paths;
