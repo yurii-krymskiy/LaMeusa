@@ -16,7 +16,7 @@ export const MenuList = ({ categories }: MenuListProps) => {
                     key={category.slug}
                     id={`menu-section-${category.slug}`}
                     data-menu-section={category.slug}
-                    className="scroll-mt-28 space-y-6"
+                    className="scroll-mt-24 space-y-6 md:scroll-mt-6"
                 >
                     <SectionHeader
                         title={category.title}

@@ -10,12 +10,6 @@ export const Footer = () => {
                                 alt="La Medusa"
                                 className="mb-2.5"
                             />
-                            <p className="description text-sm">
-                                Lorem Ipsum is not simply random text. It has
-                                roots in a piece of classical Latin
-                                literature{" "}
-                            </p>
-
                             <div className="mt-5 flex flex-wrap md:flex-nowrap gap-8">
                                 <div>
                                     <div className="flex items-center gap-2.5">

@@ -13,10 +13,10 @@ export const MenuItem = ({ item }: MenuItemProps) => {
     return (
         <article
             id={item.anchorId}
-            className="flex flex-row gap-4  md:flex-row md:items-start"
+            className="flex flex-row gap-4 md:flex-row md:items-start"
         >
             <MenuItemImage src={item.imageUrl} alt={item.title} />
-            <div className="flex h-full flex-1 flex-col justify-between gap-4">
+            <div className="flex self-stretch flex-1 flex-col justify-between gap-4">
                 <div className="flex flex-col gap-3 md:flex-col md:items-start md:justify-between">
                     <MenuItemTitle title={item.title} />
                     {item.subtitle && (

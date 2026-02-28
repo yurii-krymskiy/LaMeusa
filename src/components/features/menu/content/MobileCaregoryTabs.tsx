@@ -15,9 +15,10 @@ export const MobileCategoryTabs = ({
     headerOffset = 40,
 }: Props) => {
     const listRef = useRef<HTMLDivElement | null>(null);
+    const isUserScrolling = useRef(false);
 
     useEffect(() => {
-        if (!activeSlug || !listRef.current) return;
+        if (!activeSlug || !listRef.current || isUserScrolling.current) return;
         const el = listRef.current.querySelector<HTMLButtonElement>(
             `[data-tab="${activeSlug}"]`
         );
@@ -32,11 +33,17 @@ export const MobileCategoryTabs = ({
 
     const scrollToSlug = useCallback(
         (slug: string) => {
+            isUserScrolling.current = true;
             const section = document.getElementById(`menu-section-${slug}`);
             if (!section) return;
             const rect = section.getBoundingClientRect();
             const y = Math.max(window.scrollY + rect.top - headerOffset, 0);
             window.scrollTo({ top: y, behavior: "smooth" });
+            
+            // Reset user scrolling flag after animation
+            setTimeout(() => {
+                isUserScrolling.current = false;
+            }, 500);
         },
         [headerOffset]
     );
@@ -74,8 +81,10 @@ export const MobileCategoryTabs = ({
         <div className="sticky top-0 z-40 bg-white/90 backdrop-blur md:hidden">
             <div
                 ref={listRef}
-                className="no-scrollbar flex w-full snap-x scroll-px-4 gap-2 overflow-x-auto px-4 py-3"
-                style={{ WebkitOverflowScrolling: "touch" }}
+                className="no-scrollbar flex w-full gap-2 overflow-x-auto overscroll-x-contain px-4 py-3"
+                style={{ 
+                    WebkitOverflowScrolling: "touch",
+                }}
                 aria-label="Menu categories"
                 role="tablist"
             >
