@@ -233,7 +233,7 @@ export const AdminReservations = () => {
                             <div key={reservation.id}>
                                 {/* Main row */}
                                 <div
-                                    className="p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer transition-colors"
+                                    className="p-4 hover:bg-gray-100/50 dark:hover:bg-white/5 cursor-pointer transition-colors"
                                     onClick={() =>
                                         setExpandedId(
                                             expandedId === reservation.id ? null : reservation.id
@@ -287,7 +287,7 @@ export const AdminReservations = () => {
 
                                 {/* Expanded details */}
                                 {expandedId === reservation.id && (
-                                    <div className="px-4 pb-4 space-y-4 bg-gray-50 dark:bg-gray-700/30">
+                                    <div className="px-4 pb-4 space-y-4 bg-gray-50 dark:bg-gray-900/50">
                                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
                                             <div>
                                                 <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">

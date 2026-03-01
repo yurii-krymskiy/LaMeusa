@@ -39,6 +39,13 @@ export type DbBlockedSlot = {
     created_at: string;
 };
 
+// Visitors tracking
+export type DbVisitor = {
+    id: number;
+    number_of_guests: number;
+    created_at: string;
+};
+
 // Input types for creating reservations
 export type CreateReservationInput = {
     customer_name: string;

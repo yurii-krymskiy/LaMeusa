@@ -14,6 +14,8 @@ import { AdminLayout } from "./pages/admin/AdminLayout";
 import { AdminDashboard } from "./pages/admin/AdminDashboard";
 import { AdminBlockedSlots } from "./pages/admin/AdminBlockedSlots";
 import { AdminReservations } from "./pages/admin/AdminReservations";
+import { AdminVisitors } from "./pages/admin/AdminVisitors";
+import { Visitors } from "./pages/visitors/Visitors";
 
 export const pages = [
     {
@@ -31,6 +33,7 @@ export const pages = [
         ],
     },
     { path: "booking", element: <Booking /> },
+    { path: "visitors", element: <Visitors /> },
     // Admin routes
     { path: "admin", element: <AdminLogin /> },
     {
@@ -40,6 +43,7 @@ export const pages = [
             { path: "dashboard", element: <AdminDashboard /> },
             { path: "blocked-slots", element: <AdminBlockedSlots /> },
             { path: "reservations", element: <AdminReservations /> },
+            { path: "visitors", element: <AdminVisitors /> },
         ],
     },
 ];
