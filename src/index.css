@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "swiper/css";
 @import "swiper/css/pagination";
+
+/* Enable dark mode via class */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
     font-family: Arizonia;
     font-style: normal;
@@ -431,4 +435,245 @@
 
 .food-story-slider .swiper-pagination-bullet-active {
     background: #ffffff !important;
+}
+
+/* Admin Dashboard Styles */
+.admin-input {
+    @apply w-full px-4 py-2.5 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-royal-blue focus:border-transparent outline-none transition-colors;
+}
+
+.dark .admin-input {
+    @apply border-gray-500 bg-gray-900 text-white placeholder-gray-400;
+}
+
+/* Custom date/time inputs for admin */
+.admin-input[type="date"],
+.admin-input[type="time"] {
+    @apply cursor-pointer;
+}
+
+.admin-input[type="date"]::-webkit-calendar-picker-indicator,
+.admin-input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(0);
+    cursor: pointer;
+}
+
+.dark .admin-input[type="date"]::-webkit-calendar-picker-indicator,
+.dark .admin-input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* Admin filter tabs */
+.admin-tab {
+    @apply px-4 py-2 rounded-lg font-medium text-sm transition-colors;
+}
+
+.admin-tab-active {
+    @apply bg-royal-blue text-white;
+}
+
+.admin-tab-inactive {
+    @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+}
+
+.dark .admin-tab-inactive {
+    @apply bg-gray-600 text-gray-100 hover:bg-gray-500;
+}
+
+/* Admin checkbox */
+.admin-checkbox {
+    @apply w-5 h-5 rounded border-gray-300 text-sky focus:ring-sky cursor-pointer;
+}
+
+.dark .admin-checkbox {
+    @apply border-gray-600 bg-gray-700;
+}
+
+/* Admin DatePicker/TimePicker Styles */
+.admin-datepicker-input {
+    @apply w-full px-4 py-2.5 border border-gray-300 rounded-lg bg-white text-gray-900 transition-colors hover:border-royal-blue;
+}
+
+.dark .admin-datepicker-input {
+    @apply border-gray-500 bg-gray-900 text-white;
+}
+
+.admin-datepicker-popper {
+    z-index: 50 !important;
+}
+
+.admin-datepicker-calendar,
+.admin-timepicker-calendar {
+    font-family: "Montserrat", sans-serif !important;
+    border: 1px solid #374151 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2) !important;
+    background: #fff !important;
+}
+
+.dark .admin-datepicker-calendar,
+.dark .admin-timepicker-calendar {
+    background: #1f2937 !important;
+    border-color: #4b5563 !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__header,
+.admin-timepicker-calendar .react-datepicker__header {
+    background: #2463eb !important;
+    border-bottom: none !important;
+    border-radius: 8px 8px 0 0 !important;
+    padding: 16px !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__current-month,
+.admin-timepicker-calendar .react-datepicker__current-month {
+    color: #fff !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    margin-bottom: 8px !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__day-names {
+    margin-top: 8px !important;
+    background: #2463eb !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__day-name {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500 !important;
+    width: 36px !important;
+    line-height: 36px !important;
+    margin: 2px !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__month {
+    margin: 12px !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__day {
+    width: 36px !important;
+    line-height: 36px !important;
+    margin: 2px !important;
+    border-radius: 4px !important;
+    color: #374151 !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.dark .admin-datepicker-calendar .react-datepicker__day {
+    color: #e5e7eb !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__day:hover {
+    background: #dbeafe !important;
+    color: #1d4ed8 !important;
+}
+
+.dark .admin-datepicker-calendar .react-datepicker__day:hover {
+    background: #374151 !important;
+    color: #60a5fa !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__day--selected,
+.admin-datepicker-calendar .react-datepicker__day--keyboard-selected {
+    background: #2463eb !important;
+    color: #fff !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__day--selected:hover {
+    background: #1d4ed8 !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__day--today {
+    font-weight: 700 !important;
+    color: #2463eb !important;
+}
+
+.dark .admin-datepicker-calendar .react-datepicker__day--today {
+    color: #60a5fa !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__day--today.react-datepicker__day--selected {
+    color: #fff !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__day--outside-month {
+    color: #9ca3af !important;
+}
+
+.dark .admin-datepicker-calendar .react-datepicker__day--outside-month {
+    color: #6b7280 !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__navigation {
+    top: 18px !important;
+}
+
+.admin-datepicker-calendar .react-datepicker__navigation-icon::before {
+    border-color: #fff !important;
+}
+
+/* Time picker styles for admin */
+.admin-timepicker-calendar .react-datepicker__header {
+    padding: 12px 16px !important;
+}
+
+.admin-timepicker-calendar .react-datepicker__time-container {
+    border-left: none !important;
+    width: 120px !important;
+}
+
+.admin-timepicker-calendar .react-datepicker__time {
+    background: #fff !important;
+    border-radius: 0 0 8px 8px !important;
+}
+
+.dark .admin-timepicker-calendar .react-datepicker__time {
+    background: #1f2937 !important;
+}
+
+.admin-timepicker-calendar .react-datepicker__time-box {
+    width: 120px !important;
+}
+
+.admin-timepicker-calendar .react-datepicker__time-list {
+    height: 200px !important;
+}
+
+.admin-timepicker-calendar .react-datepicker__time-list-item {
+    font-family: "Montserrat", sans-serif !important;
+    font-weight: 500 !important;
+    color: #374151 !important;
+    padding: 10px 16px !important;
+    transition: all 0.2s ease !important;
+}
+
+.dark .admin-timepicker-calendar .react-datepicker__time-list-item {
+    color: #e5e7eb !important;
+}
+
+.admin-timepicker-calendar .react-datepicker__time-list-item:hover {
+    background: #dbeafe !important;
+    color: #1d4ed8 !important;
+}
+
+.dark .admin-timepicker-calendar .react-datepicker__time-list-item:hover {
+    background: #374151 !important;
+    color: #60a5fa !important;
+}
+
+.admin-timepicker-calendar .react-datepicker__time-list-item--selected {
+    background: #2463eb !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+}
+
+.admin-timepicker-calendar .react-datepicker__time-list-item--selected:hover {
+    background: #1d4ed8 !important;
+}
+
+.admin-timepicker-calendar .react-datepicker-time__header {
+    color: #fff !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
 }

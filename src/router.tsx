@@ -9,6 +9,11 @@ import Home from "./pages/home/Home";
 import { Menu } from "./pages/menu/Menu";
 import { Pasta } from "./pages/pasta/Pasta";
 import Seafood from "./pages/seafood/Seafood";
+import { AdminLogin } from "./pages/admin/AdminLogin";
+import { AdminLayout } from "./pages/admin/AdminLayout";
+import { AdminDashboard } from "./pages/admin/AdminDashboard";
+import { AdminBlockedSlots } from "./pages/admin/AdminBlockedSlots";
+import { AdminReservations } from "./pages/admin/AdminReservations";
 
 export const pages = [
     {
@@ -26,6 +31,17 @@ export const pages = [
         ],
     },
     { path: "booking", element: <Booking /> },
+    // Admin routes
+    { path: "admin", element: <AdminLogin /> },
+    {
+        path: "admin",
+        element: <AdminLayout />,
+        children: [
+            { path: "dashboard", element: <AdminDashboard /> },
+            { path: "blocked-slots", element: <AdminBlockedSlots /> },
+            { path: "reservations", element: <AdminReservations /> },
+        ],
+    },
 ];
 
 export const Paths = {
