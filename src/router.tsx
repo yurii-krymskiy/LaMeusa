@@ -15,6 +15,7 @@ import { AdminDashboard } from "./pages/admin/AdminDashboard";
 import { AdminBlockedSlots } from "./pages/admin/AdminBlockedSlots";
 import { AdminReservations } from "./pages/admin/AdminReservations";
 import { AdminVisitors } from "./pages/admin/AdminVisitors";
+import { AdminMenu } from "./pages/admin/AdminMenu";
 import { Visitors } from "./pages/visitors/Visitors";
 
 export const pages = [
@@ -44,6 +45,7 @@ export const pages = [
             { path: "blocked-slots", element: <AdminBlockedSlots /> },
             { path: "reservations", element: <AdminReservations /> },
             { path: "visitors", element: <AdminVisitors /> },
+            { path: "menu", element: <AdminMenu /> },
         ],
     },
 ];

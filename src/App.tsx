@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Toaster } from "sonner";
 
 import { pages } from "./router";
 import { AuthProvider } from "./lib/auth.context";
@@ -10,6 +11,7 @@ export default function App() {
     return (
         <AuthProvider>
             <ThemeProvider>
+                <Toaster position="top-right" richColors closeButton />
                 <RouterProvider router={router} />
             </ThemeProvider>
         </AuthProvider>

@@ -1,4 +1,5 @@
-import { supabase } from "./supabase";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { supabase, type DbMenuItem, type DbCategory } from "./supabase";
 import type { DbReservation, DbBlockedSlot, DbTable, DbVisitor } from "./database.types";
 
 // Statistics types
@@ -57,12 +58,12 @@ export const fetchUpcomingReservations = async (): Promise<DbReservation[]> => {
 export const fetchReservationStats = async (): Promise<ReservationStats> => {
     const today = new Date();
     const todayStr = today.toISOString().split("T")[0];
-    
+
     // Week start (Monday)
     const weekStart = new Date(today);
     weekStart.setDate(today.getDate() - today.getDay() + 1);
     const weekStartStr = weekStart.toISOString().split("T")[0];
-    
+
     // Month start
     const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
     const monthStartStr = monthStart.toISOString().split("T")[0];
@@ -88,15 +89,15 @@ export const fetchReservationStats = async (): Promise<ReservationStats> => {
     const todayReservations = allReservations.filter(
         (r) => r.reservation_date === todayStr
     );
-    
+
     const weekReservations = allReservations.filter(
         (r) => r.reservation_date >= weekStartStr
     );
-    
+
     const monthReservations = allReservations.filter(
         (r) => r.reservation_date >= monthStartStr
     );
-    
+
     const upcomingReservations = allReservations.filter(
         (r) => r.reservation_date >= todayStr
     );
@@ -275,7 +276,7 @@ export const fetchVisitorStats = async (filterDate?: string): Promise<VisitorSta
     // Month start of the target date
     const monthStart = new Date(targetDate.getFullYear(), targetDate.getMonth(), 1);
     const monthStartStr = monthStart.toISOString().split("T")[0];
-    
+
     // Month end of the target date
     const monthEnd = new Date(targetDate.getFullYear(), targetDate.getMonth() + 1, 0);
     const monthEndStr = monthEnd.toISOString().split("T")[0];
@@ -306,15 +307,15 @@ export const fetchVisitorStats = async (filterDate?: string): Promise<VisitorSta
     // Generate labels based on whether a filter is applied
     const today = new Date();
     const isToday = targetDateStr === today.toISOString().split("T")[0];
-    const isCurrentMonth = targetDate.getFullYear() === today.getFullYear() && 
-                           targetDate.getMonth() === today.getMonth();
+    const isCurrentMonth = targetDate.getFullYear() === today.getFullYear() &&
+        targetDate.getMonth() === today.getMonth();
 
-    const dayLabel = isToday 
-        ? "Today's Guests" 
+    const dayLabel = isToday
+        ? "Today's Guests"
         : targetDate.toLocaleDateString("en-US", { month: "short", day: "numeric" });
-    
-    const monthLabel = isCurrentMonth 
-        ? "This Month" 
+
+    const monthLabel = isCurrentMonth
+        ? "This Month"
         : targetDate.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 
     return {
@@ -323,4 +324,172 @@ export const fetchVisitorStats = async (filterDate?: string): Promise<VisitorSta
         dayLabel,
         monthLabel,
     };
+};
+
+// ===================== MENU ITEMS =====================
+
+export type MenuItemWithCategory = DbMenuItem & {
+    categories: DbCategory;
+};
+
+// Fetch all categories
+export const fetchCategories = async (): Promise<DbCategory[]> => {
+    const { data, error } = await supabase
+        .from("categories")
+        .select("*")
+        .order("name", { ascending: true });
+
+    if (error) {
+        console.error("Error fetching categories:", error);
+        return [];
+    }
+
+    return data || [];
+};
+
+// Fetch all menu items (including inactive)
+export const fetchMenuItemsAdmin = async (
+    categoryId?: string
+): Promise<MenuItemWithCategory[]> => {
+    let query = supabase
+        .from("menu_items")
+        .select(`
+            *,
+            categories (
+                id,
+                name,
+                slug
+            )
+        `)
+        .order("created_at", { ascending: true });
+
+    if (categoryId) {
+        query = query.eq("category_id", categoryId);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+        console.error("Error fetching menu items:", error);
+        return [];
+    }
+
+    return (data as MenuItemWithCategory[]) || [];
+};
+
+// Create menu item
+export const createMenuItem = async (
+    item: Omit<DbMenuItem, "id" | "created_at" | "categories">
+): Promise<{ success: boolean; error?: string; data?: DbMenuItem }> => {
+    const { data, error } = await supabase
+        .from("menu_items")
+        .insert(item)
+        .select()
+        .single();
+
+    if (error) {
+        console.error("Error creating menu item:", error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true, data };
+};
+
+// Update menu item (using upsert/POST to avoid CORS issues with PATCH)
+export const updateMenuItem = async (
+    id: string,
+    updates: Partial<Omit<DbMenuItem, "id" | "created_at" | "categories">>
+): Promise<{ success: boolean; error?: string }> => {
+    // Fetch existing row first so upsert has all required fields
+    const { data: existing, error: fetchError } = await supabase
+        .from("menu_items")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+    if (fetchError || !existing) {
+        console.error("Error fetching menu item for update:", fetchError);
+        return { success: false, error: fetchError?.message || "Item not found" };
+    }
+
+    // Remove relational/extra fields that aren't columns
+    const { categories, ...row } = existing as MenuItemWithCategory;
+
+    const { error } = await supabase
+        .from("menu_items")
+        .upsert({ ...row, ...updates })
+        .eq("id", id);
+        
+    if (error) {
+        console.error("Error updating menu item:", error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+};
+
+// Delete menu item
+export const deleteMenuItem = async (
+    id: string
+): Promise<{ success: boolean; error?: string }> => {
+    const { error } = await supabase
+        .from("menu_items")
+        .delete()
+        .eq("id", id);
+
+    if (error) {
+        console.error("Error deleting menu item:", error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+};
+
+// Upload menu item image
+export const uploadMenuImage = async (
+    file: File,
+    itemId: string
+): Promise<{ success: boolean; url?: string; error?: string }> => {
+    const fileExt = file.name.split(".").pop();
+    const fileName = `${itemId}-${Date.now()}.${fileExt}`;
+    const filePath = `menu-images/${fileName}`;
+
+    const { error: uploadError } = await supabase.storage
+        .from("menu")
+        .upload(filePath, file, { upsert: true });
+
+    if (uploadError) {
+        console.error("Error uploading image:", uploadError);
+        return { success: false, error: uploadError.message };
+    }
+
+    const { data: urlData } = supabase.storage
+        .from("menu")
+        .getPublicUrl(filePath);
+
+    return { success: true, url: urlData.publicUrl };
+};
+
+// Delete menu item image from storage
+export const deleteMenuImage = async (
+    imageUrl: string
+): Promise<{ success: boolean; error?: string }> => {
+    // Extract file path from URL
+    const urlParts = imageUrl.split("/menu/");
+    if (urlParts.length < 2) {
+        return { success: false, error: "Invalid image URL" };
+    }
+
+    const filePath = urlParts[1];
+
+    const { error } = await supabase.storage
+        .from("menu")
+        .remove([filePath]);
+
+    if (error) {
+        console.error("Error deleting image:", error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
 };
