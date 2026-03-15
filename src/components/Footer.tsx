@@ -15,7 +15,7 @@ export const Footer = () => {
                                 className="mb-2.5"
                             />
                             <div className="mt-5 flex flex-wrap md:flex-nowrap gap-8">
-                                <div>
+                                <a href="https://maps.app.goo.gl/BPYTGnnVsCb3d8Ss8" target="_blank" rel="noreferrer" className="block hover:opacity-80 transition-opacity duration-200">
                                     <div className="flex items-center gap-2.5">
                                         <img
                                             src="/images/google.png"
@@ -28,14 +28,14 @@ export const Footer = () => {
                                         />
                                     </div>
                                     <span className="description text-xs">
-                                        <b>1131</b> {t("footer.reviews")}
+                                        <b>2,692</b> {t("footer.reviews")}
                                     </span>
-                                </div>
-                                <div>
+                                </a>
+                                <a href="https://www.tripadvisor.com/Restaurant_Review-g187479-d20257413-Reviews-or15-Restaurant_La_Medusa_Cocktail_Bar-Tenerife_Canary_Islands.html" target="_blank" rel="noreferrer" className="block hover:opacity-80 transition-opacity duration-200">
                                     <div className="flex items-center gap-2.5">
                                         <img
                                             src="/images/tripadvisor.png"
-                                            alt="Google"
+                                            alt="TripAdvisor"
                                             className="max-w-[120px]"
                                         />
                                         <img
@@ -44,9 +44,9 @@ export const Footer = () => {
                                         />
                                     </div>
                                     <span className="description text-xs">
-                                        <b>1523</b> {t("footer.reviews")}
+                                        <b>532</b> {t("footer.reviews")}
                                     </span>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
