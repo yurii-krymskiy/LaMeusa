@@ -78,9 +78,17 @@
             "reserveTable": "Reserve a Table"
         },
         "queries": {
-            "title": "Any Queries?",
-            "q1": "Lorem lorem lorem lorem",
-            "a1": "Sea, sun and soul - all this in every plate. We prefer local and fresh products, combined with delicate execution: this is the path to true taste."
+            "title": "Frequently Asked Questions",
+            "q1": "Is La Medusa a seafood restaurant?",
+            "a1": "Yes, La Medusa is a Mediterranean seafood restaurant in Los Cristianos, offering fresh fish and locally sourced ingredients prepared with elegance.",
+            "q2": "Where is La Medusa located?",
+            "a2": "We are a seaside restaurant in Los Cristianos, one of the most vibrant dining areas in Tenerife.",
+            "q3": "Are you open late?",
+            "a3": "Yes, we are among the restaurants open late in the area, perfect for romantic dinners with ocean views.",
+            "q4": "Is La Medusa suitable for romantic dinners?",
+            "a4": "Absolutely. Our oceanfront setting makes us one of the most recommended romantic restaurants in Tenerife.",
+            "q5": "Do I need a reservation?",
+            "a5": "While we welcome walk-ins, we recommend booking in advance, especially during peak season, as one of the best restaurants in Los Cristianos tends to fill quickly."
         },
         "reserve": {
             "decorative": "Reserve a Table",

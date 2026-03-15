@@ -328,11 +328,21 @@
     border-radius: 0 !important;
 }
 
-.react-datepicker__day--selected,
-.react-datepicker__day--keyboard-selected {
+.react-datepicker__day--selected {
     background: #2e3e7b !important;
     color: #fff !important;
     border-radius: 0 !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background: transparent !important;
+    color: #505050 !important;
+    border-radius: 0 !important;
+}
+
+.react-datepicker__day--keyboard-selected:hover {
+    background: #f0f4ff !important;
+    color: #2e3e7b !important;
 }
 
 .react-datepicker__day--selected:hover {

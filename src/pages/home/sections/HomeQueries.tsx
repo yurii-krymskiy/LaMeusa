@@ -11,16 +11,20 @@ export const HomeQueries = () => {
             content: t("home.queries.a1"),
         },
         {
-            title: t("home.queries.q1"),
-            content: t("home.queries.a1"),
+            title: t("home.queries.q2"),
+            content: t("home.queries.a2"),
         },
         {
-            title: t("home.queries.q1"),
-            content: t("home.queries.a1"),
+            title: t("home.queries.q3"),
+            content: t("home.queries.a3"),
         },
         {
-            title: t("home.queries.q1"),
-            content: t("home.queries.a1"),
+            title: t("home.queries.q4"),
+            content: t("home.queries.a4"),
+        },
+        {
+            title: t("home.queries.q5"),
+            content: t("home.queries.a5"),
         },
     ];
 

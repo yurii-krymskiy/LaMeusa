@@ -131,7 +131,8 @@ export async function isSlotBlocked(
 
     if (error) {
         console.error("Error checking blocked slots:", error);
-        return { blocked: false };
+        // Fail safe: treat as blocked if we can't verify
+        return { blocked: true, reason: "Unable to verify availability. Please try again." };
     }
 
     if (!data || data.length === 0) {

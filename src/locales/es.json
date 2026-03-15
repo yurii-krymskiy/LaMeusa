@@ -78,9 +78,17 @@
             "reserveTable": "Reservar mesa"
         },
         "queries": {
-            "title": "¿Alguna pregunta?",
-            "q1": "Lorem lorem lorem lorem",
-            "a1": "Mar, sol y alma — todo esto en cada plato. Preferimos productos locales y frescos, combinados con una ejecución delicada: este es el camino al verdadero sabor."
+            "title": "Preguntas frecuentes",
+            "q1": "¿Es La Medusa un restaurante de mariscos?",
+            "a1": "Sí, La Medusa es un restaurante mediterráneo de mariscos en Los Cristianos, que ofrece pescado fresco e ingredientes de origen local preparados con elegancia.",
+            "q2": "¿Dónde se encuentra La Medusa?",
+            "a2": "Somos un restaurante junto al mar en Los Cristianos, una de las zonas gastronómicas más vibrantes de Tenerife.",
+            "q3": "¿Abren hasta tarde?",
+            "a3": "Sí, somos uno de los restaurantes que abren hasta tarde en la zona, perfecto para cenas románticas con vistas al océano.",
+            "q4": "¿Es La Medusa adecuado para cenas románticas?",
+            "a4": "Por supuesto. Nuestra ubicación frente al mar nos convierte en uno de los restaurantes románticos más recomendados de Tenerife.",
+            "q5": "¿Necesito reservar?",
+            "a5": "Aunque aceptamos visitas sin reserva, recomendamos reservar con antelación, especialmente durante la temporada alta, ya que uno de los mejores restaurantes de Los Cristianos tiende a llenarse rápidamente."
         },
         "reserve": {
             "decorative": "Reservar mesa",
