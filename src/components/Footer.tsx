@@ -91,19 +91,21 @@ export const Footer = () => {
                             </li>
                             <li className="mb-5 last:mb-0">
                                 <a
-                                    href="mail:email.example@gmail.com"
+                                    href="mailto:lamedusarestaurants@gmail.com"
                                     className="inline-flex items-center gap-3.5 hover:text-[#3650b9] transition-colors duration-200"
                                 >
                                     <img
                                         src="/icons/email-blue.svg"
                                         className="w-[30px]"
                                     />
-                                    email.example@gmail.com
+                                    lamedusarestaurants@gmail.com
                                 </a>
                             </li>
                             <li className="mb-5 last:mb-0">
                                 <a
-                                    href="mail:email.example@gmail.com"
+                                    href="https://maps.app.goo.gl/M55dr8fUoBHpSpkBA"
+                                    target="_blank"
+                                    rel="noreferrer"
                                     className="inline-flex items-center gap-3.5 hover:text-[#3650b9] transition-colors duration-200"
                                 >
                                     <img
@@ -116,16 +118,16 @@ export const Footer = () => {
                         </ul>
                         <ul className="flex flex-wrap gap-6">
                             <li>
-                                <a href="" className="hover:opacity-70 transition-opacity duration-200">
+                                <a href="https://www.facebook.com/restaurantlamedusa" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity duration-200">
                                     <img
                                         src="/icons/facebook-blue.svg"
-                                        alt="Facebok"
+                                        alt="Facebook"
                                         className="w-[30px]"
                                     />
                                 </a>
                             </li>
                             <li>
-                                <a href="" className="hover:opacity-70 transition-opacity duration-200">
+                                <a href="https://www.instagram.com/la_medusa_tenerife/" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity duration-200">
                                     <img
                                         src="/icons/instagram-blue.svg"
                                         alt="Instagram"
@@ -134,7 +136,7 @@ export const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="" className="hover:opacity-70 transition-opacity duration-200">
+                                <a href="https://wa.me/34603839509" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity duration-200">
                                     <img
                                         src="/icons/whatsapp-blue.svg"
                                         alt="Whatsapp"
@@ -143,19 +145,10 @@ export const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="" className="hover:opacity-70 transition-opacity duration-200">
+                                <a href="https://www.tiktok.com/@lamedusarestaurant" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity duration-200">
                                     <img
                                         src="/icons/tik-tok-blue.svg"
-                                        alt="Tik Tok"
-                                        className="w-[30px]"
-                                    />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" className="hover:opacity-70 transition-opacity duration-200">
-                                    <img
-                                        src="/icons/youtube-blue.svg"
-                                        alt="Youtube"
+                                        alt="TikTok"
                                         className="w-[30px]"
                                     />
                                 </a>

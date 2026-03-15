@@ -132,7 +132,7 @@ export const Menu = () => {
                                         </li>
                                         <li className="mb-5 last:mb-0">
                                             <a
-                                                href="mailto:email.example@gmail.com"
+                                                href="mailto:lamedusarestaurants@gmail.com"
                                                 className="inline-flex items-center gap-3.5 hover:text-[#C0C5D7] transition-colors duration-200"
                                             >
                                                 <img
@@ -140,12 +140,12 @@ export const Menu = () => {
                                                     className="w-[30px]"
                                                     alt="Email"
                                                 />
-                                                email.example@gmail.com
+                                                lamedusarestaurants@gmail.com
                                             </a>
                                         </li>
                                         <li className="mb-5 last:mb-0">
                                             <a
-                                                href="https://maps.google.com?q=Avenida%20La%20Habana%209"
+                                                href="https://maps.app.goo.gl/M55dr8fUoBHpSpkBA"
                                                 target="_blank"
                                                 rel="noreferrer"
                                                 className="inline-flex items-center gap-3.5 hover:text-[#C0C5D7] transition-colors duration-200"
@@ -164,27 +164,22 @@ export const Menu = () => {
                                             {
                                                 alt: "Facebook",
                                                 src: "/icons/facebook-white.svg",
-                                                href: "#",
+                                                href: "https://www.facebook.com/restaurantlamedusa",
                                             },
                                             {
                                                 alt: "Instagram",
                                                 src: "/icons/instagram-white.svg",
-                                                href: "#",
+                                                href: "https://www.instagram.com/la_medusa_tenerife/",
                                             },
                                             {
                                                 alt: "Whatsapp",
                                                 src: "/icons/whatsapp-white.svg",
-                                                href: "#",
+                                                href: "https://wa.me/34603839509",
                                             },
                                             {
                                                 alt: "TikTok",
                                                 src: "/icons/tik-tok-white.svg",
-                                                href: "#",
-                                            },
-                                            {
-                                                alt: "YouTube",
-                                                src: "/icons/youtube-white.svg",
-                                                href: "#",
+                                                href: "https://www.tiktok.com/@lamedusarestaurant",
                                             },
                                         ].map((it) => (
                                             <li key={it.alt}>
@@ -226,7 +221,7 @@ export const Menu = () => {
                                         </li>
                                         <li className="mb-5 last:mb-0">
                                             <a
-                                                href="mailto:email.example@gmail.com"
+                                                href="mailto:lamedusarestaurants@gmail.com"
                                                 className="inline-flex items-center gap-3.5"
                                             >
                                                 <img
@@ -234,12 +229,12 @@ export const Menu = () => {
                                                     className="w-[30px]"
                                                     alt="Email"
                                                 />
-                                                email.example@gmail.com
+                                                lamedusarestaurants@gmail.com
                                             </a>
                                         </li>
                                         <li className="mb-5 last:mb-0">
                                             <a
-                                                href="https://maps.google.com?q=Avenida%20La%20Habana%209"
+                                                href="https://maps.app.goo.gl/M55dr8fUoBHpSpkBA"
                                                 target="_blank"
                                                 rel="noreferrer"
                                                 className="inline-flex items-center gap-3.5"

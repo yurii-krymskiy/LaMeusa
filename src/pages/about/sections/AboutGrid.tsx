@@ -10,7 +10,7 @@ export const AboutGrid = () => {
             <div className="container">
                 <div className="mb-10 flex flex-col items-center gap-5 lg:gap-15 lg:mb-24 lg:flex-row">
                     <img
-                        src="/images/about/image-10.jpg"
+                        src="/images/about/IMG_3159.jpeg"
                         className="max-w-full h-[270px] lg:h-auto lg:max-w-[550px] xl:max-w-[620px] object-cover"
                     />
                     <div>
@@ -40,7 +40,7 @@ export const AboutGrid = () => {
                     <div className="max-w-full lg:max-w-[590px]">
                         <div className="mb-5 lg:mb-10">
                             <img
-                                src="/images/about/image-7.jpg"
+                                src="/images/about/IMG_3184.jpeg"
                                 className="mb-5 max-w-full h-[215px] lg:h-auto lg:max-w-[515px] object-cover"
                             />
                             <span className="section-title title mb-7 inline-block">
@@ -61,7 +61,7 @@ export const AboutGrid = () => {
                     </div>
 
                     <img
-                        src="/images/about/image-9.jpg"
+                        src="/images/about/example.png"
                         className="max-w-full h-[400px] lg:h-[600px] lg:max-w-[690px] object-cover"
                     />
                 </div>

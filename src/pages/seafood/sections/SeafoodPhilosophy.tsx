@@ -22,11 +22,11 @@ export const SeafoodPhilosophy = () => {
                 </div>
 
                 <div className="mb-5 lg:mb-10 flex flex-col justify-between gap-5 lg:gap-14 md:flex-row">
-                    <div className="">
-                        <img src="/images/seafood/image-2.webp" />
+                    <div className="w-full">
+                        <img src="/images/seafood/image-2.webp" className="h-[300px] lg:h-[600px] w-full object-cover" />
                     </div>
-                    <div className="">
-                        <img src="/images/seafood/image-1.webp" />
+                    <div className="w-full">
+                        <img src="/images/seafood/image-1.webp" className="h-[300px] lg:h-[600px] w-full object-cover" />
                     </div>
                 </div>
 
