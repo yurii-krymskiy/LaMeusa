@@ -1,0 +1,430 @@
+{
+    "nav": {
+        "home": "Inicio",
+        "about": "Sobre nosotros",
+        "contact": "Contacto",
+        "menu": "Menú",
+        "seafood": "Mariscos",
+        "pasta": "Pasta",
+        "happyHours": "Happy Hours",
+        "birthday": "Celebraciones de cumpleaños",
+        "bookNow": "Reservar",
+        "bookNowFull": "Reservar ahora"
+    },
+    "footer": {
+        "reviews": "Reseñas",
+        "explore": "Explorar",
+        "burger": "Hamburguesa",
+        "pizza": "Pizza",
+        "paella": "Paella",
+        "contact": "Contacto",
+        "copyright": "© 2025 La Medusa. Todos los derechos reservados.",
+        "terms": "Términos de servicio",
+        "privacy": "Política de privacidad",
+        "cookies": "Configuración de cookies"
+    },
+    "home": {
+        "hero": {
+            "title": "Una mañana junto al océano, una cena con elegancia",
+            "description": "Experimenta el sabor de la cocina mediterránea con el telón de fondo del Océano Atlántico. En La Medusa, creamos una atmósfera donde cada momento es un placer y cada plato es una historia.",
+            "button": "Reservar ahora"
+        },
+        "ourMenu": {
+            "decorative": "Nuestro menú",
+            "title": "Descubre nuestro menú",
+            "p1": "Cada uno de nuestros platos es una sofisticada combinación de ingredientes frescos, frescura oceánica y sabores únicos. Descubre el menú, creado con amor e inspiración, y déjate inspirar.",
+            "p2": "Nuestros chefs crean platos con los ingredientes más frescos. La base es la tradición mediterránea con un acento original.",
+            "button": "Ver menú"
+        },
+        "story": {
+            "title": "Cada plato cuenta una historia",
+            "description": "En La Medusa, cada ingrediente, cada sabor es una agradecida encarnación de la tradición mediterránea. Nuestros chefs se esfuerzan para que cada plato no sea solo comida, sino una emoción que se queda contigo."
+        },
+        "aboutUs": {
+            "decorative": "Sobre nosotros",
+            "title": "El espíritu de La Medusa",
+            "p1": "La Medusa es más que un restaurante. Es un lugar donde el océano se encuentra con la elegancia: vistas de las olas, servicio con alma y una atmósfera que te invita a quedarte.",
+            "p2": "En La Medusa, todo es importante: desde la forma en que la luz cae sobre las mesas hasta la música que suena por la noche. Nos esforzamos para que cada invitado sienta que no es solo un visitante, sino parte de la historia del restaurante.",
+            "button": "Saber más"
+        },
+        "gallery": {
+            "title": "Galería del restaurante",
+            "description": "Echa un vistazo a nuestro corazón: explora la galería y siente La Medusa antes de visitarnos. Del interior a la comida, cada imagen cuenta una historia."
+        },
+        "foodStory": {
+            "decorative": "Historia gastronómica",
+            "title": "Ingredientes frescos, sabor auténtico",
+            "p1": "Mar, sol y alma — todo esto en cada plato. Preferimos productos locales y frescos, combinados con una ejecución delicada: este es el camino al verdadero sabor.",
+            "p2": "Nuestros platos combinan sencillez y sofisticación, porque lo principal es preservar el verdadero sabor de los productos.",
+            "p3": "En cada plato encontrarás armonía: la ternura de las texturas, el brillo de los colores y la fuerza del aroma."
+        },
+        "meets": {
+            "decorative": "Sabor y atmósfera con vistas al océano",
+            "title": "Donde el mar se encuentra con el sabor",
+            "p1": "La Medusa es más que un restaurante. Es un lugar donde las vistas panorámicas al océano se combinan con la exquisita cocina mediterránea. Creamos una atmósfera donde el sabor y la estética se convierten en una experiencia única.",
+            "p2": "Nos esforzamos para que cada cena en La Medusa sea un evento que querrás recordar de nuevo.",
+            "viewMenu": "Ver menú",
+            "reserveTable": "Reservar mesa"
+        },
+        "special": {
+            "title": "Ofertas especiales",
+            "deal1Title": "Dos hamburguesas por una",
+            "deal1Desc": "De 14:30 a 18:00, obtén dos hamburguesas por el precio de una.",
+            "deal2Title": "Hora de los amantes de la pasta",
+            "deal2Desc": "Cada martes y miércoles de 14:00 a 17:00, una copa de vino de regalo con cualquier pasta.",
+            "deal3Title": "Set de mariscos + Vino",
+            "deal3Desc": "Todos los días de 15:00 a 17:00, al pedir un set de mariscos, una copa de vino blanco gratis.",
+            "discoverMenu": "Descubre el menú completo",
+            "reserveTable": "Reservar mesa"
+        },
+        "queries": {
+            "title": "¿Alguna pregunta?",
+            "q1": "Lorem lorem lorem lorem",
+            "a1": "Mar, sol y alma — todo esto en cada plato. Preferimos productos locales y frescos, combinados con una ejecución delicada: este es el camino al verdadero sabor."
+        },
+        "reserve": {
+            "decorative": "Reservar mesa",
+            "title": "Haz que tu cena sea especial",
+            "p1": "Reserva una mesa y pasa una velada en una atmósfera de sofisticación e inspiración.",
+            "p2": "Tu velada en La Medusa será una historia a la que querrás volver.",
+            "button": "Hacer una reserva"
+        }
+    },
+    "about": {
+        "hero": {
+            "title": "QUIÉNES SOMOS",
+            "description": "Lo más importante para nosotros es brindarte una experiencia gastronómica cómoda"
+        },
+        "cuisine": {
+            "decorative": "Historia gastronómica",
+            "title": "Nuestra cocina",
+            "p1": "Los platos de La Medusa son una combinación de tradición mediterránea con una visión moderna. Preparamos para que cada plato sea una historia: texturas, sabores, aromas — todo se siente.",
+            "p2": "Nuestro chef experimenta con acompañamientos del mar, utilizando productos locales y recetas que se han enriquecido a lo largo de los años.",
+            "button": "Ver menú"
+        },
+        "ourTeam": {
+            "title": "Nuestro equipo",
+            "description": "Somos un grupo de personas enamoradas de la gastronomía y el mar. Desde el chef hasta el camarero, todos aportan una parte de sí mismos a la experiencia que obtienes en La Medusa."
+        },
+        "chooseUs": {
+            "title": "Por qué elegirnos",
+            "description": "En La Medusa, cada ingrediente, cada sabor es una agradecida encarnación de la tradición mediterránea. Nuestros chefs se esfuerzan para que cada plato no sea solo comida, sino una emoción que se queda contigo.",
+            "feature1Title": "Sabor y calidad",
+            "feature1Desc": "Utilizamos solo productos frescos locales e importados, prestando mucha atención a cada sabor y combinación.",
+            "feature2Title": "Atmósfera con vistas",
+            "feature2Desc": "Un restaurante con vista panorámica al mar, donde cada momento está lleno de luz y espacio.",
+            "feature3Title": "Servicio con alma",
+            "feature3Desc": "Nuestro equipo cuida de ti con sinceridad, prestando atención a los detalles: desde el servicio hasta las recomendaciones de platos.",
+            "reserveTable": "Reservar mesa",
+            "contactUs": "Contáctanos"
+        },
+        "ourStory": {
+            "decorative": "El equipo",
+            "title": "Nuestra historia",
+            "p1": "La Medusa nació de la idea de crear un lugar donde la gastronomía y el mar se unen en una sola atmósfera...",
+            "p2": "Desde el principio, elegimos el camino de la sofisticación: ingredientes frescos, recetas pensadas y un servicio que comienza antes de que llegues...",
+            "p3": "La Medusa es un equipo de personas enamoradas de la cocina y la hospitalidad. Nos esforzamos para que cada invitado sienta que no es solo un visitante, sino parte de la historia que escribimos juntos."
+        },
+        "grid": {
+            "guitar": {
+                "title": "Noches de guitarra española",
+                "p1": "Cada lunes y sábado, La Medusa ofrece los mejores éxitos interpretados por maestros de la guitarra española...",
+                "p2": "Es el momento perfecto para disfrutar de cócteles exclusivos, hermosas vistas y pasar la velada en compañía exquisita.",
+                "reserveTable": "Reservar mesa",
+                "discoverCocktails": "Descubre nuestros cócteles"
+            },
+            "vocal": {
+                "title": "Éxitos vocales en vivo y cócteles",
+                "p1": "Cada jueves y viernes, te esperan actuaciones vocales en vivo con famosos éxitos mundiales...",
+                "p2": "Termina la semana con sabor y ritmo — en La Medusa.",
+                "button": "Nuestras bebidas"
+            },
+            "burgers": {
+                "title": "Dos hamburguesas por una",
+                "p1": "De lunes a sábado de 14:30 a 18:00 tenemos una oferta especial: dos hamburguesas por el precio de una...",
+                "p2": "Carne jugosa, ingredientes frescos y salsas únicas — la combinación perfecta para un descanso por la tarde.",
+                "button": "Ver oferta"
+            }
+        }
+    },
+    "menu": {
+        "hero": {
+            "title": "descubre nuevas facetas del sabor",
+            "description": "Experimenta el sabor de la cocina mediterránea con el telón de fondo del Océano Atlántico. En La Medusa, creamos una atmósfera donde cada momento es un placer y cada plato es una historia."
+        },
+        "delicious": {
+            "title": "Nuestro delicioso menú",
+            "button": "ver menú"
+        },
+        "reserve": {
+            "decorative": "Reservar mesa",
+            "title": "Planifica tu cumpleaños perfecto"
+        },
+        "categories": {
+            "tapas": "Tapas y aperitivos",
+            "salads": "Ensaladas",
+            "pizza": "Pizza",
+            "pasta": "Pasta",
+            "fish": "Pescado y mariscos",
+            "meat": "Carne",
+            "burgers": "Hamburguesas y más",
+            "paella": "Paella",
+            "desserts": "Postres",
+            "kids": "Menú infantil",
+            "sauces": "Salsas y extras"
+        }
+    },
+    "contact": {
+        "hero": {
+            "title": "Ponte en contacto",
+            "description": "Los ingredientes más frescos para ti todos los días",
+            "openTime": "Horario de apertura",
+            "monSat": "Lunes - Sábado",
+            "hours": "Lunes - Sábado, 12.00 - 23.00",
+            "music": "Música 18.30 - 20.30"
+        },
+        "us": {
+            "decorative": "Contáctanos",
+            "title": "Cómo encontrarnos",
+            "description": "Te esperamos todos los días a la hora indicada, con un servicio listo para ofrecer atmósfera y sabor.",
+            "restaurantHours": "Horario del restaurante",
+            "address": "Dirección",
+            "phone": "Teléfono",
+            "email": "Correo electrónico"
+        },
+        "instagram": {
+            "title": "Nuestro Instagram",
+            "button": "Síguenos"
+        },
+        "reserve": {
+            "decorative": "Reservar mesa",
+            "title": "Reservación"
+        }
+    },
+    "birthday": {
+        "hero": {
+            "title": "Tu cumpleaños, nuestra celebración",
+            "description": "En La Medusa, un cumpleaños se convierte en un evento que recordarás durante mucho tiempo. Cocina exquisita, un ambiente acogedor y una vista panorámica crean el lugar perfecto para momentos especiales.",
+            "bookButton": "Reserva tu celebración",
+            "menuButton": "Explora nuestros menús"
+        },
+        "why": {
+            "title": "Por qué elegir La Medusa para tu cumpleaños",
+            "feature1Title": "Atmósfera",
+            "feature1Desc": "Interior elegante y una vista mágica al mar.",
+            "feature2Title": "Menú individual",
+            "feature2Desc": "Te ayudaremos a crear la selección perfecta de platos y bebidas.",
+            "feature3Title": "Música en vivo y cócteles",
+            "feature3Desc": "Crea un ambiente especial para los invitados.",
+            "reserveTable": "Reservar mesa",
+            "contactUs": "Contáctanos"
+        },
+        "gallery": {
+            "title": "Un lugar para recordar",
+            "description": "Nuestro restaurante crea la combinación perfecta de cocina exquisita y vistas panorámicas. Es un lugar donde un cumpleaños se convierte en más que una celebración: es una experiencia inolvidable."
+        },
+        "gift": {
+            "decorative": "Sugerencias",
+            "title": "Regalos de cumpleaños de La Medusa",
+            "p1": "En tu día especial, nos aseguraremos de que la atmósfera sea aún más cálida. Para cada cumpleañero, nuestro chef prepara un pastel de cumpleaños, que servimos con felicitaciones de todo el personal.",
+            "p2": "Es el momento en que el restaurante se llena de emociones sinceras, y tu velada se vuelve aún más festiva. Creemos que estos detalles crean recuerdos que duran para siempre.",
+            "button": "Celebra con nosotros"
+        },
+        "grid": {
+            "set1Title": "Set de celebración de mariscos",
+            "set1Desc": "Especialidades de mariscos: ostras, camarones, salmón a la parrilla y un set de vinos blancos...",
+            "set2Title": "Velada de pasta y vino",
+            "set2Desc": "Una variedad de pasta (Carbonara, Vongole, Tagliatelle de trufa) maridada con vino italiano...",
+            "set3Title": "Mesa dulce de cumpleaños",
+            "set3Desc": "Un surtido de postres del chef: pastel de cumpleaños, delicado tiramisú, panna cotta...",
+            "reserveTable": "Reservar mesa",
+            "viewMenu": "Ver menú completo de cumpleaños"
+        },
+        "reserve": {
+            "decorative": "Reservar mesa",
+            "title": "Planifica tu cumpleaños perfecto"
+        }
+    },
+    "happy": {
+        "hero": {
+            "title": "Happy Hours en La Medusa",
+            "description": "El mejor momento del día es cuando puedes disfrutar de tus platos y bebidas favoritos a precios especiales. Creamos Happy Hours para hacer tus encuentros con amigos o colegas aún más agradables.",
+            "exploreMenu": "Explorar menú",
+            "reserveTable": "Reservar mesa"
+        },
+        "why": {
+            "decorative": "Happy Hours",
+            "title": "Por qué te encantarán nuestras Happy Hours",
+            "p1": "En este momento, La Medusa se transforma en un lugar con una atmósfera especial. Ofrecemos no solo ofertas rentables, sino también la oportunidad de probar cócteles exclusivos, platos de autor y disfrutar de música en vivo.",
+            "p2": "Happy Hours no solo se trata de ahorrar, sino también de nuevas emociones."
+        },
+        "special": {
+            "title": "Ofertas especiales",
+            "discoverMenu": "Descubre el menú completo"
+        },
+        "gallery": {
+            "decorative": "Galería",
+            "title": "Buen ambiente, gran compañía",
+            "description": "Happy Hours en La Medusa son más que una promoción. Es un momento en que las personas se reúnen para relajarse, disfrutar de la música, socializar y sentir la atmósfera de nuestro restaurante."
+        },
+        "reserve": {
+            "decorative": "Reservar mesa",
+            "title": "Únete a nuestras Happy Hours",
+            "description": "No pierdas la oportunidad de experimentar la atmósfera de La Medusa en un momento especial. Reserva una mesa y pasa las mejores horas de tu día con nosotros.",
+            "reserveNow": "Reservar ahora",
+            "contactUs": "Contáctanos"
+        }
+    },
+    "booking": {
+        "decorative": "Reservar mesa",
+        "title": "Reservación",
+        "back": "Atrás",
+        "table": {
+            "title": "Reservar una mesa",
+            "description": "Reserva una mesa con nosotros hoy, tenemos un gran ambiente que te encantará.",
+            "note": "*Más de 8 personas, por favor contacte",
+            "noteEmail": "lamedusarestaurants@gmail.com"
+        },
+        "confirm": {
+            "title": "Confirmación de reserva",
+            "description": "Por favor, confirma si has ingresado todo correctamente y escribe tu correo electrónico y número de teléfono para confirmar la reserva."
+        }
+    },
+    "pasta": {
+        "hero": {
+            "title": "Una sinfonía de pasta",
+            "description": "Pasta casera hecha con los mejores ingredientes es el corazón de la cocina italiana. En La Medusa, creamos platos que combinan tradición y originalidad...",
+            "exploreMenu": "Menú de pasta",
+            "reserveTable": "Reservar mesa"
+        },
+        "why": {
+            "title": "¿Por qué nuestra pasta?",
+            "descDesktop": "La pasta no es solo un plato, sino un momento de disfrute.",
+            "descMobile": "En La Medusa, cada ingrediente, cada sabor es una agradecida encarnación de la tradición mediterránea...",
+            "feature1Title": "Fresca cada día",
+            "feature1Desc": "Preparamos la pasta nosotros mismos, utilizando técnicas auténticas.",
+            "feature2Title": "Ingredientes locales e italianos",
+            "feature2Desc": "Combinando lo mejor de ambos mundos.",
+            "feature3Title": "Salsas de autor",
+            "feature3Desc": "Desde la clásica boloñesa hasta combinaciones únicas con mariscos.",
+            "reserveTable": "Reservar mesa",
+            "contactUs": "Contáctanos"
+        },
+        "gallery": {
+            "decorative": "Galería",
+            "title": "Para todos los gustos",
+            "description": "Delicada tagliatelle, aromática penne, exquisitos ravioli o clásicos espaguetis — nuestro menú tiene una pasta para cada estado de ánimo..."
+        },
+        "hours": {
+            "title": "Hora de los amantes de la pasta",
+            "description": "Cada martes y miércoles de 14:00 a 17:00 — una promoción única: pide cualquier pasta y recibe una copa de vino de regalo...",
+            "viewOffer": "Ver oferta",
+            "bookNow": "Reservar ahora"
+        },
+        "meets": {
+            "decorative": "Reservar mesa",
+            "title": "La tradición se encuentra con la creatividad",
+            "p1": "La pasta es un plato que ha pasado a través de los siglos y sigue siendo un símbolo de confort y cultura gastronómica...",
+            "p2": "En La Medusa, creemos que la pasta es el lenguaje de las emociones...",
+            "p3": "Para nosotros, la pasta no es solo comida, sino un momento en que el tiempo se detiene y disfrutas de la armonía del sabor, el aroma y la atmósfera."
+        },
+        "video": {
+            "title": "De nuestra cocina con amor",
+            "description": "Creemos que nuestros invitados sienten nuestro amor por el proceso. Desde amasar la masa hasta el toque final en el plato, la pasta de La Medusa se crea con alma."
+        },
+        "reserve": {
+            "decorative": "Reservar mesa",
+            "title": "Haz que tu cena sea especial",
+            "p1": "Reserva una mesa y pasa una velada en una atmósfera de sofisticación e inspiración.",
+            "p2": "Tu velada en La Medusa será una historia a la que querrás volver.",
+            "button": "Hacer una reserva"
+        }
+    },
+    "seafood": {
+        "hero": {
+            "title": "Descubre el sabor del océano",
+            "description": "Mariscos frescos entregados diariamente, en las recetas originales de nuestros chefs. Es un viaje culinario por la costa mediterránea — desde platos clásicos hasta interpretaciones modernas.",
+            "exploreMenu": "Explorar menú",
+            "reserveTable": "Reservar mesa"
+        },
+        "philosophy": {
+            "title": "Nuestra filosofía de los mariscos",
+            "p1": "Creemos que el secreto de una comida perfecta es el pescado y los mariscos frescos, especias cuidadosamente seleccionadas y un equilibrio de sabores...",
+            "p2": "Los mariscos en La Medusa son parte de la historia y la cultura. Queremos que cada comida sea más que un almuerzo o una cena, sino un momento para recordar."
+        },
+        "happyHours": {
+            "decorative": "Happy Hours",
+            "title": "Happy Hours de mariscos",
+            "description": "Todos los días de 15:00 a 17:00, hay una oferta especial: al pedir un set de mariscos, recibes una copa de vino de regalo...",
+            "viewOffer": "Ver oferta",
+            "bookNow": "Reservar ahora"
+        },
+        "why": {
+            "title": "¿Por qué mariscos en La Medusa?",
+            "description": "En La Medusa, cada ingrediente, cada sabor es una agradecida encarnación de la tradición mediterránea...",
+            "feature1Title": "Sabor y calidad",
+            "feature1Desc": "Utilizamos solo productos frescos locales e importados, prestando mucha atención a cada sabor y combinación.",
+            "feature2Title": "Atmósfera con vistas",
+            "feature2Desc": "Un restaurante con vista panorámica al mar, donde cada momento está lleno de luz y espacio.",
+            "feature3Title": "Servicio con alma",
+            "feature3Desc": "Nuestro equipo cuida de ti con sinceridad, prestando atención a los detalles: desde el servicio hasta las recomendaciones de platos.",
+            "reserveTable": "Reservar mesa",
+            "contactUs": "Contáctanos"
+        },
+        "gallery": {
+            "decorative": "Galería",
+            "title": "Más que un plato",
+            "description": "Los mariscos en La Medusa son parte de la historia y la cultura. Queremos que cada comida sea más que un almuerzo o una cena, sino un momento para recordar."
+        },
+        "reserve": {
+            "decorative": "Reservar mesa",
+            "title": "Haz que tu cena sea especial",
+            "p1": "Reserva una mesa y pasa una velada en una atmósfera de sofisticación e inspiración.",
+            "p2": "Tu velada en La Medusa será una historia a la que querrás volver.",
+            "button": "Hacer una reserva"
+        }
+    },
+    "reservation": {
+        "fullName": "Nombre completo",
+        "numberOfGuests": "Número de invitados",
+        "email": "Correo electrónico",
+        "phone": "Número de teléfono",
+        "time": "Hora",
+        "date": "Fecha",
+        "additionalWishes": "Deseos adicionales",
+        "promoCode": "Escribe el código promocional aquí",
+        "apply": "Aplicar",
+        "bookNow": "Reservar ahora",
+        "reserveNow": "Reservar ahora",
+        "booking": "Reservando...",
+        "checking": "Verificando...",
+        "confirming": "Confirmando...",
+        "confirm": "Confirmar",
+        "makeAnother": "Hacer otra reserva",
+        "goHome": "Ir al inicio",
+        "guestsQuestion": "¿Cuántos invitados asistirán?",
+        "maxGuests": "Para grupos de más de 8 personas, por favor llámenos",
+        "enterName": "Por favor, ingresa tu nombre completo",
+        "enterGuests": "Por favor, ingresa el número de invitados",
+        "selectTime": "Por favor, selecciona la hora de reserva",
+        "selectDate": "Por favor, selecciona la fecha de reserva",
+        "noTables": "No hay mesas disponibles para esta hora",
+        "checkFailed": "No se pudo verificar la disponibilidad. Inténtalo de nuevo.",
+        "createFailed": "No se pudo crear la reserva",
+        "unexpectedError": "Ocurrió un error inesperado. Inténtalo de nuevo.",
+        "checkingAvailability": "Verificando disponibilidad...",
+        "tablesAvailable": "¡Mesas disponibles para tu reserva!",
+        "confirmed": "¡Reserva confirmada!",
+        "thankYou": "Gracias por tu reserva. ¡Esperamos verte pronto!",
+        "sendingConfirmation": "Enviando confirmación...",
+        "emailSent": "¡Correo de confirmación enviado!",
+        "emailFailed": "No se pudo enviar el correo, pero tu reserva está confirmada.",
+        "disclaimer": "Al hacer clic en el botón de reserva, aceptas el procesamiento de datos personales",
+        "numberOfGuestsLabel": "Número de invitados",
+        "dateAndTime": "Fecha y hora",
+        "person": "persona",
+        "persons": "personas",
+        "missingDetails": "Faltan detalles de la reserva",
+        "yourTableReserved": "Tu mesa ha sido reservada para {{guests}} {{personWord}} el {{date}}."
+    }
+}

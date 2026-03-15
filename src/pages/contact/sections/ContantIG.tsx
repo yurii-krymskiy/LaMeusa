@@ -1,8 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { SwiperSlide } from "swiper/react";
 import { BasicSwiper } from "../../../components/features/BasicSwiper";
 import { Button } from "../../../components/ui/Button";
 
 export const ContactIG = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="section">
             <div className="container">
@@ -12,7 +15,7 @@ export const ContactIG = () => {
                         alt="star"
                         className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
-                    <p className="title section-title">Our instagram</p>
+                    <p className="title section-title">{t("contact.instagram.title")}</p>
                 </div>
 
                 <div className="hidden gap-10 lg:flex">
@@ -29,7 +32,7 @@ export const ContactIG = () => {
                             </div>
                         </div>
                         <Button variant="blue-outline" className="self-end">
-                            Follow us
+                            {t("contact.instagram.button")}
                         </Button>
                     </div>
                 </div>
@@ -49,7 +52,7 @@ export const ContactIG = () => {
                         </BasicSwiper>
                     </div>
                     <Button variant="blue-outline" className="self-end">
-                        Follow us
+                        {t("contact.instagram.button")}
                     </Button>
                 </div>
             </div>

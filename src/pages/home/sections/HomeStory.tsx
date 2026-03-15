@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 export const HomeStory = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="section decorative-line">
             <div className="container">
@@ -9,13 +13,10 @@ export const HomeStory = () => {
                         className="mx-auto mb-2 lg:mb-6 h-[22px] w-[22px]"
                     />
                     <p className="title section-title mb-6 text-center text-[48px]">
-                        Every dish tells a story
+                        {t("home.story.title")}
                     </p>
                     <p className="description section-description text-center">
-                        At La Medusa, every ingredient, every flavor is a
-                        grateful embodiment of Mediterranean
-                        <br /> tradition. Our chefs strive for each dish to be
-                        not just food, but an emotion that stays with you.
+                        {t("home.story.description")}
                     </p>
                 </div>
 

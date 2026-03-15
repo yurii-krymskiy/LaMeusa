@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
 import { ButtonOpenReservation } from "../../../components/features/reservation-form/ButtonOpenReservation";
 import { Button } from "../../../components/ui/Button";
 
 export const PastaHours = () => {
+    const { t } = useTranslation();
     return (
         <section className="section">
             <div className="container">
@@ -15,20 +17,16 @@ export const PastaHours = () => {
                     <div>
                         <div className="mb-5 lg:mb-10">
                             <span className="section-title title mb-7 inline-block">
-                                Pasta Lovers Hour
+                                {t("pasta.hours.title")}
                             </span>
                             <p className="section-description description">
-                                Every <b>Tuesday</b> and <b>Wednesday</b> from
-                                <b>2:00 PM</b> to <b>5:00 PM</b> — a unique
-                                promotion: order any pasta and receive a glass
-                                of wine as a gift. A great opportunity to make
-                                lunch or dinner even more enjoyable.
+                                {t("pasta.hours.description")}
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-6">
-                            <Button variant="blue">View Offer</Button>
+                            <Button variant="blue">{t("pasta.hours.viewOffer")}</Button>
                             <ButtonOpenReservation variant="blue-outline">
-                                Book Now
+                                {t("pasta.hours.bookNow")}
                             </ButtonOpenReservation>
                         </div>
                     </div>

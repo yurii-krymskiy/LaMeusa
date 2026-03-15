@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import { MenuItem } from "../../../components/features/menu/content/item/MenuItem";
 import { MenuResolver } from "../../../components/features/menu/menuResolver";
@@ -10,6 +11,7 @@ import { CategoryTabsSkeleton } from "../../../components/features/menu/content/
 import { MenuItemSkeletonGrid } from "../../../components/features/menu/content/item/MenuItemSkeleton";
 
 export const MenuDelicios = () => {
+    const { t } = useTranslation();
     const location = useLocation().pathname;
     const { items, isLoading } = useMenuItems();
 
@@ -57,7 +59,7 @@ export const MenuDelicios = () => {
                         ) : (
                             <p className="decorative">Menu</p>
                         )}
-                        <p className="title section-title">Our delicious menu</p>
+                        <p className="title section-title">{t("menu.delicious.title")}</p>
                     </div>
 
                     <CategoryTabsSkeleton />
@@ -65,7 +67,7 @@ export const MenuDelicios = () => {
 
                     <div className="text-center">
                         <Button variant="blue" to={Paths.menu}>
-                            view menu
+                            {t("menu.delicious.button")}
                         </Button>
                     </div>
                 </div>
@@ -87,7 +89,7 @@ export const MenuDelicios = () => {
                         <p className="decorative">Menu</p>
                     )}
 
-                    <p className="title section-title">Our delicious menu</p>
+                    <p className="title section-title">{t("menu.delicious.title")}</p>
                 </div>
 
                 <div className="mb-11 flex flex-wrap justify-center gap-5">
@@ -114,7 +116,7 @@ export const MenuDelicios = () => {
                 </article>
                 <div className="text-center">
                     <Button variant="blue" to={Paths.menu}>
-                        view menu
+                        {t("menu.delicious.button")}
                     </Button>
                 </div>
             </div>

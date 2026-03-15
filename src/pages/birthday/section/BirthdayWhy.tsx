@@ -1,9 +1,12 @@
+import { useTranslation } from "react-i18next";
 import { ButtonOpenReservation } from "../../../components/features/reservation-form/ButtonOpenReservation";
 import { Breadcrumb } from "../../../components/ui/Breadcrumb";
 import { Button } from "../../../components/ui/Button";
 import { Paths } from "../../../router";
 
 export const BirthdayWhy = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="section-breadcrumb">
             <div className="container">
@@ -15,7 +18,7 @@ export const BirthdayWhy = () => {
                         className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
                     <p className="title section-title">
-                        Why Choose La Medusa for Your Birthday
+                        {t("birthday.why.title")}
                     </p>
                 </div>
                 <img
@@ -31,10 +34,10 @@ export const BirthdayWhy = () => {
                         />
                         <div>
                             <span className="title mb-2.5 inline-block text-lg md:text-xl">
-                                Atmosphere
+                                {t("birthday.why.feature1Title")}
                             </span>
                             <p className="description md:text-lg">
-                                Elegant interior and a magical sea view.
+                                {t("birthday.why.feature1Desc")}
                             </p>
                         </div>
                     </div>
@@ -45,11 +48,10 @@ export const BirthdayWhy = () => {
                         />
                         <div>
                             <span className="title mb-2.5 inline-block text-lg md:text-xl">
-                                Individual menu
+                                {t("birthday.why.feature2Title")}
                             </span>
                             <p className="description md:text-lg">
-                                We will help you create the perfect selection of
-                                dishes and drinks.
+                                {t("birthday.why.feature2Desc")}
                             </p>
                         </div>
                     </div>
@@ -60,10 +62,10 @@ export const BirthdayWhy = () => {
                         />
                         <div>
                             <span className="title mb-2.5 inline-block text-lg md:text-xl">
-                                Live music and cocktails
+                                {t("birthday.why.feature3Title")}
                             </span>
                             <p className="description md:text-lg">
-                                Create a special mood for guests.
+                                {t("birthday.why.feature3Desc")}
                             </p>
                         </div>
                     </div>
@@ -71,10 +73,10 @@ export const BirthdayWhy = () => {
 
                 <div className="flex flex-wrap justify-center gap-5 md:gap-10">
                     <ButtonOpenReservation variant="blue">
-                        Reserve a Table
+                        {t("birthday.why.reserveTable")}
                     </ButtonOpenReservation>
                     <Button variant="blue-outline" to={Paths.contact}>
-                        Contact us
+                        {t("birthday.why.contactUs")}
                     </Button>
                 </div>
             </div>

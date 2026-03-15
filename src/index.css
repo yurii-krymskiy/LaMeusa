@@ -129,7 +129,7 @@
 
 /* hero */
 .hero {
-    @apply relative min-h-[500px] bg-cover bg-no-repeat px-3 md:min-h-[640px];
+    @apply relative min-h-[500px] bg-cover bg-no-repeat px-5 md:min-h-[640px];
 }
 
 .hero-title {

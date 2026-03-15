@@ -67,13 +67,13 @@ export type PathsType = typeof Paths;
 export type PathValue = (typeof Paths)[keyof typeof Paths];
 
 export const pagesLabels = [
-    { path: Paths.home, label: "Home" },
-    { path: Paths.about, label: "About" },
-    { path: Paths.contact, label: "Contact" },
-    { path: Paths.seafood, label: "Seafood" },
+    { path: Paths.home, label: "nav.home" },
+    { path: Paths.about, label: "nav.about" },
+    { path: Paths.contact, label: "nav.contact" },
+    { path: Paths.seafood, label: "nav.seafood" },
 
-    { path: Paths.pasta, label: "Pasta" },
-    { path: Paths.menu, label: "Menu" },
-    { path: Paths.happyHours, label: "Happy Hours" },
-    { path: Paths.birthdays, label: "Birthday Celebrations" },
+    { path: Paths.pasta, label: "nav.pasta" },
+    { path: Paths.menu, label: "nav.menu" },
+    { path: Paths.happyHours, label: "nav.happyHours" },
+    { path: Paths.birthdays, label: "nav.birthday" },
 ];

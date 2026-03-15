@@ -1,9 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { ButtonOpenReservation } from "../../../components/features/reservation-form/ButtonOpenReservation";
 import { Breadcrumb } from "../../../components/ui/Breadcrumb";
 import { Button } from "../../../components/ui/Button";
 import { Paths } from "../../../router";
 
 export const PastaWhy = () => {
+    const { t } = useTranslation();
     return (
         <section className="section-breadcrumb">
             <div className="container">
@@ -14,12 +16,12 @@ export const PastaWhy = () => {
                         alt="star"
                         className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
-                    <p className="title section-title">Why Our Pasta?</p>
+                    <p className="title section-title">{t("pasta.why.title")}</p>
                     <p className="description hidden lg:inline-block section-description">
-                        Pasta is not just a dish, but a moment of enjoyment.
+                        {t("pasta.why.descDesktop")}
                     </p>
                     <p className="description lg:hidden section-description inline-block">
-                        At <strong>La Medusa</strong>, every ingredient, every flavor is a grateful embodiment of Mediterranean tradition. Our chefs strive for each dish to be not just food, but an emotion that stays with you.
+                        {t("pasta.why.descMobile")}
                     </p>
                 </div>
                 <img
@@ -35,11 +37,10 @@ export const PastaWhy = () => {
                         />
                         <div>
                             <span className="title mb-2.5 inline-block text-lg md:text-xl">
-                                Fresh every day
+                                {t("pasta.why.feature1Title")}
                             </span>
                             <p className="description md:text-lg">
-                                We prepare the pasta ourselves, using authentic
-                                techniques.
+                                {t("pasta.why.feature1Desc")}
                             </p>
                         </div>
                     </div>
@@ -50,10 +51,10 @@ export const PastaWhy = () => {
                         />
                         <div>
                             <span className="title mb-2.5 inline-block text-lg md:text-xl">
-                                Local and Italian ingredients
+                                {t("pasta.why.feature2Title")}
                             </span>
                             <p className="description md:text-lg">
-                                Combining the best of both worlds.
+                                {t("pasta.why.feature2Desc")}
                             </p>
                         </div>
                     </div>
@@ -64,11 +65,10 @@ export const PastaWhy = () => {
                         />
                         <div>
                             <span className="title mb-2.5 inline-block text-lg md:text-xl">
-                                Author's sauces
+                                {t("pasta.why.feature3Title")}
                             </span>
                             <p className="description md:text-lg">
-                                From classic Bolognese to unique combinations
-                                with seafood.
+                                {t("pasta.why.feature3Desc")}
                             </p>
                         </div>
                     </div>
@@ -76,10 +76,10 @@ export const PastaWhy = () => {
 
                 <div className="flex flex-wrap justify-center gap-5 md:gap-10">
                     <ButtonOpenReservation variant="blue">
-                        Reserve a Table
+                        {t("pasta.why.reserveTable")}
                     </ButtonOpenReservation>
                     <Button variant="blue-outline" to={Paths.contact}>
-                        Contact us
+                        {t("pasta.why.contactUs")}
                     </Button>
                 </div>
             </div>

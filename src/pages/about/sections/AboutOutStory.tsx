@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 export const AboutOutStory = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="section">
             <div className="container flex flex-col items-end gap-5 lg:gap-10 lg:flex-row">
@@ -8,22 +12,13 @@ export const AboutOutStory = () => {
                 />
 
                 <div>
-                    <span className="decorative">The Team</span>
-                    <div className="title section-title">Our Story</div>
+                    <span className="decorative">{t("about.ourStory.decorative")}</span>
+                    <div className="title section-title">{t("about.ourStory.title")}</div>
                     <p className="description section-description mb-3">
-                        <b>La Medusa</b> was born from the idea of creating a
-                        place where gastronomy and the sea come together in one
-                        atmosphere. We have always believed that a restaurant is
-                        not only about food, but also a space that conveys
-                        emotions and gives a sense of the specialness of the
-                        moment.
+                        {t("about.ourStory.p1")}
                     </p>
                     <p className="description section-description mb-3">
-                        From the very beginning, we chose the path of
-                        sophistication: fresh ingredients, thoughtful recipes,
-                        and service that begins before you even arrive. The
-                        panoramic ocean view was our inspiration - every evening
-                        here turns into a story that you want to repeat.
+                        {t("about.ourStory.p2")}
                     </p>
 
                     <div className="flex gap-3.5 py-3">
@@ -38,10 +33,7 @@ export const AboutOutStory = () => {
                         </div>
                     </div>
                     <p className="description section-description">
-                        <b>La Medusa</b> is a team of people in love with
-                        cooking and hospitality. We strive to make each of our
-                        guests feel like they are not just a visitor, but a part
-                        of the story we are writing together.
+                        {t("about.ourStory.p3")}
                     </p>
                 </div>
             </div>

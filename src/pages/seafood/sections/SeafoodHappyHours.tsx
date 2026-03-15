@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
 import { ButtonOpenReservation } from "../../../components/features/reservation-form/ButtonOpenReservation";
 import { Button } from "../../../components/ui/Button";
 
 export const SeafoodHappyHours = () => {
+    const { t } = useTranslation();
     return (
         <section className="section">
             <div className="container">
@@ -15,24 +17,19 @@ export const SeafoodHappyHours = () => {
                     <div>
                         <div className="mb-5 lg:mb-10">
                             <span className="decorative mb-2.5 block">
-                                Happy Hours
+                                {t("seafood.happyHours.decorative")}
                             </span>
                             <span className="section-title title mb-7 inline-block">
-                                Seafood Happy Hours
+                                {t("seafood.happyHours.title")}
                             </span>
                             <p className="section-description description">
-                                Every day from <b>3:00 PM</b> to <b>5:00 PM</b>,
-                                there is a special offer: when you order a
-                                seafood set, you get a glass of wine as a gift.
-                                This is a great opportunity to try several
-                                dishes at once and experience the fullness of
-                                the Mediterranean flavor.
+                                {t("seafood.happyHours.description")}
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-6">
-                            <Button variant="blue">View Offer</Button>
+                            <Button variant="blue">{t("seafood.happyHours.viewOffer")}</Button>
                             <ButtonOpenReservation variant="blue-outline">
-                                Book Now
+                                {t("seafood.happyHours.bookNow")}
                             </ButtonOpenReservation>
                         </div>
                     </div>

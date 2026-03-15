@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { useBookingStore } from "./store";
 import {
     BookConfirmSchemaPick,
@@ -19,6 +20,7 @@ import {
 import { FormErrors, SingleError } from "../../ui/FormErrors";
 
 export const TableConfirm = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
     const [isSuccess, setIsSuccess] = useState(false);
     const [emailStatus, setEmailStatus] = useState<"pending" | "sent" | "failed">("pending");
@@ -50,7 +52,7 @@ export const TableConfirm = () => {
 
     const onSubmit = async (data: BookConfirmSchemaPickType) => {
         if (!guests || !time || !date) {
-            setError("Missing reservation details");
+            setError(t("reservation.missingDetails"));
             return;
         }
 
@@ -94,11 +96,11 @@ export const TableConfirm = () => {
                     setEmailStatus("sent"); // No email to send
                 }
             } else {
-                setError(result.error || "Failed to create reservation");
+                setError(result.error || t("reservation.createFailed"));
             }
         } catch (err) {
             console.error("Error creating reservation:", err);
-            setError("An unexpected error occurred. Please try again.");
+            setError(t("reservation.unexpectedError"));
         } finally {
             setIsSubmitting(false);
         }
@@ -116,7 +118,7 @@ export const TableConfirm = () => {
 
     const calculateS = (guests: number | null | undefined) => {
         const n = Number(guests ?? 0);
-        return n === 1 ? "person" : "persons";
+        return n === 1 ? t("reservation.person") : t("reservation.persons");
     };
 
     const calculateTime = (
@@ -155,11 +157,10 @@ export const TableConfirm = () => {
                     </svg>
                 </div>
                 <h2 className="title mb-2 text-2xl font-semibold">
-                    Reservation Confirmed!
+                    {t("reservation.confirmed")}
                 </h2>
                 <p className="description mb-6">
-                    Your table has been reserved for {guests} {calculateS(guests)} on{" "}
-                    {calculateTime(date, time)}.
+                    {t("reservation.yourTableReserved", { guests, personWord: calculateS(guests), date: calculateTime(date, time) })}
                 </p>
                 {emailStatus === "pending" && (
                     <p className="description mb-6 text-sm text-gray-500 flex items-center justify-center gap-2">
@@ -183,7 +184,7 @@ export const TableConfirm = () => {
                                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                             />
                         </svg>
-                        Sending confirmation email...
+                        {t("reservation.sendingConfirmation")}
                     </p>
                 )}
                 {emailStatus === "sent" && (
@@ -195,12 +196,12 @@ export const TableConfirm = () => {
                                 clipRule="evenodd"
                             />
                         </svg>
-                        Confirmation email sent successfully!
+                        {t("reservation.emailSent")}
                     </p>
                 )}
                 {emailStatus === "failed" && (
                     <p className="description mb-6 text-sm text-amber-600">
-                        Could not send confirmation email, but your reservation is confirmed.
+                        {t("reservation.emailFailed")}
                     </p>
                 )}
                 <div className="flex flex-col gap-3">
@@ -210,7 +211,7 @@ export const TableConfirm = () => {
                         className="!w-full"
                         onClick={handleGoHome}
                     >
-                        Go to Home
+                        {t("reservation.goHome")}
                     </Button>
                     <Button
                         type="button"
@@ -218,7 +219,7 @@ export const TableConfirm = () => {
                         className="!w-full"
                         onClick={handleNewReservation}
                     >
-                        Make Another Reservation
+                        {t("reservation.makeAnother")}
                     </Button>
                 </div>
             </div>
@@ -230,7 +231,7 @@ export const TableConfirm = () => {
             <div className="mb-5 md:mb-10 flex flex-wrap justify-between gap-5">
                 <div>
                     <span className="title normal-case md:text-xl">
-                        Number of Guests
+                        {t("reservation.numberOfGuestsLabel")}
                     </span>
                     <div className="description md:text-lg">
                         {guests} {calculateS(guests)}
@@ -238,7 +239,7 @@ export const TableConfirm = () => {
                 </div>
                 <div>
                     <span className="title normal-case md:text-xl">
-                        Date and Time
+                        {t("reservation.dateAndTime")}
                     </span>
                     <div className="description md:text-lg">
                         {calculateTime(date, time)}
@@ -267,14 +268,14 @@ export const TableConfirm = () => {
                     <Input
                         type="email"
                         className="w-full"
-                        placeholder="Email"
+                        placeholder={t("reservation.email")}
                         {...form.register("email")}
                         disabled={isSubmitting}
                     />
                     <Input
                         type="phone"
                         className="w-full"
-                        placeholder="Phone Number"
+                        placeholder={t("reservation.phone")}
                         {...form.register("phone")}
                         disabled={isSubmitting}
                     />
@@ -307,10 +308,10 @@ export const TableConfirm = () => {
                                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                                 />
                             </svg>
-                            Confirming...
+                            {t("reservation.confirming")}
                         </span>
                     ) : (
-                        "Confirm"
+                        t("reservation.confirm")
                     )}
                 </Button>
             </form>

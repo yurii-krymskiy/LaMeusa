@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 export const Footer = () => {
+    const { t } = useTranslation();
+
     return (
         <>
             <footer className="bg-white-100 py-16">
@@ -24,7 +28,7 @@ export const Footer = () => {
                                         />
                                     </div>
                                     <span className="description text-xs">
-                                        <b>1131</b> Reviews
+                                        <b>1131</b> {t("footer.reviews")}
                                     </span>
                                 </div>
                                 <div>
@@ -40,7 +44,7 @@ export const Footer = () => {
                                         />
                                     </div>
                                     <span className="description text-xs">
-                                        <b>1523</b> Reviews
+                                        <b>1523</b> {t("footer.reviews")}
                                     </span>
                                 </div>
                             </div>
@@ -49,28 +53,28 @@ export const Footer = () => {
 
                     <div className="w-full md:w-[420px]">
                         <div className="title border-navy mb-3.5 border-b pb-3.5 text-xl font-normal text-gray-700 capitalize">
-                            Explore
+                            {t("footer.explore")}
                         </div>
-                        <div className="flex justify-between">
+                        <div className="flex flex-row gap-5 lg:gap-10 justify-between">
                             <ul className="text-royal-blue flex flex-col gap-2.5 font-semibold md:text-lg">
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Home</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Menu</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">About</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Seafood</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Paella</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("nav.home")}</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("nav.menu")}</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("nav.about")}</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("nav.seafood")}</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("footer.paella")}</li>
                             </ul>
                             <ul className="text-royal-blue flex flex-col gap-2.5 font-semibold md:text-lg">
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Burger</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Birthday Celebrations</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Happy hours</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">Pizza</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("footer.burger")}</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("nav.birthday")}</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("nav.happyHours")}</li>
+                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("footer.pizza")}</li>
                             </ul>
                         </div>
                     </div>
 
                     <div className="w-full md:w-[320px]">
                         <div className="title border-navy mb-3.5 border-b pb-3.5 text-xl font-normal text-gray-700 capitalize">
-                            Contact
+                            {t("footer.contact")}
                         </div>
                         <ul className="text-royal-blue mb-7 text-sm font-semibold md:text-lg">
                             <li className="mb-5 last:mb-0">
@@ -163,13 +167,13 @@ export const Footer = () => {
             <div className="bg-royal-blue">
                 <div className="container flex flex-col justify-between py-5 text-xs text-white md:flex-row md:text-lg">
                     <p className="flex-1 text-center md:text-left">
-                        © 2025 La Medusa. All rights reserved.
+                        {t("footer.copyright")}
                     </p>
 
                     <div className="mt-4 flex flex-1 items-center justify-center gap-10 md:mt-0 md:justify-end">
-                        <span>Terms of Service</span>
-                        <span>Privacy Policy</span>
-                        <span>Cookies Settings</span>
+                        <span>{t("footer.terms")}</span>
+                        <span>{t("footer.privacy")}</span>
+                        <span>{t("footer.cookies")}</span>
                     </div>
                 </div>
             </div>

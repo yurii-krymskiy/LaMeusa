@@ -1,14 +1,17 @@
+import { useTranslation } from "react-i18next";
+
 export const PastaMeets = () => {
+    const { t } = useTranslation();
     return (
         <>
             <section className="section">
                 <div className="container">
                     <div className="mb-5 lg:mb-10 text-center">
                         <span className="decorative mb-2.5">
-                            Reserve a Table
+                            {t("pasta.meets.decorative")}
                         </span>
                         <div className="title section-title">
-                            Tradition Meets Creativity
+                            {t("pasta.meets.title")}
                         </div>
                     </div>
 
@@ -20,25 +23,13 @@ export const PastaMeets = () => {
                                 className="mb-6 min-h-[200px] object-cover"
                             />
                             <p className="section-description description mb-4">
-                                Pasta is a dish that has passed through the
-                                centuries and remains a symbol of comfort and
-                                gastronomic culture. In Italy, each region has
-                                its own recipes and secrets, and we are inspired
-                                by these traditions to create our own
-                                interpretations.
+                                {t("pasta.meets.p1")}
                             </p>
                             <p className="section-description description mb-4">
-                                At <b>La Medusa</b>, we believe that pasta is
-                                the language of emotions: it can be simple yet
-                                sophisticated, quick yet full of flavor. Our
-                                chefs combine classic cooking techniques with a
-                                modern vision to offer guests dishes that evoke
-                                warm memories and new discoveries.
+                                {t("pasta.meets.p2")}
                             </p>
                             <p className="section-description description">
-                                For us, pasta is not just food, but a moment
-                                when time stops and you enjoy the harmony of
-                                taste, aroma, and atmosphere.
+                                {t("pasta.meets.p3")}
                             </p>
                         </div>
                         <div>

@@ -1,13 +1,17 @@
+import { useTranslation } from "react-i18next";
+
 export const ContactHero = () => {
+    const { t } = useTranslation();
+
     return (
         <main className="hero contact-hero !items-start">
             <div className="container">
                 <div className="">
                     <h2 className="title hero-title !text-left">
-                        Get in Touch
+                        {t("contact.hero.title")}
                     </h2>
                     <p className="description hero-description !max-w-none !text-left">
-                        The freshest ingredients for you every day
+                        {t("contact.hero.description")}
                     </p>
                 </div>
 
@@ -15,18 +19,18 @@ export const ContactHero = () => {
                     <div className="mt-[100px] flex w-full max-w-[540px] flex-col gap-5 lg:gap-10 text-white">
                         <div className="flex justify-between">
                             <span className="title text-[24px] md:text-[28px] font-semibold text-white">
-                                Open Time
+                                {t("contact.hero.openTime")}
                             </span>
-                            <span className="text-[18px] font-[300] md:text-2xl">Monday - Saturday</span>
+                            <span className="text-[18px] font-[300] md:text-2xl">{t("contact.hero.monSat")}</span>
                         </div>
 
                         <div className="w-full h-[2px] bg-[repeating-linear-gradient(to_right,white_0_8px,transparent_8px_20px)]" />
                         <div className="flex justify-between gap-3">
                             <span className="inline-block max-w-[245px] text-[18px] font-[300] md:text-2xl">
-                                Monday - Saturday, 12.00 - 23.00
+                                {t("contact.hero.hours")}
                             </span>
                             <span className="inline-block max-w-[200px] text-[18px] font-[300] md:text-2xl">
-                                Music 18.30 - 20.30
+                                {t("contact.hero.music")}
                             </span>
                         </div>
                     </div>

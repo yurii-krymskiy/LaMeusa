@@ -1,6 +1,9 @@
+import { useTranslation } from "react-i18next";
 import { LiteForm } from "../../../components/features/lite-reservation-form/LiteForm";
 
 export const BirthdayReserve = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="section">
             <div className="container">
@@ -10,9 +13,9 @@ export const BirthdayReserve = () => {
                     </div>
 
                     <div className="flex-1 w-full">
-                        <span className="decorative">Reserve a Table</span>
+                        <span className="decorative">{t("birthday.reserve.decorative")}</span>
                         <div className="title section-title">
-                            Plan Your Perfect Birthday
+                            {t("birthday.reserve.title")}
                         </div>
                         <LiteForm />
                     </div>

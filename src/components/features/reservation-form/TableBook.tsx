@@ -1,4 +1,5 @@
 import { useForm, useWatch, Controller } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { useBookingStore } from "./store";
 import { BookTableSchemaPick, type BookTableSchemaPickType } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,6 +17,7 @@ import {
 } from "../../ui/FormErrors";
 
 export const TableBook = () => {
+    const { t } = useTranslation();
     const setData = useBookingStore((state) => state.setData);
     const setStep = useBookingStore((state) => state.setStep);
     const setAvailability = useBookingStore((state) => state.setAvailability);
@@ -70,11 +72,11 @@ export const TableBook = () => {
             setAvailability(result);
 
             if (!result.available) {
-                setError(result.message || "No tables available for this time");
+                setError(result.message || t("reservation.noTables"));
             }
         } catch (err) {
             console.error("Error checking availability:", err);
-            setError("Failed to check availability. Please try again.");
+            setError(t("reservation.checkFailed"));
             setAvailability(null);
         } finally {
             setIsCheckingAvailability(false);
@@ -103,7 +105,7 @@ export const TableBook = () => {
         // Don't proceed if no tables available
         if (availability && !availability.available) {
             setError(
-                availability.message || "No tables available for this time"
+                availability.message || t("reservation.noTables")
             );
             return;
         }
@@ -122,23 +124,23 @@ export const TableBook = () => {
         >
             <Input
                 type="text"
-                placeholder="Full Name"
+                placeholder={t("reservation.fullName")}
                 required
                 {...form.register("name")}
             />
             <Input
                 type="text"
-                placeholder="Number of guests"
+                placeholder={t("reservation.numberOfGuests")}
                 required
                 {...form.register("guests", {
                     valueAsNumber: true,
                     min: {
                         value: 1,
-                        message: "How many guests will be joining?",
+                        message: t("reservation.guestsQuestion"),
                     },
                     max: {
                         value: 8,
-                        message: "For parties larger than 8, please call us",
+                        message: t("reservation.maxGuests"),
                     },
                     onChange: (e) => {
                         e.target.value = e.target.value.replace(/\D/g, "");
@@ -151,7 +153,7 @@ export const TableBook = () => {
                     control={form.control}
                     render={({ field }) => (
                         <TimePickerInput
-                            placeholder="Time"
+                            placeholder={t("reservation.time")}
                             required
                             value={field.value}
                             onChange={field.onChange}
@@ -164,7 +166,7 @@ export const TableBook = () => {
                     control={form.control}
                     render={({ field }) => (
                         <DatePickerInput
-                            placeholder="Date"
+                            placeholder={t("reservation.date")}
                             required
                             value={field.value}
                             onChange={field.onChange}
@@ -176,7 +178,7 @@ export const TableBook = () => {
                 <Input
                     type="text"
                     className="w-full"
-                    placeholder="Type Promo Code here"
+                    placeholder={t("reservation.promoCode")}
                     {...form.register("promoCode")}
                 />
                 <Button
@@ -184,7 +186,7 @@ export const TableBook = () => {
                     variant={"blue-outline"}
                     disabled={isDisabledPromo}
                 >
-                    Apply
+                    {t("reservation.apply")}
                 </Button>
             </div>
 
@@ -195,11 +197,11 @@ export const TableBook = () => {
 
             {/* Availability Status */}
             {isCheckingAvailability && (
-                <LoadingStatus message="Checking availability..." />
+                <LoadingStatus message={t("reservation.checkingAvailability")} />
             )}
 
             {!isCheckingAvailability && availability?.available && Object.keys(form.formState.errors).length === 0 && (
-                <SuccessMessage message="Tables available for your reservation!" />
+                <SuccessMessage message={t("reservation.tablesAvailable")} />
             )}
 
             {error && <SingleError message={error} />}
@@ -210,7 +212,7 @@ export const TableBook = () => {
                 variant={"blue"}
                 disabled={isSubmitDisabled}
             >
-                {isCheckingAvailability ? "Checking..." : "Reserve Now"}
+                {isCheckingAvailability ? t("reservation.checking") : t("reservation.reserveNow")}
             </Button>
         </form>
     );

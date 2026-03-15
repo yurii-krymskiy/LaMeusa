@@ -1,32 +1,26 @@
 import { Button } from "../../../components/ui/Button";
+import { useTranslation } from "react-i18next";
 
 export const HomeAboutUs = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="section">
             <div className="container flex flex-col items-center gap-5 lg:flex-row lg:gap-15">
                 <div className="flex-1">
                     <div className="mb-5 lg:mb-10">
-                        <p className="decorative">About Us</p>
+                        <p className="decorative">{t("home.aboutUs.decorative")}</p>
                         <p className="title section-title">
-                            The Spirit of
-                            <br />
-                            La Medusa
+                            {t("home.aboutUs.title")}
                         </p>
                         <p className="description section-description mb-3.5 inline-block">
-                            <b>La Medusa</b> is more than a restaurant. It is a
-                            place where the ocean meets elegance: views of the
-                            waves, service with soul, and an atmosphere that
-                            invites you to linger.
+                            {t("home.aboutUs.p1")}
                         </p>
                         <p className="description section-description inline-block">
-                            At <b>La Medusa</b>, everything is important: from
-                            the way the light falls on the tables to the music
-                            played in the evening. We strive to make every guest
-                            feel like they are not just a visitor, but part of
-                            the restaurant's history.
+                            {t("home.aboutUs.p2")}
                         </p>
                     </div>
-                    <Button variant="blue-outline">Learn More</Button>
+                    <Button to="/about" variant="blue-outline">{t("home.aboutUs.button")}</Button>
                 </div>
                 <div className="flex-1">
                     <img

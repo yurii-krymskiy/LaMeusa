@@ -1,6 +1,9 @@
 import { ButtonOpenReservation } from "../../../components/features/reservation-form/ButtonOpenReservation";
+import { useTranslation } from "react-i18next";
 
 export const HomeReserve = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="section">
             <div className="container flex flex-col items-center lg:flex-row">
@@ -13,22 +16,20 @@ export const HomeReserve = () => {
                 <div className="md:-ml-10">
                     <div className="mb-5 lg:mb-10">
                         <span className="decorative">
-                            Reserve a Table
+                            {t("home.reserve.decorative")}
                         </span>
                         <div className="title !mb-2.5 lg:!mb-6 section-title">
-                            Make your dinner special
+                            {t("home.reserve.title")}
                         </div>
                         <p className="description section-description mb-2">
-                            Book a table and spend an evening in an atmosphere
-                            of sophistication and inspiration.
+                            {t("home.reserve.p1")}
                         </p>
                         <p className="description section-description">
-                            Your evening at <b>La Medusa</b> will be a story you
-                            will want to return to.
+                            {t("home.reserve.p2")}
                         </p>
                     </div>
                     <ButtonOpenReservation variant="blue">
-                        Make a reservation
+                        {t("home.reserve.button")}
                     </ButtonOpenReservation>
                 </div>
             </div>

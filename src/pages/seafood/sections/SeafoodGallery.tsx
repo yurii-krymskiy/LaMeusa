@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import GallerySlider from "../../../components/features/GallerySlider";
 
 export const SeafoodGallery = () => {
+    const { t } = useTranslation();
     const slides = [
         { src: "/images/seafood/gallary-1.webp", alt: "Gallery image 1" },
         { src: "/images/seafood/gallary-2.webp", alt: "Gallery image 2" },
@@ -13,15 +15,13 @@ export const SeafoodGallery = () => {
             <div className="container">
                 <div className="mx-auto max-w-[768px]">
                     <span className="decorative block text-center text-[34px]">
-                        Gallery
+                        {t("seafood.gallery.decorative")}
                     </span>
                     <p className="title section-title my-6 text-center text-[48px]">
-                        More Than Just a Dish
+                        {t("seafood.gallery.title")}
                     </p>
                     <p className="description section-description mb-5 lg:mb-10 text-center">
-                        Seafood at <b>La Medusa</b> is part of history and
-                        culture. We want every meal to be more than just lunch
-                        or dinner, but a moment to remember.
+                        {t("seafood.gallery.description")}
                     </p>
                 </div>
             </div>

@@ -2,8 +2,10 @@ import { BookingTable } from "./sections/BookingTable";
 import { BookingConfirm } from "./sections/BookingConfirm";
 import { useBookingStore } from "../../components/features/reservation-form/store";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const Booking = () => {
+    const { t } = useTranslation();
     const setStep = useBookingStore((state) => state.setStep);
     const step = useBookingStore((state) => state.step);
     const navigate = useNavigate();
@@ -27,10 +29,10 @@ export const Booking = () => {
 
                     <div className="text-center">
                         <span className="decorative text-2xl text-white md:text-6xl">
-                            Book a Table
+                            {t("booking.decorative")}
                         </span>
                         <span className="title block text-2xl font-semibold text-white md:text-6xl">
-                            Reservation
+                            {t("booking.title")}
                         </span>
                     </div>
                 </div>
@@ -44,7 +46,7 @@ export const Booking = () => {
                             src="/icons/arrow-lang.svg"
                             className="rotate-90"
                         />
-                        Back
+                        {t("booking.back")}
                     </button>
                     {step === 0 && <BookingTable />}
                     {step === 1 && <BookingConfirm />}

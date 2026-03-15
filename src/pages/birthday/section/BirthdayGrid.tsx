@@ -1,8 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { ButtonOpenReservation } from "../../../components/features/reservation-form/ButtonOpenReservation";
 import { Button } from "../../../components/ui/Button";
 import { Paths } from "../../../router";
 
 export const BirthdayGrid = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="section">
             <div className="container">
@@ -10,13 +13,10 @@ export const BirthdayGrid = () => {
                     <div>
                         <div className="mb-0 lg:mb-10">
                             <span className="section-title title mb-7 inline-block">
-                                Seafood Celebration Set
+                                {t("birthday.grid.set1Title")}
                             </span>
                             <p className="section-description description">
-                                Seafood specialties: oysters, shrimp, grilled
-                                salmon and a set of white wines. Ideal for those
-                                who appreciate freshness and Mediterranean
-                                cuisine.
+                                {t("birthday.grid.set1Desc")}
                             </p>
                         </div>
                     </div>
@@ -35,13 +35,10 @@ export const BirthdayGrid = () => {
                     <div>
                         <div className="mb-5 lg:mb-10">
                             <span className="section-title title mb-7 inline-block">
-                                Pasta & Wine Evening
+                                {t("birthday.grid.set2Title")}
                             </span>
                             <p className="section-description description">
-                                A variety of pasta (Carbonara, Vongole, Truffle
-                                Tagliatelle) paired with Italian wine. The
-                                atmosphere of a family dinner and the taste of
-                                real Italy.
+                                {t("birthday.grid.set2Desc")}
                             </p>
                         </div>
                     </div>
@@ -50,13 +47,10 @@ export const BirthdayGrid = () => {
                     <div>
                         <div className="mb-5 lg:mb-10">
                             <span className="section-title title mb-7 inline-block">
-                                Sweet Birthday Table
+                                {t("birthday.grid.set3Title")}
                             </span>
                             <p className="section-description description">
-                                An assortment of desserts from the chef:
-                                birthday cake, delicate tiramisu, panna cotta
-                                and a set with cocktails or coffee. A sweet
-                                finale to your evening.
+                                {t("birthday.grid.set3Desc")}
                             </p>
                         </div>
                     </div>
@@ -69,10 +63,10 @@ export const BirthdayGrid = () => {
 
                 <div className="flex flex-wrap justify-center gap-5 lg:gap-10">
                     <ButtonOpenReservation variant="blue">
-                        Reserve a Table
+                        {t("birthday.grid.reserveTable")}
                     </ButtonOpenReservation>
                     <Button variant="blue-outline" to={Paths.menu}>
-                        View Full Birthday Menu
+                        {t("birthday.grid.viewMenu")}
                     </Button>
                 </div>
             </div>

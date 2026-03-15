@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
     CategoryDictionary,
     MenuResolver,
@@ -13,42 +14,47 @@ import { MobileCategoryTabsSkeleton } from "../../components/features/menu/conte
 import { SidebarSkeleton } from "../../components/features/menu/sidebar/SidebarSkeleton";
 import { MenuListSkeleton } from "../../components/features/menu/content/MenuListSkeleton";
 
-const dictionary = new CategoryDictionary(
-    [
-        "tapas",
-        "salads",
-        "pizza",
-        "pasta",
-        "fish",
-        "meat",
-        "burgers",
-        "paella",
-        "dessert",
-        "kids",
-        "sauces",
-    ],
-    {
-        tapas: "Tapas & Appetizers",
-        salads: "Salads",
-        pizza: "Pizza",
-        pasta: "Pasta",
-        fish: "Fish & Seafood",
-        meat: "Meat",
-        burgers: "Burgers & More",
-        paella: "Paella",
-        dessert: "Desserts",
-        kids: "Children's Menu",
-        sauces: "Sauces & Extras",
-    }
-);
-
 export const Menu = () => {
+    const { t } = useTranslation();
     const { items, isLoading } = useMenuItems();
+
+    const dictionary = useMemo(
+        () =>
+            new CategoryDictionary(
+                [
+                    "tapas",
+                    "salads",
+                    "pizza",
+                    "pasta",
+                    "fish",
+                    "meat",
+                    "burgers",
+                    "paella",
+                    "dessert",
+                    "kids",
+                    "sauces",
+                ],
+                {
+                    tapas: t("menu.categories.tapas"),
+                    salads: t("menu.categories.salads"),
+                    pizza: t("menu.categories.pizza"),
+                    pasta: t("menu.categories.pasta"),
+                    fish: t("menu.categories.fish"),
+                    meat: t("menu.categories.meat"),
+                    burgers: t("menu.categories.burgers"),
+                    paella: t("menu.categories.paella"),
+                    dessert: t("menu.categories.desserts"),
+                    kids: t("menu.categories.kids"),
+                    sauces: t("menu.categories.sauces"),
+                }
+            ),
+        [t]
+    );
 
     const resolved = useMemo(() => {
         const resolver = new MenuResolver(items, dictionary);
         return resolver.resolve();
-    }, [items]);
+    }, [items, dictionary]);
 
     const [activeSlug, setActiveSlug] = useState("");
 
@@ -105,13 +111,10 @@ export const Menu = () => {
                 <section className="hero menu-hero hidden bg-white md:block">
                     <div className="container flex max-w-[1050px] flex-col items-start text-left">
                         <h1 className="title hero-title !ml-0 !text-left text-4xl md:text-5xl">
-                            discover new facets of flavor
+                            {t("menu.hero.title")}
                         </h1>
                         <p className="description hero-description !ml-0 max-w-2xl !text-left text-base md:text-lg">
-                            Experience the taste of Mediterranean cuisine against
-                            the backdrop of the Atlantic Ocean. At La Medusa, we
-                            create an atmosphere where every moment is a pleasure
-                            and every dish is a story.
+                            {t("menu.hero.description")}
                         </p>
                     </div>
                 </section>
@@ -140,13 +143,10 @@ export const Menu = () => {
             <section className="hero menu-hero hidden bg-white md:block">
                 <div className="container flex max-w-[1050px] flex-col items-start text-left">
                     <h1 className="title hero-title !ml-0 !text-left text-4xl md:text-5xl">
-                        discover new facets of flavor
+                        {t("menu.hero.title")}
                     </h1>
                     <p className="description hero-description !ml-0 max-w-2xl !text-left text-base md:text-lg">
-                        Experience the taste of Mediterranean cuisine against
-                        the backdrop of the Atlantic Ocean. At La Medusa, we
-                        create an atmosphere where every moment is a pleasure
-                        and every dish is a story.
+                        {t("menu.hero.description")}
                     </p>
                 </div>
             </section>

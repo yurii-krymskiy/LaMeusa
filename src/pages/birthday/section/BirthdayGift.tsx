@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { Button } from "../../../components/ui/Button";
 import { Paths } from "../../../router";
 
 export const BirthdayGift = () => {
+    const { t } = useTranslation();
+
     return (
         <>
             <section className="section bg-white-100">
@@ -31,26 +34,20 @@ export const BirthdayGift = () => {
 
                     <div className="w-full lg:max-w-[590px] self-center">
                         <p className="decorative mb-2.5 text-[34px]">
-                            Suggestions
+                            {t("birthday.gift.decorative")}
                         </p>
                         <p className="title section-title mb-6 text-[48px]">
-                            Birthday Gifts from La Medusa
+                            {t("birthday.gift.title")}
                         </p>
                         <p className="description section-description mb-2.5">
-                            On your special day, we will make sure that the
-                            atmosphere is even warmer. For each birthday person,
-                            our chef prepares a birthday cake, which we serve
-                            with congratulations from the entire staff.
+                            {t("birthday.gift.p1")}
                         </p>
                         <p className="description section-description mb-5 lg:mb-10">
-                            This is the moment when the restaurant is filled
-                            with sincere emotions, and your evening becomes even
-                            more festive. We believe that such details create
-                            memories that last forever.
+                            {t("birthday.gift.p2")}
                         </p>
 
                         <Button variant="blue" to={Paths.contact}>
-                            Celebrate with Us
+                            {t("birthday.gift.button")}
                         </Button>
                     </div>
                 </div>

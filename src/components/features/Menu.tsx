@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { pagesLabels } from "../../router";
 
 export const Menu = () => {
+    const { t } = useTranslation();
     const [open, setOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
     const closeBtnRef = useRef<HTMLButtonElement | null>(null);
@@ -104,7 +106,7 @@ export const Menu = () => {
                                                 onClick={closeThen()}
                                                 className="hover:text-[#C0C5D7] transition-colors duration-200"
                                             >
-                                                {item.label}
+                                                {t(item.label)}
                                             </Link>
                                         </li>
                                     ))}
@@ -112,7 +114,7 @@ export const Menu = () => {
 
                                 <div className="w-[300px] max-md:hidden">
                                     <div className="title mb-3.5 border-b border-white pb-3.5 text-xl font-normal text-white capitalize">
-                                        Contact
+                                        {t("footer.contact")}
                                     </div>
                                     <ul className="lg:mb-7 font-semibold text-white md:text-lg">
                                         <li className="mb-5 last:mb-0">
@@ -206,7 +208,7 @@ export const Menu = () => {
                             <div className="px-4 pb-8 md:hidden">
                                 <div className="mt-10 border-t border-white/30 pt-6">
                                     <div className="title mb-3.5 text-xl font-normal text-white capitalize">
-                                        Contact
+                                        {t("footer.contact")}
                                     </div>
                                     <ul className="mb-7 font-semibold text-white">
                                         <li className="mb-5 last:mb-0">

@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { ButtonOpenReservation } from "../../../components/features/reservation-form/ButtonOpenReservation";
 import { Button } from "../../../components/ui/Button";
 
 export const AboutGrid = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="section">
             <div className="container">
@@ -13,28 +16,22 @@ export const AboutGrid = () => {
                     <div>
                         <div className="mb-5 lg:mb-10">
                             <span className="section-title title mb-7 inline-block">
-                                Spanish Guitar Nights
+                                {t("about.grid.guitar.title")}
                             </span>
                             <p className="section-description description mb-2.5">
-                                Every Monday and Saturday, La Medusa plays the
-                                best hits performed by masters of the Spanish
-                                guitar. The atmosphere of the evening is filled
-                                with the energy of live music and the ease of a
-                                Mediterranean vacation.
+                                {t("about.grid.guitar.p1")}
                             </p>
                             <p className="section-description description">
-                                This is the perfect time to enjoy signature
-                                cocktails, beautiful views, and spend the
-                                evening in exquisite company.
+                                {t("about.grid.guitar.p2")}
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-6">
                             <ButtonOpenReservation variant="blue">
-                                Reserve a Table
+                                {t("about.grid.guitar.reserveTable")}
                             </ButtonOpenReservation>
-                            <Button variant="blue-outline">
-                                Discover Our Cocktails
-                            </Button>
+                            <a href="/files/drinks.pdf" target="_blank" rel="noreferrer" className="title button button-blue-outline">
+                                {t("about.grid.guitar.discoverCocktails")}
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -47,25 +44,19 @@ export const AboutGrid = () => {
                                 className="mb-5 max-w-full h-[215px] lg:h-auto lg:max-w-[515px] object-cover"
                             />
                             <span className="section-title title mb-7 inline-block">
-                                Live Vocal Hits & Cocktails
+                                {t("about.grid.vocal.title")}
                             </span>
                             <p className="section-description description mb-2.5">
-                                Every Thursday and Friday, live vocal
-                                performances with famous world hits await you.
-                                The music creates a unique festive atmosphere,
-                                and our bartenders treat you with unique
-                                cocktails created especially for evening
-                                gatherings.
+                                {t("about.grid.vocal.p1")}
                             </p>
                             <p className="section-description description">
-                                Spend the end of the week with taste and rhythm
-                                — at <b>La Medusa.</b>
+                                {t("about.grid.vocal.p2")}
                             </p>
                         </div>
                         <div className="flex gap-6">
-                            <Button variant="blue-outline">
-                                Explore Our Drinks
-                            </Button>
+                            <a href="/files/drinks.pdf" target="_blank" rel="noreferrer" className="title button button-blue-outline">
+                                {t("about.grid.vocal.button")}
+                            </a>
                         </div>
                     </div>
 
@@ -83,23 +74,17 @@ export const AboutGrid = () => {
                     <div>
                         <div className="mb-5 lg:mb-10">
                             <span className="section-title title mb-7 inline-block">
-                                Two Burgers for One
+                                {t("about.grid.burgers.title")}
                             </span>
                             <p className="section-description description mb-2.5">
-                                From Monday to Saturday from 14:30 to 18:00 we
-                                have a special offer: two burgers for the price
-                                of one. This is a great opportunity to meet with
-                                friends or colleagues and enjoy the taste of our
-                                signature burgers.
+                                {t("about.grid.burgers.p1")}
                             </p>
                             <p className="section-description description">
-                                Juicy meat, fresh ingredients and unique sauces
-                                are the perfect combination for an afternoon
-                                break.
+                                {t("about.grid.burgers.p2")}
                             </p>
                         </div>
                         <div className="flex gap-6">
-                            <Button variant="blue-outline">View Offer</Button>
+                            <Button to="/menu" variant="blue-outline">{t("about.grid.burgers.button")}</Button>
                         </div>
                     </div>
                 </div>

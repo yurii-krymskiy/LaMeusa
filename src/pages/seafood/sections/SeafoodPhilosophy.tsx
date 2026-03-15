@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import { Breadcrumb } from "../../../components/ui/Breadcrumb";
 
 export const SeafoodPhilosophy = () => {
+    const { t } = useTranslation();
     return (
         <section className="section-breadcrumb">
             <div className="container">
@@ -12,14 +14,10 @@ export const SeafoodPhilosophy = () => {
                         className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
                     <p className="title section-title">
-                        Our Philosophy of Seafood
+                        {t("seafood.philosophy.title")}
                     </p>
                     <p className="description section-description">
-                        We believe that the secret to a perfect meal is fresh
-                        fish and seafood, carefully selected spices and a
-                        balance of flavors. Our dishes combine simplicity,
-                        authenticity and sophisticated presentation, so that
-                        every bite gives the atmosphere of a seaside vacation.
+                        {t("seafood.philosophy.p1")}
                     </p>
                 </div>
 
@@ -33,9 +31,7 @@ export const SeafoodPhilosophy = () => {
                 </div>
 
                 <p className="description section-description mx-auto max-w-3xl mb-5 lg:mb-10 text-center">
-                    Seafood at <b>La Medusa</b> is part of history and culture.
-                    We want every meal to be more than just lunch or dinner, but
-                    a moment to remember.
+                    {t("seafood.philosophy.p2")}
                 </p>
                 <div>
                     <img src="/images/seafood/image-3.webp" loading="lazy" className="min-h-[250px] object-cover" />

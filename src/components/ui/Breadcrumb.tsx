@@ -1,7 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { pagesLabels } from "../../router";
 
 export function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
+    const { t } = useTranslation();
     const location = useLocation();
     const pathname = location.pathname;
 
@@ -17,7 +19,7 @@ export function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
     });
 
     const breadcrumbItems = [
-        { label: "Home", path: "/" },
+        { label: "nav.home", path: "/" },
         ...crumbs.filter((c) => c.path !== "/"),
     ];
 
@@ -28,11 +30,11 @@ export function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
                     <BreadcrumbItem key={crumb.path}>
                         {index < breadcrumbItems.length - 1 ? (
                             <Link to={crumb.path} className="hover:underline">
-                                {crumb.label}
+                                {t(crumb.label)}
                             </Link>
                         ) : (
                             <span className="font-[300] text-gray-800">
-                                {crumb.label}
+                                {t(crumb.label)}
                             </span>
                         )}
                         {index < breadcrumbItems.length - 1 && (

@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+import { useTranslation } from "react-i18next";
 
 const sliderImages = [
     { src: "/images/home-slider/img9.jpeg", alt: "Restaurant interior 1" },
@@ -9,6 +10,8 @@ const sliderImages = [
 ];
 
 export const HomeFoodStory = () => {
+    const { t } = useTranslation();
+
     return (
         <>
             <section className="section bg-white-100">
@@ -38,25 +41,19 @@ export const HomeFoodStory = () => {
 
                     <div className="max-w-[590px] self-center">
                         <p className="decorative">
-                            Food Story
+                            {t("home.foodStory.decorative")}
                         </p>
                         <p className="title section-title !mb-5 !lg:mb-6 text-[48px]">
-                            Fresh Ingredients, Authentic Taste
+                            {t("home.foodStory.title")}
                         </p>
                         <p className="description section-description mb-2.5">
-                            Sea, sun and soul - all this in every plate. We
-                            prefer local and fresh products, combined with
-                            delicate execution: this is the path to true taste.
+                            {t("home.foodStory.p1")}
                         </p>
                         <p className="description section-description mb-2.5">
-                            Our dishes combine simplicity and sophistication,
-                            because the main thing is to preserve the true taste
-                            of the products.
+                            {t("home.foodStory.p2")}
                         </p>
                         <p className="description section-description">
-                            In each plate you will find harmony: the tenderness
-                            of textures, the brightness of colors, and the
-                            strength of aroma.
+                            {t("home.foodStory.p3")}
                         </p>
                     </div>
                 </div>

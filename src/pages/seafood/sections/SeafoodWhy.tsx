@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
 import { ButtonOpenReservation } from "../../../components/features/reservation-form/ButtonOpenReservation";
 import { Button } from "../../../components/ui/Button";
 
 export const SeafoodWhy = () => {
+    const { t } = useTranslation();
     return (
         <section className="section">
             <div className="container">
@@ -12,13 +14,10 @@ export const SeafoodWhy = () => {
                         className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
                     <p className="title section-title">
-                        Why Seafood at La Medusa?
+                        {t("seafood.why.title")}
                     </p>
                     <p className="description section-description inline-block">
-                        At <b>La Medusa,</b> every ingredient, every flavor is a
-                        grateful embodiment of Mediterranean tradition. Our
-                        chefs strive for each dish to be not just food, but an
-                        emotion that stays with you.
+                        {t("seafood.why.description")}
                     </p>
                 </div>
                 <img
@@ -34,12 +33,10 @@ export const SeafoodWhy = () => {
                         />
                         <div>
                             <span className="title mb-2.5 inline-block text-lg md:text-xl">
-                                Taste and Quality
+                                {t("seafood.why.feature1Title")}
                             </span>
                             <p className="description md:text-lg">
-                                We use only fresh local and imported products,
-                                and we pay close attention to every flavor and
-                                combination.
+                                {t("seafood.why.feature1Desc")}
                             </p>
                         </div>
                     </div>
@@ -50,12 +47,10 @@ export const SeafoodWhy = () => {
                         />
                         <div>
                             <span className="title mb-2.5 inline-block text-lg md:text-xl">
-                                Atmosphere with views
+                                {t("seafood.why.feature2Title")}
                             </span>
                             <p className="description md:text-lg">
-                                A restaurant with a panoramic view of the sea,
-                                where every moment is filled with light and
-                                space.
+                                {t("seafood.why.feature2Desc")}
                             </p>
                         </div>
                     </div>
@@ -66,12 +61,10 @@ export const SeafoodWhy = () => {
                         />
                         <div>
                             <span className="title mb-2.5 inline-block text-lg md:text-xl">
-                                Service with a soul
+                                {t("seafood.why.feature3Title")}
                             </span>
                             <p className="description md:text-lg">
-                                Our team takes care of you with sincerity,
-                                paying attention to the little things: from
-                                serving to dish recommendations.
+                                {t("seafood.why.feature3Desc")}
                             </p>
                         </div>
                     </div>
@@ -79,9 +72,9 @@ export const SeafoodWhy = () => {
 
                 <div className="flex flex-wrap justify-center gap-5 md:gap-10">
                     <ButtonOpenReservation variant="blue">
-                        Reserve a Table
+                        {t("seafood.why.reserveTable")}
                     </ButtonOpenReservation>
-                    <Button variant="blue-outline">Contact us</Button>
+                    <Button variant="blue-outline">{t("seafood.why.contactUs")}</Button>
                 </div>
             </div>
         </section>

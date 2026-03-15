@@ -1,10 +1,12 @@
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { ControlledSwiper } from "../../../components/features/ControlledSwiper";
 
 import { SwiperSlide } from "swiper/react";
 import type Swiper from "swiper";
 
 export const AboutOutTeam = () => {
+    const { t } = useTranslation();
     const swiperRef = useRef<Swiper | null>(null);
 
     const handlePrev = () => {
@@ -65,12 +67,9 @@ export const AboutOutTeam = () => {
         <section className="section">
             <div className="container">
                 <div className="mx-auto mb-10 max-w-[720px] text-center">
-                    <p className="title section-title">Our team</p>
+                    <p className="title section-title">{t("about.ourTeam.title")}</p>
                     <p className="description section-description inline-block">
-                        We are a group of people in love with gastronomy and the
-                        sea. From the chef to the waiter, everyone contributes a
-                        piece of themselves to the experience you get at{" "}
-                        <b>La Medusa.</b>
+                        {t("about.ourTeam.description")}
                     </p>
                 </div>
 

@@ -3,39 +3,26 @@ import { BasicSwiper } from "../../../components/features/BasicSwiper";
 import { ButtonArrow } from "../../../components/ui/ButtonArrow";
 import { Button } from "../../../components/ui/Button";
 import { Paths } from "../../../router";
+import { useTranslation } from "react-i18next";
 
 export const HomeSpecial = () => {
+    const { t } = useTranslation();
+
     const specials = [
         {
             src: "/images/home/special-1.jpg",
-            title: "Two Burgers for One",
-            description: (
-                <>
-                    From <b>2:30 PM</b> to <b>6 PM</b>, get two burgers for the
-                    price of one.
-                </>
-            ),
+            title: t("home.special.deal1Title"),
+            description: t("home.special.deal1Desc"),
         },
         {
             src: "/images/home/special-2.jpg",
-            title: "Pasta Lovers Hour",
-            description: (
-                <>
-                    Every <b>Tuesday</b> and <b>Wednesday</b> from{" "}
-                    <b>2:00 PM</b> to <b>5:00 PM</b>, a glass of wine as a gift
-                    with any pasta.
-                </>
-            ),
+            title: t("home.special.deal2Title"),
+            description: t("home.special.deal2Desc"),
         },
         {
             src: "/images/home/special-3.jpg",
-            title: "Seafood Set + Wine",
-            description: (
-                <>
-                    Daily from <b>3:00 PM</b> to <b>5:00 PM</b>, when ordering a
-                    seafood set, a glass of white wine is free.
-                </>
-            ),
+            title: t("home.special.deal3Title"),
+            description: t("home.special.deal3Desc"),
         },
     ];
 
@@ -49,7 +36,7 @@ export const HomeSpecial = () => {
                         className="mx-auto mb-1.5 lg:mb-6 h-[22px] w-[22px]"
                     />
                     <p className="title section-title !mb-5 lg:!mb-6 text-center text-[48px]">
-                        Special Deals
+                        {t("home.special.title")}
                     </p>
                 </div>
                 <div className="block md:hidden">
@@ -75,7 +62,7 @@ export const HomeSpecial = () => {
                     </BasicSwiper>
                     <div>
                         <Button variant="blue" to={Paths.menu} className="mt-5">
-                            Discover Full Menu
+                            {t("home.special.discoverMenu")}
                         </Button>
                     </div>
                 </div>
@@ -96,7 +83,7 @@ export const HomeSpecial = () => {
                                     {item.description}
                                 </p>
                             </div>
-                            <ButtonArrow>Reserve a Table</ButtonArrow>
+                            <ButtonArrow>{t("home.special.reserveTable")}</ButtonArrow>
                         </div>
                     ))}
                 </div>

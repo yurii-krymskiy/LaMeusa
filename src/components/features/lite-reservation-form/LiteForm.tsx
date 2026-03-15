@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, Controller, useWatch } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import {
     LiteBookTableSchemaPick,
     type LiteBookTableSchemaPickType,
@@ -25,6 +26,7 @@ import {
 } from "../../ui/FormErrors";
 
 export const LiteForm = () => {
+    const { t } = useTranslation();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isCheckingAvailability, setIsCheckingAvailability] = useState(false);
     const [availability, setAvailability] = useState<AvailabilityResponse | null>(null);
@@ -66,11 +68,11 @@ export const LiteForm = () => {
             setAvailability(result);
 
             if (!result.available) {
-                setError(result.message || "No tables available for this time");
+                setError(result.message || t("reservation.noTables"));
             }
         } catch (err) {
             console.error("Error checking availability:", err);
-            setError("Failed to check availability. Please try again.");
+            setError(t("reservation.checkFailed"));
             setAvailability(null);
         } finally {
             setIsCheckingAvailability(false);
@@ -89,25 +91,25 @@ export const LiteForm = () => {
     const onSubmit = async (data: LiteBookTableSchemaPickType) => {
         // Custom validation for empty fields
         if (!data.name.trim()) {
-            setError("Please enter your full name");
+            setError(t("reservation.enterName"));
             return;
         }
         if (!data.guests || data.guests <= 0) {
-            setError("Please enter the number of guests");
+            setError(t("reservation.enterGuests"));
             return;
         }
         if (!data.time) {
-            setError("Please select a reservation time");
+            setError(t("reservation.selectTime"));
             return;
         }
         if (!data.date) {
-            setError("Please select a reservation date");
+            setError(t("reservation.selectDate"));
             return;
         }
 
         // Check availability before submitting
         if (availability && !availability.available) {
-            setError(availability.message || "No tables available for this time");
+            setError(availability.message || t("reservation.noTables"));
             return;
         }
 
@@ -148,11 +150,11 @@ export const LiteForm = () => {
                     setEmailStatus("sent");
                 }
             } else {
-                setError(result.error || "Failed to create reservation");
+                setError(result.error || t("reservation.createFailed"));
             }
         } catch (err) {
             console.error("Error creating reservation:", err);
-            setError("An unexpected error occurred. Please try again.");
+            setError(t("reservation.unexpectedError"));
         } finally {
             setIsSubmitting(false);
         }
@@ -186,10 +188,10 @@ export const LiteForm = () => {
                     </svg>
                 </div>
                 <h3 className="title mb-2 text-xl font-semibold">
-                    Reservation Confirmed!
+                    {t("reservation.confirmed")}
                 </h3>
                 <p className="description mb-4">
-                    Thank you for your reservation. We look forward to seeing you!
+                    {t("reservation.thankYou")}
                 </p>
                 {emailStatus === "pending" && (
                     <p className="text-sm text-gray-500 flex items-center justify-center gap-2 mb-4">
@@ -202,17 +204,17 @@ export const LiteForm = () => {
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                         </svg>
-                        Sending confirmation...
+                        {t("reservation.sendingConfirmation")}
                     </p>
                 )}
                 {emailStatus === "sent" && (
                     <p className="text-sm text-green-600 mb-4">
-                        Confirmation email sent!
+                        {t("reservation.emailSent")}
                     </p>
                 )}
                 {emailStatus === "failed" && (
                     <p className="text-sm text-amber-600 mb-4">
-                        Could not send email, but reservation is confirmed.
+                        {t("reservation.emailFailed")}
                     </p>
                 )}
                 <Button
@@ -220,7 +222,7 @@ export const LiteForm = () => {
                     variant="blue-outline"
                     onClick={handleNewReservation}
                 >
-                    Make Another Reservation
+                    {t("reservation.makeAnother")}
                 </Button>
             </div>
         );
@@ -239,24 +241,24 @@ export const LiteForm = () => {
             <div className="flex flex-col gap-5 md:flex-row">
                 <Input
                     type="text"
-                    placeholder="Full Name"
+                    placeholder={t("reservation.fullName")}
                     required
                     {...form.register("name")}
                     disabled={isSubmitting}
                 />
                 <Input
                     type="text"
-                    placeholder="Number of guests"
+                    placeholder={t("reservation.numberOfGuests")}
                     required
                     {...form.register("guests", {
                         valueAsNumber: true,
                         min: {
                             value: 1,
-                            message: "How many guests will be joining?",
+                            message: t("reservation.guestsQuestion"),
                         },
                         max: {
                             value: 8,
-                            message: "For parties larger than 8, please call us",
+                            message: t("reservation.maxGuests"),
                         },
                         onChange: (e) => {
                             e.target.value = e.target.value.replace(/\D/g, "");
@@ -268,7 +270,7 @@ export const LiteForm = () => {
             <div className="flex flex-col gap-5 md:flex-row">
                 <Input
                     type="email"
-                    placeholder="Email"
+                    placeholder={t("reservation.email")}
                     required
                     {...form.register("email")}
                     disabled={isSubmitting}
@@ -276,7 +278,7 @@ export const LiteForm = () => {
                 <Input
                     type="phone"
                     className="w-full"
-                    placeholder="Phone Number"
+                    placeholder={t("reservation.phone")}
                     required
                     {...form.register("phone")}
                     disabled={isSubmitting}
@@ -288,7 +290,7 @@ export const LiteForm = () => {
                     control={form.control}
                     render={({ field }) => (
                         <TimePickerInput
-                            placeholder="Time"
+                            placeholder={t("reservation.time")}
                             required
                             value={field.value}
                             onChange={field.onChange}
@@ -301,7 +303,7 @@ export const LiteForm = () => {
                     control={form.control}
                     render={({ field }) => (
                         <DatePickerInput
-                            placeholder="Date"
+                            placeholder={t("reservation.date")}
                             required
                             value={field.value}
                             onChange={field.onChange}
@@ -317,24 +319,23 @@ export const LiteForm = () => {
 
             {/* Availability Status */}
             {isCheckingAvailability && (
-                <LoadingStatus message="Checking availability..." />
+                <LoadingStatus message={t("reservation.checkingAvailability")} />
             )}
 
             {!isCheckingAvailability && availability?.available && Object.keys(form.formState.errors).length === 0 && (
-                <SuccessMessage message="Tables available for your reservation!" />
+                <SuccessMessage message={t("reservation.tablesAvailable")} />
             )}
 
             {error && <SingleError message={error} />}
 
             <div>
                 <Textarea
-                    placeholder="Additional wishes"
+                    placeholder={t("reservation.additionalWishes")}
                     {...form.register("details")}
                     disabled={isSubmitting}
                 />
                 <p className="description max-w-[340px] text-[12px]">
-                    By clicking the reservation button, you agree to the
-                    processing of personal data
+                    {t("reservation.disclaimer")}
                 </p>
             </div>
 
@@ -355,12 +356,12 @@ export const LiteForm = () => {
                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                             </svg>
-                            Booking...
+                            {t("reservation.booking")}
                         </span>
                     ) : isCheckingAvailability ? (
-                        "Checking..."
+                        t("reservation.checking")
                     ) : (
-                        "Book Now"
+                        t("reservation.bookNow")
                     )}
                 </Button>
             </div>

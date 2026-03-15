@@ -1,16 +1,19 @@
 import { Button } from "../../../components/ui/Button";
+import { useTranslation } from "react-i18next";
 
 export const HomeMeets = () => {
+    const { t } = useTranslation();
+
     return (
         <>
             <section className="section decorative-line">
                 <div className="container">
                     <div className="text-center">
                         <span className="decorative">
-                            Taste and atmosphere with an ocean view
+                            {t("home.meets.decorative")}
                         </span>
                         <p className="title section-title !mb-5 lg:!mb-6 text-[48px]">
-                            Where the sea meets taste
+                            {t("home.meets.title")}
                         </p>
                     </div>
                     <div className="flex flex-col gap-5 md:gap-16 lg:flex-row">
@@ -22,21 +25,16 @@ export const HomeMeets = () => {
                             />
 
                             <p className="description section-description mb-2.5">
-                                <b>La Medusa</b> is more than a restaurant. It
-                                is a place where panoramic ocean views combine
-                                with exquisite Mediterranean cuisine. We create
-                                an atmosphere where taste and aesthetics become
-                                a single experience.
+                                {t("home.meets.p1")}
                             </p>
 
                             <p className="description section-description mb-5 lg:mb-10">
-                                We strive to make every dinner at La Medusa an
-                                event you'll want to remember again.
+                                {t("home.meets.p2")}
                             </p>
                             <div className="flex flex-wrap gap-4">
-                                <Button variant="blue">View Menu</Button>
-                                <Button variant="blue-outline">
-                                    Reserve a Table
+                                <Button to="/menu" variant="blue">{t("home.meets.viewMenu")}</Button>
+                                <Button to="/booking" variant="blue-outline">
+                                    {t("home.meets.reserveTable")}
                                 </Button>
                             </div>
                         </div>

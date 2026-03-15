@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import { Breadcrumb } from "../../../components/ui/Breadcrumb";
 
 export const HappyHoursWhy = () => {
+    const { t } = useTranslation();
     return (
         <section className="section-breadcrumb">
             <div className="container">
