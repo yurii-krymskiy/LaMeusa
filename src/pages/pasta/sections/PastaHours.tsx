@@ -24,7 +24,7 @@ export const PastaHours = () => {
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-6">
-                            <Button variant="blue">{t("pasta.hours.viewOffer")}</Button>
+                            <Button to="/happy-hours" variant="blue">{t("pasta.hours.viewOffer")}</Button>
                             <ButtonOpenReservation variant="blue-outline">
                                 {t("pasta.hours.bookNow")}
                             </ButtonOpenReservation>

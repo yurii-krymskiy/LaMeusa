@@ -84,7 +84,7 @@ export const AboutGrid = () => {
                             </p>
                         </div>
                         <div className="flex gap-6">
-                            <Button to="/menu" variant="blue-outline">{t("about.grid.burgers.button")}</Button>
+                            <Button to="/happy-hours" variant="blue-outline">{t("about.grid.burgers.button")}</Button>
                         </div>
                     </div>
                 </div>

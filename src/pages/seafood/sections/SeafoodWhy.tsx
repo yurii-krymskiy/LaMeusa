@@ -74,7 +74,7 @@ export const SeafoodWhy = () => {
                     <ButtonOpenReservation variant="blue">
                         {t("seafood.why.reserveTable")}
                     </ButtonOpenReservation>
-                    <Button variant="blue-outline">{t("seafood.why.contactUs")}</Button>
+                    <Button to="/contact" variant="blue-outline">{t("seafood.why.contactUs")}</Button>
                 </div>
             </div>
         </section>

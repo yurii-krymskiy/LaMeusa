@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { SwiperSlide } from "swiper/react";
 import { BasicSwiper } from "../../../components/features/BasicSwiper";
-import { Button } from "../../../components/ui/Button";
+
 
 export const ContactIG = () => {
     const { t } = useTranslation();
@@ -31,9 +31,9 @@ export const ContactIG = () => {
                                 <img src="/images/contact/delicious-lobster-gourmet-seafood.jpg" />
                             </div>
                         </div>
-                        <Button variant="blue-outline" className="self-end">
+                        <a href="https://www.instagram.com/la_medusa_tenerife?igsh=MWRxa212a3N4aXlrdQ==" target="_blank" rel="noreferrer" className="title button button-blue-outline self-end">
                             {t("contact.instagram.button")}
-                        </Button>
+                        </a>
                     </div>
                 </div>
 
@@ -51,9 +51,9 @@ export const ContactIG = () => {
                             </SwiperSlide>
                         </BasicSwiper>
                     </div>
-                    <Button variant="blue-outline" className="self-end">
+                    <a href="https://www.instagram.com/la_medusa_tenerife?igsh=MWRxa212a3N4aXlrdQ==" target="_blank" rel="noreferrer" className="title button button-blue-outline self-end">
                         {t("contact.instagram.button")}
-                    </Button>
+                    </a>
                 </div>
             </div>
         </section>

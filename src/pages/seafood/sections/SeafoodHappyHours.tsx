@@ -27,7 +27,7 @@ export const SeafoodHappyHours = () => {
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-6">
-                            <Button variant="blue">{t("seafood.happyHours.viewOffer")}</Button>
+                            <Button to="/happy-hours" variant="blue">{t("seafood.happyHours.viewOffer")}</Button>
                             <ButtonOpenReservation variant="blue-outline">
                                 {t("seafood.happyHours.bookNow")}
                             </ButtonOpenReservation>
