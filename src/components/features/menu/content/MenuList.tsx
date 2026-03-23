@@ -14,7 +14,7 @@ export const MenuList = ({ categories }: MenuListProps) => {
             {categories.map((category) => (
                 <section
                     key={category.slug}
-                    id={`menu-section-${category.slug}`}
+                    id={category.slug}
                     data-menu-section={category.slug}
                     className="scroll-mt-24 space-y-6 md:scroll-mt-6"
                 >

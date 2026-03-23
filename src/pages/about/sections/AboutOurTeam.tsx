@@ -62,6 +62,11 @@ export const AboutOutTeam = () => {
             name: "Andrew",
             role: "Cook",
         },
+        {
+            src: "/images/about/teamate-9.jpg",
+            name: "Stan",
+            role: "Piar",
+        },
     ];
     return (
         <section className="section">

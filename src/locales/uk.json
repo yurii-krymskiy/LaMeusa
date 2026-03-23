@@ -18,7 +18,7 @@
         "pizza": "Піца",
         "paella": "Паелья",
         "contact": "Контакти",
-        "copyright": "© 2025 La Medusa. Усі права захищені.",
+        "copyright": "© {{year}} La Medusa. Усі права захищені.",
         "terms": "Умови використання",
         "privacy": "Політика конфіденційності",
         "cookies": "Налаштування файлів cookie"

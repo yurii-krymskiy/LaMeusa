@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, type MutableRefObject } from "react";
 import type { SidebarType } from "../types";
 
 type Props = {
@@ -6,6 +6,7 @@ type Props = {
     activeSlug?: string;
     onSelect?: (slug: string) => void;
     headerOffset?: number;
+    scrollLockRef?: MutableRefObject<boolean>;
 };
 
 export const MobileCategoryTabs = ({
@@ -13,39 +14,76 @@ export const MobileCategoryTabs = ({
     activeSlug,
     onSelect,
     headerOffset = 40,
+    scrollLockRef,
 }: Props) => {
     const listRef = useRef<HTMLDivElement | null>(null);
     const isUserScrolling = useRef(false);
+    const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
+    const setScrollLock = useCallback(
+        (locked: boolean) => {
+            isUserScrolling.current = locked;
+            if (scrollLockRef) scrollLockRef.current = locked;
+        },
+        [scrollLockRef]
+    );
+
+    // Smoothly center the active tab without fighting page scroll
     useEffect(() => {
         if (!activeSlug || !listRef.current || isUserScrolling.current) return;
         const el = listRef.current.querySelector<HTMLButtonElement>(
             `[data-tab="${activeSlug}"]`
         );
-        if (el) {
-            el.scrollIntoView({
-                behavior: "smooth",
-                inline: "center",
-                block: "nearest",
-            });
-        }
+        if (!el || !listRef.current) return;
+
+        const container = listRef.current;
+        const scrollLeft =
+            el.offsetLeft - container.offsetWidth / 2 + el.offsetWidth / 2;
+
+        container.scrollTo({
+            left: scrollLeft,
+            behavior: "smooth",
+        });
     }, [activeSlug]);
 
     const scrollToSlug = useCallback(
         (slug: string) => {
-            isUserScrolling.current = true;
-            const section = document.getElementById(`menu-section-${slug}`);
-            if (!section) return;
+            setScrollLock(true);
+
+            // Clear any previous timeout
+            if (scrollTimeoutRef.current) {
+                clearTimeout(scrollTimeoutRef.current);
+            }
+
+            const section = document.getElementById(slug);
+            if (!section) {
+                setScrollLock(false);
+                return;
+            }
             const rect = section.getBoundingClientRect();
             const y = Math.max(window.scrollY + rect.top - headerOffset, 0);
             window.scrollTo({ top: y, behavior: "smooth" });
-            
-            // Reset user scrolling flag after animation
-            setTimeout(() => {
-                isUserScrolling.current = false;
-            }, 500);
+
+            // Wait for scroll to settle, then let observer take over again
+            const checkSettled = () => {
+                let lastY = window.scrollY;
+                const interval = setInterval(() => {
+                    if (Math.abs(window.scrollY - lastY) < 2) {
+                        clearInterval(interval);
+                        setScrollLock(false);
+                    }
+                    lastY = window.scrollY;
+                }, 100);
+                // Safety fallback
+                scrollTimeoutRef.current = setTimeout(() => {
+                    clearInterval(interval);
+                    setScrollLock(false);
+                }, 2000);
+            };
+
+            requestAnimationFrame(checkSettled);
         },
-        [headerOffset]
+        [headerOffset, setScrollLock]
     );
 
     const buttons = useMemo(

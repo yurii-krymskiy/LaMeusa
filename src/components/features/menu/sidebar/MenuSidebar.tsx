@@ -28,7 +28,7 @@ export const MenuSidebar = ({
                             return (
                                 <li key={item.slug}>
                                     <a
-                                        href={`#menu-section-${item.slug}`}
+                                        href={`#${item.slug}`}
                                         onClick={() => onSelect?.(item.slug)}
                                         className={[
                                             "description flex items-center justify-between rounded-full p-1 text-2xl font-semibold uppercase transition-colors",

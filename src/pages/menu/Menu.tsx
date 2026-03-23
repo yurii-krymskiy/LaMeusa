@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
@@ -59,6 +59,7 @@ export const Menu = () => {
     }, [items, dictionary]);
 
     const [activeSlug, setActiveSlug] = useState("");
+    const isScrollingToSection = useRef(false);
 
     // Set initial active slug when data loads
     useEffect(() => {
@@ -91,37 +92,53 @@ export const Menu = () => {
         );
         if (!sections.length) return;
 
-        // Use a ref-like approach to avoid recreating observer on activeSlug change
         let currentSlug = activeSlug;
+        let rafId = 0;
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                // Find the section closest to the top of the viewport
-                const validEntries = entries.filter((e) => e.isIntersecting);
-                
-                if (validEntries.length > 0) {
-                    // Sort by how close to top of viewport (accounting for header)
-                    const sorted = validEntries.sort((a, b) => {
-                        const aTop = a.boundingClientRect.top;
-                        const bTop = b.boundingClientRect.top;
-                        return aTop - bTop;
-                    });
-                    
-                    const slug = sorted[0].target.getAttribute("data-menu-section") || "";
-                    if (slug && slug !== currentSlug) {
-                        currentSlug = slug;
-                        setActiveSlug(slug);
+        const updateActiveSection = () => {
+            if (isScrollingToSection.current) return;
+
+            let bestSlug = "";
+            let bestDistance = Infinity;
+
+            for (const sec of sections) {
+                const rect = sec.getBoundingClientRect();
+                // Find the section whose top is closest to but not far above the viewport top
+                // Use 100px as the reference point (below sticky header/tabs)
+                const distance = Math.abs(rect.top - 100);
+                if (rect.top <= 200 && rect.bottom > 100 && distance < bestDistance) {
+                    bestDistance = distance;
+                    bestSlug = sec.getAttribute("data-menu-section") || "";
+                }
+            }
+
+            // Fallback: if nothing matched (scrolled past everything), pick the last visible
+            if (!bestSlug) {
+                for (let i = sections.length - 1; i >= 0; i--) {
+                    const rect = sections[i].getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        bestSlug = sections[i].getAttribute("data-menu-section") || "";
+                        break;
                     }
                 }
-            },
-            {
-                root: null,
-                rootMargin: "-50px 0px -70% 0px",
-                threshold: [0, 0.1],
             }
-        );
-        sections.forEach((sec) => observer.observe(sec));
-        return () => observer.disconnect();
+
+            if (bestSlug && bestSlug !== currentSlug) {
+                currentSlug = bestSlug;
+                setActiveSlug(bestSlug);
+            }
+        };
+
+        const onScroll = () => {
+            cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(updateActiveSection);
+        };
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            cancelAnimationFrame(rafId);
+        };
     }, [resolved.categories]);
 
     if (isLoading) {
@@ -159,6 +176,7 @@ export const Menu = () => {
                 activeSlug={activeSlug}
                 onSelect={setActiveSlug}
                 headerOffset={96}
+                scrollLockRef={isScrollingToSection}
             />
             <section className="hero menu-hero hidden bg-white md:block">
                 <div className="container flex max-w-[1050px] flex-col items-start text-left">

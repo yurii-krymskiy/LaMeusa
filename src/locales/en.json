@@ -18,7 +18,7 @@
         "pizza": "Pizza",
         "paella": "Paella",
         "contact": "Contact",
-        "copyright": "© 2025 La Medusa. All rights reserved.",
+        "copyright": "© {{year}} La Medusa. All rights reserved.",
         "terms": "Terms of Service",
         "privacy": "Privacy Policy",
         "cookies": "Cookies Settings"

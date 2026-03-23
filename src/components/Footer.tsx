@@ -58,17 +58,17 @@ export const Footer = () => {
                         </div>
                         <div className="flex flex-row gap-5 lg:gap-10 justify-between">
                             <ul className="text-royal-blue flex flex-col gap-2.5 font-semibold md:text-lg">
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("nav.home")}</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("nav.menu")}</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("nav.about")}</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("nav.seafood")}</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("footer.paella")}</li>
+                                <li><Link to="/" className="hover:text-[#3650b9] transition-colors duration-200">{t("nav.home")}</Link></li>
+                                <li><Link to="/menu" className="hover:text-[#3650b9] transition-colors duration-200">{t("nav.menu")}</Link></li>
+                                <li><Link to="/about" className="hover:text-[#3650b9] transition-colors duration-200">{t("nav.about")}</Link></li>
+                                <li><Link to="/seafood" className="hover:text-[#3650b9] transition-colors duration-200">{t("nav.seafood")}</Link></li>
+                                <li><Link to="/menu#paella" className="hover:text-[#3650b9] transition-colors duration-200">{t("footer.paella")}</Link></li>
                             </ul>
                             <ul className="text-royal-blue flex flex-col gap-2.5 font-semibold md:text-lg">
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("footer.burger")}</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("nav.birthday")}</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("nav.happyHours")}</li>
-                                <li className="hover:text-[#3650b9] cursor-pointer transition-colors duration-200">{t("footer.pizza")}</li>
+                                <li><Link to="/menu#burgers" className="hover:text-[#3650b9] transition-colors duration-200">{t("footer.burger")}</Link></li>
+                                <li><Link to="/birthdays" className="hover:text-[#3650b9] transition-colors duration-200">{t("nav.birthday")}</Link></li>
+                                <li><Link to="/happy-hours" className="hover:text-[#3650b9] transition-colors duration-200">{t("nav.happyHours")}</Link></li>
+                                <li><Link to="/menu#pizza" className="hover:text-[#3650b9] transition-colors duration-200">{t("footer.pizza")}</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -161,7 +161,7 @@ export const Footer = () => {
             <div className="bg-royal-blue">
                 <div className="container flex flex-col justify-between py-5 text-xs text-white md:flex-row md:text-lg">
                     <p className="flex-1 text-center md:text-left">
-                        {t("footer.copyright")}
+                        {t("footer.copyright", { year: new Date().getFullYear() })}
                     </p>
 
                     <div className="mt-4 flex flex-1 items-center justify-center gap-10 md:mt-0 md:justify-end">
