@@ -141,7 +141,16 @@
 }
 
 .home-hero {
-    @apply flex flex-col items-center bg-[url('/images/home-bg.jpg')] bg-bottom pt-20 pb-10;
+  @apply relative flex flex-col items-center bg-[url('/images/home-bg.jpg')] bg-center bg-cover pt-20 pb-10;
+}
+
+.home-hero::before {
+  content: "";
+  @apply absolute inset-0 bg-black/30;
+}
+
+.home-hero > * {
+  @apply relative;
 }
 
 .about-hero {
