@@ -5,13 +5,14 @@ import { MenuItem } from "../../../components/features/menu/content/item/MenuIte
 import { MenuResolver } from "../../../components/features/menu/menuResolver";
 import { Button } from "../../../components/ui/Button";
 import { Paths } from "../../../router";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useMenuItems } from "../../../hooks/useMenuItems";
 import { CategoryTabsSkeleton } from "../../../components/features/menu/content/CategoryTabsSkeleton";
 import { MenuItemSkeletonGrid } from "../../../components/features/menu/content/item/MenuItemSkeleton";
 
 export const MenuDelicios = () => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
     const location = useLocation().pathname;
     const { items, isLoading } = useMenuItems();
 
@@ -115,7 +116,7 @@ export const MenuDelicios = () => {
                     ))}
                 </article>
                 <div className="text-center">
-                    <Button variant="blue" to={Paths.menu}>
+                    <Button variant="blue" onClick={() => navigate(`/menu#${currentCategory}`)}>
                         {t("menu.delicious.button")}
                     </Button>
                 </div>

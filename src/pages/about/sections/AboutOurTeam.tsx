@@ -23,44 +23,44 @@ export const AboutOutTeam = () => {
 
     const team = [
         {
-            src: "/images/about/teamate-1.png",
+            src: "/images/about/teamate-1.jpg",
             name: "Ruslan",
-            role: "Teammate 1",
+            role: "Manager",
         },
         {
-            src: "/images/about/teamate-2.png",
-            name: "Teammate 2",
-            role: "Teammate 2",
+            src: "/images/about/teamate-2.jpg",
+            name: "Tanya",
+            role: "Waitress",
         },
         {
-            src: "/images/about/teamate-3.png",
-            name: "Teammate 3",
-            role: "Teammate 3",
+            src: "/images/about/teamate-3.jpg",
+            name: "Anton",
+            role: "Chef",
         },
         {
-            src: "/images/about/teamate-4.png",
-            name: "Teammate 4",
-            role: "Teammate 4",
+            src: "/images/about/teamate-4.jpg",
+            name: "Helen",
+            role: "Manager",
         },
         {
-            src: "/images/about/teamate-5.png",
-            name: "Teammate 5",
-            role: "Teammate 5",
+            src: "/images/about/teamate-5.jpg",
+            name: "Oleh",
+            role: "Cook",
         },
         {
-            src: "/images/about/teamate-6.png",
-            name: "Teammate 6",
-            role: "Teammate 6",
+            src: "/images/about/teamate-6.jpg",
+            name: "Mary",
+            role: "Waitress",
         },
         {
-            src: "/images/about/teamate-7.png",
-            name: "Teammate 7",
-            role: "Teammate 7",
+            src: "/images/about/teamate-7.jpg",
+            name: "Aisha",
+            role: "Bartender",
         },
         {
-            src: "/images/about/teamate-8.png",
-            name: "Teammate 8",
-            role: "Teammate 8",
+            src: "/images/about/teamate-8.jpg",
+            name: "Andrew",
+            role: "Cook",
         },
     ];
     return (

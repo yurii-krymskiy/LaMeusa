@@ -7,7 +7,7 @@ export const AboutOutStory = () => {
         <section className="section">
             <div className="container flex flex-col items-end gap-5 lg:gap-10 lg:flex-row">
                 <img
-                    src="/images/about/teamate-3.png"
+                    src="/images/about/teamate-3.jpg"
                     className="max-w-full h-[500px] lg:h-[620px] lg:max-w-[610px] self-stretch object-cover"
                 />
 

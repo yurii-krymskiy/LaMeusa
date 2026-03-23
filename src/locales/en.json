@@ -434,5 +434,237 @@
         "persons": "persons",
         "missingDetails": "Missing reservation details",
         "yourTableReserved": "Your table has been reserved for {{guests}} {{personWord}} on {{date}}."
+    },
+    "privacy": {
+        "title": "Privacy Policy",
+        "subtitle": "La Medusa Restaurant",
+        "lastUpdated": "Last updated: 2025",
+        "s1": {
+            "title": "1. Introduction",
+            "p1": "La Medusa Restaurant respects your privacy and is committed to protecting your personal data.",
+            "p2": "This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our website or interact with our services.",
+            "p3": "This policy is designed in accordance with the General Data Protection Regulation (GDPR) of the European Union.",
+            "p4": "By using our website, you agree to the practices described in this Privacy Policy."
+        },
+        "s2": {
+            "title": "2. Data Controller",
+            "p1": "The data controller responsible for processing personal data is:",
+            "name": "La Medusa Restaurant & Cocktail Bar",
+            "location": "Tenerife, Spain",
+            "website": "https://www.lamedusa-restaurant.com",
+            "p2": "For privacy-related inquiries, you may contact us through the website contact form or official communication channels."
+        },
+        "s3": {
+            "title": "3. Personal Data We Collect",
+            "sub1": "Information you provide directly",
+            "items1": ["Name", "Email address", "Phone number", "Reservation details", "Special requests related to bookings"],
+            "sub2": "Information collected automatically",
+            "items2": ["IP address", "Browser type", "Device information", "Pages visited on the website", "Cookies and similar technologies"]
+        },
+        "s4": {
+            "title": "4. How We Use Your Data",
+            "p1": "We process personal data for the following purposes:",
+            "items": ["Managing table reservations", "Responding to customer inquiries", "Providing restaurant services", "Improving the website experience", "Ensuring website security", "Complying with legal obligations"],
+            "p2": "We only process personal data when we have a valid legal basis under GDPR."
+        },
+        "s5": {
+            "title": "5. Legal Basis for Processing",
+            "p1": "The legal basis for processing personal data includes:",
+            "items": ["Performance of a contract (restaurant reservations)", "Legitimate interests (website functionality and security)", "Consent (when required for marketing or cookies)", "Compliance with legal obligations"]
+        },
+        "s6": {
+            "title": "6. Data Sharing",
+            "p1": "We do not sell personal data.",
+            "p2": "Your information may be shared only with trusted service providers when necessary, such as:",
+            "items": ["Website hosting providers", "Reservation management systems", "Payment processors"],
+            "p3": "All third parties are required to comply with GDPR standards."
+        },
+        "s7": {
+            "title": "7. Data Retention",
+            "p1": "Personal data is stored only for as long as necessary for the purposes for which it was collected.",
+            "p2": "Reservation-related data may be stored for operational and legal reasons.",
+            "p3": "After this period, data will be securely deleted or anonymized."
+        },
+        "s8": {
+            "title": "8. Your Rights Under GDPR",
+            "p1": "Under the General Data Protection Regulation, you have the following rights:",
+            "items": ["The right to access your personal data", "The right to correct inaccurate information", "The right to request deletion of your data", "The right to restrict processing", "The right to data portability", "The right to object to certain processing activities"],
+            "p2": "Requests regarding your personal data can be submitted through our contact channels."
+        },
+        "s9": {
+            "title": "9. Cookies",
+            "p1": "Our website may use cookies to improve user experience and analyze website traffic.",
+            "p2": "Cookies may include:",
+            "items": ["Essential cookies required for website functionality", "Analytics cookies", "Preference cookies"],
+            "p3": "You can control cookie settings through your browser."
+        },
+        "s10": {
+            "title": "10. Data Security",
+            "p1": "We take appropriate technical and organizational measures to protect personal data against:",
+            "items": ["Unauthorized access", "Loss", "Misuse", "Disclosure"],
+            "p2": "However, no online system can guarantee absolute security."
+        },
+        "s11": {
+            "title": "11. Third-Party Links",
+            "p1": "Our website may contain links to third-party websites.",
+            "p2": "We are not responsible for the privacy practices of those external websites."
+        },
+        "s12": {
+            "title": "12. Changes to this Privacy Policy",
+            "p1": "We may update this Privacy Policy from time to time.",
+            "p2": "Any changes will be published on this page."
+        }
+    },
+    "terms": {
+        "title": "Terms of Service",
+        "subtitle": "La Medusa Restaurant",
+        "lastUpdated": "Last updated: 2025",
+        "s1": {
+            "title": "1. Introduction",
+            "p1": "Welcome to La Medusa Restaurant. These Terms of Service govern the use of our website and services, including table reservations, dining services, and any communication through our website or online platforms.",
+            "p2": "By accessing our website or making a reservation, you agree to comply with these Terms of Service.",
+            "p3": "If you do not agree with these terms, please do not use our website or services."
+        },
+        "s2": {
+            "title": "2. Restaurant Information",
+            "name": "La Medusa Restaurant & Cocktail Bar",
+            "location": "Tenerife, Spain",
+            "website": "https://www.lamedusa-restaurant.com",
+            "p1": "The restaurant operates in accordance with the laws of Spain and the regulations of the European Union."
+        },
+        "s3": {
+            "title": "3. Reservations",
+            "p1": "Customers may make reservations through:",
+            "items": ["The website", "Email", "Phone", "Social media messaging platforms"],
+            "p2": "The restaurant reserves the right to confirm reservations manually.",
+            "p3": "For large group reservations (usually more than 8 people), a minimum spend or deposit may be required.",
+            "p4": "Reservations are held for 15 minutes after the scheduled time unless otherwise agreed."
+        },
+        "s4": {
+            "title": "4. Deposits and Minimum Spend",
+            "p1": "For group bookings or special events, the restaurant may require:",
+            "items": ["A deposit", "A minimum spend per person"],
+            "p2": "Deposits are required to secure the reservation and prevent last-minute cancellations.",
+            "p3": "Deposit conditions will always be communicated before confirmation of the booking.",
+            "p4": "If a customer cancels within the cancellation period agreed during booking, the deposit may be refunded or transferred to another reservation date."
+        },
+        "s5": {
+            "title": "5. Cancellation Policy",
+            "p1": "Customers are encouraged to cancel reservations as early as possible.",
+            "p2": "For large bookings requiring a deposit:",
+            "items": ["Cancellations made at least 24 hours in advance may qualify for a refund", "Cancellations made later may result in the deposit being retained"],
+            "p3": "The restaurant reserves the right to cancel reservations due to:",
+            "items2": ["Operational issues", "Safety reasons", "Force majeure events"]
+        },
+        "s6": {
+            "title": "6. Prices and Payments",
+            "p1": "All prices listed by the restaurant are in Euros (€) unless stated otherwise.",
+            "p2": "Prices may include applicable taxes according to Spanish law.",
+            "p3": "Payment methods may include:",
+            "items": ["Cash", "Credit cards", "Debit cards", "Online payments for deposits"],
+            "p4": "Prices may change without prior notice."
+        },
+        "s7": {
+            "title": "7. Customer Conduct",
+            "p1": "Customers are expected to behave respectfully toward staff and other guests.",
+            "p2": "The restaurant reserves the right to refuse service to customers who:",
+            "items": ["Behave aggressively", "Disturb other guests", "Violate local laws or safety rules"]
+        },
+        "s8": {
+            "title": "8. Food Allergies and Dietary Requirements",
+            "p1": "Customers with food allergies or dietary restrictions should inform the staff before ordering.",
+            "p2": "While the restaurant takes precautions, it cannot guarantee a completely allergen-free environment."
+        },
+        "s9": {
+            "title": "9. Website Use",
+            "p1": "Users agree not to misuse the website.",
+            "p2": "Prohibited activities include:",
+            "items": ["Attempting to gain unauthorized access to the website", "Copying content without permission", "Disrupting the operation of the website"],
+            "p3": "All website content including images, branding, and text belongs to the restaurant unless otherwise stated."
+        },
+        "s10": {
+            "title": "10. Privacy and Data Protection",
+            "p1": "The restaurant processes personal data in accordance with the General Data Protection Regulation (GDPR).",
+            "p2": "Personal data collected may include:",
+            "items": ["Name", "Contact information", "Reservation details"],
+            "p3": "This information is used only for reservation management and customer communication.",
+            "p4": "Personal data is never sold to third parties.",
+            "p5": "For more information, please refer to our Privacy Policy."
+        },
+        "s11": {
+            "title": "11. Liability",
+            "p1": "The restaurant is not responsible for:",
+            "items": ["Loss of personal belongings", "Delays caused by circumstances beyond our control", "Service disruptions caused by technical issues"],
+            "p2": "Customers use the restaurant services at their own discretion."
+        },
+        "s12": {
+            "title": "12. Governing Law",
+            "p1": "These Terms of Service are governed by the laws of Spain and the European Union.",
+            "p2": "Any disputes shall be resolved in accordance with Spanish law."
+        },
+        "s13": {
+            "title": "13. Changes to Terms",
+            "p1": "The restaurant reserves the right to update these Terms of Service at any time.",
+            "p2": "Updated versions will be published on the website."
+        }
+    },
+    "cookies": {
+        "title": "Cookie Settings",
+        "subtitle": "La Medusa Restaurant",
+        "lastUpdated": "Last updated: 2025",
+        "s1": {
+            "title": "1. What Are Cookies",
+            "p1": "Cookies are small text files that are stored on your device when you visit a website. They help websites function properly, improve user experience, and provide analytical information about how visitors interact with the site.",
+            "p2": "Cookies do not typically contain information that directly identifies a user, but they may be linked to personal data if such information is provided."
+        },
+        "s2": {
+            "title": "2. How We Use Cookies",
+            "p1": "La Medusa Restaurant uses cookies for several purposes, including:",
+            "items": ["Ensuring the website functions correctly", "Remembering user preferences", "Analyzing website traffic and performance", "Improving the overall user experience"],
+            "p2": "Cookies may also help us understand how visitors interact with our website so we can improve our services."
+        },
+        "s3": {
+            "title": "3. Types of Cookies We Use",
+            "type1": "Essential Cookies",
+            "type1Desc": "These cookies are necessary for the website to function properly. Without these cookies, certain services on the website may not be available.",
+            "type1Examples": "Examples include:",
+            "type1Items": ["Session management", "Security features", "Reservation functionality"],
+            "type1Note": "These cookies cannot be disabled.",
+            "type2": "Analytics Cookies",
+            "type2Desc": "Analytics cookies help us understand how visitors use the website.",
+            "type2Info": "They may collect information such as:",
+            "type2Items": ["Pages visited", "Time spent on the website", "Website performance"],
+            "type2Note": "This information helps improve the functionality of the website.",
+            "type3": "Preference Cookies",
+            "type3Desc": "These cookies remember user preferences, such as language settings or interface preferences."
+        },
+        "s4": {
+            "title": "4. Third-Party Cookies",
+            "p1": "Some cookies may be placed by third-party services integrated into the website.",
+            "p2": "These may include services such as:",
+            "items": ["Website analytics providers", "Reservation platforms", "Embedded maps or social media content"],
+            "p3": "Third-party providers have their own privacy and cookie policies."
+        },
+        "s5": {
+            "title": "5. Managing Cookies",
+            "p1": "When you visit our website for the first time, you may see a cookie banner allowing you to accept or manage cookies.",
+            "p2": "You can:",
+            "items1": ["Accept all cookies", "Reject non-essential cookies", "Customize cookie preferences"],
+            "p3": "You can also manage cookies through your browser settings.",
+            "p4": "Most browsers allow you to:",
+            "items2": ["Block cookies", "Delete existing cookies", "Receive notifications when cookies are set"],
+            "p5": "However, disabling some cookies may affect the functionality of the website."
+        },
+        "s6": {
+            "title": "6. Legal Basis",
+            "p1": "The use of cookies on this website is based on:",
+            "items": ["Legitimate interest (for essential cookies)", "User consent (for analytics or optional cookies)"],
+            "p2": "This approach complies with EU GDPR and the ePrivacy Directive."
+        },
+        "s7": {
+            "title": "7. Updates to This Cookie Policy",
+            "p1": "We may update this Cookie Policy from time to time.",
+            "p2": "The updated version will always be available on this page."
+        }
     }
 }

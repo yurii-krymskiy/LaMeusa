@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
     CategoryDictionary,
@@ -16,6 +17,7 @@ import { MenuListSkeleton } from "../../components/features/menu/content/MenuLis
 
 export const Menu = () => {
     const { t } = useTranslation();
+    const location = useLocation();
     const { items, isLoading } = useMenuItems();
 
     const dictionary = useMemo(
@@ -64,6 +66,24 @@ export const Menu = () => {
             setActiveSlug(resolved.sidebar[0]?.slug ?? "");
         }
     }, [resolved.sidebar, activeSlug]);
+
+    // Scroll to section from URL hash (e.g. /menu#fish)
+    useEffect(() => {
+        const hash = location.hash.replace("#", "");
+        if (!hash || resolved.categories.length === 0) return;
+
+        setActiveSlug(hash);
+
+        const target = Array.from(
+            document.querySelectorAll<HTMLElement>("[data-menu-section]")
+        ).find((el) => el.getAttribute("data-menu-section") === hash);
+
+        if (target) {
+            setTimeout(() => {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 100);
+        }
+    }, [location.hash, resolved.categories]);
 
     useEffect(() => {
         const sections = Array.from(

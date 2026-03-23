@@ -17,6 +17,9 @@ import { AdminReservations } from "./pages/admin/AdminReservations";
 import { AdminVisitors } from "./pages/admin/AdminVisitors";
 import { AdminMenu } from "./pages/admin/AdminMenu";
 import { Visitors } from "./pages/visitors/Visitors";
+import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
+import TermsOfService from "./pages/legal/TermsOfService";
+import CookiesSettings from "./pages/legal/CookiesSettings";
 
 export const pages = [
     {
@@ -31,6 +34,9 @@ export const pages = [
             { path: "pasta", element: <Pasta /> },
             { path: "menu", element: <Menu /> },
             { path: "birthdays", element: <Birthday /> },
+            { path: "privacy-policy", element: <PrivacyPolicy /> },
+            { path: "terms-of-service", element: <TermsOfService /> },
+            { path: "cookies-settings", element: <CookiesSettings /> },
         ],
     },
     { path: "booking", element: <Booking /> },
@@ -60,6 +66,9 @@ export const Paths = {
     happyHours: "/happy-hours",
     birthdays: "/birthdays",
     booking: "/booking",
+    privacyPolicy: "/privacy-policy",
+    termsOfService: "/terms-of-service",
+    cookiesSettings: "/cookies-settings",
 } as const;
 
 export type PathsType = typeof Paths;

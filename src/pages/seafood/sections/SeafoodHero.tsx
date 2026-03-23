@@ -1,10 +1,11 @@
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { ButtonOpenReservation } from "../../../components/features/reservation-form/ButtonOpenReservation";
 import { Button } from "../../../components/ui/Button";
-import { Paths } from "../../../router";
 
 export const SeafoodHero = () => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
     return (
         <main className="hero seafood-hero">
             <div className="container">
@@ -17,7 +18,7 @@ export const SeafoodHero = () => {
                     </p>
                 </div>
                 <div className="mb-20 flex gap-3 flex-wrap">
-                    <Button variant="white-outline" to={Paths.menu}>{t("seafood.hero.exploreMenu")}</Button>
+                    <Button variant="white-outline" onClick={() => navigate("/menu#fish")}>{t("seafood.hero.exploreMenu")}</Button>
                     <ButtonOpenReservation variant="default" className="!text-white">
                         <span>{t("seafood.hero.reserveTable")}</span>
                         <img src="/icons/arrow-right.svg" className="size-7" />

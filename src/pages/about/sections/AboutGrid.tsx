@@ -61,7 +61,7 @@ export const AboutGrid = () => {
                     </div>
 
                     <img
-                        src="/images/about/example.png"
+                        src="/images/about/example.jpg"
                         className="max-w-full h-[400px] lg:h-[600px] lg:max-w-[690px] object-cover"
                     />
                 </div>

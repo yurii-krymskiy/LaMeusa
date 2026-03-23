@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
     const { t } = useTranslation();
@@ -164,9 +165,9 @@ export const Footer = () => {
                     </p>
 
                     <div className="mt-4 flex flex-1 items-center justify-center gap-10 md:mt-0 md:justify-end">
-                        <span>{t("footer.terms")}</span>
-                        <span>{t("footer.privacy")}</span>
-                        <span>{t("footer.cookies")}</span>
+                        <Link to="/terms-of-service" className="hover:underline transition-opacity duration-200">{t("footer.terms")}</Link>
+                        <Link to="/privacy-policy" className="hover:underline transition-opacity duration-200">{t("footer.privacy")}</Link>
+                        <Link to="/cookies-settings" className="hover:underline transition-opacity duration-200">{t("footer.cookies")}</Link>
                     </div>
                 </div>
             </div>

@@ -434,5 +434,196 @@
         "persons": "personas",
         "missingDetails": "Faltan detalles de la reserva",
         "yourTableReserved": "Tu mesa ha sido reservada para {{guests}} {{personWord}} el {{date}}."
+    },
+    "privacy": {
+        "title": "Política de Privacidad",
+        "subtitle": "La Medusa Restaurant",
+        "lastUpdated": "Última actualización: 2025",
+        "s1": {
+            "title": "1. Introducción",
+            "p1": "La Medusa Restaurant respeta su privacidad y se compromete a proteger sus datos personales.",
+            "p2": "Esta política explica cómo recopilamos, utilizamos y protegemos su información personal conforme al Reglamento General de Protección de Datos (GDPR) de la Unión Europea.",
+            "p3": "Esta política está diseñada de acuerdo con el Reglamento General de Protección de Datos (GDPR) de la Unión Europea.",
+            "p4": "Al usar nuestro sitio web, usted acepta las prácticas descritas en esta Política de Privacidad."
+        },
+        "s2": {
+            "title": "2. Responsable del Tratamiento",
+            "p1": "El responsable del tratamiento de datos personales es:",
+            "name": "La Medusa Restaurant & Cocktail Bar",
+            "location": "Tenerife, España",
+            "website": "https://www.lamedusa-restaurant.com",
+            "p2": "Para consultas sobre privacidad, puede contactarnos a través del formulario de contacto del sitio web o los canales de comunicación oficiales."
+        },
+        "s3": {
+            "title": "3. Datos que recopilamos",
+            "sub1": "Información que usted proporciona directamente",
+            "items1": ["Nombre", "Correo electrónico", "Número de teléfono", "Detalles de reservas", "Solicitudes especiales relacionadas con reservas"],
+            "sub2": "Información recopilada automáticamente",
+            "items2": ["Dirección IP", "Tipo de navegador", "Información del dispositivo", "Páginas visitadas en el sitio web", "Cookies y tecnologías similares"]
+        },
+        "s4": {
+            "title": "4. Uso de los datos",
+            "p1": "Utilizamos la información para los siguientes fines:",
+            "items": ["Gestionar reservas de mesas", "Responder consultas de clientes", "Proporcionar servicios del restaurante", "Mejorar la experiencia del sitio web", "Garantizar la seguridad del sitio web", "Cumplir obligaciones legales"],
+            "p2": "Solo procesamos datos personales cuando tenemos una base legal válida según el GDPR."
+        },
+        "s5": {
+            "title": "5. Base legal",
+            "p1": "El tratamiento se basa en:",
+            "items": ["Ejecución de contrato (reservas de restaurante)", "Interés legítimo (funcionalidad y seguridad del sitio web)", "Consentimiento (cuando se requiere para marketing o cookies)", "Obligaciones legales"]
+        },
+        "s6": {
+            "title": "6. Compartición de datos",
+            "p1": "No vendemos datos personales.",
+            "p2": "Los datos pueden compartirse con proveedores técnicos necesarios para el funcionamiento del sitio web, tales como:",
+            "items": ["Proveedores de alojamiento web", "Sistemas de gestión de reservas", "Procesadores de pagos"],
+            "p3": "Todos los terceros deben cumplir con los estándares del GDPR."
+        },
+        "s7": {
+            "title": "7. Conservación de datos",
+            "p1": "Los datos se almacenan solo durante el tiempo necesario para los fines para los que fueron recopilados.",
+            "p2": "Los datos relacionados con reservas pueden almacenarse por razones operativas y legales.",
+            "p3": "Después de este período, los datos serán eliminados de forma segura o anonimizados."
+        },
+        "s8": {
+            "title": "8. Derechos del usuario",
+            "p1": "Según el Reglamento General de Protección de Datos, usted tiene los siguientes derechos:",
+            "items": ["Derecho a acceder a sus datos personales", "Derecho a corregir información inexacta", "Derecho a solicitar la eliminación de sus datos", "Derecho a restringir el procesamiento", "Derecho a la portabilidad de datos", "Derecho a oponerse a ciertas actividades de procesamiento"],
+            "p2": "Las solicitudes sobre sus datos personales pueden enviarse a través de nuestros canales de contacto."
+        },
+        "s9": {
+            "title": "9. Cookies",
+            "p1": "Nuestro sitio web puede utilizar cookies para mejorar la experiencia del usuario y analizar el tráfico del sitio web.",
+            "p2": "Las cookies pueden incluir:",
+            "items": ["Cookies esenciales para la funcionalidad del sitio web", "Cookies de análisis", "Cookies de preferencias"],
+            "p3": "Puede controlar la configuración de cookies a través de su navegador."
+        },
+        "s10": {
+            "title": "10. Seguridad",
+            "p1": "Tomamos medidas técnicas y organizativas apropiadas para proteger los datos personales contra:",
+            "items": ["Acceso no autorizado", "Pérdida", "Uso indebido", "Divulgación"],
+            "p2": "Sin embargo, ningún sistema en línea puede garantizar seguridad absoluta."
+        },
+        "s11": {
+            "title": "11. Enlaces de terceros",
+            "p1": "Nuestro sitio web puede contener enlaces a sitios web de terceros.",
+            "p2": "No somos responsables de las prácticas de privacidad de esos sitios web externos."
+        },
+        "s12": {
+            "title": "12. Cambios",
+            "p1": "Esta política puede actualizarse en cualquier momento.",
+            "p2": "Cualquier cambio será publicado en esta página."
+        }
+    },
+    "terms": {
+        "title": "Términos de Servicio",
+        "subtitle": "La Medusa Restaurant",
+        "lastUpdated": "Última actualización: 2025",
+        "s1": {
+            "title": "1. Introducción",
+            "p1": "Bienvenido a La Medusa Restaurant. Estos Términos de Servicio regulan el uso de nuestro sitio web y servicios, incluyendo reservas de mesa y servicios de restauración.",
+            "p2": "Al utilizar nuestro sitio web o realizar una reserva, usted acepta estos términos."
+        },
+        "s2": {
+            "title": "2. Información del Restaurante",
+            "name": "La Medusa Restaurant & Cocktail Bar",
+            "location": "Tenerife, España",
+            "website": "https://www.lamedusa-restaurant.com",
+            "p1": "El restaurante opera conforme a la legislación española y las regulaciones de la Unión Europea."
+        },
+        "s3": {
+            "title": "3. Reservas",
+            "p1": "Las reservas pueden realizarse mediante:",
+            "items": ["Sitio web", "Teléfono", "Correo electrónico", "Redes sociales"],
+            "p2": "Las reservas se mantienen durante 15 minutos después de la hora acordada.",
+            "p3": "Para grupos grandes puede requerirse depósito o consumo mínimo."
+        },
+        "s4": {
+            "title": "4. Depósitos y Consumo Mínimo",
+            "p1": "Para reservas de grupos o eventos especiales, el restaurante puede solicitar:",
+            "items": ["Un depósito", "Consumo mínimo por persona"],
+            "p2": "Las condiciones del depósito se comunicarán antes de confirmar la reserva."
+        },
+        "s5": {
+            "title": "5. Política de Cancelación",
+            "p1": "Las cancelaciones deben realizarse con antelación.",
+            "p2": "Para reservas con depósito:",
+            "items": ["Cancelaciones con 24 horas de antelación pueden recibir reembolso", "Cancelaciones tardías pueden perder el depósito"]
+        },
+        "s6": {
+            "title": "6. Precios y Pagos",
+            "p1": "Todos los precios se expresan en euros (€).",
+            "p2": "Los impuestos aplicables están incluidos según la legislación española.",
+            "p3": "Métodos de pago aceptados:",
+            "items": ["Efectivo", "Tarjetas de crédito", "Tarjetas de débito"]
+        },
+        "s7": {
+            "title": "7. Conducta del Cliente",
+            "p1": "Los clientes deben comportarse de forma respetuosa.",
+            "p2": "El restaurante puede negar el servicio a personas que:",
+            "items": ["Causen disturbios", "Se comporten de manera agresiva", "Incumplan normas de seguridad"]
+        },
+        "s8": {
+            "title": "8. Alergias Alimentarias",
+            "p1": "Los clientes con alergias deben informar al personal antes de ordenar."
+        },
+        "s9": {
+            "title": "9. Uso del Sitio Web",
+            "p1": "Queda prohibido:",
+            "items": ["Copiar contenido sin autorización", "Intentar acceder a sistemas internos"]
+        },
+        "s10": {
+            "title": "10. Protección de Datos",
+            "p1": "El restaurante cumple con el Reglamento General de Protección de Datos (GDPR)."
+        },
+        "s11": {
+            "title": "11. Responsabilidad",
+            "p1": "El restaurante no se responsabiliza por la pérdida de objetos personales."
+        },
+        "s12": {
+            "title": "12. Legislación Aplicable",
+            "p1": "Estos términos se rigen por la legislación española y de la Unión Europea."
+        }
+    },
+    "cookies": {
+        "title": "Configuración de Cookies",
+        "subtitle": "La Medusa Restaurant",
+        "lastUpdated": "Última actualización: 2025",
+        "s1": {
+            "title": "1. Qué son las cookies",
+            "p1": "Las cookies son pequeños archivos de texto que se almacenan en su dispositivo cuando visita un sitio web.",
+            "p2": "Se utilizan para mejorar la experiencia del usuario y analizar el uso del sitio web."
+        },
+        "s2": {
+            "title": "2. Cómo usamos las cookies",
+            "p1": "Utilizamos cookies para:",
+            "items": ["Garantizar el funcionamiento correcto del sitio web", "Recordar preferencias del usuario", "Analizar el tráfico del sitio web", "Mejorar la experiencia del usuario"]
+        },
+        "s3": {
+            "title": "3. Tipos de cookies",
+            "type1": "Cookies esenciales",
+            "type1Desc": "Son necesarias para el funcionamiento del sitio web.",
+            "type2": "Cookies analíticas",
+            "type2Desc": "Nos ayudan a comprender cómo se utiliza el sitio web.",
+            "type3": "Cookies de preferencias",
+            "type3Desc": "Recuerdan configuraciones del usuario como idioma o preferencias."
+        },
+        "s4": {
+            "title": "4. Cookies de terceros",
+            "p1": "Algunos servicios externos pueden colocar cookies en el sitio web."
+        },
+        "s5": {
+            "title": "5. Gestión de cookies",
+            "p1": "Los usuarios pueden aceptar o rechazar cookies no esenciales mediante el banner de cookies.",
+            "p2": "También pueden controlar las cookies a través de la configuración del navegador."
+        },
+        "s6": {
+            "title": "6. Base legal",
+            "p1": "El uso de cookies cumple con el GDPR y la normativa europea de privacidad electrónica."
+        },
+        "s7": {
+            "title": "7. Cambios",
+            "p1": "Esta política puede actualizarse en cualquier momento."
+        }
     }
 }
