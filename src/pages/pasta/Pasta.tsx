@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import { SEO } from "../../components/SEO";
 import { MenuDelicios } from "../menu/sections/MenuDelicios";
 import { PastaGallery } from "./sections/PastaGallery";
 import { PastaHero } from "./sections/PastaHero";
@@ -8,8 +10,15 @@ import { PastVideo } from "./sections/PastaVideo";
 import { PastaWhy } from "./sections/PastaWhy";
 
 export const Pasta = () => {
+    const { t } = useTranslation();
+
     return (
         <>
+            <SEO
+                title={t("seo.pasta.title")}
+                description={t("seo.pasta.description")}
+                path="/pasta"
+            />
             <PastaHero />
             <PastaWhy />
             <PastaGallery />

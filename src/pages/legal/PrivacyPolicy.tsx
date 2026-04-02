@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { SEO } from "../../components/SEO";
 import { LegalLayout, Section, Paragraph, BulletList } from "./LegalLayout";
 
 const PrivacyPolicy = () => {
@@ -9,6 +10,11 @@ const PrivacyPolicy = () => {
             title={t("privacy.title")}
             subtitle={t("privacy.subtitle")}
         >
+            <SEO
+                title={t("seo.privacyPolicy.title")}
+                description={t("seo.privacyPolicy.description")}
+                path="/privacy-policy"
+            />
             <Section title={t("privacy.s1.title")}>
                 <Paragraph>{t("privacy.s1.p1")}</Paragraph>
                 <Paragraph>{t("privacy.s1.p2")}</Paragraph>

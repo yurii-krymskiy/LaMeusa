@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { SEO } from "../../components/SEO";
 import {
     CategoryDictionary,
     MenuResolver,
@@ -171,6 +172,11 @@ export const Menu = () => {
 
     return (
         <main>
+            <SEO
+                title={t("seo.menu.title")}
+                description={t("seo.menu.description")}
+                path="/menu"
+            />
             <MobileCategoryTabs
                 items={resolved.sidebar}
                 activeSlug={activeSlug}

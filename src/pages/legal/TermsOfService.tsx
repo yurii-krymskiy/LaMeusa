@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { SEO } from "../../components/SEO";
 import { LegalLayout, Section, Paragraph, BulletList } from "./LegalLayout";
 
 const TermsOfService = () => {
@@ -12,6 +13,11 @@ const TermsOfService = () => {
             title={t("terms.title")}
             subtitle={t("terms.subtitle")}
         >
+            <SEO
+                title={t("seo.termsOfService.title")}
+                description={t("seo.termsOfService.description")}
+                path="/terms-of-service"
+            />
             {/* 1. Introduction */}
             <Section title={t("terms.s1.title")}>
                 <Paragraph>{t("terms.s1.p1")}</Paragraph>

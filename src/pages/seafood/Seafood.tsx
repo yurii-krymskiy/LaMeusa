@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import { SEO } from "../../components/SEO";
 import { MenuDelicios } from "../menu/sections/MenuDelicios";
 import { SeafoodGallery } from "./sections/SeafoodGallery";
 import { SeafoodHappyHours } from "./sections/SeafoodHappyHours";
@@ -7,8 +9,15 @@ import { SeafoodReserve } from "./sections/SeafoodReserve";
 import { SeafoodWhy } from "./sections/SeafoodWhy";
 
 const Seafood = () => {
+    const { t } = useTranslation();
+
     return (
         <>
+            <SEO
+                title={t("seo.seafood.title")}
+                description={t("seo.seafood.description")}
+                path="/seafood"
+            />
             <SeafoodHero />
             <SeafoodPhilosophy />
             <MenuDelicios />

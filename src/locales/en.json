@@ -666,5 +666,55 @@
             "p1": "We may update this Cookie Policy from time to time.",
             "p2": "The updated version will always be available on this page."
         }
+    },
+    "seo": {
+        "home": {
+            "title": "La Medusa — Mediterranean Restaurant",
+            "description": "Experience the taste of Mediterranean cuisine against the backdrop of the Atlantic Ocean. Fresh seafood, handmade pasta, and an unforgettable atmosphere at La Medusa."
+        },
+        "about": {
+            "title": "About Us",
+            "description": "Learn about La Medusa — our story, our team, and our passion for Mediterranean cuisine by the ocean."
+        },
+        "contact": {
+            "title": "Contact",
+            "description": "Get in touch with La Medusa. Find our location, opening hours, and contact details for reservations."
+        },
+        "menu": {
+            "title": "Menu",
+            "description": "Explore our Mediterranean menu — tapas, seafood, pasta, pizza, paella, and more at La Medusa."
+        },
+        "seafood": {
+            "title": "Seafood",
+            "description": "Discover our fresh seafood selection — ocean-to-table dishes crafted with the finest Mediterranean ingredients."
+        },
+        "pasta": {
+            "title": "Pasta",
+            "description": "Handmade pasta dishes inspired by Italian tradition. Fresh ingredients and authentic Mediterranean flavours at La Medusa."
+        },
+        "happyHours": {
+            "title": "Happy Hours",
+            "description": "Enjoy special offers during Happy Hours at La Medusa. Great drinks and bites at unbeatable prices."
+        },
+        "birthdays": {
+            "title": "Birthday Celebrations",
+            "description": "Celebrate your birthday at La Medusa. Special packages for unforgettable moments with friends and family."
+        },
+        "booking": {
+            "title": "Book a Table",
+            "description": "Reserve your table at La Medusa. Quick and easy online booking for the perfect Mediterranean dining experience."
+        },
+        "privacyPolicy": {
+            "title": "Privacy Policy",
+            "description": "Read the La Medusa privacy policy. Learn how we collect, use, and protect your personal data."
+        },
+        "termsOfService": {
+            "title": "Terms of Service",
+            "description": "Terms and conditions for using La Medusa website and restaurant services."
+        },
+        "cookiesSettings": {
+            "title": "Cookie Policy",
+            "description": "Learn about how La Medusa uses cookies to improve your browsing experience."
+        }
     }
 }

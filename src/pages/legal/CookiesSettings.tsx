@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { SEO } from "../../components/SEO";
 import { LegalLayout, Section, Paragraph, BulletList } from "./LegalLayout";
 
 const CookiesSettings = () => {
@@ -12,6 +13,11 @@ const CookiesSettings = () => {
             title={t("cookies.title")}
             subtitle={t("cookies.subtitle")}
         >
+            <SEO
+                title={t("seo.cookiesSettings.title")}
+                description={t("seo.cookiesSettings.description")}
+                path="/cookies-settings"
+            />
             {/* 1. What Are Cookies */}
             <Section title={t("cookies.s1.title")}>
                 <Paragraph>{t("cookies.s1.p1")}</Paragraph>

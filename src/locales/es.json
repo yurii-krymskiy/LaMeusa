@@ -625,5 +625,55 @@
             "title": "7. Cambios",
             "p1": "Esta política puede actualizarse en cualquier momento."
         }
+    },
+    "seo": {
+        "home": {
+            "title": "La Medusa — Restaurante Mediterráneo",
+            "description": "Descubre el sabor de la cocina mediterránea frente al Océano Atlántico. Mariscos frescos, pasta artesanal y una atmósfera inolvidable en La Medusa."
+        },
+        "about": {
+            "title": "Sobre Nosotros",
+            "description": "Conoce La Medusa — nuestra historia, nuestro equipo y nuestra pasión por la cocina mediterránea junto al océano."
+        },
+        "contact": {
+            "title": "Contacto",
+            "description": "Ponte en contacto con La Medusa. Encuentra nuestra ubicación, horarios y datos de contacto para reservas."
+        },
+        "menu": {
+            "title": "Carta",
+            "description": "Explora nuestra carta mediterránea — tapas, mariscos, pasta, pizza, paella y más en La Medusa."
+        },
+        "seafood": {
+            "title": "Mariscos",
+            "description": "Descubre nuestra selección de mariscos frescos — platos del mar a la mesa elaborados con los mejores ingredientes mediterráneos."
+        },
+        "pasta": {
+            "title": "Pasta",
+            "description": "Pasta artesanal inspirada en la tradición italiana. Ingredientes frescos y auténticos sabores mediterráneos en La Medusa."
+        },
+        "happyHours": {
+            "title": "Happy Hours",
+            "description": "Disfruta de ofertas especiales durante las Happy Hours en La Medusa. Bebidas y tapas a precios irresistibles."
+        },
+        "birthdays": {
+            "title": "Celebraciones de Cumpleaños",
+            "description": "Celebra tu cumpleaños en La Medusa. Paquetes especiales para momentos inolvidables con amigos y familia."
+        },
+        "booking": {
+            "title": "Reservar Mesa",
+            "description": "Reserva tu mesa en La Medusa. Reservas online rápidas y sencillas para la experiencia gastronómica mediterránea perfecta."
+        },
+        "privacyPolicy": {
+            "title": "Política de Privacidad",
+            "description": "Lee la política de privacidad de La Medusa. Descubre cómo recopilamos, usamos y protegemos tus datos personales."
+        },
+        "termsOfService": {
+            "title": "Términos de Servicio",
+            "description": "Términos y condiciones de uso del sitio web y los servicios del restaurante La Medusa."
+        },
+        "cookiesSettings": {
+            "title": "Política de Cookies",
+            "description": "Descubre cómo La Medusa utiliza cookies para mejorar tu experiencia de navegación."
+        }
     }
 }
