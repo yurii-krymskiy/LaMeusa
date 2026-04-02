@@ -20,6 +20,18 @@ import { Visitors } from "./pages/visitors/Visitors";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
 import CookiesSettings from "./pages/legal/CookiesSettings";
+import SeoSalads from "./pages/seo/SeoSalads";
+import SeoPizza from "./pages/seo/SeoPizza";
+import SeoMeat from "./pages/seo/SeoMeat";
+import SeoBurgers from "./pages/seo/SeoBurgers";
+import SeoPaella from "./pages/seo/SeoPaella";
+import SeoSeafood from "./pages/seo/SeoSeafood";
+import SeoTapas from "./pages/seo/SeoTapas";
+import SeoPasta from "./pages/seo/SeoPasta";
+import SeoDessert from "./pages/seo/SeoDessert";
+import SeoChildrenMenu from "./pages/seo/SeoChildrenMenu";
+import SeoSauces from "./pages/seo/SeoSauces";
+import SeoGarnish from "./pages/seo/SeoGarnish";
 
 export const pages = [
     {
@@ -37,6 +49,19 @@ export const pages = [
             { path: "privacy-policy", element: <PrivacyPolicy /> },
             { path: "terms-of-service", element: <TermsOfService /> },
             { path: "cookies-settings", element: <CookiesSettings /> },
+            // SEO pages
+            { path: "best-salads-tenerife", element: <SeoSalads /> },
+            { path: "pizza-los-cristianos", element: <SeoPizza /> },
+            { path: "meat-los-cristianos", element: <SeoMeat /> },
+            { path: "burgers-los-cristianos", element: <SeoBurgers /> },
+            { path: "paella-los-cristianos", element: <SeoPaella /> },
+            { path: "fish-seafood-los-cristianos", element: <SeoSeafood /> },
+            { path: "tapas-appetizers-los-cristianos", element: <SeoTapas /> },
+            { path: "pasta-los-cristianos", element: <SeoPasta /> },
+            { path: "dessert-los-cristianos", element: <SeoDessert /> },
+            { path: "children-menu-los-cristianos", element: <SeoChildrenMenu /> },
+            { path: "sauces-adds-los-cristianos", element: <SeoSauces /> },
+            { path: "garnish-los-cristianos", element: <SeoGarnish /> },
         ],
     },
     { path: "booking", element: <Booking /> },
