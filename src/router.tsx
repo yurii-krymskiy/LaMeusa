@@ -16,6 +16,8 @@ import { AdminBlockedSlots } from "./pages/admin/AdminBlockedSlots";
 import { AdminReservations } from "./pages/admin/AdminReservations";
 import { AdminVisitors } from "./pages/admin/AdminVisitors";
 import { AdminMenu } from "./pages/admin/AdminMenu";
+import { AdminBar } from "./pages/admin/AdminBar";
+import { AdminCocktails } from "./pages/admin/AdminCocktails";
 import { Visitors } from "./pages/visitors/Visitors";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
@@ -77,6 +79,8 @@ export const pages = [
             { path: "reservations", element: <AdminReservations /> },
             { path: "visitors", element: <AdminVisitors /> },
             { path: "menu", element: <AdminMenu /> },
+            { path: "bar", element: <AdminBar /> },
+            { path: "cocktails", element: <AdminCocktails /> },
         ],
     },
 ];

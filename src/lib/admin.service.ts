@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { supabase, type DbMenuItem, type DbCategory } from "./supabase";
+import { supabase, type DbMenuItem, type DbCategory, type DbBarCategory, type DbBarItem, type DbCocktailCategory, type DbCocktailItem } from "./supabase";
 import type { DbReservation, DbBlockedSlot, DbTable, DbVisitor } from "./database.types";
 
 // Statistics types
@@ -488,6 +488,200 @@ export const deleteMenuImage = async (
 
     if (error) {
         console.error("Error deleting image:", error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+};
+
+// ===================== BAR DRINKS =====================
+
+export type BarItemWithCategory = DbBarItem & {
+    bar_categories: DbBarCategory;
+};
+
+export const fetchBarCategories = async (): Promise<DbBarCategory[]> => {
+    const { data, error } = await supabase
+        .from("bar_categories")
+        .select("*")
+        .order("sort_order", { ascending: true });
+
+    if (error) {
+        console.error("Error fetching bar categories:", error);
+        return [];
+    }
+
+    return data || [];
+};
+
+export const fetchBarItemsAdmin = async (
+    categoryId?: string
+): Promise<BarItemWithCategory[]> => {
+    let query = supabase
+        .from("bar_items")
+        .select("*, bar_categories (id, name, slug, sort_order)")
+        .order("created_at", { ascending: true });
+
+    if (categoryId) {
+        query = query.eq("category_id", categoryId);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+        console.error("Error fetching bar items:", error);
+        return [];
+    }
+
+    return (data as BarItemWithCategory[]) || [];
+};
+
+export const createBarItem = async (
+    item: Omit<DbBarItem, "id" | "created_at" | "bar_categories">
+): Promise<{ success: boolean; error?: string }> => {
+    const { error } = await supabase.from("bar_items").insert(item);
+
+    if (error) {
+        console.error("Error creating bar item:", error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+};
+
+export const updateBarItem = async (
+    id: string,
+    updates: Partial<Omit<DbBarItem, "id" | "created_at" | "bar_categories">>
+): Promise<{ success: boolean; error?: string }> => {
+    const { data: existing, error: fetchError } = await supabase
+        .from("bar_items")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+    if (fetchError || !existing) {
+        return { success: false, error: fetchError?.message || "Item not found" };
+    }
+
+    const { bar_categories, ...row } = existing as BarItemWithCategory;
+
+    const { error } = await supabase
+        .from("bar_items")
+        .upsert({ ...row, ...updates })
+        .eq("id", id);
+
+    if (error) {
+        console.error("Error updating bar item:", error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+};
+
+export const deleteBarItem = async (
+    id: string
+): Promise<{ success: boolean; error?: string }> => {
+    const { error } = await supabase.from("bar_items").delete().eq("id", id);
+
+    if (error) {
+        console.error("Error deleting bar item:", error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+};
+
+// ===================== COCKTAILS =====================
+
+export type CocktailItemWithCategory = DbCocktailItem & {
+    cocktail_categories: DbCocktailCategory;
+};
+
+export const fetchCocktailCategories = async (): Promise<DbCocktailCategory[]> => {
+    const { data, error } = await supabase
+        .from("cocktail_categories")
+        .select("*")
+        .order("sort_order", { ascending: true });
+
+    if (error) {
+        console.error("Error fetching cocktail categories:", error);
+        return [];
+    }
+
+    return data || [];
+};
+
+export const fetchCocktailItemsAdmin = async (
+    categoryId?: string
+): Promise<CocktailItemWithCategory[]> => {
+    let query = supabase
+        .from("cocktail_items")
+        .select("*, cocktail_categories (id, name, slug, sort_order)")
+        .order("created_at", { ascending: true });
+
+    if (categoryId) {
+        query = query.eq("category_id", categoryId);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+        console.error("Error fetching cocktail items:", error);
+        return [];
+    }
+
+    return (data as CocktailItemWithCategory[]) || [];
+};
+
+export const createCocktailItem = async (
+    item: Omit<DbCocktailItem, "id" | "created_at" | "cocktail_categories">
+): Promise<{ success: boolean; error?: string }> => {
+    const { error } = await supabase.from("cocktail_items").insert(item);
+
+    if (error) {
+        console.error("Error creating cocktail item:", error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+};
+
+export const updateCocktailItem = async (
+    id: string,
+    updates: Partial<Omit<DbCocktailItem, "id" | "created_at" | "cocktail_categories">>
+): Promise<{ success: boolean; error?: string }> => {
+    const { data: existing, error: fetchError } = await supabase
+        .from("cocktail_items")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+    if (fetchError || !existing) {
+        return { success: false, error: fetchError?.message || "Item not found" };
+    }
+
+    const { cocktail_categories, ...row } = existing as CocktailItemWithCategory;
+
+    const { error } = await supabase
+        .from("cocktail_items")
+        .upsert({ ...row, ...updates })
+        .eq("id", id);
+
+    if (error) {
+        console.error("Error updating cocktail item:", error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+};
+
+export const deleteCocktailItem = async (
+    id: string
+): Promise<{ success: boolean; error?: string }> => {
+    const { error } = await supabase.from("cocktail_items").delete().eq("id", id);
+
+    if (error) {
+        console.error("Error deleting cocktail item:", error);
         return { success: false, error: error.message };
     }
 

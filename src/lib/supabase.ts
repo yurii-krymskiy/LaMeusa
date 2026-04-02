@@ -29,3 +29,43 @@ export type DbMenuItem = {
     created_at: string;
     categories?: DbCategory;
 };
+
+// Bar drinks types
+export type DbBarCategory = {
+    id: string;
+    name: string;
+    slug: string;
+    sort_order: number;
+    created_at: string;
+};
+
+export type DbBarItem = {
+    id: string;
+    title: string;
+    description: string | null;
+    price: number;
+    is_active: boolean;
+    category_id: string;
+    created_at: string;
+    bar_categories?: DbBarCategory;
+};
+
+// Cocktail types
+export type DbCocktailCategory = {
+    id: string;
+    name: string;
+    slug: string;
+    sort_order: number;
+    created_at: string;
+};
+
+export type DbCocktailItem = {
+    id: string;
+    title: string;
+    description: string | null;
+    price: number;
+    is_active: boolean;
+    category_id: string;
+    created_at: string;
+    cocktail_categories?: DbCocktailCategory;
+};
