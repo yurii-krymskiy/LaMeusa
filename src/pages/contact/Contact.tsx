@@ -14,6 +14,7 @@ const Contact = () => {
                 title={t("seo.contact.title")}
                 description={t("seo.contact.description")}
                 path="/contact"
+                preloadImages={["/images/contact/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.jpg"]}
             />
             <ContactHero />
             <ContactUs />

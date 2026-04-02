@@ -11,7 +11,7 @@ export const HomeOurMenu = () => {
                     src="/images/home/image-3.jpg"
                     alt="Image"
                     className="w-full object-cover h-[360px] md:h-[400px] lg:h-full lg:w-[530px]"
-                    loading="lazy"
+                    fetchPriority="high"
                 />
                 <div className="flex flex-col justify-between">
                     <div className="mb-3.5">

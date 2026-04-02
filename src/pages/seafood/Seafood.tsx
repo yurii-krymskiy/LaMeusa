@@ -17,6 +17,7 @@ const Seafood = () => {
                 title={t("seo.seafood.title")}
                 description={t("seo.seafood.description")}
                 path="/seafood"
+                preloadImages={["/images/seafood/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp"]}
             />
             <SeafoodHero />
             <SeafoodPhilosophy />

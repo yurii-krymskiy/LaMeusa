@@ -73,7 +73,7 @@ export const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="w-full md:w-[320px]">
+                    <div className="w-full md:w-[350px]">
                         <div className="title border-navy mb-3.5 border-b pb-3.5 text-xl font-normal text-gray-700 capitalize">
                             {t("footer.contact")}
                         </div>
@@ -164,7 +164,7 @@ export const Footer = () => {
                         {t("footer.copyright", { year: new Date().getFullYear() })}
                     </p>
 
-                    <div className="mt-4 flex flex-1 items-center justify-center gap-10 md:mt-0 md:justify-end">
+                    <div className="mt-4 flex flex-1 items-center justify justify-between md:gap-10 md:mt-0 md:justify-end">
                         <Link to="/terms-of-service" className="hover:underline transition-opacity duration-200">{t("footer.terms")}</Link>
                         <Link to="/privacy-policy" className="hover:underline transition-opacity duration-200">{t("footer.privacy")}</Link>
                         <Link to="/cookies-settings" className="hover:underline transition-opacity duration-200">{t("footer.cookies")}</Link>

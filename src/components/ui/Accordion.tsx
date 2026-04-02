@@ -35,7 +35,7 @@ export const Accordion = ({ list }: Props) => {
                                 />
                                 <span className="bg-sky absolute h-4 w-[1.5px]" />
                             </span>
-                            <div className="title normal-case md:text-xl">
+                            <div className="title normal-case text-left md:text-xl">
                                 {item.title}
                             </div>
                         </button>

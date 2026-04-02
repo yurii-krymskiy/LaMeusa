@@ -16,6 +16,7 @@ export const Birthday = () => {
                 title={t("seo.birthdays.title")}
                 description={t("seo.birthdays.description")}
                 path="/birthdays"
+                preloadImages={["/images/birthday/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp"]}
             />
             <BirthdayHero />
             <BirthdayWhy />

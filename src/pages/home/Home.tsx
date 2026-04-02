@@ -21,6 +21,7 @@ const Home = () => {
                 title={t("seo.home.title")}
                 description={t("seo.home.description")}
                 path="/"
+                preloadImages={["/images/home-bg.jpg", "/images/home/image-3.jpg"]}
             />
             <HomeHero />
             <HomeOurMenu />

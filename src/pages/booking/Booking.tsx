@@ -25,6 +25,7 @@ export const Booking = () => {
                 title={t("seo.booking.title")}
                 description={t("seo.booking.description")}
                 path="/booking"
+                preloadImages={["/images/restoran.jpg"]}
             />
             <div className="flex h-full flex-col md:flex-row">
                 <div className="relative w-full md:w-[50%] grid h-[300px] place-content-center bg-[url('/images/restoran.jpg')] bg-cover bg-top px-24 py-14 md:h-auto">

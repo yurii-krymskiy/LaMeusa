@@ -18,6 +18,7 @@ export const Pasta = () => {
                 title={t("seo.pasta.title")}
                 description={t("seo.pasta.description")}
                 path="/pasta"
+                preloadImages={["/images/pasta/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp"]}
             />
             <PastaHero />
             <PastaWhy />

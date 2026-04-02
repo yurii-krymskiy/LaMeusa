@@ -15,6 +15,7 @@ export const HappyHours = () => {
                 title={t("seo.happyHours.title")}
                 description={t("seo.happyHours.description")}
                 path="/happy-hours"
+                preloadImages={["/images/pasta/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp"]}
             />
             <HappyHoursHero />
             <HappyHoursWhy />

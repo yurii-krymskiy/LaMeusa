@@ -5,13 +5,14 @@ interface SEOProps {
     description: string;
     path?: string;
     image?: string;
+    preloadImages?: string[];
 }
 
 const SITE_NAME = "La Medusa";
 const BASE_URL = "https://lamedusa.es";
 const DEFAULT_IMAGE = "/images/home/home-hero.jpg";
 
-export const SEO = ({ title, description, path = "", image }: SEOProps) => {
+export const SEO = ({ title, description, path = "", image, preloadImages }: SEOProps) => {
     const fullTitle = path === "/" || !path ? SITE_NAME : `${title} | ${SITE_NAME}`;
     const url = `${BASE_URL}${path}`;
     const imageUrl = `${BASE_URL}${image || DEFAULT_IMAGE}`;
@@ -35,6 +36,16 @@ export const SEO = ({ title, description, path = "", image }: SEOProps) => {
             <meta name="twitter:title" content={fullTitle} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={imageUrl} />
+
+            {/* Preload critical images */}
+            {preloadImages?.map((src) => (
+                <link
+                    key={src}
+                    rel="preload"
+                    as="image"
+                    href={src}
+                />
+            ))}
         </Helmet>
     );
 };

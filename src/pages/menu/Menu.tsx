@@ -176,6 +176,7 @@ export const Menu = () => {
                 title={t("seo.menu.title")}
                 description={t("seo.menu.description")}
                 path="/menu"
+                preloadImages={["/images/menu/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp"]}
             />
             <MobileCategoryTabs
                 items={resolved.sidebar}
