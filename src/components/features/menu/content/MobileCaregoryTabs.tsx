@@ -28,6 +28,13 @@ export const MobileCategoryTabs = ({
         [scrollLockRef]
     );
 
+    // When items change (section switch), instantly reset scroll to start
+    useEffect(() => {
+        if (listRef.current) {
+            listRef.current.scrollLeft = 0;
+        }
+    }, [items]);
+
     // Smoothly center the active tab without fighting page scroll
     useEffect(() => {
         if (!activeSlug || !listRef.current || isUserScrolling.current) return;
@@ -50,7 +57,6 @@ export const MobileCategoryTabs = ({
         (slug: string) => {
             setScrollLock(true);
 
-            // Clear any previous timeout
             if (scrollTimeoutRef.current) {
                 clearTimeout(scrollTimeoutRef.current);
             }
@@ -64,24 +70,12 @@ export const MobileCategoryTabs = ({
             const y = Math.max(window.scrollY + rect.top - headerOffset, 0);
             window.scrollTo({ top: y, behavior: "smooth" });
 
-            // Wait for scroll to settle, then let observer take over again
-            const checkSettled = () => {
-                let lastY = window.scrollY;
-                const interval = setInterval(() => {
-                    if (Math.abs(window.scrollY - lastY) < 2) {
-                        clearInterval(interval);
-                        setScrollLock(false);
-                    }
-                    lastY = window.scrollY;
-                }, 100);
-                // Safety fallback
-                scrollTimeoutRef.current = setTimeout(() => {
-                    clearInterval(interval);
-                    setScrollLock(false);
-                }, 2000);
+            const unlock = () => {
+                window.removeEventListener("scrollend", unlock);
+                setScrollLock(false);
             };
-
-            requestAnimationFrame(checkSettled);
+            window.addEventListener("scrollend", unlock, { once: true });
+            scrollTimeoutRef.current = setTimeout(unlock, 4000);
         },
         [headerOffset, setScrollLock]
     );
@@ -116,18 +110,16 @@ export const MobileCategoryTabs = ({
     if (!items.length) return null;
 
     return (
-        <div className="sticky top-0 z-40 bg-white/90 backdrop-blur md:hidden">
-            <div
-                ref={listRef}
-                className="no-scrollbar flex w-full gap-2 overflow-x-auto overscroll-x-contain px-4 py-3"
-                style={{ 
-                    WebkitOverflowScrolling: "touch",
-                }}
-                aria-label="Menu categories"
-                role="tablist"
-            >
-                {buttons}
-            </div>
+        <div
+            ref={listRef}
+            className="no-scrollbar flex w-full gap-2 overflow-x-auto overscroll-x-contain px-4 py-2 md:hidden"
+            style={{ 
+                WebkitOverflowScrolling: "touch",
+            }}
+            aria-label="Menu categories"
+            role="tablist"
+        >
+            {buttons}
         </div>
     );
 };

@@ -180,6 +180,11 @@
             "desserts": "Desserts",
             "kids": "Children's Menu",
             "sauces": "Sauces & Extras"
+        },
+        "sections": {
+            "menu": "Menu",
+            "bar": "Bar Drinks",
+            "cocktails": "Cocktails"
         }
     },
     "contact": {
