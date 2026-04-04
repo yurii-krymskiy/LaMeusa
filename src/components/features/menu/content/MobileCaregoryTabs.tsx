@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, type MutableRefObject } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, type MutableRefObject } from "react";
 import type { SidebarType } from "../types";
 
 type Props = {
@@ -29,7 +29,8 @@ export const MobileCategoryTabs = ({
     );
 
     // When items change (section switch), instantly reset scroll to start
-    useEffect(() => {
+    // useLayoutEffect runs before browser paint to avoid blank flash
+    useLayoutEffect(() => {
         if (listRef.current) {
             listRef.current.scrollLeft = 0;
         }
