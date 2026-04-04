@@ -696,3 +696,48 @@
     font-weight: 600 !important;
     font-size: 14px !important;
 }
+
+/* Admin custom scrollbar */
+.admin-scrollbar,
+.admin-scrollbar *  {
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 transparent;
+}
+
+.admin-scrollbar::-webkit-scrollbar,
+.admin-scrollbar *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.admin-scrollbar::-webkit-scrollbar-track,
+.admin-scrollbar *::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 3px;
+}
+
+.admin-scrollbar::-webkit-scrollbar-thumb,
+.admin-scrollbar *::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 3px;
+}
+
+.admin-scrollbar::-webkit-scrollbar-thumb:hover,
+.admin-scrollbar *::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+:is(.dark) .admin-scrollbar,
+:is(.dark) .admin-scrollbar * {
+    scrollbar-color: #475569 transparent;
+}
+
+:is(.dark) .admin-scrollbar::-webkit-scrollbar-thumb,
+:is(.dark) .admin-scrollbar *::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+:is(.dark) .admin-scrollbar::-webkit-scrollbar-thumb:hover,
+:is(.dark) .admin-scrollbar *::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}

@@ -98,7 +98,7 @@ export const AdminLayout = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors">
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors admin-scrollbar">
             {/* Mobile sidebar overlay */}
             {sidebarOpen && (
                 <div

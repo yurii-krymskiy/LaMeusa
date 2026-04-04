@@ -20,7 +20,7 @@ type EditingItem = {
     id: string;
     title: string;
     description: string;
-    price: number;
+    price: string;
     category_id: string;
     is_active: boolean;
     is_top_seller: boolean;
@@ -32,7 +32,7 @@ type EditingItem = {
 const emptyItem: Omit<EditingItem, "id"> = {
     title: "",
     description: "",
-    price: 0,
+    price: "",
     category_id: "",
     is_active: true,
     is_top_seller: false,
@@ -99,7 +99,7 @@ export const AdminMenu = () => {
             id: item.id,
             title: item.title,
             description: item.description || "",
-            price: item.price,
+            price: String(item.price),
             category_id: item.category_id,
             is_active: item.is_active,
             is_top_seller: item.is_top_seller,
@@ -197,7 +197,7 @@ export const AdminMenu = () => {
         const itemData = {
             title: editingItem.title,
             description: editingItem.description || null,
-            price: editingItem.price,
+            price: parseFloat(editingItem.price) || 0,
             category_id: editingItem.category_id,
             is_active: editingItem.is_active,
             is_top_seller: editingItem.is_top_seller,
@@ -833,7 +833,7 @@ export const AdminMenu = () => {
                                     type="text"
                                     inputMode="decimal"
                                     value={editingItem.price}
-                                    onChange={(e) => setEditingItem({ ...editingItem, price: parseFloat(e.target.value) || 0 })}
+                                    onChange={(e) => { const v = e.target.value; if (v === '' || /^[0-9.,]*$/.test(v)) setEditingItem({ ...editingItem, price: v }); }}
                                     className="admin-input"
                                     placeholder="0.00"
                                 />

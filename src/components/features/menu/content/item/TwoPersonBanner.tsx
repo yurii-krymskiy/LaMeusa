@@ -1,7 +1,7 @@
 export const TwoPersonBadge = () => {
     return (
         <div
-            className="absolute top-2 left-0 z-10 flex items-center bg-sky/90 py-1 pr-3 pl-2 text-white lg:top-3 lg:py-1.5 lg:pr-4 lg:pl-3"
+            className="absolute top-2 left-0 z-10 flex items-center bg-sky/90 py-1 pr-2 pl-1 text-white lg:top-3 lg:py-1.5 lg:pr-4 lg:pl-3"
             style={{
                 clipPath: "polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%)",
             }}
