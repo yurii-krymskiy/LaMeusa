@@ -1,4 +1,5 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import {
     fetchCategories,
@@ -40,7 +41,17 @@ export const AdminMenu = () => {
     const [items, setItems] = useState<MenuItemWithCategory[]>([]);
     const [categories, setCategories] = useState<DbCategory[]>([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [filterCategory, setFilterCategory] = useState<string>("");
+    const [searchParams, setSearchParams] = useSearchParams();
+    const filterCategory = searchParams.get("category") || "";
+    const setFilterCategory = useCallback((val: string) => {
+        setSearchParams((prev) => {
+            if (val) prev.set("category", val);
+            else prev.delete("category");
+            return prev;
+        }, { replace: true });
+    }, [setSearchParams]);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [priceSort, setPriceSort] = useState<"none" | "desc" | "asc">("none");
     const [currentPage, setCurrentPage] = useState(1);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
@@ -70,7 +81,7 @@ export const AdminMenu = () => {
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [filterCategory]);
+    }, [filterCategory, searchQuery, priceSort]);
 
     const clearMessages = () => {
         setTimeout(() => {
@@ -261,10 +272,29 @@ export const AdminMenu = () => {
         }
     };
 
+    // Search + Sort
+    const filteredItems = useMemo(() => {
+        let result = items;
+        if (searchQuery) {
+            const q = searchQuery.toLowerCase();
+            result = result.filter((item) => item.title.toLowerCase().includes(q));
+        }
+        if (priceSort === "desc") {
+            result = [...result].sort((a, b) => b.price - a.price);
+        } else if (priceSort === "asc") {
+            result = [...result].sort((a, b) => a.price - b.price);
+        }
+        return result;
+    }, [items, searchQuery, priceSort]);
+
+    const togglePriceSort = () => {
+        setPriceSort((prev) => prev === "none" ? "desc" : prev === "desc" ? "asc" : "none");
+    };
+
     // Pagination
-    const totalPages = Math.ceil(items.length / ITEMS_PER_PAGE);
+    const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    const paginatedItems = items.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+    const paginatedItems = filteredItems.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
     return (
         <div className="space-y-6">
@@ -303,20 +333,29 @@ export const AdminMenu = () => {
 
             {/* Filters */}
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 sm:p-6">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                        Category:
-                    </label>
-                    <AdminSelect
-                        value={filterCategory}
-                        onChange={setFilterCategory}
-                        options={[
-                            { value: "", label: "All Categories" },
-                            ...categories.map((cat) => ({ value: cat.id, label: cat.name })),
-                        ]}
-                        placeholder="All Categories"
-                        className="w-full sm:max-w-xs"
-                    />
+                <div className="flex flex-col sm:flex-row sm:items-end gap-3 sm:gap-4">
+                    <div className="flex flex-col gap-1 w-full sm:max-w-xs">
+                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Search:</label>
+                        <input
+                            type="text"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            placeholder="Search by name..."
+                            className="admin-input"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-1 w-full sm:max-w-xs">
+                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Category:</label>
+                        <AdminSelect
+                            value={filterCategory}
+                            onChange={setFilterCategory}
+                            options={[
+                                { value: "", label: "All Categories" },
+                                ...categories.map((cat) => ({ value: cat.id, label: cat.name })),
+                            ]}
+                            placeholder="All Categories"
+                        />
+                    </div>
                 </div>
             </div>
 
@@ -327,7 +366,7 @@ export const AdminMenu = () => {
                         Menu Items
                     </h2>
                     <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {items.length} item{items.length !== 1 ? "s" : ""}
+                        {filteredItems.length} item{filteredItems.length !== 1 ? "s" : ""}
                     </span>
                 </div>
 
@@ -335,7 +374,7 @@ export const AdminMenu = () => {
                     <div className="flex items-center justify-center h-64">
                         <div className="animate-spin h-8 w-8 border-4 border-royal-blue border-t-transparent rounded-full" />
                     </div>
-                ) : items.length === 0 ? (
+                ) : filteredItems.length === 0 ? (
                     <div className="p-12 text-center">
                         <svg
                             className="mx-auto h-12 w-12 text-gray-400"
@@ -352,7 +391,24 @@ export const AdminMenu = () => {
                 ) : (
                     <>
                         {/* Mobile Card View */}
-                        <div className="md:hidden divide-y divide-gray-200 dark:divide-gray-700">
+                        <div className="md:hidden">
+                            <div className="flex items-center justify-end px-4 py-2 border-b border-gray-200 dark:border-gray-700">
+                                <button
+                                    onClick={togglePriceSort}
+                                    className={`flex items-center gap-1 text-xs font-medium uppercase transition-colors ${
+                                        priceSort !== "none" ? "text-sky" : "text-gray-500 dark:text-gray-400"
+                                    }`}
+                                >
+                                    Price
+                                    {priceSort === "desc" && (
+                                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" /></svg>
+                                    )}
+                                    {priceSort === "asc" && (
+                                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                    )}
+                                </button>
+                            </div>
+                            <div className="divide-y divide-gray-200 dark:divide-gray-700">
                             {paginatedItems.map((item) => (
                                 <div key={item.id} className="p-4 space-y-3">
                                     <div className="flex items-start gap-3">
@@ -449,8 +505,7 @@ export const AdminMenu = () => {
                                         </div>
                                     </div>
                                 </div>
-                            ))}
-                        </div>
+                            ))}                            </div>                        </div>
 
                         {/* Desktop Table View */}
                         <div className="hidden md:block overflow-x-auto">
@@ -464,7 +519,15 @@ export const AdminMenu = () => {
                                             Category
                                         </th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                            Price
+                                            <button onClick={togglePriceSort} className="flex items-center gap-1 uppercase hover:text-gray-700 dark:hover:text-gray-200 transition-colors">
+                                                Price
+                                                {priceSort === "desc" && (
+                                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" /></svg>
+                                                )}
+                                                {priceSort === "asc" && (
+                                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                                )}
+                                            </button>
                                         </th>
                                         <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                                             Active
@@ -759,12 +822,11 @@ export const AdminMenu = () => {
                                     Price (€)
                                 </label>
                                 <input
-                                    type="number"
+                                    type="text"
+                                    inputMode="decimal"
                                     value={editingItem.price}
                                     onChange={(e) => setEditingItem({ ...editingItem, price: parseFloat(e.target.value) || 0 })}
                                     className="admin-input"
-                                    min="0"
-                                    step="0.01"
                                     placeholder="0.00"
                                 />
                             </div>
