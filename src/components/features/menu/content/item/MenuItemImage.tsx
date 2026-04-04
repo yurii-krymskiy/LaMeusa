@@ -15,7 +15,7 @@ export const MenuItemImage = ({ src, alt, isTwoPerson }: MenuItemImageProps) => 
                 src={src}
                 alt={alt}
                 loading="lazy"
-                className="h-full w-full rounded-[10px] object-cover"
+                className="h-full w-full rounded-[10px] object-cover object-center"
                 onError={(e) => {
                     e.currentTarget.style.backgroundColor = "#f5f5f5";
                 }}
