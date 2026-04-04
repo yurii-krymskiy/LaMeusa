@@ -133,6 +133,8 @@ export class MenuCard implements MenuCardVM {
     badges: MenuBadge[];
     anchorId: string;
     order: number;
+    isSpicy?: boolean;
+    isTwoPerson?: boolean;
 
     constructor(init: MenuCardVM) {
         this.id = init.id;
@@ -143,6 +145,8 @@ export class MenuCard implements MenuCardVM {
         this.badges = init.badges;
         this.anchorId = init.anchorId;
         this.order = init.order;
+        this.isSpicy = init.isSpicy;
+        this.isTwoPerson = init.isTwoPerson;
     }
 }
 
@@ -172,6 +176,8 @@ export class MenuCardFactory {
             badges: this.badgeCatalog.resolve(raw.badges),
             anchorId: `${slug}-${raw.id}`,
             order: raw.order ?? Number.MAX_SAFE_INTEGER,
+            isSpicy: raw.isSpicy,
+            isTwoPerson: raw.isTwoPerson,
         });
     }
 }

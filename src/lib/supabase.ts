@@ -25,6 +25,8 @@ export type DbMenuItem = {
     image_url: string | null;
     is_active: boolean;
     is_top_seller: boolean;
+    is_spicy: boolean;
+    is_two_person: boolean;
     category_id: string;
     created_at: string;
     categories?: DbCategory;

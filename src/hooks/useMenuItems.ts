@@ -31,6 +31,8 @@ function mapDbToMenuItemType(item: DbMenuItem): MenuItemType {
         category: categorySlug,
         price: item.price,
         badges: badges.length > 0 ? badges : undefined,
+        isSpicy: item.is_spicy,
+        isTwoPerson: item.is_two_person,
     };
 }
 

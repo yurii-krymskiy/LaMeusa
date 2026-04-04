@@ -7,7 +7,7 @@ export type PortionUnit =
     | "for_2"
     | "for_3+";
 
-export type BadgeCode = "time" | "hot" | "vegan" | "star" | "ukraine";
+export type BadgeCode = "time" | "hot" | "vegan" | "star" | "ukraine" | "spicy" | "two_person";
 
 export type MenuItemType = {
     id: string | number;
@@ -19,6 +19,8 @@ export type MenuItemType = {
     unit?: PortionUnit | string;
     badges?: BadgeCode[];
     order?: number;
+    isSpicy?: boolean;
+    isTwoPerson?: boolean;
 };
 
 export type MenuBadge = {
@@ -43,6 +45,8 @@ export type MenuCardVM = {
     badges: MenuBadge[];
     anchorId: string; // `${category.slug}-${id}`
     order: number;
+    isSpicy?: boolean;
+    isTwoPerson?: boolean;
 };
 
 export type MenuCategoryVM = {

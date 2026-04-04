@@ -19,9 +19,11 @@ export const MenuItemBadge = ({ badges }: MenuItemBadgeProps) => {
                             <img src={badge.icon} />
                         </div>
                     )}
-                    <span className={`text-[${badge.color}]`}>
-                        {badge.label}
-                    </span>
+                    {badge.label && (
+                        <span style={badge.color ? { color: badge.color } : undefined}>
+                            {badge.label}
+                        </span>
+                    )}
                 </li>
             ))}
         </ul>

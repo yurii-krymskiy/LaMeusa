@@ -15,18 +15,18 @@ export const MenuItem = ({ item }: MenuItemProps) => {
             id={item.anchorId}
             className="flex flex-row gap-4 md:flex-row md:items-start"
         >
-            <MenuItemImage src={item.imageUrl} alt={item.title} />
-            <div className="flex self-stretch flex-1 flex-col justify-between gap-4">
-                <div className="flex flex-col gap-3 md:flex-col md:items-start md:justify-between">
-                    <MenuItemTitle title={item.title} />
-                    {item.subtitle && (
-                        <MenuItemSubtitle subtitle={item.subtitle} />
-                    )}
-                    <MenuItemBadge badges={item.badges} />
-                </div>
+                <MenuItemImage src={item.imageUrl} alt={item.title} isTwoPerson={item.isTwoPerson} />
+                <div className="flex self-stretch flex-1 flex-col justify-between gap-4">
+                    <div className="flex flex-col gap-3 md:flex-col md:items-start md:justify-between">
+                        <MenuItemTitle title={item.title} isSpicy={item.isSpicy} />
+                        {item.subtitle && (
+                            <MenuItemSubtitle subtitle={item.subtitle} />
+                        )}
+                        <MenuItemBadge badges={item.badges} />
+                    </div>
 
-                {item.price && <MenuItemPrice price={item.price} />}
-            </div>
+                    {item.price && <MenuItemPrice price={item.price} />}
+                </div>
         </article>
     );
 };

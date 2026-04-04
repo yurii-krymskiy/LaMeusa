@@ -24,6 +24,8 @@ type EditingItem = {
     category_id: string;
     is_active: boolean;
     is_top_seller: boolean;
+    is_spicy: boolean;
+    is_two_person: boolean;
     image_url: string | null;
 };
 
@@ -34,6 +36,8 @@ const emptyItem: Omit<EditingItem, "id"> = {
     category_id: "",
     is_active: true,
     is_top_seller: false,
+    is_spicy: false,
+    is_two_person: false,
     image_url: null,
 };
 
@@ -99,6 +103,8 @@ export const AdminMenu = () => {
             category_id: item.category_id,
             is_active: item.is_active,
             is_top_seller: item.is_top_seller,
+            is_spicy: item.is_spicy,
+            is_two_person: item.is_two_person,
             image_url: item.image_url,
         });
         setImagePreview(item.image_url);
@@ -195,6 +201,8 @@ export const AdminMenu = () => {
             category_id: editingItem.category_id,
             is_active: editingItem.is_active,
             is_top_seller: editingItem.is_top_seller,
+            is_spicy: editingItem.is_spicy,
+            is_two_person: editingItem.is_two_person,
             image_url: imageUrl,
         };
 
@@ -832,7 +840,7 @@ export const AdminMenu = () => {
                             </div>
 
                             {/* Checkboxes */}
-                            <div className="flex items-center gap-6">
+                            <div className="flex flex-wrap items-center gap-6">
                                 <label className="flex items-center gap-2 cursor-pointer">
                                     <input
                                         type="checkbox"
@@ -850,6 +858,24 @@ export const AdminMenu = () => {
                                         className="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 dark:bg-gray-700 dark:border-gray-600"
                                     />
                                     <span className="text-sm text-gray-700 dark:text-gray-300">Top Seller</span>
+                                </label>
+                                <label className="flex items-center gap-2 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={editingItem.is_spicy}
+                                        onChange={(e) => setEditingItem({ ...editingItem, is_spicy: e.target.checked })}
+                                        className="w-4 h-4 text-red-500 bg-gray-100 border-gray-300 rounded focus:ring-red-500 dark:bg-gray-700 dark:border-gray-600"
+                                    />
+                                    <span className="text-sm text-gray-700 dark:text-gray-300">Spicy</span>
+                                </label>
+                                <label className="flex items-center gap-2 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={editingItem.is_two_person}
+                                        onChange={(e) => setEditingItem({ ...editingItem, is_two_person: e.target.checked })}
+                                        className="w-4 h-4 text-sky bg-gray-100 border-gray-300 rounded focus:ring-sky dark:bg-gray-700 dark:border-gray-600"
+                                    />
+                                    <span className="text-sm text-gray-700 dark:text-gray-300">For Two Persons</span>
                                 </label>
                             </div>
                         </div>
