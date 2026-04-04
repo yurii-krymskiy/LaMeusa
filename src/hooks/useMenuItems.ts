@@ -33,6 +33,7 @@ function mapDbToMenuItemType(item: DbMenuItem): MenuItemType {
         badges: badges.length > 0 ? badges : undefined,
         isSpicy: item.is_spicy,
         isTwoPerson: item.is_two_person,
+        isServedUntil6pm: item.is_served_until_6pm,
     };
 }
 

@@ -26,6 +26,7 @@ type EditingItem = {
     is_top_seller: boolean;
     is_spicy: boolean;
     is_two_person: boolean;
+    is_served_until_6pm: boolean;
     image_url: string | null;
 };
 
@@ -38,6 +39,7 @@ const emptyItem: Omit<EditingItem, "id"> = {
     is_top_seller: false,
     is_spicy: false,
     is_two_person: false,
+    is_served_until_6pm: false,
     image_url: null,
 };
 
@@ -105,6 +107,7 @@ export const AdminMenu = () => {
             is_top_seller: item.is_top_seller,
             is_spicy: item.is_spicy,
             is_two_person: item.is_two_person,
+            is_served_until_6pm: item.is_served_until_6pm,
             image_url: item.image_url,
         });
         setImagePreview(item.image_url);
@@ -203,6 +206,7 @@ export const AdminMenu = () => {
             is_top_seller: editingItem.is_top_seller,
             is_spicy: editingItem.is_spicy,
             is_two_person: editingItem.is_two_person,
+            is_served_until_6pm: editingItem.is_served_until_6pm,
             image_url: imageUrl,
         };
 
@@ -876,6 +880,15 @@ export const AdminMenu = () => {
                                         className="w-4 h-4 text-sky bg-gray-100 border-gray-300 rounded focus:ring-sky dark:bg-gray-700 dark:border-gray-600"
                                     />
                                     <span className="text-sm text-gray-700 dark:text-gray-300">For Two Persons</span>
+                                </label>
+                                <label className="flex items-center gap-2 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={editingItem.is_served_until_6pm}
+                                        onChange={(e) => setEditingItem({ ...editingItem, is_served_until_6pm: e.target.checked })}
+                                        className="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 rounded focus:ring-orange-500 dark:bg-gray-700 dark:border-gray-600"
+                                    />
+                                    <span className="text-sm text-gray-700 dark:text-gray-300">Served until 6 PM</span>
                                 </label>
                             </div>
                         </div>

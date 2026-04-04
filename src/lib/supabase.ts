@@ -27,6 +27,7 @@ export type DbMenuItem = {
     is_top_seller: boolean;
     is_spicy: boolean;
     is_two_person: boolean;
+    is_served_until_6pm: boolean;
     category_id: string;
     created_at: string;
     categories?: DbCategory;

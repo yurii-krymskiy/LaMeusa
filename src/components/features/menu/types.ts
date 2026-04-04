@@ -21,6 +21,7 @@ export type MenuItemType = {
     order?: number;
     isSpicy?: boolean;
     isTwoPerson?: boolean;
+    isServedUntil6pm?: boolean;
 };
 
 export type MenuBadge = {
@@ -47,6 +48,7 @@ export type MenuCardVM = {
     order: number;
     isSpicy?: boolean;
     isTwoPerson?: boolean;
+    isServedUntil6pm?: boolean;
 };
 
 export type MenuCategoryVM = {

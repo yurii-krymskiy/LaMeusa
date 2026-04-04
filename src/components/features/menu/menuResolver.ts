@@ -135,6 +135,7 @@ export class MenuCard implements MenuCardVM {
     order: number;
     isSpicy?: boolean;
     isTwoPerson?: boolean;
+    isServedUntil6pm?: boolean;
 
     constructor(init: MenuCardVM) {
         this.id = init.id;
@@ -147,6 +148,7 @@ export class MenuCard implements MenuCardVM {
         this.order = init.order;
         this.isSpicy = init.isSpicy;
         this.isTwoPerson = init.isTwoPerson;
+        this.isServedUntil6pm = init.isServedUntil6pm;
     }
 }
 
@@ -178,6 +180,7 @@ export class MenuCardFactory {
             order: raw.order ?? Number.MAX_SAFE_INTEGER,
             isSpicy: raw.isSpicy,
             isTwoPerson: raw.isTwoPerson,
+            isServedUntil6pm: raw.isServedUntil6pm,
         });
     }
 }

@@ -23,6 +23,9 @@ export const MenuItem = ({ item }: MenuItemProps) => {
                             <MenuItemSubtitle subtitle={item.subtitle} />
                         )}
                         <MenuItemBadge badges={item.badges} />
+                        {item.isServedUntil6pm && (
+                            <span className="text-xs text-gray-500 italic">Served until 6 PM</span>
+                        )}
                     </div>
 
                     {item.price && <MenuItemPrice price={item.price} />}
