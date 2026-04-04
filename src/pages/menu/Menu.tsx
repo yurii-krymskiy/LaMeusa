@@ -188,13 +188,14 @@ export const Menu = () => {
 
             let bestSlug = "";
             let bestDistance = Infinity;
+            const headerBottom = 100;
 
             for (const sec of sections) {
                 const rect = sec.getBoundingClientRect();
-                const distance = Math.abs(rect.top - 100);
+                const distance = Math.abs(rect.top - headerBottom);
                 if (
-                    rect.top <= 200 &&
-                    rect.bottom > 100 &&
+                    rect.top <= 300 &&
+                    rect.bottom > headerBottom &&
                     distance < bestDistance
                 ) {
                     bestDistance = distance;
@@ -203,12 +204,13 @@ export const Menu = () => {
                 }
             }
 
+            // Fallback: find the first section still visible below the header
             if (!bestSlug) {
-                for (let i = sections.length - 1; i >= 0; i--) {
-                    const rect = sections[i].getBoundingClientRect();
-                    if (rect.top < window.innerHeight) {
+                for (const sec of sections) {
+                    const rect = sec.getBoundingClientRect();
+                    if (rect.bottom > headerBottom) {
                         bestSlug =
-                            sections[i].getAttribute("data-menu-section") || "";
+                            sec.getAttribute("data-menu-section") || "";
                         break;
                     }
                 }
