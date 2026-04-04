@@ -32,7 +32,7 @@ export const MenuSidebar = ({
                     window.scrollY +
                     el.getBoundingClientRect().top -
                     100;
-                window.scrollTo({ top: Math.max(y, 0), behavior: "smooth" });
+                window.scrollTo({ top: Math.max(y, 0), behavior: sectionKey ? "auto" : "smooth" });
             }
         },
         [onSelect, onSectionSelect]

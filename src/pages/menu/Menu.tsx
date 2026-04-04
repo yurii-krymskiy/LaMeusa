@@ -113,21 +113,19 @@ export const Menu = () => {
     );
 
     const [activeSlug, setActiveSlug] = useState("");
+    const [activeSection, setActiveSection] = useState("menu");
     const isScrollingToSection = useRef(false);
-    // Locks the displayed section during programmatic scroll to prevent
-    // subcategory tabs from cycling through intermediate sections
-    const lockedSectionRef = useRef<string | null>(null);
 
-    // Derive active section from activeSlug
-    const derivedSection = useMemo(() => {
+    // Map slug → section key for scroll spy
+    const slugToSectionMap = useMemo(() => {
+        const map = new Map<string, string>();
         for (const s of sidebarSections) {
-            if (s.items.some((i) => i.slug === activeSlug)) return s.key;
+            for (const item of s.items) {
+                map.set(item.slug, s.key);
+            }
         }
-        return sidebarSections[0]?.key ?? "menu";
-    }, [activeSlug, sidebarSections]);
-
-    // Use locked section during scroll animation, otherwise derived
-    const activeSection = lockedSectionRef.current ?? derivedSection;
+        return map;
+    }, [sidebarSections]);
 
     // Subcategories for the active section (mobile second row)
     const activeSectionItems = useMemo(() => {
@@ -136,13 +134,12 @@ export const Menu = () => {
         );
     }, [sidebarSections, activeSection]);
 
-    // When user taps a section tab, scroll to its first subcategory
+    // When user taps a section tab, instantly switch section + scroll
     const handleSectionSelect = useCallback(
         (key: string) => {
             const section = sidebarSections.find((s) => s.key === key);
             if (section && section.items.length > 0) {
-                // Lock the section so subcategory tabs don't cycle during scroll
-                lockedSectionRef.current = key;
+                setActiveSection(key);
                 setActiveSlug(section.items[0].slug);
             }
         },
@@ -156,17 +153,14 @@ export const Menu = () => {
         }
     }, [isLoading, menuResolved.sidebar, activeSlug]);
 
-    // Called when MobileSectionTabs finishes its scroll animation
-    const handleSectionScrollDone = useCallback(() => {
-        lockedSectionRef.current = null;
-    }, []);
-
     // Scroll to section from URL hash (e.g. /menu#fish)
     useEffect(() => {
         const hash = location.hash.replace("#", "");
         if (!hash || allCategories.length === 0) return;
 
         setActiveSlug(hash);
+        const section = slugToSectionMap.get(hash);
+        if (section) setActiveSection(section);
 
         const target = Array.from(
             document.querySelectorAll<HTMLElement>("[data-menu-section]")
@@ -177,7 +171,7 @@ export const Menu = () => {
                 target.scrollIntoView({ behavior: "smooth", block: "start" });
             }, 100);
         }
-    }, [location.hash, allCategories]);
+    }, [location.hash, allCategories, slugToSectionMap]);
 
     // Scroll spy — update activeSlug based on scroll position
     useEffect(() => {
@@ -186,7 +180,7 @@ export const Menu = () => {
         );
         if (!sections.length) return;
 
-        let currentSlug = activeSlug;
+        let currentSlug = "";
         let rafId = 0;
 
         const updateActiveSection = () => {
@@ -223,6 +217,8 @@ export const Menu = () => {
             if (bestSlug && bestSlug !== currentSlug) {
                 currentSlug = bestSlug;
                 setActiveSlug(bestSlug);
+                const sec = slugToSectionMap.get(bestSlug);
+                if (sec) setActiveSection(sec);
             }
         };
 
@@ -236,7 +232,7 @@ export const Menu = () => {
             window.removeEventListener("scroll", onScroll);
             cancelAnimationFrame(rafId);
         };
-    }, [allCategories]);
+    }, [allCategories, slugToSectionMap]);
 
     if (isLoading) {
         return (
@@ -277,13 +273,11 @@ export const Menu = () => {
                 ]}
             />
             {/* Mobile: dual navigation — section tabs + subcategory tabs */}
-            <div className="sticky top-0 z-40 bg-white/90 backdrop-blur md:hidden">
+            <div className="sticky top-0 z-40 bg-white/90 backdrop-blur md:hidden will-change-transform">
                 <MobileSectionTabs
                     sections={sidebarSections}
                     activeSection={activeSection}
                     onSelect={handleSectionSelect}
-                    scrollLockRef={isScrollingToSection}
-                    onScrollDone={handleSectionScrollDone}
                 />
                 <div className="border-t border-gray-200/50">
                     <MobileCategoryTabs
@@ -316,16 +310,7 @@ export const Menu = () => {
                             activeSection={activeSection}
                             onSelect={setActiveSlug}
                             onSectionSelect={(key) => {
-                                lockedSectionRef.current = key;
-                                isScrollingToSection.current = true;
-                                // Release lock when scroll ends
-                                const unlock = () => {
-                                    window.removeEventListener("scrollend", unlock);
-                                    isScrollingToSection.current = false;
-                                    lockedSectionRef.current = null;
-                                };
-                                window.addEventListener("scrollend", unlock, { once: true });
-                                setTimeout(unlock, 4000);
+                                setActiveSection(key);
                             }}
                         />
                         <MenuList categories={allCategories} />

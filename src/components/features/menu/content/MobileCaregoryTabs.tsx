@@ -75,7 +75,7 @@ export const MobileCategoryTabs = ({
                 setScrollLock(false);
             };
             window.addEventListener("scrollend", unlock, { once: true });
-            scrollTimeoutRef.current = setTimeout(unlock, 4000);
+            scrollTimeoutRef.current = setTimeout(unlock, 1000);
         },
         [headerOffset, setScrollLock]
     );
@@ -115,6 +115,7 @@ export const MobileCategoryTabs = ({
             className="no-scrollbar flex w-full gap-2 overflow-x-auto overscroll-x-contain px-4 py-2 md:hidden"
             style={{ 
                 WebkitOverflowScrolling: "touch",
+                transform: "translateZ(0)",
             }}
             aria-label="Menu categories"
             role="tablist"

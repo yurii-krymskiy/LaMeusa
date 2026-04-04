@@ -5,16 +5,12 @@ type Props = {
     sections: SidebarSection[];
     activeSection?: string;
     onSelect?: (sectionKey: string) => void;
-    scrollLockRef?: React.MutableRefObject<boolean>;
-    onScrollDone?: () => void;
 };
 
 export const MobileSectionTabs = ({
     sections,
     activeSection,
     onSelect,
-    scrollLockRef,
-    onScrollDone,
 }: Props) => {
     const listRef = useRef<HTMLDivElement | null>(null);
 
@@ -41,22 +37,11 @@ export const MobileSectionTabs = ({
             const el = document.getElementById(slug);
             if (!el) return;
 
-            if (scrollLockRef) scrollLockRef.current = true;
-
             const y =
                 window.scrollY + el.getBoundingClientRect().top - 96;
-            window.scrollTo({ top: Math.max(y, 0), behavior: "smooth" });
-
-            // Use scrollend to know when done; fallback timeout for safety
-            const unlock = () => {
-                window.removeEventListener("scrollend", unlock);
-                if (scrollLockRef) scrollLockRef.current = false;
-                onScrollDone?.();
-            };
-            window.addEventListener("scrollend", unlock, { once: true });
-            setTimeout(unlock, 4000);
+            window.scrollTo({ top: Math.max(y, 0), behavior: "auto" });
         },
-        [onSelect, scrollLockRef, onScrollDone]
+        [onSelect]
     );
 
     const buttons = useMemo(
