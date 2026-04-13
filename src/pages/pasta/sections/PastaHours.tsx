@@ -16,9 +16,9 @@ export const PastaHours = () => {
 
                     <div>
                         <div className="mb-5 lg:mb-10">
-                            <span className="section-title title mb-7 inline-block">
+                            <h2 className="section-title title mb-7 inline-block">
                                 {t("pasta.hours.title")}
-                            </span>
+                            </h2>
                             <p className="section-description description">
                                 {t("pasta.hours.description")}
                             </p>

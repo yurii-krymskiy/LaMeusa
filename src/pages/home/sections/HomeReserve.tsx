@@ -18,9 +18,9 @@ export const HomeReserve = () => {
                         <span className="decorative">
                             {t("home.reserve.decorative")}
                         </span>
-                        <div className="title !mb-2.5 lg:!mb-6 section-title">
+                        <h2 className="title !mb-2.5 lg:!mb-6 section-title">
                             {t("home.reserve.title")}
-                        </div>
+                        </h2>
                         <p className="description section-description mb-2">
                             {t("home.reserve.p1")}
                         </p>

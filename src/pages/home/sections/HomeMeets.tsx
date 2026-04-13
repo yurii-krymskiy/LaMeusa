@@ -12,9 +12,9 @@ export const HomeMeets = () => {
                         <span className="decorative">
                             {t("home.meets.decorative")}
                         </span>
-                        <p className="title section-title !mb-5 lg:!mb-6 text-[48px]">
+                        <h2 className="title section-title !mb-5 lg:!mb-6 text-[48px]">
                             {t("home.meets.title")}
-                        </p>
+                        </h2>
                     </div>
                     <div className="flex flex-col gap-5 md:gap-16 lg:flex-row">
                         <div className="w-full lg:max-w-[730px]">

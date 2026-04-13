@@ -13,9 +13,9 @@ export const SeafoodWhy = () => {
                         alt="star"
                         className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
-                    <p className="title section-title">
+                    <h2 className="title section-title">
                         {t("seafood.why.title")}
-                    </p>
+                    </h2>
                     <p className="description section-description inline-block">
                         {t("seafood.why.description")}
                     </p>
@@ -32,9 +32,9 @@ export const SeafoodWhy = () => {
                             className="mx-auto mb-2.5 size-[100px]"
                         />
                         <div>
-                            <span className="title mb-2.5 inline-block text-lg md:text-xl">
+                            <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
                                 {t("seafood.why.feature1Title")}
-                            </span>
+                            </h3>
                             <p className="description md:text-lg">
                                 {t("seafood.why.feature1Desc")}
                             </p>
@@ -46,9 +46,9 @@ export const SeafoodWhy = () => {
                             className="mx-auto mb-2.5 size-[100px]"
                         />
                         <div>
-                            <span className="title mb-2.5 inline-block text-lg md:text-xl">
+                            <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
                                 {t("seafood.why.feature2Title")}
-                            </span>
+                            </h3>
                             <p className="description md:text-lg">
                                 {t("seafood.why.feature2Desc")}
                             </p>
@@ -60,9 +60,9 @@ export const SeafoodWhy = () => {
                             className="mx-auto mb-2.5 size-[100px]"
                         />
                         <div>
-                            <span className="title mb-2.5 inline-block text-lg md:text-xl">
+                            <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
                                 {t("seafood.why.feature3Title")}
-                            </span>
+                            </h3>
                             <p className="description md:text-lg">
                                 {t("seafood.why.feature3Desc")}
                             </p>

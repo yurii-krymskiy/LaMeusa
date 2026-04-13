@@ -14,7 +14,7 @@ export const AboutChooseUs = () => {
                         alt="star"
                         className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
-                    <p className="title section-title">{t("about.chooseUs.title")}</p>
+                    <h2 className="title section-title">{t("about.chooseUs.title")}</h2>
                     <p className="description section-description inline-block">
                         {t("about.chooseUs.description")}
                     </p>
@@ -31,9 +31,9 @@ export const AboutChooseUs = () => {
                             className="mx-auto mb-2.5 size-[100px]"
                         />
                         <div>
-                            <span className="title mb-2.5 inline-block text-lg md:text-xl">
+                            <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
                                 {t("about.chooseUs.feature1Title")}
-                            </span>
+                            </h3>
                             <p className="description md:text-lg">
                                 {t("about.chooseUs.feature1Desc")}
                             </p>
@@ -45,9 +45,9 @@ export const AboutChooseUs = () => {
                             className="mx-auto mb-2.5 size-[100px]"
                         />
                         <div>
-                            <span className="title mb-2.5 inline-block text-lg md:text-xl">
+                            <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
                                 {t("about.chooseUs.feature2Title")}
-                            </span>
+                            </h3>
                             <p className="description md:text-lg">
                                 {t("about.chooseUs.feature2Desc")}
                             </p>
@@ -59,9 +59,9 @@ export const AboutChooseUs = () => {
                             className="mx-auto mb-2.5 size-[100px]"
                         />
                         <div>
-                            <span className="title mb-2.5 inline-block text-lg md:text-xl">
+                            <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
                                 {t("about.chooseUs.feature3Title")}
-                            </span>
+                            </h3>
                             <p className="description md:text-lg">
                                 {t("about.chooseUs.feature3Desc")}
                             </p>

@@ -19,9 +19,9 @@ export const HappyHoursReserve = () => {
                         <span className="decorative mb-2.5">
                             {t("happy.reserve.decorative")}
                         </span>
-                        <div className="title section-title">
+                        <h2 className="title section-title">
                             {t("happy.reserve.title")}
-                        </div>
+                        </h2>
                         <p className="description section-description">
                             {t("happy.reserve.description")}
                         </p>

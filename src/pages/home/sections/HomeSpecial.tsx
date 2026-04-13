@@ -35,9 +35,9 @@ export const HomeSpecial = () => {
                         alt="star"
                         className="mx-auto mb-1.5 lg:mb-6 h-[22px] w-[22px]"
                     />
-                    <p className="title section-title !mb-5 lg:!mb-6 text-center text-[48px]">
+                    <h2 className="title section-title !mb-5 lg:!mb-6 text-center text-[48px]">
                         {t("home.special.title")}
-                    </p>
+                    </h2>
                 </div>
                 <div className="block md:hidden">
                     <BasicSwiper>
@@ -50,9 +50,9 @@ export const HomeSpecial = () => {
                                     loading="lazy"
                                 />
                                 <div className="text-center">
-                                    <span className="title mb-2 inline-block text-2xl font-bold capitalize">
+                                    <h3 className="title mb-2 inline-block text-2xl font-bold capitalize">
                                         {item.title}
-                                    </span>
+                                    </h3>
                                     <p className="description section-description">
                                         {item.description}
                                     </p>
@@ -76,9 +76,9 @@ export const HomeSpecial = () => {
                                 loading="lazy"
                             />
                             <div className="mb-7 text-left">
-                                <span className="title mb-2 inline-block text-2xl font-bold capitalize">
+                                <h3 className="title mb-2 inline-block text-2xl font-bold capitalize">
                                     {item.title}
-                                </span>
+                                </h3>
                                 <p className="description md:text-lg">
                                     {item.description}
                                 </p>

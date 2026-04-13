@@ -17,9 +17,9 @@ export const PastaReserve = () => {
                         <span className="decorative mb-2.5">
                             {t("pasta.reserve.decorative")}
                         </span>
-                        <div className="title section-title">
+                        <h2 className="title section-title">
                             {t("pasta.reserve.title")}
-                        </div>
+                        </h2>
                         <p className="description section-description mb-2">
                             {t("pasta.reserve.p1")}
                         </p>

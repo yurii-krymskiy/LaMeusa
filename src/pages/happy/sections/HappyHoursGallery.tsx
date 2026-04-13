@@ -15,9 +15,9 @@ export const HappyHoursGallery = () => {
                 <span className="decorative mx-auto block text-center text-[34px]">
                     {t("happy.gallery.decorative")}
                 </span>
-                <p className="title section-title lg:my-6 mt-[5px] mb-[15px] text-center text-[48px]">
+                <h2 className="title section-title lg:my-6 mt-[5px] mb-[15px] text-center text-[48px]">
                     {t("happy.gallery.title")}
-                </p>
+                </h2>
                 <p className="description section-description mb-5 lg:mb-10 text-center">
                     {t("happy.gallery.description")}
                 </p>

@@ -16,7 +16,7 @@ export const PastaWhy = () => {
                         alt="star"
                         className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
-                    <p className="title section-title">{t("pasta.why.title")}</p>
+                    <h2 className="title section-title">{t("pasta.why.title")}</h2>
                     <p className="description hidden lg:inline-block section-description">
                         {t("pasta.why.descDesktop")}
                     </p>
@@ -36,9 +36,9 @@ export const PastaWhy = () => {
                             className="mx-auto mb-2.5 size-[100px]"
                         />
                         <div>
-                            <span className="title mb-2.5 inline-block text-lg md:text-xl">
+                            <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
                                 {t("pasta.why.feature1Title")}
-                            </span>
+                            </h3>
                             <p className="description md:text-lg">
                                 {t("pasta.why.feature1Desc")}
                             </p>
@@ -50,9 +50,9 @@ export const PastaWhy = () => {
                             className="mx-auto mb-2.5 size-[100px]"
                         />
                         <div>
-                            <span className="title mb-2.5 inline-block text-lg md:text-xl">
+                            <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
                                 {t("pasta.why.feature2Title")}
-                            </span>
+                            </h3>
                             <p className="description md:text-lg">
                                 {t("pasta.why.feature2Desc")}
                             </p>
@@ -64,9 +64,9 @@ export const PastaWhy = () => {
                             className="mx-auto mb-2.5 size-[100px]"
                         />
                         <div>
-                            <span className="title mb-2.5 inline-block text-lg md:text-xl">
+                            <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
                                 {t("pasta.why.feature3Title")}
-                            </span>
+                            </h3>
                             <p className="description md:text-lg">
                                 {t("pasta.why.feature3Desc")}
                             </p>

@@ -43,9 +43,9 @@ export const HomeFoodStory = () => {
                         <p className="decorative">
                             {t("home.foodStory.decorative")}
                         </p>
-                        <p className="title section-title !mb-5 !lg:mb-6 text-[48px]">
+                        <h2 className="title section-title !mb-5 !lg:mb-6 text-[48px]">
                             {t("home.foodStory.title")}
-                        </p>
+                        </h2>
                         <p className="description section-description mb-2.5">
                             {t("home.foodStory.p1")}
                         </p>

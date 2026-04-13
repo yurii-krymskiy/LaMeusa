@@ -60,7 +60,7 @@ export const MenuDelicios = () => {
                         ) : (
                             <p className="decorative">Menu</p>
                         )}
-                        <p className="title section-title">{t("menu.delicious.title")}</p>
+                        <h2 className="title section-title">{t("menu.delicious.title")}</h2>
                     </div>
 
                     <CategoryTabsSkeleton />
@@ -90,7 +90,7 @@ export const MenuDelicios = () => {
                         <p className="decorative">Menu</p>
                     )}
 
-                    <p className="title section-title">{t("menu.delicious.title")}</p>
+                    <h2 className="title section-title">{t("menu.delicious.title")}</h2>
                 </div>
 
                 <div className="mb-11 flex flex-wrap justify-center gap-5">

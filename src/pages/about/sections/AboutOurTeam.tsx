@@ -72,7 +72,7 @@ export const AboutOutTeam = () => {
         <section className="section">
             <div className="container">
                 <div className="mx-auto mb-10 max-w-[720px] text-center">
-                    <p className="title section-title">{t("about.ourTeam.title")}</p>
+                    <h2 className="title section-title">{t("about.ourTeam.title")}</h2>
                     <p className="description section-description inline-block">
                         {t("about.ourTeam.description")}
                     </p>

@@ -36,9 +36,9 @@ export const BirthdayGift = () => {
                         <p className="decorative mb-2.5 text-[34px]">
                             {t("birthday.gift.decorative")}
                         </p>
-                        <p className="title section-title mb-6 text-[48px]">
+                        <h2 className="title section-title mb-6 text-[48px]">
                             {t("birthday.gift.title")}
-                        </p>
+                        </h2>
                         <p className="description section-description mb-2.5">
                             {t("birthday.gift.p1")}
                         </p>

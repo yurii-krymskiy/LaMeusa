@@ -10,9 +10,9 @@ export const SeafoodHero = () => {
         <main className="hero seafood-hero">
             <div className="container">
                 <div className="mb-10  max-w-[800px]">
-                    <h2 className="title hero-title md:!text-left">
+                    <h1 className="title hero-title md:!text-left">
                         {t("seafood.hero.title")}
-                    </h2>
+                    </h1>
                     <p className="description hero-description !ml-0 md:!text-left">
                         {t("seafood.hero.description")}
                     </p>

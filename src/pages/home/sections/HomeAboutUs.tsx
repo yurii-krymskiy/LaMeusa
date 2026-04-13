@@ -10,9 +10,9 @@ export const HomeAboutUs = () => {
                 <div className="flex-1">
                     <div className="mb-5 lg:mb-10">
                         <p className="decorative">{t("home.aboutUs.decorative")}</p>
-                        <p className="title section-title">
+                        <h2 className="title section-title">
                             {t("home.aboutUs.title")}
-                        </p>
+                        </h2>
                         <p className="description section-description mb-3.5 inline-block">
                             {t("home.aboutUs.p1")}
                         </p>

@@ -13,9 +13,9 @@ export const BirthdayGallery = () => {
     return (
         <section className="flex section flex-col items-center py-15">
             <div className="container !max-w-[730px]">
-                <p className="title section-title lg:my-6 text-center text-[48px]">
+                <h2 className="title section-title lg:my-6 text-center text-[48px]">
                     {t("birthday.gallery.title")}
-                </p>
+                </h2>
                 <p className="description section-description mb-5 lg:mb-10 text-center">
                     {t("birthday.gallery.description")}
                 </p>

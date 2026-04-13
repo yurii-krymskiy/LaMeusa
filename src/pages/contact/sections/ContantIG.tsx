@@ -15,7 +15,7 @@ export const ContactIG = () => {
                         alt="star"
                         className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
-                    <p className="title section-title">{t("contact.instagram.title")}</p>
+                    <h2 className="title section-title">{t("contact.instagram.title")}</h2>
                 </div>
 
                 <div className="hidden gap-5 xl:gap-10 lg:flex">

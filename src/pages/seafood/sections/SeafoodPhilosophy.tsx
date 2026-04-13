@@ -13,9 +13,9 @@ export const SeafoodPhilosophy = () => {
                         alt="star"
                         className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
-                    <p className="title section-title">
+                    <h2 className="title section-title">
                         {t("seafood.philosophy.title")}
-                    </p>
+                    </h2>
                     <p className="description section-description">
                         {t("seafood.philosophy.p1")}
                     </p>

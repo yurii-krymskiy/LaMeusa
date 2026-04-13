@@ -10,9 +10,9 @@ export const BirthdayHero = () => {
         <main className="hero birthday-hero">
             <div className="container">
                 <div className="mb-10 max-w-[800px]">
-                    <h2 className="title hero-title md:!text-left">
+                    <h1 className="title hero-title md:!text-left">
                         {t("birthday.hero.title")}
-                    </h2>
+                    </h1>
                     <p className="description hero-description !ml-0 md:!text-left">
                         {t("birthday.hero.description")}
                     </p>

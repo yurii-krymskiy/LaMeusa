@@ -10,9 +10,9 @@ export const PastaMeets = () => {
                         <span className="decorative mb-2.5">
                             {t("pasta.meets.decorative")}
                         </span>
-                        <div className="title section-title">
+                        <h2 className="title section-title">
                             {t("pasta.meets.title")}
-                        </div>
+                        </h2>
                     </div>
 
                     <div className="flex flex-col gap-5 lg:gap-14 md:flex-row">

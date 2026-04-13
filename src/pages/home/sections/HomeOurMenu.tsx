@@ -17,9 +17,9 @@ export const HomeOurMenu = () => {
                     <div className="mb-3.5">
                         <div className="mb-5 lg:mb-10">
                             <p className="decorative">{t("home.ourMenu.decorative")}</p>
-                            <h3 className="title section-title">
+                            <h2 className="title section-title">
                                 {t("home.ourMenu.title")}
-                            </h3>
+                            </h2>
                             <p className="description section-description mb-2.5">
                                 {t("home.ourMenu.p1")}
                             </p>

@@ -12,9 +12,9 @@ export const BirthdayGrid = () => {
                 <div className="mb-5 lg:mb-10 flex flex-col-reverse items-center gap-5 lg:gap-14 lg:mb-24 lg:flex-row">
                     <div>
                         <div className="mb-0 lg:mb-10">
-                            <span className="section-title title mb-7 inline-block">
+                            <h2 className="section-title title mb-7 inline-block">
                                 {t("birthday.grid.set1Title")}
-                            </span>
+                            </h2>
                             <p className="section-description description">
                                 {t("birthday.grid.set1Desc")}
                             </p>
@@ -34,9 +34,9 @@ export const BirthdayGrid = () => {
                     />
                     <div>
                         <div className="mb-5 lg:mb-10">
-                            <span className="section-title title mb-7 inline-block">
+                            <h2 className="section-title title mb-7 inline-block">
                                 {t("birthday.grid.set2Title")}
-                            </span>
+                            </h2>
                             <p className="section-description description">
                                 {t("birthday.grid.set2Desc")}
                             </p>
@@ -46,9 +46,9 @@ export const BirthdayGrid = () => {
                 <div className="flex flex-col-reverse items-center gap-5 lg:gap-14 lg:mb-24 lg:flex-row">
                     <div>
                         <div className="mb-5 lg:mb-10">
-                            <span className="section-title title mb-7 inline-block">
+                            <h2 className="section-title title mb-7 inline-block">
                                 {t("birthday.grid.set3Title")}
-                            </span>
+                            </h2>
                             <p className="section-description description">
                                 {t("birthday.grid.set3Desc")}
                             </p>

@@ -19,9 +19,9 @@ export const SeafoodHappyHours = () => {
                             <span className="decorative mb-2.5 block">
                                 {t("seafood.happyHours.decorative")}
                             </span>
-                            <span className="section-title title mb-7 inline-block">
+                            <h2 className="section-title title mb-7 inline-block">
                                 {t("seafood.happyHours.title")}
-                            </span>
+                            </h2>
                             <p className="section-description description">
                                 {t("seafood.happyHours.description")}
                             </p>

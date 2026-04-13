@@ -13,9 +13,9 @@ export const HappyHoursWhy = () => {
                             <span className="decorative mb-2.5 block">
                                 Happy Hours
                             </span>
-                            <span className="section-title title mb-7 inline-block">
-                                Why You’ll Love Our Happy Hours
-                            </span>
+                            <h2 className="section-title title mb-7 inline-block">
+                                Why You'll Love Our Happy Hours
+                            </h2>
                             <p className="section-description description mb-2.5">
                                 At this time, <b>La Medusa</b> turns into a place with
                                 a special atmosphere. We welcome not only

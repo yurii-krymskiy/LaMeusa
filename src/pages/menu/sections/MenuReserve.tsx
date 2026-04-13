@@ -14,9 +14,9 @@ export const MenuReserve = () => {
 
                     <div className="flex-1">
                         <span className="decorative">{t("menu.reserve.decorative")}</span>
-                        <div className="title section-title">
+                        <h2 className="title section-title">
                             {t("menu.reserve.title")}
-                        </div>
+                        </h2>
                         <LiteForm />
                     </div>
                 </div>

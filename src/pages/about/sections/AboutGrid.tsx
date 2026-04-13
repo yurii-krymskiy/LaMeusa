@@ -15,9 +15,9 @@ export const AboutGrid = () => {
                     />
                     <div>
                         <div className="mb-5 lg:mb-10">
-                            <span className="section-title title mb-7 inline-block">
+                            <h2 className="section-title title mb-7 inline-block">
                                 {t("about.grid.guitar.title")}
-                            </span>
+                            </h2>
                             <p className="section-description description mb-2.5">
                                 {t("about.grid.guitar.p1")}
                             </p>
@@ -43,9 +43,9 @@ export const AboutGrid = () => {
                                 src="/images/about/IMG_3184.jpeg"
                                 className="mb-5 max-w-full h-[215px] lg:h-auto lg:max-w-[515px] object-cover"
                             />
-                            <span className="section-title title mb-7 inline-block">
+                            <h2 className="section-title title mb-7 inline-block">
                                 {t("about.grid.vocal.title")}
-                            </span>
+                            </h2>
                             <p className="section-description description mb-2.5">
                                 {t("about.grid.vocal.p1")}
                             </p>
@@ -73,9 +73,9 @@ export const AboutGrid = () => {
                     />
                     <div>
                         <div className="mb-5 lg:mb-10">
-                            <span className="section-title title mb-7 inline-block">
+                            <h2 className="section-title title mb-7 inline-block">
                                 {t("about.grid.burgers.title")}
-                            </span>
+                            </h2>
                             <p className="section-description description mb-2.5">
                                 {t("about.grid.burgers.p1")}
                             </p>

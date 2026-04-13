@@ -14,7 +14,7 @@ export const ContactReserve = () => {
 
                     <div className="flex-1 w-full">
                         <span className="decorative">{t("contact.reserve.decorative")}</span>
-                        <div className="title section-title">{t("contact.reserve.title")}</div>
+                        <h2 className="title section-title">{t("contact.reserve.title")}</h2>
                         <LiteForm />
                     </div>
                 </div>

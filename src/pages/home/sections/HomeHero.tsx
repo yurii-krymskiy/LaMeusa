@@ -8,9 +8,9 @@ export const HomeHero = () => {
     return (
         <main className="hero home-hero">
             <div className="mb-10 max-w-6xl">
-                <h2 className="title hero-title">
+                <h1 className="title hero-title">
                     {t("home.hero.title")}
-                </h2>
+                </h1>
                 <p className="description hero-description !font-normal">
                     {t("home.hero.description")}
                 </p>

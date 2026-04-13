@@ -13,7 +13,7 @@ export const AboutOutStory = () => {
 
                 <div>
                     <span className="decorative">{t("about.ourStory.decorative")}</span>
-                    <div className="title section-title">{t("about.ourStory.title")}</div>
+                    <h2 className="title section-title">{t("about.ourStory.title")}</h2>
                     <p className="description section-description mb-3">
                         {t("about.ourStory.p1")}
                     </p>

@@ -17,9 +17,9 @@ export const SeafoodGallery = () => {
                     <span className="decorative block text-center text-[34px]">
                         {t("seafood.gallery.decorative")}
                     </span>
-                    <p className="title section-title my-6 text-center text-[48px]">
+                    <h2 className="title section-title my-6 text-center text-[48px]">
                         {t("seafood.gallery.title")}
-                    </p>
+                    </h2>
                     <p className="description section-description mb-5 lg:mb-10 text-center">
                         {t("seafood.gallery.description")}
                     </p>

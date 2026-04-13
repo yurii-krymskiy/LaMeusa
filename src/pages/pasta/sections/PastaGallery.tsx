@@ -15,9 +15,9 @@ export const PastaGallery = () => {
                 <span className="decorative mx-auto block text-center text-[34px]">
                     {t("pasta.gallery.decorative")}
                 </span>
-                <p className="title section-title lg:my-6 mt-1 mb-3 text-center text-[48px]">
+                <h2 className="title section-title lg:my-6 mt-1 mb-3 text-center text-[48px]">
                     {t("pasta.gallery.title")}
-                </p>
+                </h2>
                 <p className="description section-description mb-5 lg:mb-10 text-center">
                     {t("pasta.gallery.description")}
                 </p>

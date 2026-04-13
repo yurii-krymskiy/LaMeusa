@@ -13,7 +13,7 @@ export const AboutCuisine = () => {
                     <div className="">
                         <div className="mb-10">
                             <p className="decorative">{t("about.cuisine.decorative")}</p>
-                            <p className="title section-title">{t("about.cuisine.title")}</p>
+                            <h2 className="title section-title">{t("about.cuisine.title")}</h2>
                             <p className="description section-description mb-3.5 inline-block">
                                 {t("about.cuisine.p1")}
                             </p>

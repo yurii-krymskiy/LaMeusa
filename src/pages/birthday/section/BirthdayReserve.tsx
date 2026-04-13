@@ -14,9 +14,9 @@ export const BirthdayReserve = () => {
 
                     <div className="flex-1 w-full">
                         <span className="decorative">{t("birthday.reserve.decorative")}</span>
-                        <div className="title section-title">
+                        <h2 className="title section-title">
                             {t("birthday.reserve.title")}
-                        </div>
+                        </h2>
                         <LiteForm />
                     </div>
                 </div>

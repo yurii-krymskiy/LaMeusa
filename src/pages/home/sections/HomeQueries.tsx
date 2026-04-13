@@ -37,9 +37,9 @@ export const HomeQueries = () => {
                         alt="star"
                         className="mx-auto mb-1.5 lg:mb-6 h-[22px] w-[22px]"
                     />
-                    <p className="title section-title !mb-5 lg:!mb-6 text-center text-[48px]">
+                    <h2 className="title section-title !mb-5 lg:!mb-6 text-center text-[48px]">
                         {t("home.queries.title")}
-                    </p>
+                    </h2>
                 </div>
                 <div className="mx-auto max-w-[900px]">
                     <Accordion list={queries} />

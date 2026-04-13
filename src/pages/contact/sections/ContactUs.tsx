@@ -12,9 +12,9 @@ export const ContactUs = () => {
                     <div>
                         <div>
                             <span className="decorative">{t("contact.us.decorative")}</span>
-                            <div className="title leading-[100%] section-title">
+                            <h2 className="title leading-[100%] section-title">
                                 {t("contact.us.title")}
-                            </div>
+                            </h2>
                         </div>
 
                         <p className="description font-[300] section-description mb-[20px] lg:mb-[30px]">

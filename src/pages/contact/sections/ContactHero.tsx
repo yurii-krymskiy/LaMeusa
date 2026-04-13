@@ -7,9 +7,9 @@ export const ContactHero = () => {
         <main className="hero contact-hero !items-start">
             <div className="container">
                 <div className="">
-                    <h2 className="title hero-title !text-left">
+                    <h1 className="title hero-title !text-left">
                         {t("contact.hero.title")}
-                    </h2>
+                    </h1>
                     <p className="description hero-description !max-w-none !text-left">
                         {t("contact.hero.description")}
                     </p>

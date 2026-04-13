@@ -17,9 +17,9 @@ export const BirthdayWhy = () => {
                         alt="star"
                         className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
                     />
-                    <p className="title section-title">
+                    <h2 className="title section-title">
                         {t("birthday.why.title")}
-                    </p>
+                    </h2>
                 </div>
                 <img
                     src="/images/birthday/image-1.webp"
@@ -33,9 +33,9 @@ export const BirthdayWhy = () => {
                             className="mx-auto mb-2.5 size-[100px]"
                         />
                         <div>
-                            <span className="title mb-2.5 inline-block text-lg md:text-xl">
+                            <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
                                 {t("birthday.why.feature1Title")}
-                            </span>
+                            </h3>
                             <p className="description md:text-lg">
                                 {t("birthday.why.feature1Desc")}
                             </p>
@@ -47,9 +47,9 @@ export const BirthdayWhy = () => {
                             className="mx-auto mb-2.5 size-[100px]"
                         />
                         <div>
-                            <span className="title mb-2.5 inline-block text-lg md:text-xl">
+                            <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
                                 {t("birthday.why.feature2Title")}
-                            </span>
+                            </h3>
                             <p className="description md:text-lg">
                                 {t("birthday.why.feature2Desc")}
                             </p>
@@ -61,9 +61,9 @@ export const BirthdayWhy = () => {
                             className="mx-auto mb-2.5 size-[100px]"
                         />
                         <div>
-                            <span className="title mb-2.5 inline-block text-lg md:text-xl">
+                            <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
                                 {t("birthday.why.feature3Title")}
-                            </span>
+                            </h3>
                             <p className="description md:text-lg">
                                 {t("birthday.why.feature3Desc")}
                             </p>
