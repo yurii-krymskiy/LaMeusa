@@ -160,6 +160,161 @@ export const fetchBlockedSlots = async (): Promise<DbBlockedSlot[]> => {
     return data || [];
 };
 
+// Chart data types
+export type DailyReservationPoint = {
+    date: string; // "Mon 7", "Tue 8", etc.
+    reservations: number;
+    guests: number;
+};
+
+export type HourDistributionPoint = {
+    hour: string; // "12:00", "13:00", etc.
+    count: number;
+};
+
+export type WeekdayDistributionPoint = {
+    day: string; // "Mon", "Tue", etc.
+    count: number;
+};
+
+export type LeadTimePoint = {
+    range: string; // "Same day", "1-2 days", etc.
+    count: number;
+};
+
+export type ChartPeriod = "today" | "week" | "month" | "last_month" | "6months" | "year";
+
+// Fetch all reservations for chart analytics
+export const fetchChartData = async (period: ChartPeriod = "month") => {
+    const today = new Date();
+    const todayStr = today.toISOString().split("T")[0];
+
+    let startDate: Date;
+    let endDate: Date = new Date(today);
+
+    switch (period) {
+        case "today":
+            startDate = new Date(today);
+            break;
+        case "week": {
+            startDate = new Date(today);
+            startDate.setDate(today.getDate() - today.getDay() + 1); // Monday
+            break;
+        }
+        case "month":
+            startDate = new Date(today.getFullYear(), today.getMonth(), 1);
+            break;
+        case "last_month":
+            startDate = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+            endDate = new Date(today.getFullYear(), today.getMonth(), 0); // last day of prev month
+            break;
+        case "6months":
+            startDate = new Date(today);
+            startDate.setMonth(today.getMonth() - 6);
+            break;
+        case "year":
+            startDate = new Date(today);
+            startDate.setFullYear(today.getFullYear() - 1);
+            break;
+    }
+
+    const startStr = startDate.toISOString().split("T")[0];
+    const endStr = endDate.toISOString().split("T")[0];
+
+    const { data, error } = await supabase
+        .from("reservations")
+        .select("reservation_date, reservation_time, number_of_guests, created_at")
+        .gte("reservation_date", startStr)
+        .lte("reservation_date", endStr)
+        .order("reservation_date", { ascending: true });
+
+    if (error || !data) {
+        console.error("Error fetching chart data:", error);
+        return { daily: [], hourly: [], weekday: [], leadTime: [] };
+    }
+
+    // --- Daily trend ---
+    const dailyMap = new Map<string, { reservations: number; guests: number }>();
+    for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+        const key = d.toISOString().split("T")[0];
+        dailyMap.set(key, { reservations: 0, guests: 0 });
+    }
+    for (const r of data) {
+        const entry = dailyMap.get(r.reservation_date);
+        if (entry) {
+            entry.reservations++;
+            entry.guests += r.number_of_guests;
+        }
+    }
+
+    const useLongDate = period === "6months" || period === "year";
+    const daily: DailyReservationPoint[] = Array.from(dailyMap.entries()).map(
+        ([dateStr, val]) => {
+            const d = new Date(dateStr + "T00:00:00");
+            const label = useLongDate
+                ? d.toLocaleDateString("en-US", { month: "short", day: "numeric" })
+                : d.toLocaleDateString("en-US", { weekday: "short", day: "numeric" });
+            return { date: label, reservations: val.reservations, guests: val.guests };
+        }
+    );
+
+    // --- Hourly distribution (all time) ---
+    const hourlyMap = new Map<number, number>();
+    for (const r of data) {
+        const hour = parseInt(r.reservation_time.split(":")[0]);
+        hourlyMap.set(hour, (hourlyMap.get(hour) ?? 0) + 1);
+    }
+    const hourly: HourDistributionPoint[] = Array.from(hourlyMap.entries())
+        .sort((a, b) => a[0] - b[0])
+        .map(([hour, count]) => ({
+            hour: `${hour.toString().padStart(2, "0")}:00`,
+            count,
+        }));
+
+    // --- Weekday distribution (all time) ---
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const weekdayMap = new Array(7).fill(0);
+    for (const r of data) {
+        const day = new Date(r.reservation_date + "T00:00:00").getDay();
+        weekdayMap[day]++;
+    }
+    // Start from Monday
+    const weekday: WeekdayDistributionPoint[] = [1, 2, 3, 4, 5, 6, 0].map(
+        (i) => ({ day: dayNames[i], count: weekdayMap[i] })
+    );
+
+    // --- Lead time distribution ---
+    const leadBuckets = [
+        { range: "Same day", max: 0 },
+        { range: "1-2 days", max: 2 },
+        { range: "3-7 days", max: 7 },
+        { range: "1-2 weeks", max: 14 },
+        { range: "2+ weeks", max: Infinity },
+    ];
+    const leadCounts = new Array(leadBuckets.length).fill(0);
+    for (const r of data) {
+        const created = new Date(r.created_at);
+        const resDate = new Date(r.reservation_date + "T00:00:00");
+        const diffDays = Math.floor(
+            (resDate.getTime() - created.getTime()) / (1000 * 60 * 60 * 24)
+        );
+        let prev = -1;
+        for (let i = 0; i < leadBuckets.length; i++) {
+            if (diffDays > prev && diffDays <= leadBuckets[i].max) {
+                leadCounts[i]++;
+                break;
+            }
+            prev = leadBuckets[i].max;
+        }
+    }
+    const leadTime: LeadTimePoint[] = leadBuckets.map((b, i) => ({
+        range: b.range,
+        count: leadCounts[i],
+    }));
+
+    return { daily, hourly, weekday, leadTime };
+};
+
 // Create blocked slot
 export const createBlockedSlot = async (
     blockedDate: string,

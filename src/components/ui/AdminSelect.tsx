@@ -11,6 +11,7 @@ type AdminSelectProps = {
     options: Option[];
     placeholder?: string;
     className?: string;
+    compact?: boolean;
 };
 
 export const AdminSelect = ({
@@ -19,6 +20,7 @@ export const AdminSelect = ({
     options,
     placeholder = "Select...",
     className = "",
+    compact = false,
 }: AdminSelectProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -41,7 +43,7 @@ export const AdminSelect = ({
             <button
                 type="button"
                 onClick={() => setIsOpen((prev) => !prev)}
-                className="admin-input flex items-center justify-between gap-2 text-left cursor-pointer"
+                className={`${compact ? "px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-500 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white outline-none transition-colors" : "admin-input"} flex items-center justify-between gap-2 text-left cursor-pointer`}
             >
                 <span
                     className={
@@ -78,7 +80,7 @@ export const AdminSelect = ({
                                     onChange(option.value);
                                     setIsOpen(false);
                                 }}
-                                className={`w-full px-4 py-2.5 text-left text-sm rounded-lg transition-colors cursor-pointer ${
+                                className={`w-full ${compact ? "px-3 py-1.5 text-xs" : "px-4 py-2.5 text-sm"} text-left rounded-lg transition-colors cursor-pointer ${
                                     option.value === value
                                         ? "bg-royal-blue text-white font-medium"
                                         : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-500"

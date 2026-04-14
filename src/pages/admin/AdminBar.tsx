@@ -537,7 +537,7 @@ export const AdminBar = () => {
                                     type="text"
                                     inputMode="decimal"
                                     value={editingItem.price}
-                                    onChange={(e) => { const v = e.target.value; if (v === '' || /^[0-9.,]*$/.test(v)) setEditingItem({ ...editingItem, price: v }); }}
+                                    onChange={(e) => { const v = e.target.value; if (v === "" || /^[0-9.,]*$/.test(v)) setEditingItem({ ...editingItem, price: v }); }}
                                     className="admin-input"
                                     placeholder="0.00"
                                 />

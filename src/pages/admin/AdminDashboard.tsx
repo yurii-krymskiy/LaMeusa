@@ -1,12 +1,41 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
     fetchReservationStats,
     fetchTableStats,
     fetchUpcomingReservations,
+    fetchChartData,
     type ReservationStats,
     type TableStats,
+    type DailyReservationPoint,
+    type HourDistributionPoint,
+    type WeekdayDistributionPoint,
+    type LeadTimePoint,
+    type ChartPeriod,
 } from "../../lib/admin.service";
 import type { DbReservation } from "../../lib/database.types";
+import { ReservationsTrendChart } from "./charts/ReservationsTrendChart";
+import { PeakHoursChart } from "./charts/PeakHoursChart";
+import { BusiestDaysChart } from "./charts/BusiestDaysChart";
+import { LeadTimeChart } from "./charts/LeadTimeChart";
+import { AdminSelect } from "../../components/ui/AdminSelect";
+
+const PERIOD_OPTIONS: { value: ChartPeriod; label: string }[] = [
+    { value: "today", label: "Today" },
+    { value: "week", label: "This Week" },
+    { value: "month", label: "This Month" },
+    { value: "last_month", label: "Last Month" },
+    { value: "6months", label: "Last 6 Months" },
+    { value: "year", label: "Last Year" },
+];
+
+const PERIOD_SUBTITLES: Record<ChartPeriod, string> = {
+    today: "Today",
+    week: "This week (Mon – Sun)",
+    month: "This month",
+    last_month: "Last month",
+    "6months": "Last 6 months",
+    year: "Last 12 months",
+};
 
 type StatCardProps = {
     title: string;
@@ -44,24 +73,53 @@ export const AdminDashboard = () => {
     const [stats, setStats] = useState<ReservationStats | null>(null);
     const [tableStats, setTableStats] = useState<TableStats | null>(null);
     const [upcomingReservations, setUpcomingReservations] = useState<DbReservation[]>([]);
+    const [dailyData, setDailyData] = useState<DailyReservationPoint[]>([]);
+    const [hourlyData, setHourlyData] = useState<HourDistributionPoint[]>([]);
+    const [weekdayData, setWeekdayData] = useState<WeekdayDistributionPoint[]>([]);
+    const [leadTimeData, setLeadTimeData] = useState<LeadTimePoint[]>([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [chartPeriod, setChartPeriod] = useState<ChartPeriod>("month");
+    const [chartsLoading, setChartsLoading] = useState(false);
 
+    // Load stats + initial charts
     useEffect(() => {
         const loadData = async () => {
             setIsLoading(true);
-            const [reservationStats, tables, upcoming] = await Promise.all([
+            const [reservationStats, tables, upcoming, charts] = await Promise.all([
                 fetchReservationStats(),
                 fetchTableStats(),
                 fetchUpcomingReservations(),
+                fetchChartData(chartPeriod),
             ]);
             setStats(reservationStats);
             setTableStats(tables);
-            setUpcomingReservations(upcoming.slice(0, 5)); // Show only 5 upcoming
+            setUpcomingReservations(upcoming.slice(0, 5));
+            setDailyData(charts.daily);
+            setHourlyData(charts.hourly);
+            setWeekdayData(charts.weekday);
+            setLeadTimeData(charts.leadTime);
             setIsLoading(false);
         };
 
         loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    // Reload charts when period changes (skip initial load)
+    const loadCharts = useCallback(async (period: ChartPeriod) => {
+        setChartsLoading(true);
+        const charts = await fetchChartData(period);
+        setDailyData(charts.daily);
+        setHourlyData(charts.hourly);
+        setWeekdayData(charts.weekday);
+        setLeadTimeData(charts.leadTime);
+        setChartsLoading(false);
+    }, []);
+
+    const handlePeriodChange = (period: ChartPeriod) => {
+        setChartPeriod(period);
+        loadCharts(period);
+    };
 
     if (isLoading) {
         return (
@@ -178,18 +236,18 @@ export const AdminDashboard = () => {
                 />
             </div>
 
-            {/* Upcoming Reservations & Tables */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Upcoming Reservations & Charts */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
                 {/* Upcoming reservations */}
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm">
-                    <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                <div className="flex sm:h-[340px] flex-col bg-white dark:bg-gray-800 rounded-xl shadow-sm outline-none">
+                    <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-gray-700">
+                        <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
                             Upcoming Reservations
                         </h2>
                     </div>
-                    <div className="p-6">
+                    <div className="flex-1 overflow-y-auto p-4 sm:p-6">
                         {upcomingReservations.length === 0 ? (
-                            <p className="text-gray-500 dark:text-gray-400 text-center py-8">
+                            <p className="text-gray-500 dark:text-gray-400 flex h-full items-center justify-center">
                                 No upcoming reservations
                             </p>
                         ) : (
@@ -222,41 +280,32 @@ export const AdminDashboard = () => {
                     </div>
                 </div>
 
-                {/* Tables overview */}
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm">
-                    <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-                            Tables Overview
-                        </h2>
-                    </div>
-                    <div className="p-6">
-                        {tableStats?.tables.length === 0 ? (
-                            <p className="text-gray-500 dark:text-gray-400 text-center py-8">
-                                No tables configured
-                            </p>
-                        ) : (
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                                {tableStats?.tables.map((table) => (
-                                    <div
-                                        key={table.id}
-                                        className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-center"
-                                    >
-                                        <p className="font-medium text-gray-900 dark:text-white">
-                                            {table.label}
-                                        </p>
-                                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                                            {table.capacity} seats
-                                        </p>
-                                        {table.is_combinable && (
-                                            <span className="inline-block mt-2 px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full">
-                                                Combinable
-                                            </span>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                    </div>
+                {/* Lead Time Chart */}
+                <LeadTimeChart data={leadTimeData} subtitle={PERIOD_SUBTITLES[chartPeriod]} />
+            </div>
+
+            {/* Period selector */}
+            <div className="flex items-center justify-between">
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                    Analytics
+                </h2>
+                <AdminSelect
+                    value={chartPeriod}
+                    onChange={(v) => handlePeriodChange(v as ChartPeriod)}
+                    options={PERIOD_OPTIONS}
+                    compact
+                />
+            </div>
+
+            {/* Charts — show loading overlay when switching periods */}
+            <div className={`space-y-4 sm:space-y-6 transition-opacity ${chartsLoading ? "pointer-events-none opacity-50" : ""}`}>
+                {/* Full-width trend chart */}
+                <ReservationsTrendChart data={dailyData} subtitle={PERIOD_SUBTITLES[chartPeriod]} />
+
+                {/* Two charts side by side */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+                    <PeakHoursChart data={hourlyData} subtitle={PERIOD_SUBTITLES[chartPeriod]} />
+                    <BusiestDaysChart data={weekdayData} subtitle={PERIOD_SUBTITLES[chartPeriod]} />
                 </div>
             </div>
         </div>
