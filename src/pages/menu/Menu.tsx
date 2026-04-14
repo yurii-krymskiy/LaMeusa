@@ -280,6 +280,7 @@ export const Menu = () => {
                     sections={sidebarSections}
                     activeSection={activeSection}
                     onSelect={handleSectionSelect}
+                    scrollLockRef={isScrollingToSection}
                 />
                 <div className="border-t border-gray-200/50">
                     <MobileCategoryTabs

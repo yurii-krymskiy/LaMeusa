@@ -1,16 +1,18 @@
-import { useCallback, useEffect, useRef, useMemo } from "react";
+import { useCallback, useEffect, useRef, useMemo, type MutableRefObject } from "react";
 import type { SidebarSection } from "../sidebar/MenuSidebar";
 
 type Props = {
     sections: SidebarSection[];
     activeSection?: string;
     onSelect?: (sectionKey: string) => void;
+    scrollLockRef?: MutableRefObject<boolean>;
 };
 
 export const MobileSectionTabs = ({
     sections,
     activeSection,
     onSelect,
+    scrollLockRef,
 }: Props) => {
     const listRef = useRef<HTMLDivElement | null>(null);
 
@@ -28,6 +30,8 @@ export const MobileSectionTabs = ({
         container.scrollTo({ left: scrollLeft, behavior: "smooth" });
     }, [activeSection]);
 
+    const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+
     const scrollToFirstInSection = useCallback(
         (section: SidebarSection) => {
             onSelect?.(section.key);
@@ -37,11 +41,21 @@ export const MobileSectionTabs = ({
             const el = document.getElementById(slug);
             if (!el) return;
 
+            if (scrollLockRef) scrollLockRef.current = true;
+            if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+
             const y =
                 window.scrollY + el.getBoundingClientRect().top - 96;
-            window.scrollTo({ top: Math.max(y, 0), behavior: "auto" });
+            window.scrollTo({ top: Math.max(y, 0), behavior: "smooth" });
+
+            const unlock = () => {
+                window.removeEventListener("scrollend", unlock);
+                if (scrollLockRef) scrollLockRef.current = false;
+            };
+            window.addEventListener("scrollend", unlock, { once: true });
+            scrollTimeoutRef.current = setTimeout(unlock, 1000);
         },
-        [onSelect]
+        [onSelect, scrollLockRef]
     );
 
     const buttons = useMemo(
