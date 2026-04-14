@@ -26,43 +26,43 @@
     "home": {
         "hero": {
             "title": "Una mañana junto al océano, una cena con elegancia",
-            "description": "Experimenta el sabor de la cocina mediterránea con el telón de fondo del Océano Atlántico. En La Medusa, creamos una atmósfera donde cada momento es un placer y cada plato es una historia.",
+            "description": "Bienvenido a La Medusa, un restaurante refinado en Los Cristianos donde el Océano Atlántico se convierte en el telón de fondo perfecto para tu experiencia gastronómica.",
             "button": "Reservar ahora"
         },
         "ourMenu": {
             "decorative": "Nuestro menú",
             "title": "Descubre nuestro menú",
-            "p1": "Cada uno de nuestros platos es una sofisticada combinación de ingredientes frescos, frescura oceánica y sabores únicos. Descubre el menú, creado con amor e inspiración, y déjate inspirar.",
-            "p2": "Nuestros chefs crean platos con los ingredientes más frescos. La base es la tradición mediterránea con un acento original.",
+            "p1": "En nuestro restaurante en Los Cristianos, cada plato es una sofisticada combinación de ingredientes frescos, frescura oceánica y sabores mediterráneos distintivos. Como restaurante líder en Tenerife, nos enfocamos en la calidad, la estacionalidad y la autenticidad.",
+            "p2": "Nuestros chefs crean cada plato con los productos locales más frescos. Arraigados en la tradición mediterránea con un acento original, La Medusa se destaca con orgullo entre los mejores restaurantes de la región.",
             "button": "Ver menú"
         },
         "story": {
             "title": "Cada plato cuenta una historia",
-            "description": "En La Medusa, cada ingrediente, cada sabor es una agradecida encarnación de la tradición mediterránea. Nuestros chefs se esfuerzan para que cada plato no sea solo comida, sino una emoción que se queda contigo."
+            "description": "En La Medusa, cada ingrediente y cada sabor es una agradecida encarnación de la tradición mediterránea. Como respetado restaurante de mariscos en Tenerife, nos aseguramos de que cada plato no sea simplemente comida, sino una experiencia que perdura mucho después del último bocado."
         },
         "aboutUs": {
             "decorative": "Sobre nosotros",
             "title": "El espíritu de La Medusa",
-            "p1": "La Medusa es más que un restaurante. Es un lugar donde el océano se encuentra con la elegancia: vistas de las olas, servicio con alma y una atmósfera que te invita a quedarte.",
-            "p2": "En La Medusa, todo es importante: desde la forma en que la luz cae sobre las mesas hasta la música que suena por la noche. Nos esforzamos para que cada invitado sienta que no es solo un visitante, sino parte de la historia del restaurante.",
+            "p1": "Como reconocido restaurante en Tenerife, combinamos vistas panorámicas, un servicio sincero y una atmósfera acogedora que te invita a quedarte.",
+            "p2": "Desde la forma en que la luz cae sobre las mesas hasta la música que suena por la noche, todo en nuestro restaurante en Los Cristianos está diseñado con esmero. Entre los restaurantes abiertos hasta tarde junto al océano, La Medusa ofrece un ambiente verdaderamente íntimo, perfecto para parejas, familias y ocasiones especiales.",
             "button": "Saber más"
         },
         "gallery": {
             "title": "Galería del restaurante",
-            "description": "Echa un vistazo a nuestro corazón: explora la galería y siente La Medusa antes de visitarnos. Del interior a la comida, cada imagen cuenta una historia."
+            "description": "Echa un vistazo al corazón de nuestro restaurante en Los Cristianos. Explora nuestra galería y descubre por qué La Medusa es considerado uno de los mejores restaurantes de Tenerife."
         },
         "foodStory": {
             "decorative": "Historia gastronómica",
             "title": "Ingredientes frescos, sabor auténtico",
-            "p1": "Mar, sol y alma — todo esto en cada plato. Preferimos productos locales y frescos, combinados con una ejecución delicada: este es el camino al verdadero sabor.",
-            "p2": "Nuestros platos combinan sencillez y sofisticación, porque lo principal es preservar el verdadero sabor de los productos.",
-            "p3": "En cada plato encontrarás armonía: la ternura de las texturas, el brillo de los colores y la fuerza del aroma."
+            "p1": "Mar, sol y alma — todo esto en cada plato de nuestro restaurante en Tenerife. Priorizamos ingredientes frescos y locales, combinados con una ejecución delicada.",
+            "p2": "Este compromiso sitúa a La Medusa entre los restaurantes más recomendados abiertos durante todo el año en Los Cristianos.",
+            "p3": "Cada plato refleja armonía: texturas tiernas, colores vibrantes y aromas intensos. Como restaurante premium en Los Cristianos, celebramos la sencillez y la sofisticación a partes iguales."
         },
         "meets": {
             "decorative": "Sabor y atmósfera con vistas al océano",
             "title": "Donde el mar se encuentra con el sabor",
-            "p1": "La Medusa es más que un restaurante. Es un lugar donde las vistas panorámicas al océano se combinan con la exquisita cocina mediterránea. Creamos una atmósfera donde el sabor y la estética se convierten en una experiencia única.",
-            "p2": "Nos esforzamos para que cada cena en La Medusa sea un evento que querrás recordar de nuevo.",
+            "p1": "La Medusa es más que un restaurante en Los Cristianos. Es un destino. Con vistas panorámicas al océano y exquisita cocina mediterránea, creamos una atmósfera donde el sabor y la estética se convierten en una experiencia única e inseparable.",
+            "p2": "Ya sea que busques restaurantes románticos, restaurantes refinados abiertos hasta tarde o un excepcional restaurante de mariscos en Tenerife, La Medusa te invita a descubrir por qué somos reconocidos entre los mejores restaurantes de la isla.",
             "viewMenu": "Ver menú",
             "reserveTable": "Reservar mesa"
         },
