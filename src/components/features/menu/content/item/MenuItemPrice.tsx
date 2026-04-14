@@ -25,7 +25,7 @@ export const MenuItemPrice = ({ price }: MenuItemPriceProps) => {
 
     return (
         <div className="flex flex-col items-start text-right md:items-end">
-            <span className="title md:text-4xl text-sky  font-semibold uppercase">
+            <span className="title text-[16px] md:text-4xl text-sky  font-semibold uppercase">
                 {formatted}
             </span>
             {unit && (

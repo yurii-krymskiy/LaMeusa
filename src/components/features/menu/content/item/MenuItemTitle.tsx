@@ -6,7 +6,7 @@ type MenuItemTitleProps = {
 export const MenuItemTitle = ({ title, isSpicy }: MenuItemTitleProps) => {
     return (
         <div className="flex items-center gap-2">
-            <h3 className="text-navy text-lg md:text-3xl font-semibold">{title}</h3>
+            <h3 className="text-navy text-base md:text-3xl font-semibold">{title}</h3>
             {isSpicy && (
                 <img
                     src="/icons/badgets/spicy-icon.svg"

@@ -10,7 +10,7 @@ export const MenuItemImage = ({ src, alt, isTwoPerson }: MenuItemImageProps) => 
     if (!src) return null;
 
     return (
-        <div className="relative h-[100px] w-[130px] shrink-0 rounded-[10px] lg:h-[150px] lg:w-[250px] xl:h-[200px] xl:w-[300px]">
+        <div className="relative h-[110px] w-[140px] shrink-0 rounded-[10px] lg:h-[150px] lg:w-[250px] xl:h-[200px] xl:w-[300px]">
             <img
                 src={src}
                 alt={alt}
