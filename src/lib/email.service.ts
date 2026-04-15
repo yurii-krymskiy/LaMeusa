@@ -52,14 +52,15 @@ export async function sendReservationEmails(
         );
 
         // Send confirmation email to customer (TEMPLATE_ID)
-        const customerEmail = await emailjs.send(
-            SERVICE_ID,
-            TEMPLATE_ID,
-            templateParams,
-            PUBLIC_KEY
-        );
+        // const customerEmail = await emailjs.send(
+        //     SERVICE_ID,
+        //     TEMPLATE_ID,
+        //     templateParams,
+        //     PUBLIC_KEY
+        // );
 
-        if (restaurantEmail.status === 200 && customerEmail.status === 200) {
+        // if (restaurantEmail.status === 200 && customerEmail.status === 200) {
+        if (restaurantEmail.status === 200) {
             return { success: true };
         }
 
