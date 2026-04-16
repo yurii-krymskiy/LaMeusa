@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { ButtonOpenReservation } from "../../../components/features/reservation-form/ButtonOpenReservation";
-import { Button } from "../../../components/ui/Button";
 
 export const AboutGrid = () => {
     const { t } = useTranslation();
@@ -79,12 +78,15 @@ export const AboutGrid = () => {
                             <p className="section-description description mb-2.5">
                                 {t("about.grid.burgers.p1")}
                             </p>
-                            <p className="section-description description">
+                            <p className="section-description description mb-2.5">
                                 {t("about.grid.burgers.p2")}
+                            </p>
+                            <p className="section-description description">
+                                {t("about.grid.burgers.p3")}
                             </p>
                         </div>
                         <div className="flex gap-6">
-                            <Button to="/happy-hours" variant="blue-outline">{t("about.grid.burgers.button")}</Button>
+                            <ButtonOpenReservation variant="blue-outline">{t("about.grid.burgers.button")}</ButtonOpenReservation>
                         </div>
                     </div>
                 </div>

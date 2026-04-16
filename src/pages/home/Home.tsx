@@ -9,7 +9,7 @@ import { HomeMeets } from "./sections/HomeMeets";
 import { HomeOurMenu } from "./sections/HomeOurMenu";
 import { HomeQueries } from "./sections/HomeQueries";
 import { HomeReserve } from "./sections/HomeReserve";
-import { HomeSpecial } from "./sections/HomeSpecial";
+// import { HomeSpecial } from "./sections/HomeSpecial";
 import { HomeStory } from "./sections/HomeStory";
 
 const Home = () => {
@@ -30,7 +30,7 @@ const Home = () => {
             <HomeGallery />
             <HomeFoodStory />
             <HomeMeets />
-            <HomeSpecial />
+            {/* <HomeSpecial /> */}
             <HomeQueries />
             <HomeReserve />
         </>

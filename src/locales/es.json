@@ -148,10 +148,11 @@
                 "button": "Nuestras bebidas"
             },
             "burgers": {
-                "title": "Dos hamburguesas por una",
-                "p1": "De lunes a sábado de 14:30 a 18:00 tenemos una oferta especial: dos hamburguesas por el precio de una...",
-                "p2": "Carne jugosa, ingredientes frescos y salsas únicas — la combinación perfecta para un descanso por la tarde.",
-                "button": "Ver oferta"
+                "title": "Felicidad durante todo el día",
+                "p1": "En La Medusa, la felicidad no se limita a un par de horas — es una sensación que dura todo el día.",
+                "p2": "Desde el primer sorbo de vino hasta el último bocado de marisco, cada momento aquí está pensado para disfrutarse despacio, con vistas, buena compañía y un toque de magia mediterránea.",
+                "p3": "Estamos preparando algo especial para ti — nuevas ofertas y experiencias están en camino.",
+                "button": "Reservar mesa"
             }
         }
     },
@@ -329,9 +330,11 @@
             "description": "Delicada tagliatelle, aromática penne, exquisitos ravioli o clásicos espaguetis — nuestro menú tiene una pasta para cada estado de ánimo..."
         },
         "hours": {
-            "title": "Hora de los amantes de la pasta",
-            "description": "Cada martes y miércoles de 14:00 a 17:00 — una promoción única: pide cualquier pasta y recibe una copa de vino de regalo...",
-            "viewOffer": "Ver oferta",
+            "decorative": "La Medusa",
+            "title": "Cada plato viene con alegría",
+            "p1": "En La Medusa, la felicidad no se limita a un par de horas — es una sensación que dura todo el día.",
+            "p2": "Desde el primer sorbo de vino hasta el último bocado de marisco, cada momento aquí está pensado para disfrutarse despacio, con vistas, buena compañía y un toque de magia mediterránea.",
+            "p3": "Estamos preparando algo especial para ti — nuevas ofertas y experiencias están en camino.",
             "bookNow": "Reservar ahora"
         },
         "meets": {
@@ -366,10 +369,11 @@
             "p2": "Los mariscos en La Medusa son parte de la historia y la cultura. Queremos que cada comida sea más que un almuerzo o una cena, sino un momento para recordar."
         },
         "happyHours": {
-            "decorative": "Happy Hours",
-            "title": "Happy Hours de mariscos",
-            "description": "Todos los días de 15:00 a 17:00, hay una oferta especial: al pedir un set de mariscos, recibes una copa de vino de regalo...",
-            "viewOffer": "Ver oferta",
+            "decorative": "La Medusa",
+            "title": "Cada momento es Happy Hour",
+            "p1": "En La Medusa, la felicidad no se limita a un par de horas — es una sensación que dura todo el día.",
+            "p2": "Desde el primer sorbo de vino hasta el último bocado de marisco, cada momento aquí está pensado para disfrutarse despacio, con vistas, buena compañía y un toque de magia mediterránea.",
+            "p3": "Estamos preparando algo especial para ti — nuevas ofertas y experiencias están en camino.",
             "bookNow": "Reservar ahora"
         },
         "why": {

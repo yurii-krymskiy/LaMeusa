@@ -148,10 +148,11 @@
                 "button": "Explore Our Drinks"
             },
             "burgers": {
-                "title": "Two Burgers for One",
-                "p1": "From Monday to Saturday from 14:30 to 18:00 we have a special offer: two burgers for the price of one...",
-                "p2": "Juicy meat, fresh ingredients and unique sauces are the perfect combination for an afternoon break.",
-                "button": "View Offer"
+                "title": "Happiness All Day Long",
+                "p1": "At La Medusa, happiness isn't limited to a couple of hours — it's a feeling that lasts all day.",
+                "p2": "From the first sip of wine to the last bite of seafood, every moment here is meant to be enjoyed slowly, with a view, with good company, and with a touch of Mediterranean magic.",
+                "p3": "We're currently crafting something special for you — new offers and experiences are on their way.",
+                "button": "Book a Table"
             }
         }
     },
@@ -329,9 +330,11 @@
             "description": "Delicate tagliatelle, aromatic penne, exquisite ravioli or classic spaghetti - our menu has a pasta for every mood..."
         },
         "hours": {
-            "title": "Pasta Lovers Hour",
-            "description": "Every Tuesday and Wednesday from 2:00 PM to 5:00 PM — a unique promotion: order any pasta and receive a glass of wine as a gift...",
-            "viewOffer": "View Offer",
+            "decorative": "La Medusa",
+            "title": "Every Plate Comes with Joy",
+            "p1": "At La Medusa, happiness isn't limited to a couple of hours — it's a feeling that lasts all day.",
+            "p2": "From the first sip of wine to the last bite of seafood, every moment here is meant to be enjoyed slowly, with a view, with good company, and with a touch of Mediterranean magic.",
+            "p3": "We're currently crafting something special for you — new offers and experiences are on their way.",
             "bookNow": "Book Now"
         },
         "meets": {
@@ -366,10 +369,11 @@
             "p2": "Seafood at La Medusa is part of history and culture. We want every meal to be more than just lunch or dinner, but a moment to remember."
         },
         "happyHours": {
-            "decorative": "Happy Hours",
-            "title": "Seafood Happy Hours",
-            "description": "Every day from 3:00 PM to 5:00 PM, there is a special offer: when you order a seafood set, you get a glass of wine as a gift...",
-            "viewOffer": "View Offer",
+            "decorative": "La Medusa",
+            "title": "Every Moment Is Happy Hour",
+            "p1": "At La Medusa, happiness isn't limited to a couple of hours — it's a feeling that lasts all day.",
+            "p2": "From the first sip of wine to the last bite of seafood, every moment here is meant to be enjoyed slowly, with a view, with good company, and with a touch of Mediterranean magic.",
+            "p3": "We're currently crafting something special for you — new offers and experiences are on their way.",
             "bookNow": "Book Now"
         },
         "why": {

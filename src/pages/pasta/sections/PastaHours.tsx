@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { ButtonOpenReservation } from "../../../components/features/reservation-form/ButtonOpenReservation";
-import { Button } from "../../../components/ui/Button";
 
 export const PastaHours = () => {
     const { t } = useTranslation();
@@ -16,16 +15,24 @@ export const PastaHours = () => {
 
                     <div>
                         <div className="mb-5 lg:mb-10">
+                            <span className="decorative mb-2.5 block">
+                                {t("pasta.hours.decorative")}
+                            </span>
                             <h2 className="section-title title mb-7 inline-block">
                                 {t("pasta.hours.title")}
                             </h2>
+                            <p className="section-description description mb-2.5">
+                                {t("pasta.hours.p1")}
+                            </p>
+                            <p className="section-description description mb-2.5">
+                                {t("pasta.hours.p2")}
+                            </p>
                             <p className="section-description description">
-                                {t("pasta.hours.description")}
+                                {t("pasta.hours.p3")}
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-6">
-                            <Button to="/happy-hours" variant="blue">{t("pasta.hours.viewOffer")}</Button>
-                            <ButtonOpenReservation variant="blue-outline">
+                            <ButtonOpenReservation variant="blue">
                                 {t("pasta.hours.bookNow")}
                             </ButtonOpenReservation>
                         </div>
