@@ -112,6 +112,5 @@ export const pagesLabels = [
 
     { path: Paths.pasta, label: "nav.pasta" },
     { path: Paths.menu, label: "nav.menu" },
-    { path: Paths.happyHours, label: "nav.happyHours" },
     { path: Paths.birthdays, label: "nav.birthday" },
 ];

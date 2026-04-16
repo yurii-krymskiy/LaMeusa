@@ -7,13 +7,12 @@ import {
 import type { DbBlockedSlot } from "../../lib/database.types";
 import { AdminDatePicker } from "../../components/ui/AdminDatePicker";
 import { AdminTimePicker } from "../../components/ui/AdminTimePicker";
+import { toast } from "sonner";
 
 export const AdminBlockedSlots = () => {
     const [blockedSlots, setBlockedSlots] = useState<DbBlockedSlot[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [error, setError] = useState<string | null>(null);
-    const [success, setSuccess] = useState<string | null>(null);
 
     // Form state
     const [blockDate, setBlockDate] = useState("");
@@ -35,16 +34,14 @@ export const AdminBlockedSlots = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError(null);
-        setSuccess(null);
 
         if (!blockDate) {
-            setError("Please select a date to block");
+            toast.error("Please select a date to block");
             return;
         }
 
         if (!blockWholeDay && (!blockTimeStart || !blockTimeEnd)) {
-            setError("Please select both start and end time");
+            toast.error("Please select both start and end time");
             return;
         }
 
@@ -58,7 +55,7 @@ export const AdminBlockedSlots = () => {
         );
 
         if (result.success) {
-            setSuccess("Slot blocked successfully!");
+            toast.success("Slot blocked successfully!");
             setBlockDate("");
             setBlockTimeStart("");
             setBlockTimeEnd("");
@@ -66,7 +63,7 @@ export const AdminBlockedSlots = () => {
             setBlockWholeDay(true);
             await loadBlockedSlots();
         } else {
-            setError(result.error || "Failed to block slot");
+            toast.error(result.error || "Failed to block slot");
         }
 
         setIsSubmitting(false);
@@ -79,10 +76,10 @@ export const AdminBlockedSlots = () => {
 
         const result = await deleteBlockedSlot(id);
         if (result.success) {
-            setSuccess("Block removed successfully!");
+            toast.success("Block removed successfully!");
             await loadBlockedSlots();
         } else {
-            setError(result.error || "Failed to remove block");
+            toast.error(result.error || "Failed to remove block");
         }
     };
 
@@ -126,17 +123,6 @@ export const AdminBlockedSlots = () => {
                     </p>
                 </div>
                 <form onSubmit={handleSubmit} className="p-6 space-y-4">
-                    {error && (
-                        <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 px-4 py-3 rounded-lg text-sm">
-                            {error}
-                        </div>
-                    )}
-                    {success && (
-                        <div className="bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-400 px-4 py-3 rounded-lg text-sm">
-                            {success}
-                        </div>
-                    )}
-
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">

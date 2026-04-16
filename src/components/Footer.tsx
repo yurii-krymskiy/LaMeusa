@@ -62,7 +62,6 @@ export const Footer = () => {
                                 <li><Link to="/menu" className="hover:text-[#3650b9] transition-colors duration-200">{t("nav.menu")}</Link></li>
                                 <li><Link to="/about" className="hover:text-[#3650b9] transition-colors duration-200">{t("nav.about")}</Link></li>
                                 <li><Link to="/seafood" className="hover:text-[#3650b9] transition-colors duration-200">{t("nav.seafood")}</Link></li>
-                                <li><Link to="/menu#paella" className="hover:text-[#3650b9] transition-colors duration-200">{t("footer.paella")}</Link></li>
                             </ul>
                             <ul className="text-royal-blue flex flex-col gap-2.5 font-semibold md:text-lg">
                                 <li><Link to="/menu#burgers" className="hover:text-[#3650b9] transition-colors duration-200">{t("footer.burger")}</Link></li>
