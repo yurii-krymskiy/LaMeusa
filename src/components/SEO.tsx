@@ -12,6 +12,8 @@ const SITE_NAME = "La Medusa";
 const BASE_URL = "https://lamedusa.es";
 const DEFAULT_IMAGE = "/images/home/home-hero.jpg";
 
+const SUPPORTED_LANGUAGES = ["es", "en", "uk"] as const;
+
 export const SEO = ({ title, description, path = "", image, preloadImages }: SEOProps) => {
     const fullTitle = path === "/" || !path ? SITE_NAME : `${title} | ${SITE_NAME}`;
     const url = `${BASE_URL}${path}`;
@@ -22,6 +24,12 @@ export const SEO = ({ title, description, path = "", image, preloadImages }: SEO
             <title>{fullTitle}</title>
             <meta name="description" content={description} />
             <link rel="canonical" href={url} />
+
+            {/* Hreflang tags */}
+            {SUPPORTED_LANGUAGES.map((lang) => (
+                <link key={lang} rel="alternate" hrefLang={lang} href={url} />
+            ))}
+            <link rel="alternate" hrefLang="x-default" href={url} />
 
             {/* Open Graph */}
             <meta property="og:type" content="website" />
