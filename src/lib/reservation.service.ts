@@ -62,7 +62,8 @@ export async function getReservationsForDate(
     const { data, error } = await supabase
         .from("reservations")
         .select("*")
-        .eq("reservation_date", date);
+        .eq("reservation_date", date)
+        .is("cancelled_at", null);
 
     if (error) {
         console.error("Error fetching reservations:", error);

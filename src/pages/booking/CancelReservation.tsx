@@ -68,47 +68,75 @@ export const CancelReservation = () => {
     }, [token]);
 
     return (
-        <section className="pt-30 pb-20">
-            <div className="container-custom mx-auto max-w-2xl">
-                <div className="rounded-2xl border border-zinc-700/30 bg-zinc-900/60 p-8 text-center shadow-xl">
-                    <h1 className="title mb-3 text-3xl text-white">Reservation cancellation</h1>
+        <section className="flex min-h-[80vh] items-center justify-center px-4 py-20">
+            <div className="w-full max-w-md">
+                <div className="rounded-2xl border border-zinc-700/30 bg-zinc-900/60 p-10 text-center shadow-2xl">
 
+                    {/* Icon */}
                     {state === "loading" && (
-                        <p className="description text-zinc-300">{message}</p>
+                        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-zinc-800">
+                            <svg className="h-7 w-7 animate-spin text-zinc-300" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                            </svg>
+                        </div>
+                    )}
+                    {state === "success" && (
+                        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-900/40">
+                            <svg className="h-8 w-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                    )}
+                    {state === "error" && (
+                        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-red-900/40">
+                            <svg className="h-8 w-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
                     )}
 
+                    {/* Title */}
+                    <h1 className="title mb-2 text-2xl text-white">
+                        {state === "success" ? "Reservation cancelled" : state === "error" ? "Something went wrong" : "Cancelling reservation..."}
+                    </h1>
+
+                    {/* Message */}
+                    {state === "loading" && (
+                        <p className="description mt-3 text-zinc-400">Please wait a moment.</p>
+                    )}
                     {state === "success" && (
                         <>
-                            <p className="description mb-5 text-green-300">{message}</p>
-                            <p className="description mb-8 text-zinc-300">
-                                We are sorry to miss you. You can book another table anytime.
-                            </p>
+                            <p className="description mt-3 text-green-300">{message}</p>
+                            <p className="description mt-2 text-zinc-400">We're sorry to miss you. You're always welcome back.</p>
                         </>
                     )}
-
                     {state === "error" && (
                         <>
-                            <p className="description mb-5 text-red-300">{message}</p>
-                            <p className="description mb-8 text-zinc-300">
-                                If this does not look right, please contact the restaurant directly.
+                            <p className="description mt-3 text-red-300">{message}</p>
+                            <p className="description mt-2 text-zinc-400">
+                                Please contact the restaurant directly if you need help.
                             </p>
                         </>
                     )}
 
-                    <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-                        <Link
-                            to="/"
-                            className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:opacity-90"
-                        >
-                            Back to home
-                        </Link>
-                        <Link
-                            to="/booking"
-                            className="rounded-full border border-zinc-400 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
-                        >
-                            Make new reservation
-                        </Link>
-                    </div>
+                    {/* Actions */}
+                    {(state === "success" || state === "error") && (
+                        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+                            <Link
+                                to="/"
+                                className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:opacity-90"
+                            >
+                                Back to home
+                            </Link>
+                            <Link
+                                to="/booking"
+                                className="rounded-full border border-zinc-500 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
+                            >
+                                New reservation
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>

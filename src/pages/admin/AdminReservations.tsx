@@ -110,15 +110,22 @@ export const AdminReservations = () => {
         startIndex + ITEMS_PER_PAGE
     );
 
-    const getStatusBadge = (dateStr: string) => {
-        if (isToday(dateStr)) {
+    const getStatusBadge = (reservation: DbReservation) => {
+        if (reservation.cancelled_at) {
+            return (
+                <span className="px-2 py-1 bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300 text-xs font-medium rounded-full">
+                    Cancelled
+                </span>
+            );
+        }
+        if (isToday(reservation.reservation_date)) {
             return (
                 <span className="px-2 py-1 bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 text-xs font-medium rounded-full">
                     Today
                 </span>
             );
         }
-        if (isUpcoming(dateStr)) {
+        if (isUpcoming(reservation.reservation_date)) {
             return (
                 <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs font-medium rounded-full">
                     Upcoming
@@ -265,7 +272,7 @@ export const AdminReservations = () => {
                                                     {formatTime(reservation.reservation_time)}
                                                 </p>
                                             </div>
-                                            {getStatusBadge(reservation.reservation_date)}
+                                            {getStatusBadge(reservation)}
                                             <svg
                                                 className={`w-5 h-5 text-gray-400 transition-transform ${
                                                     expandedId === reservation.id ? "rotate-180" : ""
