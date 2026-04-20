@@ -38,7 +38,7 @@ export const CancelReservation = () => {
 
             try {
                 const response = await fetch(
-                    `${supabaseUrl}/functions/v1/cancel-reservation?token=${encodeURIComponent(token)}`,
+                    `${supabaseUrl}/functions/v1/smooth-endpoint?token=${encodeURIComponent(token)}`,
                     {
                         method: "GET",
                         headers: {
