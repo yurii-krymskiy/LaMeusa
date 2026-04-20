@@ -9,6 +9,7 @@
         "lint": "eslint .",
         "format": "prettier --write .",
         "preview": "vite preview",
+        "book:test-reminder": "node --env-file=.env scripts/book-test-reminder.mjs",
         "test": "vitest run",
         "test:watch": "vitest"
     },
