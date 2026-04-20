@@ -8,12 +8,12 @@ import type {
 } from "./database.types";
 
 // Reservation duration in hours
-const RESERVATION_DURATION_HOURS = 2;
+export const RESERVATION_DURATION_HOURS = 2;
 
 /**
  * Converts time string to minutes since midnight for easier comparison
  */
-function timeToMinutes(time: string): number {
+export function timeToMinutes(time: string): number {
     const [hours, minutes] = time.split(":").map(Number);
     return hours * 60 + minutes;
 }
@@ -22,7 +22,7 @@ function timeToMinutes(time: string): number {
  * Checks if two time ranges overlap
  * Each reservation blocks the table for RESERVATION_DURATION_HOURS hours
  */
-function timeRangesOverlap(
+export function timeRangesOverlap(
     start1: string,
     start2: string,
     durationHours: number = RESERVATION_DURATION_HOURS
@@ -166,7 +166,7 @@ export async function isSlotBlocked(
  * 2. Single table with smallest excess capacity
  * 3. Combination of combinable tables
  */
-function calculateRequiredTables(
+export function calculateRequiredTables(
     guests: number,
     availableTables: DbTable[]
 ): DbTable[] {
