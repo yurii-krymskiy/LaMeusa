@@ -18,6 +18,9 @@ export type DbReservation = {
     email: string;
     phone: string;
     additional_wishes: string | null;
+    cancellation_token: string;
+    cancelled_at: string | null;
+    reminder_sent_at: string | null;
     created_at: string;
 };
 

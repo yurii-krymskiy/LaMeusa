@@ -48,6 +48,9 @@ function makeReservation(
         email: `guest${id}@example.com`,
         phone: "123456",
         additional_wishes: null,
+        cancellation_token: `token-${id}`,
+        cancelled_at: null,
+        reminder_sent_at: null,
         created_at: "",
     };
 }
@@ -481,7 +484,7 @@ describe("checkAvailability", () => {
 
     it("large party needs combined tables when single tables occupied", async () => {
         // Occupy all 8-seat tables (IDs 67-72)
-        const reservations = [67, 68, 69, 70, 71, 72].map((id, i) =>
+        const reservations = [67, 68, 69, 70, 71, 72].map((_, i) =>
             makeReservation(i + 1, "14:00")
         );
         const rtMap: Record<number, number[]> = {};

@@ -273,10 +273,16 @@ export const TableConfirm = () => {
                         disabled={isSubmitting}
                     />
                     <Input
-                        type="phone"
+                        type="tel"
                         className="w-full"
                         placeholder={t("reservation.phone")}
-                        {...form.register("phone")}
+                        inputMode="tel"
+                        pattern="[0-9+()\-\s]*"
+                        {...form.register("phone", {
+                            onChange: (e) => {
+                                e.target.value = e.target.value.replace(/[^\d+()\-\s]/g, "");
+                            },
+                        })}
                         disabled={isSubmitting}
                     />
                 </div>

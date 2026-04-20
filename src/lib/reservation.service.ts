@@ -286,6 +286,7 @@ export async function createReservation(
             email: input.email,
             phone: input.phone,
             additional_wishes: input.additional_wishes || null,
+            cancellation_token: crypto.randomUUID(),
         })
         .select()
         .single();

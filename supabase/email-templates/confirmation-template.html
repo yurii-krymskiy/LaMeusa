@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
+  </head>
+  <body style="margin:0;padding:0;background-color:#eef2f9;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#eef2f9;padding:24px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="640" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:640px;background:#fcfdff;border:1px solid #cbd3e6;border-radius:14px;overflow:hidden;">
+
+            <!-- HEADER -->
+            <tr>
+              <td style="background:linear-gradient(135deg,#13265a 0%,#30478d 70%,#1b86cf 100%);padding:30px 28px 26px 28px;">
+                <div class="lm-header-title" style="font-family:Playfair Display, Georgia, serif;font-size:30px;line-height:1.1;color:#ffffff !important;-webkit-text-fill-color:#ffffff;font-weight:700;letter-spacing:0.5px;">
+                  La Medusa
+                </div>
+                <div class="lm-header-subtitle" style="font-family:Montserrat, Arial, sans-serif;font-size:13px;line-height:1.5;color:#ffffff !important;-webkit-text-fill-color:#dbe6ff;margin-top:8px;text-transform:uppercase;letter-spacing:1.2px;">
+                  Booking Confirmation
+                </div>
+              </td>
+            </tr>
+
+            <!-- BODY -->
+            <tr>
+              <td style="padding:28px 28px 8px 28px;">
+
+                <p style="margin:0 0 6px 0;font-family:Montserrat, Arial, sans-serif;font-size:17px;line-height:1.5;color:#0e1a47;font-weight:700;">
+                  Hi {{user_name}},
+                </p>
+
+                <!-- Confirmed badge -->
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin:14px 0 18px 0;">
+                  <tr>
+                    <td style="background:#e6f9f0;border-radius:8px;padding:12px 18px;">
+                      <span style="font-family:Montserrat, Arial, sans-serif;font-size:15px;font-weight:700;color:#1a7a4a;">
+                        &#10003;&nbsp; Your reservation is confirmed!
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+
+                <p style="margin:0 0 18px 0;font-family:Montserrat, Arial, sans-serif;font-size:15px;line-height:1.7;color:#505050;">
+                  We look forward to welcoming you on <strong style="color:#0e1a47;">{{date}}</strong> at <strong style="color:#0e1a47;">{{time}}</strong> at La Medusa Tenerife, Avenida La Habana&nbsp;9.
+                </p>
+
+                <!-- Booking details card -->
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #d7dced;border-radius:10px;background:#fbfcff;">
+                  <tr>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e6eaf5;">
+                      <span style="display:inline-block;background:#e8efff;color:#2e3e7b;font-family:Montserrat, Arial, sans-serif;font-size:12px;font-weight:700;letter-spacing:0.4px;padding:5px 10px;border-radius:999px;text-transform:uppercase;">
+                        Booking Details
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding:4px 16px 14px 16px;">
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+                        <tr>
+                          <td style="padding:10px 0;font-family:Montserrat, Arial, sans-serif;font-size:13px;color:#6f7a9a;width:38%;">Date</td>
+                          <td style="padding:10px 0;font-family:Montserrat, Arial, sans-serif;font-size:14px;color:#0e1a47;font-weight:700;">{{date}}</td>
+                        </tr>
+                        <tr>
+                          <td style="padding:10px 0;border-top:1px dashed #e6eaf5;font-family:Montserrat, Arial, sans-serif;font-size:13px;color:#6f7a9a;">Time</td>
+                          <td style="padding:10px 0;border-top:1px dashed #e6eaf5;font-family:Montserrat, Arial, sans-serif;font-size:14px;color:#0e1a47;font-weight:700;">{{time}}</td>
+                        </tr>
+                        <tr>
+                          <td style="padding:10px 0;border-top:1px dashed #e6eaf5;font-family:Montserrat, Arial, sans-serif;font-size:13px;color:#6f7a9a;">Guests</td>
+                          <td style="padding:10px 0;border-top:1px dashed #e6eaf5;font-family:Montserrat, Arial, sans-serif;font-size:14px;color:#0e1a47;font-weight:700;">{{number_of_guests}}</td>
+                        </tr>
+                        <tr>
+                          <td style="padding:10px 0;border-top:1px dashed #e6eaf5;font-family:Montserrat, Arial, sans-serif;font-size:13px;color:#6f7a9a;">Phone</td>
+                          <td style="padding:10px 0;border-top:1px dashed #e6eaf5;font-family:Montserrat, Arial, sans-serif;font-size:14px;color:#0e1a47;">{{user_phone}}</td>
+                        </tr>
+                        <tr>
+                          <td style="padding:10px 0;border-top:1px dashed #e6eaf5;font-family:Montserrat, Arial, sans-serif;font-size:13px;color:#6f7a9a;">Address</td>
+                          <td style="padding:10px 0;border-top:1px dashed #e6eaf5;font-family:Montserrat, Arial, sans-serif;font-size:14px;color:#0e1a47;">Avenida La Habana 9, Tenerife</td>
+                        </tr>
+                        <tr>
+                          <td style="padding:10px 0;border-top:1px dashed #e6eaf5;font-family:Montserrat, Arial, sans-serif;font-size:13px;color:#6f7a9a;vertical-align:top;">Wishes</td>
+                          <td style="padding:10px 0;border-top:1px dashed #e6eaf5;font-family:Montserrat, Arial, sans-serif;font-size:14px;color:#0e1a47;line-height:1.5;">{{additional_wishes}}</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Notice -->
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:20px 0 0 0;">
+                  <tr>
+                    <td style="background:#fff8e6;border-left:3px solid #f0a500;border-radius:0 8px 8px 0;padding:12px 16px;">
+                      <p style="margin:0;font-family:Montserrat, Arial, sans-serif;font-size:13px;line-height:1.6;color:#7a5500;">
+                        We will hold your reservation for <strong>15 minutes</strong>. If you are running late or your plans change, please let us know in advance so we can adjust accordingly.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Contact -->
+                <p style="margin:20px 0 0 0;font-family:Montserrat, Arial, sans-serif;font-size:14px;line-height:1.7;color:#505050;">
+                  If you have any questions, feel free to contact us at
+                  <a href="tel:+34603839509" style="color:#2e3e7b;font-weight:700;text-decoration:none;">+34 603 839 509</a>.
+                </p>
+
+                <p style="margin:16px 0 0 0;font-family:Montserrat, Arial, sans-serif;font-size:15px;line-height:1.7;color:#0e1a47;font-weight:700;">
+                  See you soon!
+                </p>
+
+              </td>
+            </tr>
+
+            <!-- FOOTER -->
+            <tr>
+              <td style="padding:18px 28px 24px 28px;background:#edf2fb;border-top:1px solid #dbe3f4;">
+                <p style="margin:0;font-family:Montserrat, Arial, sans-serif;font-size:12px;line-height:1.6;color:#66749a;">
+                  This confirmation was sent automatically for your reservation at La Medusa &mdash; Avenida La Habana 9, Tenerife.
+                </p>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

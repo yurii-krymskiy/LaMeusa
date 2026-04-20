@@ -7,6 +7,7 @@ import { Input } from "../../ui/Input";
 import { Button } from "../../ui/Button";
 import { DatePickerInput } from "../../ui/DatePickerInput";
 import { TimePickerInput } from "../../ui/TimePickerInput";
+import { SelectInput } from "../../ui/SelectInput";
 import { useEffect, useCallback } from "react";
 import { checkAvailability } from "../../../lib/reservation.service";
 import {
@@ -18,6 +19,10 @@ import {
 
 export const TableBook = () => {
     const { t } = useTranslation();
+    const guestOptions = Array.from({ length: 8 }, (_, index) => ({
+        value: index + 1,
+        label: String(index + 1),
+    }));
     const setData = useBookingStore((state) => state.setData);
     const setStep = useBookingStore((state) => state.setStep);
     const setAvailability = useBookingStore((state) => state.setAvailability);
@@ -128,24 +133,18 @@ export const TableBook = () => {
                 required
                 {...form.register("name")}
             />
-            <Input
-                type="text"
-                placeholder={t("reservation.numberOfGuests")}
-                required
-                {...form.register("guests", {
-                    valueAsNumber: true,
-                    min: {
-                        value: 1,
-                        message: t("reservation.guestsQuestion"),
-                    },
-                    max: {
-                        value: 8,
-                        message: t("reservation.maxGuests"),
-                    },
-                    onChange: (e) => {
-                        e.target.value = e.target.value.replace(/\D/g, "");
-                    },
-                })}
+            <Controller
+                name="guests"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                    <SelectInput
+                        value={field.value}
+                        onChange={field.onChange}
+                        options={guestOptions}
+                        placeholder={t("reservation.numberOfGuests")}
+                        error={fieldState.error?.message}
+                    />
+                )}
             />
             <div className="flex flex-col gap-5 md:flex-row">
                 <Controller

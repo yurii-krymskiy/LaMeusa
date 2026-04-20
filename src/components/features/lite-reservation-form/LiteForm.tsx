@@ -10,6 +10,7 @@ import { Textarea } from "../../ui/Textarea";
 import { Button } from "../../ui/Button";
 import { DatePickerInput } from "../../ui/DatePickerInput";
 import { TimePickerInput } from "../../ui/TimePickerInput";
+import { SelectInput } from "../../ui/SelectInput";
 import { useState, useEffect, useCallback } from "react";
 import { checkAvailability, createReservation } from "../../../lib/reservation.service";
 import {
@@ -27,6 +28,10 @@ import {
 
 export const LiteForm = () => {
     const { t } = useTranslation();
+    const guestOptions = Array.from({ length: 8 }, (_, index) => ({
+        value: index + 1,
+        label: String(index + 1),
+    }));
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isCheckingAvailability, setIsCheckingAvailability] = useState(false);
     const [availability, setAvailability] = useState<AvailabilityResponse | null>(null);
@@ -246,25 +251,19 @@ export const LiteForm = () => {
                     {...form.register("name")}
                     disabled={isSubmitting}
                 />
-                <Input
-                    type="text"
-                    placeholder={t("reservation.numberOfGuests")}
-                    required
-                    {...form.register("guests", {
-                        valueAsNumber: true,
-                        min: {
-                            value: 1,
-                            message: t("reservation.guestsQuestion"),
-                        },
-                        max: {
-                            value: 8,
-                            message: t("reservation.maxGuests"),
-                        },
-                        onChange: (e) => {
-                            e.target.value = e.target.value.replace(/\D/g, "");
-                        },
-                    })}
-                    disabled={isSubmitting}
+                <Controller
+                    name="guests"
+                    control={form.control}
+                    render={({ field, fieldState }) => (
+                        <SelectInput
+                            value={field.value}
+                            onChange={field.onChange}
+                            options={guestOptions}
+                            placeholder={t("reservation.numberOfGuests")}
+                            disabled={isSubmitting}
+                            error={fieldState.error?.message}
+                        />
+                    )}
                 />
             </div>
             <div className="flex flex-col gap-5 md:flex-row">
@@ -276,11 +275,17 @@ export const LiteForm = () => {
                     disabled={isSubmitting}
                 />
                 <Input
-                    type="phone"
+                    type="tel"
                     className="w-full"
                     placeholder={t("reservation.phone")}
                     required
-                    {...form.register("phone")}
+                    inputMode="tel"
+                    pattern="[0-9+()\-\s]*"
+                    {...form.register("phone", {
+                        onChange: (e) => {
+                            e.target.value = e.target.value.replace(/[^\d+()\-\s]/g, "");
+                        },
+                    })}
                     disabled={isSubmitting}
                 />
             </div>

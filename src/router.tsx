@@ -3,6 +3,7 @@ import { BaseLayout } from "./components/layout/BaseLayout";
 import About from "./pages/about/About";
 import { Birthday } from "./pages/birthday/Birthday";
 import { Booking } from "./pages/booking/Booking";
+import { CancelReservation } from "./pages/booking/CancelReservation";
 import Contact from "./pages/contact/Contact";
 import { HappyHours } from "./pages/happy/HappyHours";
 import Home from "./pages/home/Home";
@@ -52,6 +53,7 @@ export const pages = [
             { path: "privacy-policy", element: <PrivacyPolicy /> },
             { path: "terms-of-service", element: <TermsOfService /> },
             { path: "cookies-settings", element: <CookiesSettings /> },
+            { path: "reservation/cancel", element: <CancelReservation /> },
             // SEO pages
             { path: "best-salads-tenerife", element: <SeoSalads /> },
             { path: "pizza-los-cristianos", element: <SeoPizza /> },

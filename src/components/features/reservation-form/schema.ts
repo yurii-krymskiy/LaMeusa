@@ -34,7 +34,14 @@ export const BookTableSchema = z.object({
 
     phone: z
         .string({ error: "How can we reach you?" })
-        .min(3, { error: "Please enter a valid phone number" }),
+        .min(3, { error: "Please enter a valid phone number" })
+        .max(20, { error: "Please enter a valid phone number" })
+        .regex(/^[0-9+()\-\s]+$/, {
+            error: "Phone number can only contain digits and + ( ) -",
+        })
+        .refine((value) => value.replace(/\D/g, "").length >= 7, {
+            error: "Please enter a valid phone number",
+        }),
 });
 export type BookTableTypeSchema = z.infer<typeof BookTableSchema>;
 
