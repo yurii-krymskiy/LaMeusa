@@ -73,6 +73,15 @@ export const AdminCocktails = () => {
         setCurrentPage(1);
     }, [filterCategory, searchQuery, priceSort]);
 
+    useEffect(() => {
+        if (isModalOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => { document.body.style.overflow = ""; };
+    }, [isModalOpen]);
+
     const handleEdit = (item: CocktailItemWithCategory) => {
         setEditingItem({
             id: item.id,
@@ -475,9 +484,9 @@ export const AdminCocktails = () => {
 
             {/* Edit/Create Modal */}
             {isModalOpen && editingItem && (
-                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
-                        <div className="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-hidden">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-lg max-h-[90vh] overflow-hidden flex flex-col">
+                        <div className="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center flex-shrink-0">
                             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                                 {isCreating ? "Add Cocktail" : "Edit Cocktail"}
                             </h3>
@@ -491,7 +500,7 @@ export const AdminCocktails = () => {
                             </button>
                         </div>
 
-                        <div className="p-6 space-y-4">
+                        <div className="p-6 space-y-4 overflow-y-auto overscroll-contain">
                             {/* Title */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Title *</label>
@@ -555,7 +564,7 @@ export const AdminCocktails = () => {
                             </label>
                         </div>
 
-                        <div className="p-6 border-t border-gray-200 dark:border-gray-700 flex justify-end gap-3">
+                        <div className="p-6 border-t border-gray-200 dark:border-gray-700 flex justify-end gap-3 flex-shrink-0">
                             <button
                                 onClick={handleCloseModal}
                                 className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"

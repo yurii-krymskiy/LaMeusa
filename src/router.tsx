@@ -18,6 +18,7 @@ import { AdminVisitors } from "./pages/admin/AdminVisitors";
 import { AdminMenu } from "./pages/admin/AdminMenu";
 import { AdminBar } from "./pages/admin/AdminBar";
 import { AdminCocktails } from "./pages/admin/AdminCocktails";
+import { AdminWines } from "./pages/admin/AdminWines";
 import { Visitors } from "./pages/visitors/Visitors";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
@@ -81,6 +82,7 @@ export const pages = [
             { path: "menu", element: <AdminMenu /> },
             { path: "bar", element: <AdminBar /> },
             { path: "cocktails", element: <AdminCocktails /> },
+            { path: "wines", element: <AdminWines /> },
         ],
     },
 ];

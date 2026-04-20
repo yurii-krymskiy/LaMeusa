@@ -73,6 +73,15 @@ const sidebarItems: SidebarItem[] = [
             </svg>
         ),
     },
+    {
+        path: "/admin/wines",
+        label: "Wine Card",
+        icon: (
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19c-4 0-5-4-5-6 0-3 2-8 5-10 3 2 5 7 5 10 0 2-1 6-5 6zm0 0v2m-3 0h6" />
+            </svg>
+        ),
+    },
 ];
 
 export const AdminLayout = () => {

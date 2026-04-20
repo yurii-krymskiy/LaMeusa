@@ -72,3 +72,30 @@ export type DbCocktailItem = {
     created_at: string;
     cocktail_categories?: DbCocktailCategory;
 };
+
+// Wine types
+export type DbWineCategory = {
+    id: string;
+    name: string;
+    slug: string;
+    sort_order: number;
+    created_at: string;
+};
+
+export type DbWine = {
+    id: string;
+    name: string;
+    category_id: string;
+    grape_varieties: string | null;
+    description_en: string | null;
+    aging: string | null;
+    is_bio: boolean;
+    is_active: boolean;
+    price_glass: number | null;
+    price_bottle: number | null;
+    price_half_liter: number | null;
+    price_liter: number | null;
+    sort_order: number;
+    created_at: string;
+    wine_categories?: DbWineCategory;
+};

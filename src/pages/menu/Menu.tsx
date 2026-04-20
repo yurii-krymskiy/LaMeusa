@@ -18,6 +18,7 @@ import { Breadcrumb } from "../../components/ui/Breadcrumb";
 import { useMenuItems } from "../../hooks/useMenuItems";
 import { useBarItems } from "../../hooks/useBarItems";
 import { useCocktailItems } from "../../hooks/useCocktailItems";
+import { useWineItems, type WineItem } from "../../hooks/useWineItems";
 import { MobileCategoryTabsSkeleton } from "../../components/features/menu/content/MobileCategoryTabsSkeleton";
 import { SidebarSkeleton } from "../../components/features/menu/sidebar/SidebarSkeleton";
 import { MenuListSkeleton } from "../../components/features/menu/content/MenuListSkeleton";
@@ -29,8 +30,38 @@ export const Menu = () => {
     const { items: barItems, isLoading: barLoading } = useBarItems();
     const { items: cocktailItems, isLoading: cocktailLoading } =
         useCocktailItems();
+    const { items: wineItemsRaw, isLoading: wineLoading } = useWineItems();
 
-    const isLoading = menuLoading || barLoading || cocktailLoading;
+    const isLoading = menuLoading || barLoading || cocktailLoading || wineLoading;
+
+    // Map wine items → MenuItemType for the resolver
+    const wineItems = useMemo(() => {
+        function wineDescription(w: WineItem): string {
+            const parts: string[] = [];
+            if (w.grapeVarieties) parts.push(w.grapeVarieties);
+            if (w.descriptionEn) parts.push(w.descriptionEn);
+            if (w.aging) parts.push(w.aging);
+            return parts.join(" · ");
+        }
+
+        function winePriceLabel(w: WineItem): string {
+            const tags: string[] = [];
+            if (w.priceGlass != null) tags.push(`Glass €${w.priceGlass.toFixed(2)}`);
+            if (w.priceBottle != null) tags.push(`Bottle €${w.priceBottle.toFixed(2)}`);
+            if (w.priceHalfLiter != null) tags.push(`½L €${w.priceHalfLiter.toFixed(2)}`);
+            if (w.priceLiter != null) tags.push(`1L €${w.priceLiter.toFixed(2)}`);
+            return tags.join(" / ");
+        }
+
+        return wineItemsRaw.map((w) => ({
+            id: w.id,
+            title: `${w.name}${w.isBio ? " 🌿" : ""}`,
+            description: `${wineDescription(w)}${wineDescription(w) ? "\n" : ""}${winePriceLabel(w)}`,
+            category: w.category,
+            price: w.priceBottle ?? w.priceGlass ?? w.priceHalfLiter ?? 0,
+            order: w.sortOrder,
+        }));
+    }, [wineItemsRaw]);
 
     // Food menu dictionary (ordered subcategories)
     const menuDictionary = useMemo(
@@ -79,6 +110,10 @@ export const Menu = () => {
         () => new MenuResolver(cocktailItems).resolve(),
         [cocktailItems]
     );
+    const wineResolved = useMemo(
+        () => new MenuResolver(wineItems).resolve(),
+        [wineItems]
+    );
 
     // Merge all categories into one continuous list
     const allCategories = useMemo(
@@ -86,8 +121,9 @@ export const Menu = () => {
             ...menuResolved.categories,
             ...barResolved.categories,
             ...cocktailResolved.categories,
+            ...wineResolved.categories,
         ],
-        [menuResolved, barResolved, cocktailResolved]
+        [menuResolved, barResolved, cocktailResolved, wineResolved]
     );
 
     // Sidebar sections for accordion (desktop)
@@ -108,8 +144,13 @@ export const Menu = () => {
                 label: t("menu.sections.cocktails"),
                 items: cocktailResolved.sidebar,
             },
+            {
+                key: "wines",
+                label: t("menu.sections.wines", "Wine Card"),
+                items: wineResolved.sidebar,
+            },
         ],
-        [t, menuResolved.sidebar, barResolved.sidebar, cocktailResolved.sidebar]
+        [t, menuResolved.sidebar, barResolved.sidebar, cocktailResolved.sidebar, wineResolved.sidebar]
     );
 
     const [activeSlug, setActiveSlug] = useState("");

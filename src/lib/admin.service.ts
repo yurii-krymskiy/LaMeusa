@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { supabase, type DbMenuItem, type DbCategory, type DbBarCategory, type DbBarItem, type DbCocktailCategory, type DbCocktailItem } from "./supabase";
+import { supabase, type DbMenuItem, type DbCategory, type DbBarCategory, type DbBarItem, type DbCocktailCategory, type DbCocktailItem, type DbWineCategory, type DbWine } from "./supabase";
 import type { DbReservation, DbBlockedSlot, DbTable, DbVisitor } from "./database.types";
 
 // Statistics types
@@ -837,6 +837,103 @@ export const deleteCocktailItem = async (
 
     if (error) {
         console.error("Error deleting cocktail item:", error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+};
+
+// ===================== WINES =====================
+
+export type WineWithCategory = DbWine & {
+    wine_categories: DbWineCategory;
+};
+
+export const fetchWineCategories = async (): Promise<DbWineCategory[]> => {
+    const { data, error } = await supabase
+        .from("wine_categories")
+        .select("*")
+        .order("sort_order", { ascending: true });
+
+    if (error) {
+        console.error("Error fetching wine categories:", error);
+        return [];
+    }
+
+    return data || [];
+};
+
+export const fetchWineItemsAdmin = async (
+    categoryId?: string
+): Promise<WineWithCategory[]> => {
+    let query = supabase
+        .from("wines")
+        .select("*, wine_categories (id, name, slug, sort_order)")
+        .order("sort_order", { ascending: true });
+
+    if (categoryId) {
+        query = query.eq("category_id", categoryId);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+        console.error("Error fetching wines:", error);
+        return [];
+    }
+
+    return (data as WineWithCategory[]) || [];
+};
+
+export const createWineItem = async (
+    item: Omit<DbWine, "id" | "created_at" | "wine_categories">
+): Promise<{ success: boolean; error?: string }> => {
+    const { error } = await supabase.from("wines").insert(item);
+
+    if (error) {
+        console.error("Error creating wine:", error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+};
+
+export const updateWineItem = async (
+    id: string,
+    updates: Partial<Omit<DbWine, "id" | "created_at" | "wine_categories">>
+): Promise<{ success: boolean; error?: string }> => {
+    const { data: existing, error: fetchError } = await supabase
+        .from("wines")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+    if (fetchError || !existing) {
+        return { success: false, error: fetchError?.message || "Wine not found" };
+    }
+
+    const { wine_categories, ...row } = existing as WineWithCategory;
+
+    const { error } = await supabase
+        .from("wines")
+        .upsert({ ...row, ...updates })
+        .eq("id", id);
+
+    if (error) {
+        console.error("Error updating wine:", error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+};
+
+export const deleteWineItem = async (
+    id: string
+): Promise<{ success: boolean; error?: string }> => {
+    const { error } = await supabase.from("wines").delete().eq("id", id);
+
+    if (error) {
+        console.error("Error deleting wine:", error);
         return { success: false, error: error.message };
     }
 

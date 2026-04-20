@@ -89,6 +89,15 @@ export const AdminMenu = () => {
         setCurrentPage(1);
     }, [filterCategory, searchQuery, priceSort]);
 
+    useEffect(() => {
+        if (isModalOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => { document.body.style.overflow = ""; };
+    }, [isModalOpen]);
+
     const clearMessages = () => {
         setTimeout(() => {
             setSuccess(null);
@@ -716,9 +725,9 @@ export const AdminMenu = () => {
 
             {/* Edit/Create Modal */}
             {isModalOpen && editingItem && (
-                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
-                        <div className="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-hidden">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-lg max-h-[90vh] overflow-hidden flex flex-col">
+                        <div className="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center flex-shrink-0">
                             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                                 {isCreating ? "Add Menu Item" : "Edit Menu Item"}
                             </h3>
@@ -732,7 +741,7 @@ export const AdminMenu = () => {
                             </button>
                         </div>
 
-                        <div className="p-6 space-y-4">
+                        <div className="p-6 space-y-4 overflow-y-auto overscroll-contain">
                             {/* Image Upload */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -837,7 +846,7 @@ export const AdminMenu = () => {
                                     type="text"
                                     inputMode="decimal"
                                     value={editingItem.price}
-                                    onChange={(e) => { const v = e.target.value; if (v === '' || /^[0-9.,]*$/.test(v)) setEditingItem({ ...editingItem, price: v }); }}
+                                    onChange={(e) => { const v = e.target.value; if (v === "" || /^[0-9.,]*$/.test(v)) setEditingItem({ ...editingItem, price: v }); }}
                                     className="admin-input"
                                     placeholder="0.00"
                                 />
@@ -893,7 +902,7 @@ export const AdminMenu = () => {
                             </div>
                         </div>
 
-                        <div className="p-6 border-t border-gray-200 dark:border-gray-700 flex justify-end gap-3">
+                        <div className="p-6 border-t border-gray-200 dark:border-gray-700 flex justify-end gap-3 flex-shrink-0">
                             <button
                                 onClick={handleCloseModal}
                                 className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
