@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useBookingStore } from "./store";
 import {
@@ -7,6 +7,7 @@ import {
 } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../../ui/Input";
+import { PhoneInputField } from "../../ui/PhoneInputField";
 import { Button } from "../../ui/Button";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -272,18 +273,18 @@ export const TableConfirm = () => {
                         {...form.register("email")}
                         disabled={isSubmitting}
                     />
-                    <Input
-                        type="tel"
-                        className="w-full"
-                        placeholder={t("reservation.phone")}
-                        inputMode="tel"
-                        pattern="[0-9+()\-\s]*"
-                        {...form.register("phone", {
-                            onChange: (e) => {
-                                e.target.value = e.target.value.replace(/[^\d+()\-\s]/g, "");
-                            },
-                        })}
-                        disabled={isSubmitting}
+                    <Controller
+                        name="phone"
+                        control={form.control}
+                        render={({ field, fieldState }) => (
+                            <PhoneInputField
+                                value={field.value}
+                                onChange={field.onChange}
+                                placeholder={t("reservation.phone")}
+                                error={fieldState.error?.message}
+                                disabled={isSubmitting}
+                            />
+                        )}
                     />
                 </div>
                 <Button

@@ -11,6 +11,7 @@ import { Button } from "../../ui/Button";
 import { DatePickerInput } from "../../ui/DatePickerInput";
 import { TimePickerInput } from "../../ui/TimePickerInput";
 import { SelectInput } from "../../ui/SelectInput";
+import { PhoneInputField } from "../../ui/PhoneInputField";
 import { useState, useEffect, useCallback } from "react";
 import { checkAvailability, createReservation } from "../../../lib/reservation.service";
 import {
@@ -274,19 +275,18 @@ export const LiteForm = () => {
                     {...form.register("email")}
                     disabled={isSubmitting}
                 />
-                <Input
-                    type="tel"
-                    className="w-full"
-                    placeholder={t("reservation.phone")}
-                    required
-                    inputMode="tel"
-                    pattern="[0-9+()\-\s]*"
-                    {...form.register("phone", {
-                        onChange: (e) => {
-                            e.target.value = e.target.value.replace(/[^\d+()\-\s]/g, "");
-                        },
-                    })}
-                    disabled={isSubmitting}
+                <Controller
+                    name="phone"
+                    control={form.control}
+                    render={({ field, fieldState }) => (
+                        <PhoneInputField
+                            value={field.value}
+                            onChange={field.onChange}
+                            placeholder={t("reservation.phone")}
+                            error={fieldState.error?.message}
+                            disabled={isSubmitting}
+                        />
+                    )}
                 />
             </div>
             <div className="flex flex-col gap-5 md:flex-row">
