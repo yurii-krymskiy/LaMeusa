@@ -16,6 +16,7 @@ export type MenuItemType = {
     imageUrl?: string;
     category: string;
     price: number | string;
+    priceLarge?: number;
     unit?: PortionUnit | string;
     badges?: BadgeCode[];
     order?: number;
@@ -33,6 +34,7 @@ export type MenuBadge = {
 
 export type MenuPrice = {
     price: Price;
+    priceLarge?: Price;
     unit?: PortionUnit | string;
     raw?: string;
 };

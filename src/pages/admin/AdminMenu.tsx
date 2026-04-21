@@ -21,6 +21,8 @@ type EditingItem = {
     title: string;
     description: string;
     price: string;
+    price_large: string;
+    price_unit_label: string;
     category_id: string;
     is_active: boolean;
     is_top_seller: boolean;
@@ -34,6 +36,8 @@ const emptyItem: Omit<EditingItem, "id"> = {
     title: "",
     description: "",
     price: "",
+    price_large: "",
+    price_unit_label: "",
     category_id: "",
     is_active: true,
     is_top_seller: false,
@@ -111,6 +115,8 @@ export const AdminMenu = () => {
             title: item.title,
             description: item.description || "",
             price: String(item.price),
+            price_large: item.price_large == null ? "" : String(item.price_large),
+            price_unit_label: item.price_unit_label || "",
             category_id: item.category_id,
             is_active: item.is_active,
             is_top_seller: item.is_top_seller,
@@ -210,6 +216,11 @@ export const AdminMenu = () => {
             title: editingItem.title,
             description: editingItem.description || null,
             price: parseFloat(editingItem.price) || 0,
+            price_large:
+                editingItem.price_large.trim() === ""
+                    ? null
+                    : parseFloat(editingItem.price_large) || 0,
+            price_unit_label: editingItem.price_unit_label.trim() || null,
             category_id: editingItem.category_id,
             is_active: editingItem.is_active,
             is_top_seller: editingItem.is_top_seller,
@@ -850,6 +861,44 @@ export const AdminMenu = () => {
                                     className="admin-input"
                                     placeholder="0.00"
                                 />
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                        Large Price (€)
+                                    </label>
+                                    <input
+                                        type="text"
+                                        inputMode="decimal"
+                                        value={editingItem.price_large}
+                                        onChange={(e) => {
+                                            const v = e.target.value;
+                                            if (v === "" || /^[0-9.,]*$/.test(v)) {
+                                                setEditingItem({ ...editingItem, price_large: v });
+                                            }
+                                        }}
+                                        className="admin-input"
+                                        placeholder="Optional"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                        Price Label
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={editingItem.price_unit_label}
+                                        onChange={(e) =>
+                                            setEditingItem({
+                                                ...editingItem,
+                                                price_unit_label: e.target.value,
+                                            })
+                                        }
+                                        className="admin-input"
+                                        placeholder="e.g. per ball"
+                                    />
+                                </div>
                             </div>
 
                             {/* Checkboxes */}

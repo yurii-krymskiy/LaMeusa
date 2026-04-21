@@ -28,7 +28,12 @@ export const MenuItem = ({ item }: MenuItemProps) => {
                         )}
                     </div>
 
-                    {item.price && <MenuItemPrice price={item.price} />}
+                    {item.price && (
+                        <MenuItemPrice
+                            price={item.price}
+                            isTwoPerson={item.isTwoPerson}
+                        />
+                    )}
                 </div>
         </article>
     );

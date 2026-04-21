@@ -283,7 +283,7 @@ export const AdminBlockedSlots = () => {
                         {pastBlockedSlots.map((slot) => (
                             <div
                                 key={slot.id}
-                                className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg opacity-60"
+                                className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/25 rounded-lg opacity-60"
                             >
                                 <div className="flex items-center gap-4">
                                     <div className="p-2 bg-gray-200 dark:bg-gray-600 rounded-lg">

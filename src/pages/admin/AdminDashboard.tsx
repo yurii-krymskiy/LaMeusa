@@ -255,7 +255,7 @@ export const AdminDashboard = () => {
                                 {upcomingReservations.map((reservation) => (
                                     <div
                                         key={reservation.id}
-                                        className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg"
+                                        className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/25 rounded-lg"
                                     >
                                         <div>
                                             <p className="font-medium text-gray-900 dark:text-white">

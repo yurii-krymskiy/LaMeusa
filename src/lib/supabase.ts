@@ -22,6 +22,8 @@ export type DbMenuItem = {
     title: string;
     description: string | null;
     price: number;
+    price_large: number | null;
+    price_unit_label: string | null;
     image_url: string | null;
     is_active: boolean;
     is_top_seller: boolean;

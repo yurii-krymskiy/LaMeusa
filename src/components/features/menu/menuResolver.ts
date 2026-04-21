@@ -163,9 +163,14 @@ export class MenuCardFactory {
 
     create(raw: MenuItemType, slug: string): MenuCard {
         const money = Money.from(raw.price, "EUR");
+        const moneyLarge =
+            raw.priceLarge != null ? Money.from(raw.priceLarge, "EUR") : undefined;
         const unit = this.unitNormalizer.normalize(raw.unit);
         const price: MenuPrice = {
             price: { amount: money.amount, currency: money.currency },
+            priceLarge: moneyLarge
+                ? { amount: moneyLarge.amount, currency: moneyLarge.currency }
+                : undefined,
             unit,
             raw: String(raw.price),
         };
@@ -202,9 +207,16 @@ export class MenuCategory implements MenuCategoryVM {
     }
 
     sortInPlace() {
-        this.items.sort(
-            (a, b) => a.order - b.order || a.title.localeCompare(b.title)
-        );
+        const getPriceAmount = (item: MenuCardVM) => {
+            const amount = Number(item.price?.price?.amount);
+            return Number.isFinite(amount) ? amount : Number.POSITIVE_INFINITY;
+        };
+
+        this.items.sort((a, b) => {
+            const byPrice = getPriceAmount(a) - getPriceAmount(b);
+            if (byPrice !== 0) return byPrice;
+            return a.title.localeCompare(b.title);
+        });
     }
 
     toVM(): MenuCategoryVM {

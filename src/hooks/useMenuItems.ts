@@ -30,6 +30,8 @@ function mapDbToMenuItemType(item: DbMenuItem): MenuItemType {
         imageUrl: item.image_url ? `${item.image_url}` : undefined,
         category: categorySlug,
         price: item.price,
+        priceLarge: item.price_large ?? undefined,
+        unit: item.price_unit_label ?? undefined,
         badges: badges.length > 0 ? badges : undefined,
         isSpicy: item.is_spicy,
         isTwoPerson: item.is_two_person,
