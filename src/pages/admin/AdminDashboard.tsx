@@ -264,6 +264,11 @@ export const AdminDashboard = () => {
                                             <p className="text-sm text-gray-500 dark:text-gray-400">
                                                 {reservation.number_of_guests} guests
                                             </p>
+                                            {reservation.additional_wishes && (
+                                                <p className="mt-1 text-xs text-gray-600 dark:text-gray-300">
+                                                    Wishes: {reservation.additional_wishes}
+                                                </p>
+                                            )}
                                         </div>
                                         <div className="text-right">
                                             <p className="text-sm font-medium text-gray-900 dark:text-white">

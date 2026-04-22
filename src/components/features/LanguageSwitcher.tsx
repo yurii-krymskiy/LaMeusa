@@ -7,7 +7,11 @@ const languages = [
     { code: "es", label: "ES", flag: "/flags/ES.svg" },
 ];
 
-export const LanguageSwitcher = () => {
+type LanguageSwitcherProps = {
+    theme?: "light" | "dark";
+};
+
+export const LanguageSwitcher = ({ theme = "light" }: LanguageSwitcherProps) => {
     const { i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -29,18 +33,22 @@ export const LanguageSwitcher = () => {
         setIsOpen(false);
     };
 
+    const isDark = theme === "dark";
+
     return (
         <div ref={ref} className="relative">
             <button
                 onClick={() => setIsOpen((prev) => !prev)}
-                className="flex cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1.5 transition-colors hover:bg-black/5"
+                className={`flex cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1.5 transition-colors ${
+                    isDark ? "hover:bg-white/10" : "hover:bg-black/5"
+                }`}
             >
                 <img src={current.flag} alt={current.label} className="h-5 w-5 rounded-full object-cover" />
-                <span className="title text-sm font-bold text-[#1B1B1B]">
+                <span className={`title text-sm font-bold ${isDark ? "text-white" : "text-[#1B1B1B]"}`}>
                     {current.label}
                 </span>
                 <svg
-                    className={`h-3 w-3 text-[#1B1B1B] transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                    className={`h-3 w-3 transition-transform duration-200 ${isDark ? "text-white" : "text-[#1B1B1B]"} ${isOpen ? "rotate-180" : ""}`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

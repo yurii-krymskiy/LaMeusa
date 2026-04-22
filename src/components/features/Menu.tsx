@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { pagesLabels } from "../../router";
+import { ButtonOpenReservation } from "./reservation-form/ButtonOpenReservation";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export const Menu = () => {
     const { t } = useTranslation();
@@ -201,7 +203,19 @@ export const Menu = () => {
                             </div>
 
                             <div className="px-4 pb-8 md:hidden">
-                                <div className="mt-10 border-t border-white/30 pt-6">
+                                <div className="mt-8 flex items-center justify-between gap-4 border-t border-white/30 pt-6">
+                                    <div onClick={closeMenu}>
+                                        <ButtonOpenReservation
+                                            variant="white-outline"
+                                            className="!w-fit !px-6 !py-2.5 !text-base !font-semibold !text-white"
+                                        >
+                                            {t("nav.bookNowFull")}
+                                        </ButtonOpenReservation>
+                                    </div>
+                                    <LanguageSwitcher theme="dark" />
+                                </div>
+
+                                <div className="mt-6 border-t border-white/30 pt-6">
                                     <div className="title mb-3.5 text-xl font-normal text-white capitalize">
                                         {t("footer.contact")}
                                     </div>
