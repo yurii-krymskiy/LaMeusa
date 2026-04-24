@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchReservations, deleteReservation } from "../../lib/admin.service";
 import type { DbReservation } from "../../lib/database.types";
+import { AdminDatePicker } from "../../components/ui/AdminDatePicker";
 
 type FilterType = "all" | "upcoming" | "past" | "today";
 
@@ -15,6 +16,7 @@ export const AdminReservations = () => {
     const [success, setSuccess] = useState<string | null>(null);
     const [expandedId, setExpandedId] = useState<number | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
+    const [calendarDate, setCalendarDate] = useState<string>("");
 
     const loadReservations = async () => {
         setIsLoading(true);
@@ -27,10 +29,10 @@ export const AdminReservations = () => {
         loadReservations();
     }, []);
 
-    // Reset to page 1 when filter or search changes
+    // Reset to page 1 when filter, search or calendar date changes
     useEffect(() => {
         setCurrentPage(1);
-    }, [filter, searchQuery]);
+    }, [filter, searchQuery, calendarDate]);
 
     const handleDelete = async (id: number) => {
         if (!confirm("Are you sure you want to cancel this reservation?")) {
@@ -70,24 +72,28 @@ export const AdminReservations = () => {
         return `${hour12}:${minutes} ${ampm}`;
     };
 
+    const getTenerifeDate = () =>
+        new Date().toLocaleDateString("en-CA", { timeZone: "Atlantic/Canary" });
+
     const isToday = (dateStr: string) => {
-        return dateStr === new Date().toISOString().split("T")[0];
+        return dateStr === getTenerifeDate();
     };
 
     const isUpcoming = (dateStr: string) => {
-        return dateStr >= new Date().toISOString().split("T")[0];
+        return dateStr > getTenerifeDate();
     };
 
     // Filter reservations
     const filteredReservations = reservations
         .filter((r) => {
+            if (calendarDate) return r.reservation_date === calendarDate;
             switch (filter) {
                 case "today":
                     return isToday(r.reservation_date);
                 case "upcoming":
                     return isUpcoming(r.reservation_date);
                 case "past":
-                    return !isUpcoming(r.reservation_date);
+                    return r.reservation_date < getTenerifeDate();
                 default:
                     return true;
             }
@@ -149,9 +155,9 @@ export const AdminReservations = () => {
                         {(["all", "today", "upcoming", "past"] as FilterType[]).map((f) => (
                             <button
                                 key={f}
-                                onClick={() => setFilter(f)}
+                                onClick={() => { setFilter(f); setCalendarDate(""); }}
                                 className={`admin-tab ${
-                                    filter === f
+                                    !calendarDate && filter === f
                                         ? "admin-tab-active"
                                         : "admin-tab-inactive"
                                 }`}
@@ -161,28 +167,48 @@ export const AdminReservations = () => {
                         ))}
                     </div>
 
-                    {/* Search */}
-                    <div className="relative max-w-xs w-full">
-                        <svg
-                            className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    {/* Search + Date picker */}
+                    <div className="flex items-center gap-3">
+                        <div className="relative max-w-xs w-full">
+                            <svg
+                                className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                />
+                            </svg>
+                            <input
+                                type="text"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                placeholder="Search by name, email, phone..."
+                                className="admin-input !pl-10"
                             />
-                        </svg>
-                        <input
-                            type="text"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            placeholder="Search by name, email, phone..."
-                            className="admin-input !pl-10"
-                        />
+                        </div>
+                        <div className="w-50 shrink-0">
+                            <AdminDatePicker
+                                value={calendarDate}
+                                onChange={(date) => setCalendarDate(date)}
+                                placeholder="Filter by date..."
+                            />
+                        </div>
+                        {calendarDate && (
+                            <button
+                                onClick={() => setCalendarDate("")}
+                                className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors whitespace-nowrap"
+                            >
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                Clear
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>

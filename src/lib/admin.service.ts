@@ -4,11 +4,11 @@ import type { DbReservation, DbBlockedSlot, DbTable, DbVisitor } from "./databas
 
 // Statistics types
 export type ReservationStats = {
-    totalReservations: number;
+    todayCancellations: number;
     todayReservations: number;
     weekReservations: number;
     monthReservations: number;
-    totalGuests: number;
+    todayGuests: number;
     averagePartySize: number;
     upcomingReservations: number;
 };
@@ -35,14 +35,37 @@ export const fetchReservations = async (): Promise<DbReservation[]> => {
     return data || [];
 };
 
-// Fetch upcoming reservations
+// Tenerife timezone helpers
+const TENERIFE_TZ = "Atlantic/Canary";
+
+const getTenerifeNow = (): { dateStr: string; timeStr: string } => {
+    const now = new Date();
+    const dateStr = now.toLocaleDateString("en-CA", { timeZone: TENERIFE_TZ });
+    const timeStr = now.toLocaleTimeString("en-GB", {
+        timeZone: TENERIFE_TZ,
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+    });
+    return { dateStr, timeStr };
+};
+
+const isReservationInFuture = (reservationDate: string, reservationTime: string): boolean => {
+    const { dateStr, timeStr } = getTenerifeNow();
+    if (reservationDate > dateStr) return true;
+    if (reservationDate === dateStr) return reservationTime.slice(0, 5) > timeStr;
+    return false;
+};
+
+// Fetch upcoming reservations (future datetime in Tenerife time, non-cancelled)
 export const fetchUpcomingReservations = async (): Promise<DbReservation[]> => {
-    const today = new Date().toISOString().split("T")[0];
+    const { dateStr } = getTenerifeNow();
 
     const { data, error } = await supabase
         .from("reservations")
         .select("*")
-        .gte("reservation_date", today)
+        .gte("reservation_date", dateStr)
+        .is("cancelled_at", null)
         .order("reservation_date", { ascending: true })
         .order("reservation_time", { ascending: true });
 
@@ -51,7 +74,7 @@ export const fetchUpcomingReservations = async (): Promise<DbReservation[]> => {
         return [];
     }
 
-    return data || [];
+    return (data || []).filter((r) => isReservationInFuture(r.reservation_date, r.reservation_time));
 };
 
 // Fetch reservation statistics
@@ -76,46 +99,55 @@ export const fetchReservationStats = async (): Promise<ReservationStats> => {
     if (error || !allReservations) {
         console.error("Error fetching stats:", error);
         return {
-            totalReservations: 0,
+            todayCancellations: 0,
             todayReservations: 0,
             weekReservations: 0,
             monthReservations: 0,
-            totalGuests: 0,
+            todayGuests: 0,
             averagePartySize: 0,
             upcomingReservations: 0,
         };
     }
 
-    const todayReservations = allReservations.filter(
+    const nonCancelled = allReservations.filter((r) => !r.cancelled_at);
+
+    const todayNonCancelled = nonCancelled.filter(
         (r) => r.reservation_date === todayStr
     );
+    const todayCancellations = allReservations.filter(
+        (r) => r.reservation_date === todayStr && r.cancelled_at
+    ).length;
+    const todayGuests = todayNonCancelled.reduce(
+        (sum, r) => sum + r.number_of_guests,
+        0
+    );
 
-    const weekReservations = allReservations.filter(
+    const weekReservations = nonCancelled.filter(
         (r) => r.reservation_date >= weekStartStr
     );
 
-    const monthReservations = allReservations.filter(
+    const monthReservations = nonCancelled.filter(
         (r) => r.reservation_date >= monthStartStr
     );
 
-    const upcomingReservations = allReservations.filter(
-        (r) => r.reservation_date >= todayStr
+    const upcomingReservations = nonCancelled.filter(
+        (r) => isReservationInFuture(r.reservation_date, r.reservation_time)
     );
 
-    const totalGuests = allReservations.reduce(
+    const totalNonCancelledGuests = nonCancelled.reduce(
         (sum, r) => sum + r.number_of_guests,
         0
     );
 
     return {
-        totalReservations: allReservations.length,
-        todayReservations: todayReservations.length,
+        todayCancellations,
+        todayReservations: todayNonCancelled.length,
         weekReservations: weekReservations.length,
         monthReservations: monthReservations.length,
-        totalGuests,
+        todayGuests,
         averagePartySize:
-            allReservations.length > 0
-                ? Math.round((totalGuests / allReservations.length) * 10) / 10
+            nonCancelled.length > 0
+                ? Math.round((totalNonCancelledGuests / nonCancelled.length) * 10) / 10
                 : 0,
         upcomingReservations: upcomingReservations.length,
     };

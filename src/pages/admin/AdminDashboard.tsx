@@ -40,16 +40,18 @@ const PERIOD_SUBTITLES: Record<ChartPeriod, string> = {
 type StatCardProps = {
     title: string;
     value: string | number;
+    subtitle?: string;
     icon: React.ReactNode;
-    color: "blue" | "green" | "purple" | "orange";
+    color: "blue" | "green" | "purple" | "orange" | "red";
 };
 
-const StatCard = ({ title, value, icon, color }: StatCardProps) => {
+const StatCard = ({ title, value, subtitle, icon, color }: StatCardProps) => {
     const colorClasses = {
         blue: "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400",
         green: "bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400",
         purple: "bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400",
         orange: "bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400",
+        red: "bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400",
     };
 
     return (
@@ -63,6 +65,9 @@ const StatCard = ({ title, value, icon, color }: StatCardProps) => {
                     <p className="text-2xl font-semibold text-gray-900 dark:text-white">
                         {value}
                     </p>
+                    {subtitle && (
+                        <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{subtitle}</p>
+                    )}
                 </div>
             </div>
         </div>
@@ -93,7 +98,7 @@ export const AdminDashboard = () => {
             ]);
             setStats(reservationStats);
             setTableStats(tables);
-            setUpcomingReservations(upcoming.slice(0, 5));
+            setUpcomingReservations(upcoming);
             setDailyData(charts.daily);
             setHourlyData(charts.hourly);
             setWeekdayData(charts.weekday);
@@ -161,7 +166,7 @@ export const AdminDashboard = () => {
                     }
                 />
                 <StatCard
-                    title="This Week"
+                    title="This Week Reservations"
                     value={stats?.weekReservations ?? 0}
                     color="green"
                     icon={
@@ -171,7 +176,7 @@ export const AdminDashboard = () => {
                     }
                 />
                 <StatCard
-                    title="This Month"
+                    title="This Month Reservations"
                     value={stats?.monthReservations ?? 0}
                     color="purple"
                     icon={
@@ -195,18 +200,18 @@ export const AdminDashboard = () => {
             {/* Second row stats */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <StatCard
-                    title="Total Reservations"
-                    value={stats?.totalReservations ?? 0}
-                    color="blue"
+                    title="Today's Cancellations"
+                    value={stats?.todayCancellations ?? 0}
+                    color="red"
                     icon={
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     }
                 />
                 <StatCard
-                    title="Total Guests"
-                    value={stats?.totalGuests ?? 0}
+                    title="Today's Guests"
+                    value={stats?.todayGuests ?? 0}
                     color="green"
                     icon={
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
