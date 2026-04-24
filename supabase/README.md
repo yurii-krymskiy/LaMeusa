@@ -29,6 +29,7 @@ Set these secrets in Supabase:
 
 - `EMAILJS_SERVICE_ID`
 - `EMAILJS_REMINDER_TEMPLATE_ID`
+- `EMAILJS_CANCELLATION_TEMPLATE_ID`
 - `EMAILJS_PUBLIC_KEY`
 - `EMAILJS_PRIVATE_KEY` (recommended)
 - `PUBLIC_SITE_URL` (example: `https://your-domain.com`)
@@ -71,3 +72,29 @@ The reminder function sends these template params:
 - `cancel_url`
 
 Add a button in your EmailJS reminder template that links to `{{cancel_url}}`.
+
+The cancellation notification template sends these template params:
+
+- `reservation_id`
+- `user_name`
+- `user_email`
+- `user_phone`
+- `number_of_guests`
+- `date`
+- `time`
+- `additional_wishes`
+- `cancelled_at`
+
+Use `supabase/email-templates/cancellation-notification-template.html` as the EmailJS template body for the CEO notification email.
+
+## 6) Cancellation notification trigger
+
+The CEO notification should be sent from `cancel-reservation`, not the frontend.
+
+Why:
+
+- the edge function already validates the one-time cancellation token
+- the edge function performs the actual reservation state change
+- sending from the backend avoids duplicate or forged client-side notifications
+
+The function now sends the notification only when the reservation is cancelled for the first time. If EmailJS is misconfigured or the send fails, the reservation is still cancelled and the response includes notification status fields.

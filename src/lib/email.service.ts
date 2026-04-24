@@ -40,7 +40,7 @@ export async function sendReservationEmails(
             number_of_guests: data.number_of_guests.toString(),
             date: data.reservation_date,
             time: data.reservation_time,
-            additional_wishes: data.additional_wishes || "None",
+            additional_wishes: data.additional_wishes || "",
         };
 
         // Send email to restaurant (TEMPLATE_ID_2 - based on user's code)
@@ -52,15 +52,15 @@ export async function sendReservationEmails(
         );
 
         // Send confirmation email to customer (TEMPLATE_ID)
-        // const customerEmail = await emailjs.send(
-        //     SERVICE_ID,
-        //     TEMPLATE_ID,
-        //     templateParams,
-        //     PUBLIC_KEY
-        // );
+        const customerEmail = await emailjs.send(
+            SERVICE_ID,
+            TEMPLATE_ID,
+            templateParams,
+            PUBLIC_KEY
+        );
 
-        // if (restaurantEmail.status === 200 && customerEmail.status === 200) {
-        if (restaurantEmail.status === 200) {
+        if (restaurantEmail.status === 200 && customerEmail.status === 200) {
+        // if (restaurantEmail.status === 200) {
             return { success: true };
         }
 
