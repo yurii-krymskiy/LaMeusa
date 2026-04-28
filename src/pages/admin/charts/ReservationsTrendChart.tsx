@@ -2,6 +2,7 @@ import {
     ResponsiveContainer,
     AreaChart,
     Area,
+    Line,
     XAxis,
     YAxis,
     CartesianGrid,
@@ -58,6 +59,10 @@ export const ReservationsTrendChart = ({ data, subtitle = "Last 30 days" }: Prop
                     <span className="h-2 w-2 rounded-full bg-emerald-500" />
                     <span className="text-xs text-gray-500 dark:text-gray-400">Guests</span>
                 </div>
+                <div className="flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-red-500" />
+                    <span className="text-xs text-gray-500 dark:text-gray-400">Cancelled</span>
+                </div>
             </div>
         </div>
         <ResponsiveContainer width="100%" height={220} className="sm:!h-[280px]">
@@ -105,6 +110,15 @@ export const ReservationsTrendChart = ({ data, subtitle = "Last 30 days" }: Prop
                     fill="url(#fillGuests)"
                     strokeWidth={2}
                     name="Guests"
+                    dot={false}
+                    activeDot={{ r: 4, strokeWidth: 2, fill: ct.isDark ? "#1f2937" : "#fff" }}
+                />
+                <Line
+                    type="monotone"
+                    dataKey="cancelledReservations"
+                    stroke="#ef4444"
+                    strokeWidth={2.5}
+                    name="Cancelled"
                     dot={false}
                     activeDot={{ r: 4, strokeWidth: 2, fill: ct.isDark ? "#1f2937" : "#fff" }}
                 />

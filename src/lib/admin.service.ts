@@ -86,10 +86,15 @@ export const fetchReservationStats = async (): Promise<ReservationStats> => {
     const weekStart = new Date(today);
     weekStart.setDate(today.getDate() - today.getDay() + 1);
     const weekStartStr = weekStart.toISOString().split("T")[0];
+    const weekEnd = new Date(weekStart);
+    weekEnd.setDate(weekStart.getDate() + 6);
+    const weekEndStr = weekEnd.toISOString().split("T")[0];
 
     // Month start
     const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
     const monthStartStr = monthStart.toISOString().split("T")[0];
+    const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+    const monthEndStr = monthEnd.toISOString().split("T")[0];
 
     // Fetch all reservations
     const { data: allReservations, error } = await supabase
@@ -123,11 +128,11 @@ export const fetchReservationStats = async (): Promise<ReservationStats> => {
     );
 
     const weekReservations = nonCancelled.filter(
-        (r) => r.reservation_date >= weekStartStr
+        (r) => r.reservation_date >= weekStartStr && r.reservation_date <= weekEndStr
     );
 
     const monthReservations = nonCancelled.filter(
-        (r) => r.reservation_date >= monthStartStr
+        (r) => r.reservation_date >= monthStartStr && r.reservation_date <= monthEndStr
     );
 
     const upcomingReservations = nonCancelled.filter(
@@ -197,6 +202,7 @@ export type DailyReservationPoint = {
     date: string; // "Mon 7", "Tue 8", etc.
     reservations: number;
     guests: number;
+    cancelledReservations: number;
 };
 
 export type HourDistributionPoint = {
@@ -219,7 +225,6 @@ export type ChartPeriod = "today" | "week" | "month" | "last_month" | "6months" 
 // Fetch all reservations for chart analytics
 export const fetchChartData = async (period: ChartPeriod = "month") => {
     const today = new Date();
-    const todayStr = today.toISOString().split("T")[0];
 
     let startDate: Date;
     let endDate: Date = new Date(today);
@@ -231,11 +236,15 @@ export const fetchChartData = async (period: ChartPeriod = "month") => {
         case "week": {
             startDate = new Date(today);
             startDate.setDate(today.getDate() - today.getDay() + 1); // Monday
+            endDate = new Date(startDate);
+            endDate.setDate(startDate.getDate() + 6); // Sunday
             break;
         }
-        case "month":
+        case "month": {
             startDate = new Date(today.getFullYear(), today.getMonth(), 1);
+            endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
             break;
+        }
         case "last_month":
             startDate = new Date(today.getFullYear(), today.getMonth() - 1, 1);
             endDate = new Date(today.getFullYear(), today.getMonth(), 0); // last day of prev month
@@ -258,24 +267,38 @@ export const fetchChartData = async (period: ChartPeriod = "month") => {
         .select("reservation_date, reservation_time, number_of_guests, created_at")
         .gte("reservation_date", startStr)
         .lte("reservation_date", endStr)
+        .is("cancelled_at", null)
         .order("reservation_date", { ascending: true });
 
-    if (error || !data) {
+    const { data: cancelledData, error: cancelledError } = await supabase
+        .from("reservations")
+        .select("reservation_date")
+        .gte("reservation_date", startStr)
+        .lte("reservation_date", endStr)
+        .not("cancelled_at", "is", null);
+
+    if (error || !data || cancelledError || !cancelledData) {
         console.error("Error fetching chart data:", error);
         return { daily: [], hourly: [], weekday: [], leadTime: [] };
     }
 
     // --- Daily trend ---
-    const dailyMap = new Map<string, { reservations: number; guests: number }>();
+    const dailyMap = new Map<string, { reservations: number; guests: number; cancelledReservations: number }>();
     for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
         const key = d.toISOString().split("T")[0];
-        dailyMap.set(key, { reservations: 0, guests: 0 });
+        dailyMap.set(key, { reservations: 0, guests: 0, cancelledReservations: 0 });
     }
     for (const r of data) {
         const entry = dailyMap.get(r.reservation_date);
         if (entry) {
             entry.reservations++;
             entry.guests += r.number_of_guests;
+        }
+    }
+    for (const r of cancelledData) {
+        const entry = dailyMap.get(r.reservation_date);
+        if (entry) {
+            entry.cancelledReservations++;
         }
     }
 
@@ -286,7 +309,12 @@ export const fetchChartData = async (period: ChartPeriod = "month") => {
             const label = useLongDate
                 ? d.toLocaleDateString("en-US", { month: "short", day: "numeric" })
                 : d.toLocaleDateString("en-US", { weekday: "short", day: "numeric" });
-            return { date: label, reservations: val.reservations, guests: val.guests };
+            return {
+                date: label,
+                reservations: val.reservations,
+                guests: val.guests,
+                cancelledReservations: val.cancelledReservations,
+            };
         }
     );
 
@@ -325,11 +353,13 @@ export const fetchChartData = async (period: ChartPeriod = "month") => {
     ];
     const leadCounts = new Array(leadBuckets.length).fill(0);
     for (const r of data) {
-        const created = new Date(r.created_at);
+        // Compare booking dates at day precision to avoid dropping same-day bookings.
+        const createdDateOnly = r.created_at.split("T")[0];
+        const created = new Date(createdDateOnly + "T00:00:00");
         const resDate = new Date(r.reservation_date + "T00:00:00");
-        const diffDays = Math.floor(
+        const diffDays = Math.max(0, Math.floor(
             (resDate.getTime() - created.getTime()) / (1000 * 60 * 60 * 24)
-        );
+        ));
         let prev = -1;
         for (let i = 0; i < leadBuckets.length; i++) {
             if (diffDays > prev && diffDays <= leadBuckets[i].max) {
