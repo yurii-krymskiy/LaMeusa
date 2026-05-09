@@ -4,6 +4,7 @@ import {
     fetchTableStats,
     fetchUpcomingReservations,
     fetchChartData,
+    fetchWorkloadCalendarData,
     type ReservationStats,
     type TableStats,
     type DailyReservationPoint,
@@ -11,12 +12,14 @@ import {
     type WeekdayDistributionPoint,
     type LeadTimePoint,
     type ChartPeriod,
+    type WorkloadCalendarDay,
 } from "../../lib/admin.service";
 import type { DbReservation } from "../../lib/database.types";
 import { ReservationsTrendChart } from "./charts/ReservationsTrendChart";
 import { PeakHoursChart } from "./charts/PeakHoursChart";
 import { BusiestDaysChart } from "./charts/BusiestDaysChart";
 import { LeadTimeChart } from "./charts/LeadTimeChart";
+import { ReservationsWorkloadCalendar } from "./charts/ReservationsWorkloadCalendar";
 import { AdminSelect } from "../../components/ui/AdminSelect";
 
 const PERIOD_OPTIONS: { value: ChartPeriod; label: string }[] = [
@@ -82,19 +85,23 @@ export const AdminDashboard = () => {
     const [hourlyData, setHourlyData] = useState<HourDistributionPoint[]>([]);
     const [weekdayData, setWeekdayData] = useState<WeekdayDistributionPoint[]>([]);
     const [leadTimeData, setLeadTimeData] = useState<LeadTimePoint[]>([]);
+    const [workloadData, setWorkloadData] = useState<WorkloadCalendarDay[]>([]);
+    const [workloadMonth, setWorkloadMonth] = useState<Date>(new Date());
     const [isLoading, setIsLoading] = useState(true);
     const [chartPeriod, setChartPeriod] = useState<ChartPeriod>("month");
     const [chartsLoading, setChartsLoading] = useState(false);
+    const [workloadLoading, setWorkloadLoading] = useState(false);
 
     // Load stats + initial charts
     useEffect(() => {
         const loadData = async () => {
             setIsLoading(true);
-            const [reservationStats, tables, upcoming, charts] = await Promise.all([
+            const [reservationStats, tables, upcoming, charts, workload] = await Promise.all([
                 fetchReservationStats(),
                 fetchTableStats(),
                 fetchUpcomingReservations(),
                 fetchChartData(chartPeriod),
+                fetchWorkloadCalendarData(new Date()),
             ]);
             setStats(reservationStats);
             setTableStats(tables);
@@ -103,6 +110,7 @@ export const AdminDashboard = () => {
             setHourlyData(charts.hourly);
             setWeekdayData(charts.weekday);
             setLeadTimeData(charts.leadTime);
+            setWorkloadData(workload);
             setIsLoading(false);
         };
 
@@ -124,6 +132,25 @@ export const AdminDashboard = () => {
     const handlePeriodChange = (period: ChartPeriod) => {
         setChartPeriod(period);
         loadCharts(period);
+    };
+
+    const loadWorkloadForMonth = useCallback(async (month: Date) => {
+        setWorkloadLoading(true);
+        const monthData = await fetchWorkloadCalendarData(month);
+        setWorkloadData(monthData);
+        setWorkloadLoading(false);
+    }, []);
+
+    const handlePreviousWorkloadMonth = () => {
+        const previousMonth = new Date(workloadMonth.getFullYear(), workloadMonth.getMonth() - 1, 1);
+        setWorkloadMonth(previousMonth);
+        loadWorkloadForMonth(previousMonth);
+    };
+
+    const handleNextWorkloadMonth = () => {
+        const nextMonth = new Date(workloadMonth.getFullYear(), workloadMonth.getMonth() + 1, 1);
+        setWorkloadMonth(nextMonth);
+        loadWorkloadForMonth(nextMonth);
     };
 
     if (isLoading) {
@@ -318,6 +345,14 @@ export const AdminDashboard = () => {
                     <BusiestDaysChart data={weekdayData} subtitle={PERIOD_SUBTITLES[chartPeriod]} />
                 </div>
             </div>
+
+            <ReservationsWorkloadCalendar
+                data={workloadData}
+                monthDate={workloadMonth}
+                isLoading={workloadLoading}
+                onPreviousMonth={handlePreviousWorkloadMonth}
+                onNextMonth={handleNextWorkloadMonth}
+            />
         </div>
     );
 };

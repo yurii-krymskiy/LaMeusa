@@ -222,6 +222,13 @@ export type LeadTimePoint = {
 
 export type ChartPeriod = "today" | "week" | "month" | "last_month" | "6months" | "year";
 
+export type WorkloadCalendarDay = {
+    date: string; // YYYY-MM-DD
+    reservations: number;
+    persons: number;
+    cancelledReservations: number;
+};
+
 // Fetch all reservations for chart analytics
 export const fetchChartData = async (period: ChartPeriod = "month") => {
     const today = new Date();
@@ -375,6 +382,54 @@ export const fetchChartData = async (period: ChartPeriod = "month") => {
     }));
 
     return { daily, hourly, weekday, leadTime };
+};
+
+// Fetch reservation/persons/cancellation workload for a calendar month
+export const fetchWorkloadCalendarData = async (
+    monthDate: Date
+): Promise<WorkloadCalendarDay[]> => {
+    const monthStart = new Date(monthDate.getFullYear(), monthDate.getMonth(), 1);
+    const monthEnd = new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 0);
+    const monthStartStr = monthStart.toISOString().split("T")[0];
+    const monthEndStr = monthEnd.toISOString().split("T")[0];
+
+    const { data: reservationsData, error: reservationsError } = await supabase
+        .from("reservations")
+        .select("reservation_date, number_of_guests, cancelled_at")
+        .gte("reservation_date", monthStartStr)
+        .lte("reservation_date", monthEndStr);
+
+    if (reservationsError || !reservationsData) {
+        console.error("Error fetching workload calendar data:", reservationsError);
+        return [];
+    }
+
+    const daysMap = new Map<string, WorkloadCalendarDay>();
+
+    for (let day = 1; day <= monthEnd.getDate(); day++) {
+        const dayDate = new Date(monthDate.getFullYear(), monthDate.getMonth(), day);
+        const dayKey = dayDate.toISOString().split("T")[0];
+        daysMap.set(dayKey, {
+            date: dayKey,
+            reservations: 0,
+            persons: 0,
+            cancelledReservations: 0,
+        });
+    }
+
+    for (const reservation of reservationsData) {
+        const dayStats = daysMap.get(reservation.reservation_date);
+        if (!dayStats) continue;
+
+        if (reservation.cancelled_at) {
+            dayStats.cancelledReservations += 1;
+        } else {
+            dayStats.reservations += 1;
+            dayStats.persons += reservation.number_of_guests;
+        }
+    }
+
+    return Array.from(daysMap.values()).sort((a, b) => a.date.localeCompare(b.date));
 };
 
 // Create blocked slot

@@ -10,6 +10,7 @@ import { TimePickerInput } from "../../ui/TimePickerInput";
 import { SelectInput } from "../../ui/SelectInput";
 import { useEffect, useCallback } from "react";
 import { checkAvailability } from "../../../lib/reservation.service";
+import { pushGtmEvent } from "../../../lib/gtm";
 import {
     FormErrors,
     SingleError,
@@ -116,6 +117,7 @@ export const TableBook = () => {
         }
 
         setData(data);
+        pushGtmEvent("book_success");
         setStep(1);
     };
 

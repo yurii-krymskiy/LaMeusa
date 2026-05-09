@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import { createReservation } from "../../../lib/reservation.service";
+import { pushGtmEvent } from "../../../lib/gtm";
 import {
     sendReservationEmails,
     formatDateForEmail,
@@ -75,6 +76,7 @@ export const TableConfirm = () => {
             if (result.success && result.reservationId) {
                 setReservationId(result.reservationId);
                 setData(data);
+                pushGtmEvent("reservation_success");
                 setIsSuccess(true);
 
                 // Send confirmation emails (non-blocking - don't fail reservation if email fails)
