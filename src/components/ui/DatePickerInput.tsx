@@ -53,6 +53,7 @@ export const DatePickerInput = forwardRef<HTMLDivElement, Props>(
                         dateFormat="dd/MM/yyyy"
                         placeholderText={placeholder}
                         required={required}
+                        minDate={new Date()}
                         calendarClassName="custom-datepicker"
                         wrapperClassName="w-full"
                         popperClassName="custom-datepicker-popper"
