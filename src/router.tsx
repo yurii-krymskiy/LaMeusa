@@ -36,11 +36,13 @@ import SeoDessert from "./pages/seo/SeoDessert";
 import SeoChildrenMenu from "./pages/seo/SeoChildrenMenu";
 import SeoSauces from "./pages/seo/SeoSauces";
 import SeoGarnish from "./pages/seo/SeoGarnish";
+import ErrorPage from "./pages/ErrorPage";
 
 export const pages = [
     {
         path: "/",
         element: <BaseLayout />,
+        errorElement: <ErrorPage />,
         children: [
             { index: true, element: <Home /> },
             { path: "about", element: <About /> },
@@ -69,13 +71,14 @@ export const pages = [
             { path: "garnish-los-cristianos", element: <SeoGarnish /> },
         ],
     },
-    { path: "booking", element: <Booking /> },
-    { path: "visitors", element: <Visitors /> },
+    { path: "booking", element: <Booking />, errorElement: <ErrorPage /> },
+    { path: "visitors", element: <Visitors />, errorElement: <ErrorPage /> },
     // Admin routes
-    { path: "admin", element: <AdminLogin /> },
+    { path: "admin", element: <AdminLogin />, errorElement: <ErrorPage /> },
     {
         path: "admin",
         element: <AdminLayout />,
+        errorElement: <ErrorPage />,
         children: [
             { path: "dashboard", element: <AdminDashboard /> },
             { path: "blocked-slots", element: <AdminBlockedSlots /> },
@@ -87,6 +90,7 @@ export const pages = [
             { path: "wines", element: <AdminWines /> },
         ],
     },
+    { path: "*", element: <ErrorPage /> },
 ];
 
 export const Paths = {

@@ -514,20 +514,21 @@ export const createVisitor = async (
     return { success: true };
 };
 
-// Fetch all visitors with optional date filter
+// Fetch all visitors with optional date range filter
 export const fetchVisitors = async (
-    filterDate?: string
+    dateFrom?: string,
+    dateTo?: string
 ): Promise<DbVisitor[]> => {
     let query = supabase
         .from("visitors")
         .select("*")
         .order("created_at", { ascending: false });
 
-    if (filterDate) {
-        // Filter by specific date
-        const startOfDay = `${filterDate}T00:00:00`;
-        const endOfDay = `${filterDate}T23:59:59`;
-        query = query.gte("created_at", startOfDay).lte("created_at", endOfDay);
+    if (dateFrom) {
+        query = query.gte("created_at", `${dateFrom}T00:00:00`);
+    }
+    if (dateTo) {
+        query = query.lte("created_at", `${dateTo}T23:59:59`);
     }
 
     const { data, error } = await query;
