@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import {
     fetchReservationStats,
     fetchTableStats,
@@ -272,10 +273,19 @@ export const AdminDashboard = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
                 {/* Upcoming reservations */}
                 <div className="flex sm:h-[340px] flex-col bg-white dark:bg-gray-800 rounded-xl shadow-sm outline-none">
-                    <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-gray-700">
+                    <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
                         <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
                             Upcoming Reservations
                         </h2>
+                        <Link
+                            to="/admin/reservations"
+                            className="text-sm font-medium text-sky hover:text-sky/80 transition-colors flex items-center gap-1"
+                        >
+                            View all
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </Link>
                     </div>
                     <div className="flex-1 overflow-y-auto p-4 sm:p-6">
                         {upcomingReservations.length === 0 ? (
@@ -284,7 +294,7 @@ export const AdminDashboard = () => {
                             </p>
                         ) : (
                             <div className="space-y-4">
-                                {upcomingReservations.map((reservation) => (
+                                {upcomingReservations.slice(0, 5).map((reservation) => (
                                     <div
                                         key={reservation.id}
                                         className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/25 rounded-lg"

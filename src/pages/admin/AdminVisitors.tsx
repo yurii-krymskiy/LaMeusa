@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
     fetchVisitors,
     fetchVisitorStats,
@@ -88,7 +89,7 @@ const PresetChip = ({ label, active, onClick }: PresetChipProps) => (
     <button
         type="button"
         onClick={onClick}
-        className={`admin-tab ${active ? "admin-tab-active" : "admin-tab-inactive"}`}
+        className={`admin-tab w-full text-center ${active ? "admin-tab-active" : "admin-tab-inactive"}`}
     >
         {label}
     </button>
@@ -97,12 +98,14 @@ const PresetChip = ({ label, active, onClick }: PresetChipProps) => (
 // ── main component ────────────────────────────────────────────────────────────
 
 export const AdminVisitors = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
+
     const [visitors, setVisitors] = useState<DbVisitor[]>([]);
     const [stats, setStats] = useState<VisitorStats | null>(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [dateFrom, setDateFrom] = useState<string>("");
-    const [dateTo, setDateTo] = useState<string>("");
-    const [activePreset, setActivePreset] = useState<Preset>(null);
+    const [dateFrom, setDateFrom] = useState<string>(searchParams.get("from") ?? "");
+    const [dateTo, setDateTo] = useState<string>(searchParams.get("to") ?? "");
+    const [activePreset, setActivePreset] = useState<Preset>((searchParams.get("preset") as Preset) ?? null);
     const [currentPage, setCurrentPage] = useState(1);
 
     const loadData = useCallback(async () => {
@@ -123,6 +126,15 @@ export const AdminVisitors = () => {
     useEffect(() => {
         setCurrentPage(1);
     }, [dateFrom, dateTo]);
+
+    // Sync filters to URL
+    useEffect(() => {
+        const params: Record<string, string> = {};
+        if (dateFrom) params.from = dateFrom;
+        if (dateTo) params.to = dateTo;
+        if (activePreset) params.preset = activePreset;
+        setSearchParams(params, { replace: true });
+    }, [dateFrom, dateTo, activePreset, setSearchParams]);
 
     // ── preset handlers ───────────────────────────────────────────────────────
 
@@ -220,7 +232,7 @@ export const AdminVisitors = () => {
     return (
         <div className="space-y-6">
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                 <StatCard
                     title={stats?.dayLabel ?? "Today's Guests"}
                     value={stats?.dayGuests ?? 0}
@@ -257,7 +269,7 @@ export const AdminVisitors = () => {
             {/* Filters */}
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 sm:p-6 space-y-4">
                 {/* Quick presets */}
-                <div className="flex gap-2 flex-wrap">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     <PresetChip label="Today" active={activePreset === "today"} onClick={() => applyPreset("today")} />
                     <PresetChip label="This Week" active={activePreset === "week"} onClick={() => applyPreset("week")} />
                     <PresetChip label="This Month" active={activePreset === "month"} onClick={() => applyPreset("month")} />
@@ -266,7 +278,7 @@ export const AdminVisitors = () => {
 
                 {/* Date range pickers + clear */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-                    <div className="flex items-center gap-2 flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 flex-1">
                         <div className="flex-1 min-w-0">
                             <AdminDatePicker
                                 value={dateFrom}
@@ -274,7 +286,7 @@ export const AdminVisitors = () => {
                                 placeholder="From date"
                             />
                         </div>
-                        <svg className="w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="hidden sm:block w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                         <div className="flex-1 min-w-0">
@@ -288,7 +300,7 @@ export const AdminVisitors = () => {
                     {hasFilter && (
                         <button
                             onClick={clearFilter}
-                            className="flex items-center justify-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors py-2 sm:py-0"
+                            className="flex items-center justify-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors py-2 sm:py-0"
                         >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

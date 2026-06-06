@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { fetchReservations, deleteReservation } from "../../lib/admin.service";
 import type { DbReservation } from "../../lib/database.types";
 import { AdminDatePicker } from "../../components/ui/AdminDatePicker";
@@ -8,15 +9,17 @@ type FilterType = "all" | "upcoming" | "past" | "today";
 const ITEMS_PER_PAGE = 10;
 
 export const AdminReservations = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
+
     const [reservations, setReservations] = useState<DbReservation[]>([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [filter, setFilter] = useState<FilterType>("upcoming");
-    const [searchQuery, setSearchQuery] = useState("");
+    const [filter, setFilter] = useState<FilterType>((searchParams.get("filter") as FilterType) ?? "upcoming");
+    const [searchQuery, setSearchQuery] = useState(searchParams.get("search") ?? "");
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
     const [expandedId, setExpandedId] = useState<number | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const [calendarDate, setCalendarDate] = useState<string>("");
+    const [calendarDate, setCalendarDate] = useState<string>(searchParams.get("date") ?? "");
 
     const loadReservations = async () => {
         setIsLoading(true);
@@ -33,6 +36,15 @@ export const AdminReservations = () => {
     useEffect(() => {
         setCurrentPage(1);
     }, [filter, searchQuery, calendarDate]);
+
+    // Sync filters to URL
+    useEffect(() => {
+        const params: Record<string, string> = {};
+        if (filter !== "upcoming") params.filter = filter;
+        if (searchQuery) params.search = searchQuery;
+        if (calendarDate) params.date = calendarDate;
+        setSearchParams(params, { replace: true });
+    }, [filter, searchQuery, calendarDate, setSearchParams]);
 
     const handleDelete = async (id: number) => {
         if (!confirm("Are you sure you want to cancel this reservation?")) {
@@ -148,50 +160,50 @@ export const AdminReservations = () => {
     return (
         <div className="space-y-6">
             {/* Filters and Search */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
-                <div className="flex flex-col sm:flex-row gap-4 justify-between">
-                    {/* Filter tabs */}
-                    <div className="flex gap-2 flex-wrap">
-                        {(["all", "today", "upcoming", "past"] as FilterType[]).map((f) => (
-                            <button
-                                key={f}
-                                onClick={() => { setFilter(f); setCalendarDate(""); }}
-                                className={`admin-tab ${
-                                    !calendarDate && filter === f
-                                        ? "admin-tab-active"
-                                        : "admin-tab-inactive"
-                                }`}
-                            >
-                                {f.charAt(0).toUpperCase() + f.slice(1)}
-                            </button>
-                        ))}
-                    </div>
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 sm:p-6 space-y-3">
+                {/* Filter tabs */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {(["all", "today", "upcoming", "past"] as FilterType[]).map((f) => (
+                        <button
+                            key={f}
+                            onClick={() => { setFilter(f); setCalendarDate(""); }}
+                            className={`admin-tab w-full text-center ${
+                                !calendarDate && filter === f
+                                    ? "admin-tab-active"
+                                    : "admin-tab-inactive"
+                            }`}
+                        >
+                            {f.charAt(0).toUpperCase() + f.slice(1)}
+                        </button>
+                    ))}
+                </div>
 
-                    {/* Search + Date picker */}
-                    <div className="flex items-center gap-3">
-                        <div className="relative max-w-xs w-full">
-                            <svg
-                                className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                />
-                            </svg>
-                            <input
-                                type="text"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="Search by name, email, phone..."
-                                className="admin-input !pl-10"
+                {/* Search + Date picker */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="relative flex-1 min-w-0">
+                        <svg
+                            className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                             />
-                        </div>
-                        <div className="w-50 shrink-0">
+                        </svg>
+                        <input
+                            type="text"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            placeholder="Search by name, email, phone..."
+                            className="admin-input !pl-10"
+                        />
+                    </div>
+                    <div className="flex items-center gap-2 sm:w-64 shrink-0">
+                        <div className="flex-1 min-w-0">
                             <AdminDatePicker
                                 value={calendarDate}
                                 onChange={(date) => setCalendarDate(date)}
@@ -201,12 +213,12 @@ export const AdminReservations = () => {
                         {calendarDate && (
                             <button
                                 onClick={() => setCalendarDate("")}
-                                className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors whitespace-nowrap"
+                                className="shrink-0 p-2 text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors"
+                                title="Clear date filter"
                             >
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                 </svg>
-                                Clear
                             </button>
                         )}
                     </div>
@@ -410,56 +422,58 @@ export const AdminReservations = () => {
 
                     {/* Pagination */}
                     {totalPages > 1 && (
-                        <div className="p-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
-                            <p className="text-sm text-gray-500 dark:text-gray-400">
-                                Showing {startIndex + 1}-{Math.min(startIndex + ITEMS_PER_PAGE, filteredReservations.length)} of {filteredReservations.length}
-                            </p>
-                            <div className="flex items-center gap-2">
-                                <button
-                                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                                    disabled={currentPage === 1}
-                                    className="p-2 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                                >
-                                    <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                    </svg>
-                                </button>
-                                <div className="flex items-center gap-1">
-                                    {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
-                                        let page;
-                                        if (totalPages <= 5) {
-                                            page = i + 1;
-                                        } else if (currentPage <= 3) {
-                                            page = i + 1;
-                                        } else if (currentPage >= totalPages - 2) {
-                                            page = totalPages - 4 + i;
-                                        } else {
-                                            page = currentPage - 2 + i;
-                                        }
-                                        return (
-                                            <button
-                                                key={page}
-                                                onClick={() => setCurrentPage(page)}
-                                                className={`w-8 h-8 rounded-lg text-sm font-medium transition-colors ${
-                                                    currentPage === page
-                                                        ? "bg-sky text-white"
-                                                        : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                                                }`}
-                                            >
-                                                {page}
-                                            </button>
-                                        );
-                                    })}
+                        <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                <p className="text-sm text-center sm:text-left text-gray-500 dark:text-gray-400">
+                                    Showing {startIndex + 1}–{Math.min(startIndex + ITEMS_PER_PAGE, filteredReservations.length)} of {filteredReservations.length}
+                                </p>
+                                <div className="flex items-center justify-center gap-2">
+                                    <button
+                                        onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                                        disabled={currentPage === 1}
+                                        className="p-2 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                    >
+                                        <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                        </svg>
+                                    </button>
+                                    <div className="flex items-center gap-1">
+                                        {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
+                                            let page;
+                                            if (totalPages <= 5) {
+                                                page = i + 1;
+                                            } else if (currentPage <= 3) {
+                                                page = i + 1;
+                                            } else if (currentPage >= totalPages - 2) {
+                                                page = totalPages - 4 + i;
+                                            } else {
+                                                page = currentPage - 2 + i;
+                                            }
+                                            return (
+                                                <button
+                                                    key={page}
+                                                    onClick={() => setCurrentPage(page)}
+                                                    className={`w-8 h-8 rounded-lg text-sm font-medium transition-colors ${
+                                                        currentPage === page
+                                                            ? "bg-sky text-white"
+                                                            : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                                    }`}
+                                                >
+                                                    {page}
+                                                </button>
+                                            );
+                                        })}
+                                    </div>
+                                    <button
+                                        onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                                        disabled={currentPage === totalPages}
+                                        className="p-2 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                    >
+                                        <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
                                 </div>
-                                <button
-                                    onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                                    disabled={currentPage === totalPages}
-                                    className="p-2 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                                >
-                                    <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
                             </div>
                         </div>
                     )}

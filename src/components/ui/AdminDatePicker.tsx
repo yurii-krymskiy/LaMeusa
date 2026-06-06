@@ -77,6 +77,7 @@ export const AdminDatePicker = ({
             wrapperClassName="w-full"
             popperClassName="admin-datepicker-popper"
             showPopperArrow={false}
+            popperProps={{ strategy: "fixed" }}
         />
     );
 };
