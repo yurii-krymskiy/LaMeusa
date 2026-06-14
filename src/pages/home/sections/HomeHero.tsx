@@ -7,7 +7,25 @@ export const HomeHero = () => {
 
     return (
         <main className="hero home-hero">
-            <div className="mb-10 max-w-6xl">
+            {/* Background video — poster shows instantly, video streams in behind */}
+            <video
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="none"
+                poster="/images/home-bg.jpg"
+            >
+                <source src="/video/hero.webm" type="video/webm" />
+                <source src="/video/hero.mp4" type="video/mp4" />
+            </video>
+
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-black/35" />
+
+            {/* Content */}
+            <div className="relative mb-10 max-w-6xl">
                 <h1 className="title hero-title">
                     {t("home.hero.title")}
                 </h1>
@@ -15,10 +33,12 @@ export const HomeHero = () => {
                     {t("home.hero.description")}
                 </p>
             </div>
-            <Button variant="white-outline" className="mb-20" to="/booking">
+            <Button variant="white-outline" className="relative mb-20" to="/booking">
                 {t("home.hero.button")}
             </Button>
-            <ScrollCircle />
+            <div className="relative">
+                <ScrollCircle />
+            </div>
         </main>
     );
 };
