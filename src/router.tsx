@@ -36,6 +36,7 @@ import SeoDessert from "./pages/seo/SeoDessert";
 import SeoChildrenMenu from "./pages/seo/SeoChildrenMenu";
 import SeoSauces from "./pages/seo/SeoSauces";
 import SeoGarnish from "./pages/seo/SeoGarnish";
+import { Delivery } from "./pages/delivery/Delivery";
 import ErrorPage from "./pages/ErrorPage";
 
 export const pages = [
@@ -52,6 +53,7 @@ export const pages = [
             { path: "pasta", element: <Pasta /> },
             { path: "menu", element: <Menu /> },
             { path: "birthdays", element: <Birthday /> },
+            { path: "delivery", element: <Delivery /> },
             { path: "privacy-policy", element: <PrivacyPolicy /> },
             { path: "terms-of-service", element: <TermsOfService /> },
             { path: "cookies-settings", element: <CookiesSettings /> },
@@ -102,6 +104,7 @@ export const Paths = {
     menu: "/menu",
     happyHours: "/happy-hours",
     birthdays: "/birthdays",
+    delivery: "/delivery",
     booking: "/booking",
     privacyPolicy: "/privacy-policy",
     termsOfService: "/terms-of-service",
@@ -121,4 +124,5 @@ export const pagesLabels = [
     { path: Paths.pasta, label: "nav.pasta" },
     { path: Paths.menu, label: "nav.menu" },
     { path: Paths.birthdays, label: "nav.birthday" },
+    { path: Paths.delivery, label: "nav.delivery" },
 ];

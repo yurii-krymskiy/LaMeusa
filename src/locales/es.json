@@ -8,6 +8,7 @@
         "pasta": "Pasta",
         "happyHours": "Happy Hours",
         "birthday": "Celebraciones de cumpleaños",
+        "delivery": "A Domicilio",
         "bookNow": "Reservar",
         "bookNowFull": "Reservar ahora"
     },
@@ -635,7 +636,77 @@
             "p1": "Esta política puede actualizarse en cualquier momento."
         }
     },
+    "delivery": {
+        "hero": {
+            "decorative": "Pedir Online",
+            "title": "Medusa a Domicilio",
+            "description": "Disfruta de los platos mediterráneos de La Medusa desde la comodidad de tu hogar. Fresco, sabroso y entregado en tu puerta en Los Cristianos.",
+            "callButton": "Llamar para pedir",
+            "whatsappButton": "Pedir por WhatsApp"
+        },
+        "howto": {
+            "decorative": "Sencillo y Rápido",
+            "title": "Cómo Pedir",
+            "steps": {
+                "browse": {
+                    "title": "Explora el Menú",
+                    "desc": "Navega por nuestro menú de entrega y elige tus platos favoritos."
+                },
+                "order": {
+                    "title": "Haz tu Pedido",
+                    "desc": "Llámanos o envíanos un WhatsApp con tu pedido y dirección."
+                },
+                "enjoy": {
+                    "title": "Disfruta en Casa",
+                    "desc": "Relájate — tu comida recién preparada está en camino."
+                }
+            }
+        },
+        "menu": {
+            "decorative": "Menú a Domicilio",
+            "title": "Lo Que Entregamos",
+            "description": "Desde pizzas crujientes y hamburguesas artesanales hasta nuestra exclusiva pasta de langosta — todos tus favoritos, entregados frescos.",
+            "categories": {
+                "appetizers": "Aperitivos",
+                "salads": "Ensaladas",
+                "pizza": "Pizza",
+                "pasta": "Pasta",
+                "mainCourse": "Plato Principal",
+                "burgers": "Hamburguesas y Sándwiches",
+                "desserts": "Postres"
+            }
+        },
+        "info": {
+            "decorative": "Detalles de Entrega",
+            "title": "Bueno Saberlo",
+            "items": {
+                "area": {
+                    "label": "Zona de Entrega",
+                    "value": "Los Cristianos y alrededores"
+                },
+                "hours": {
+                    "label": "Horario de Entrega",
+                    "value": "13:00 – 22:00 todos los días"
+                },
+                "minOrder": {
+                    "label": "Pedido Mínimo",
+                    "value": "€15"
+                },
+                "time": {
+                    "label": "Tiempo Estimado",
+                    "value": "30 – 45 minutos"
+                }
+            },
+            "cta": "¿Listo para pedir? Llámanos o escríbenos por WhatsApp.",
+            "callButton": "Llamar +34 603 839 509",
+            "whatsappButton": "WhatsApp"
+        }
+    },
     "seo": {
+        "delivery": {
+            "title": "Medusa a Domicilio – Pedir Online | La Medusa Los Cristianos",
+            "description": "Pide los platos mediterráneos de La Medusa para entrega a domicilio en Los Cristianos. Pizza, pasta, hamburguesas, mariscos y más, entregados frescos."
+        },
         "home": {
             "title": "La Medusa – Restaurante en Los Cristianos, Tenerife",
             "description": "Restaurante La Medusa en Los Cristianos, Tenerife – un restaurante romántico de mariscos con vistas al océano. Uno de los mejores restaurantes abiertos hasta tarde junto al mar."

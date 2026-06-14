@@ -29,6 +29,7 @@ type EditingItem = {
     is_spicy: boolean;
     is_two_person: boolean;
     is_served_until_6pm: boolean;
+    is_delivery: boolean;
     image_url: string | null;
 };
 
@@ -44,6 +45,7 @@ const emptyItem: Omit<EditingItem, "id"> = {
     is_spicy: false,
     is_two_person: false,
     is_served_until_6pm: false,
+    is_delivery: false,
     image_url: null,
 };
 
@@ -123,6 +125,7 @@ export const AdminMenu = () => {
             is_spicy: item.is_spicy,
             is_two_person: item.is_two_person,
             is_served_until_6pm: item.is_served_until_6pm,
+            is_delivery: item.is_delivery,
             image_url: item.image_url,
         });
         setImagePreview(item.image_url);
@@ -227,6 +230,7 @@ export const AdminMenu = () => {
             is_spicy: editingItem.is_spicy,
             is_two_person: editingItem.is_two_person,
             is_served_until_6pm: editingItem.is_served_until_6pm,
+            is_delivery: editingItem.is_delivery,
             image_url: imageUrl,
         };
 
@@ -299,6 +303,22 @@ export const AdminMenu = () => {
             // Revert on failure
             setItems((prev) =>
                 prev.map((i) => (i.id === item.id ? { ...i, is_top_seller: !newValue } : i))
+            );
+            toast.error(result.error || "Failed to update menu item");
+        }
+    };
+
+    const handleToggleDelivery = async (item: MenuItemWithCategory) => {
+        const newValue = !item.is_delivery;
+        setItems((prev) =>
+            prev.map((i) => (i.id === item.id ? { ...i, is_delivery: newValue } : i))
+        );
+        const result = await updateMenuItem(item.id, { is_delivery: newValue });
+        if (result.success) {
+            toast.success(`"${item.title}" ${newValue ? "added to delivery" : "removed from delivery"}`);
+        } else {
+            setItems((prev) =>
+                prev.map((i) => (i.id === item.id ? { ...i, is_delivery: !newValue } : i))
             );
             toast.error(result.error || "Failed to update menu item");
         }
@@ -514,6 +534,23 @@ export const AdminMenu = () => {
                                                     />
                                                 </button>
                                             </div>
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xs text-gray-500 dark:text-gray-400">Delivery</span>
+                                                <button
+                                                    onClick={() => handleToggleDelivery(item)}
+                                                    className={`w-10 h-6 rounded-full transition-colors relative ${
+                                                        item.is_delivery
+                                                            ? "bg-sky"
+                                                            : "bg-gray-300 dark:bg-gray-600"
+                                                    }`}
+                                                >
+                                                    <span
+                                                        className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
+                                                            item.is_delivery ? "left-5" : "left-1"
+                                                        }`}
+                                                    />
+                                                </button>
+                                            </div>
                                         </div>
                                         <div className="flex items-center gap-1">
                                             <button
@@ -566,6 +603,9 @@ export const AdminMenu = () => {
                                         </th>
                                         <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                                             Top Seller
+                                        </th>
+                                        <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                            Delivery
                                         </th>
                                         <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                                             Actions
@@ -643,6 +683,22 @@ export const AdminMenu = () => {
                                                     <span
                                                         className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
                                                             item.is_top_seller ? "left-5" : "left-1"
+                                                        }`}
+                                                    />
+                                                </button>
+                                            </td>
+                                            <td className="px-6 py-4 text-center">
+                                                <button
+                                                    onClick={() => handleToggleDelivery(item)}
+                                                    className={`w-10 h-6 rounded-full transition-colors relative ${
+                                                        item.is_delivery
+                                                            ? "bg-sky"
+                                                            : "bg-gray-300 dark:bg-gray-600"
+                                                    }`}
+                                                >
+                                                    <span
+                                                        className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
+                                                            item.is_delivery ? "left-5" : "left-1"
                                                         }`}
                                                     />
                                                 </button>
@@ -947,6 +1003,15 @@ export const AdminMenu = () => {
                                         className="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 rounded focus:ring-orange-500 dark:bg-gray-700 dark:border-gray-600"
                                     />
                                     <span className="text-sm text-gray-700 dark:text-gray-300">Served until 6 PM</span>
+                                </label>
+                                <label className="flex items-center gap-2 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={editingItem.is_delivery}
+                                        onChange={(e) => setEditingItem({ ...editingItem, is_delivery: e.target.checked })}
+                                        className="w-4 h-4 text-sky bg-gray-100 border-gray-300 rounded focus:ring-sky dark:bg-gray-700 dark:border-gray-600"
+                                    />
+                                    <span className="text-sm text-gray-700 dark:text-gray-300">Delivery</span>
                                 </label>
                             </div>
                         </div>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { supabase, type DbMenuItem } from "../lib/supabase";
 import type { MenuItemType, BadgeCode } from "../components/features/menu/types";
 
-export type UseMenuItemsResult = {
+export type UseDeliveryItemsResult = {
     items: MenuItemType[];
     isLoading: boolean;
     error: string | null;
@@ -15,11 +15,10 @@ function toSlug(name: string): string {
         .replace(/[^a-z0-9_]/g, "");
 }
 
-function mapDbToMenuItemType(item: DbMenuItem): MenuItemType {
+function mapDbToDeliveryItem(item: DbMenuItem): MenuItemType {
     const badges: BadgeCode[] = [];
-    if (item.is_top_seller) {
-        badges.push("star");
-    }
+    if (item.is_top_seller) badges.push("star");
+    if (item.is_spicy) badges.push("spicy");
 
     const categorySlug = item.categories?.slug ?? toSlug(item.categories?.name ?? "");
 
@@ -27,7 +26,7 @@ function mapDbToMenuItemType(item: DbMenuItem): MenuItemType {
         id: item.id,
         title: item.title,
         description: item.description ?? undefined,
-        imageUrl: item.image_url ? `${item.image_url}` : undefined,
+        imageUrl: item.image_url ?? undefined,
         category: categorySlug,
         price: item.price,
         priceLarge: item.price_large ?? undefined,
@@ -35,18 +34,17 @@ function mapDbToMenuItemType(item: DbMenuItem): MenuItemType {
         badges: badges.length > 0 ? badges : undefined,
         isSpicy: item.is_spicy,
         isTwoPerson: item.is_two_person,
-        isServedUntil6pm: item.is_served_until_6pm,
         isDelivery: item.is_delivery,
     };
 }
 
-export function useMenuItems(): UseMenuItemsResult {
+export function useDeliveryItems(): UseDeliveryItemsResult {
     const [items, setItems] = useState<MenuItemType[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        async function fetchMenuItems() {
+        async function fetchDeliveryItems() {
             setIsLoading(true);
             setError(null);
 
@@ -61,6 +59,7 @@ export function useMenuItems(): UseMenuItemsResult {
                     )
                 `)
                 .eq("is_active", true)
+                .eq("is_delivery", true)
                 .order("created_at", { ascending: true });
 
             if (fetchError) {
@@ -69,12 +68,12 @@ export function useMenuItems(): UseMenuItemsResult {
                 return;
             }
 
-            const mappedItems = (data as DbMenuItem[]).map(mapDbToMenuItemType);
+            const mappedItems = (data as DbMenuItem[]).map(mapDbToDeliveryItem);
             setItems(mappedItems);
             setIsLoading(false);
         }
 
-        fetchMenuItems();
+        fetchDeliveryItems();
     }, []);
 
     return { items, isLoading, error };

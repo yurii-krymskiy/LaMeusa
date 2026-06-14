@@ -23,6 +23,7 @@ export type MenuItemType = {
     isSpicy?: boolean;
     isTwoPerson?: boolean;
     isServedUntil6pm?: boolean;
+    isDelivery?: boolean;
 };
 
 export type MenuBadge = {

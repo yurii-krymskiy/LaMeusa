@@ -8,6 +8,7 @@
         "pasta": "Pasta",
         "happyHours": "Happy Hours",
         "birthday": "Birthday Celebrations",
+        "delivery": "Delivery",
         "bookNow": "Book",
         "bookNowFull": "Book Now"
     },
@@ -676,7 +677,77 @@
             "p2": "The updated version will always be available on this page."
         }
     },
+    "delivery": {
+        "hero": {
+            "decorative": "Order Online",
+            "title": "Medusa Delivery",
+            "description": "Enjoy La Medusa's signature Mediterranean dishes from the comfort of your home. Fresh, flavourful and delivered right to your door in Los Cristianos.",
+            "callButton": "Call to Order",
+            "whatsappButton": "Order on WhatsApp"
+        },
+        "howto": {
+            "decorative": "Simple & Fast",
+            "title": "How to Order",
+            "steps": {
+                "browse": {
+                    "title": "Browse the Menu",
+                    "desc": "Explore our delivery menu below and choose your favourite dishes."
+                },
+                "order": {
+                    "title": "Place Your Order",
+                    "desc": "Call us or send a WhatsApp message with your order and address."
+                },
+                "enjoy": {
+                    "title": "Enjoy at Home",
+                    "desc": "Sit back and relax — your freshly prepared meal is on its way."
+                }
+            }
+        },
+        "menu": {
+            "decorative": "Our Delivery Menu",
+            "title": "What We Deliver",
+            "description": "From crispy pizzas and hand-crafted burgers to our signature lobster pasta — all your favourites, delivered fresh.",
+            "categories": {
+                "appetizers": "Appetizers",
+                "salads": "Salads",
+                "pizza": "Pizza",
+                "pasta": "Pasta",
+                "mainCourse": "Main Course",
+                "burgers": "Burgers & Sandwiches",
+                "desserts": "Desserts"
+            }
+        },
+        "info": {
+            "decorative": "Delivery Details",
+            "title": "Good to Know",
+            "items": {
+                "area": {
+                    "label": "Delivery Area",
+                    "value": "Los Cristianos & surrounding areas"
+                },
+                "hours": {
+                    "label": "Delivery Hours",
+                    "value": "13:00 – 22:00 daily"
+                },
+                "minOrder": {
+                    "label": "Minimum Order",
+                    "value": "€15"
+                },
+                "time": {
+                    "label": "Estimated Time",
+                    "value": "30 – 45 minutes"
+                }
+            },
+            "cta": "Ready to order? Give us a call or drop us a message on WhatsApp.",
+            "callButton": "Call +34 603 839 509",
+            "whatsappButton": "WhatsApp Us"
+        }
+    },
     "seo": {
+        "delivery": {
+            "title": "Medusa Delivery – Order Online | La Medusa Los Cristianos",
+            "description": "Order La Medusa's signature Mediterranean dishes for delivery in Los Cristianos. Fresh pizza, pasta, burgers, seafood and more delivered to your door."
+        },
         "home": {
             "title": "La Medusa – Restaurant in Los Cristianos, Tenerife",
             "description": "La Medusa restaurant in Los Cristianos, Tenerife – a romantic seafood restaurant with ocean views. One of the best restaurants open late by the sea."
