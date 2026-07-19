@@ -1,7 +1,9 @@
 import { useTranslation } from "react-i18next";
+import { useUberEatsLink } from "../../../hooks/useUberEatsLink";
 
 export const DeliveryHero = () => {
     const { t } = useTranslation();
+    const { handleOrderClick } = useUberEatsLink();
 
     return (
         <main className="hero delivery-hero">
@@ -13,18 +15,13 @@ export const DeliveryHero = () => {
             </div>
             <div className="flex flex-wrap gap-4 justify-center">
                 <a
-                    href="tel:+34603839509"
-                    className="title button button-white-outline text-center"
-                >
-                    {t("delivery.hero.callButton")}
-                </a>
-                <a
-                    href="https://wa.me/34603839509"
+                    href="https://www.ubereats.com/store/la-medusa/kVOTcHp3W06MryRUirVDLQ?diningMode=DELIVERY&ps=1&surfaceName="
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={handleOrderClick}
                     className="title button button-white-outline text-center"
                 >
-                    {t("delivery.hero.whatsappButton")}
+                    {t("delivery.hero.orderButton")}
                 </a>
             </div>
         </main>

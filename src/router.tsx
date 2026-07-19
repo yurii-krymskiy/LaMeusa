@@ -1,7 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { BaseLayout } from "./components/layout/BaseLayout";
 import About from "./pages/about/About";
-import { Birthday } from "./pages/birthday/Birthday";
 import { Booking } from "./pages/booking/Booking";
 import { CancelReservation } from "./pages/booking/CancelReservation";
 import Contact from "./pages/contact/Contact";
@@ -52,7 +51,6 @@ export const pages = [
             { path: "happy-hours", element: <HappyHours /> },
             { path: "pasta", element: <Pasta /> },
             { path: "menu", element: <Menu /> },
-            { path: "birthdays", element: <Birthday /> },
             { path: "delivery", element: <Delivery /> },
             { path: "privacy-policy", element: <PrivacyPolicy /> },
             { path: "terms-of-service", element: <TermsOfService /> },
@@ -103,7 +101,6 @@ export const Paths = {
     pasta: "/pasta",
     menu: "/menu",
     happyHours: "/happy-hours",
-    birthdays: "/birthdays",
     delivery: "/delivery",
     booking: "/booking",
     privacyPolicy: "/privacy-policy",
@@ -123,6 +120,5 @@ export const pagesLabels = [
 
     { path: Paths.pasta, label: "nav.pasta" },
     { path: Paths.menu, label: "nav.menu" },
-    { path: Paths.birthdays, label: "nav.birthday" },
     { path: Paths.delivery, label: "nav.delivery" },
 ];

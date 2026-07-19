@@ -682,8 +682,7 @@
             "decorative": "Order Online",
             "title": "Medusa Delivery",
             "description": "Enjoy La Medusa's signature Mediterranean dishes from the comfort of your home. Fresh, flavourful and delivered right to your door in Los Cristianos.",
-            "callButton": "Call to Order",
-            "whatsappButton": "Order on WhatsApp"
+            "orderButton": "Order Now"
         },
         "howto": {
             "decorative": "Simple & Fast",
@@ -695,7 +694,7 @@
                 },
                 "order": {
                     "title": "Place Your Order",
-                    "desc": "Call us or send a WhatsApp message with your order and address."
+                    "desc": "Click the Order Now button and complete your order on Uber Eats."
                 },
                 "enjoy": {
                     "title": "Enjoy at Home",
@@ -738,9 +737,8 @@
                     "value": "30 – 45 minutes"
                 }
             },
-            "cta": "Ready to order? Give us a call or drop us a message on WhatsApp.",
-            "callButton": "Call +34 603 839 509",
-            "whatsappButton": "WhatsApp Us"
+            "cta": "Ready to order? Click below to order via Uber Eats.",
+            "orderButton": "Order Now"
         }
     },
     "seo": {
