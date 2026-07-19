@@ -6,6 +6,7 @@ import { Breadcrumb } from "../../components/ui/Breadcrumb";
 import GallerySlider from "../../components/features/GallerySlider";
 import ScrollCircle from "../../components/features/ScrollCircle";
 import { MenuDelicios } from "../menu/sections/MenuDelicios";
+
 import { Paths } from "../../router";
 
 const SeoChildrenMenu = () => {
