@@ -9,6 +9,8 @@ import Home from "./pages/home/Home";
 import { Menu } from "./pages/menu/Menu";
 import { Pasta } from "./pages/pasta/Pasta";
 import Seafood from "./pages/seafood/Seafood";
+import { Blog } from "./pages/blog/Blog";
+import { BlogArticle } from "./pages/blog/BlogArticle";
 import { AdminLogin } from "./pages/admin/AdminLogin";
 import { AdminLayout } from "./pages/admin/AdminLayout";
 import { AdminDashboard } from "./pages/admin/AdminDashboard";
@@ -19,6 +21,8 @@ import { AdminMenu } from "./pages/admin/AdminMenu";
 import { AdminBar } from "./pages/admin/AdminBar";
 import { AdminCocktails } from "./pages/admin/AdminCocktails";
 import { AdminWines } from "./pages/admin/AdminWines";
+import { AdminBlog } from "./pages/admin/AdminBlog";
+import { AdminBlogEditor } from "./pages/admin/AdminBlogEditor";
 import { Visitors } from "./pages/visitors/Visitors";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
@@ -52,6 +56,8 @@ export const pages = [
             { path: "pasta", element: <Pasta /> },
             { path: "menu", element: <Menu /> },
             { path: "delivery", element: <Delivery /> },
+            { path: "blog", element: <Blog /> },
+            { path: "blog/:id", element: <BlogArticle /> },
             { path: "privacy-policy", element: <PrivacyPolicy /> },
             { path: "terms-of-service", element: <TermsOfService /> },
             { path: "cookies-settings", element: <CookiesSettings /> },
@@ -88,6 +94,9 @@ export const pages = [
             { path: "bar", element: <AdminBar /> },
             { path: "cocktails", element: <AdminCocktails /> },
             { path: "wines", element: <AdminWines /> },
+            { path: "blog", element: <AdminBlog /> },
+            { path: "blog/create", element: <AdminBlogEditor /> },
+            { path: "blog/edit/:id", element: <AdminBlogEditor /> },
         ],
     },
     { path: "*", element: <ErrorPage /> },
@@ -102,6 +111,7 @@ export const Paths = {
     menu: "/menu",
     happyHours: "/happy-hours",
     delivery: "/delivery",
+    blog: "/blog",
     booking: "/booking",
     privacyPolicy: "/privacy-policy",
     termsOfService: "/terms-of-service",
@@ -117,8 +127,8 @@ export const pagesLabels = [
     { path: Paths.about, label: "nav.about" },
     { path: Paths.contact, label: "nav.contact" },
     { path: Paths.seafood, label: "nav.seafood" },
-
     { path: Paths.pasta, label: "nav.pasta" },
     { path: Paths.menu, label: "nav.menu" },
     { path: Paths.delivery, label: "nav.delivery" },
+    { path: Paths.blog, label: "nav.blog" },
 ];

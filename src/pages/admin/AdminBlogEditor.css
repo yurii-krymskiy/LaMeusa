@@ -1,0 +1,84 @@
+.admin-blog-editor-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-blog-editor-header {
+  margin-bottom: 2rem;
+}
+
+.admin-blog-editor-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.admin-blog-editor-loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.125rem;
+  color: #6b7280;
+}
+
+.admin-blog-editor-main {
+  margin-bottom: 2rem;
+}
+
+.admin-blog-editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.admin-blog-editor-cancel-btn,
+.admin-blog-editor-save-btn {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.admin-blog-editor-cancel-btn {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.admin-blog-editor-cancel-btn:hover {
+  opacity: 0.8;
+}
+
+.admin-blog-editor-save-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.admin-blog-editor-save-btn:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.admin-blog-editor-save-btn:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+/* Dark theme */
+.dark .admin-blog-editor-title {
+  color: #f9fafb;
+}
+
+.dark .admin-blog-editor-loading {
+  color: #9ca3af;
+}
+
+.dark .admin-blog-editor-cancel-btn {
+  background: #374151;
+  color: #f9fafb;
+}
+
+.dark .admin-blog-editor-cancel-btn:hover {
+  background: #4b5563;
+}
