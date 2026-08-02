@@ -1,4 +1,6 @@
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
+import { SUPPORTED_LANGUAGES, getPrefixForLanguage } from "../lib/i18nRouting";
 
 interface SEOProps {
     title: string;
@@ -13,24 +15,23 @@ const SITE_NAME = "La Medusa";
 const BASE_URL = "https://lamedusa.es";
 const DEFAULT_IMAGE = "/images/home/home-hero.jpg";
 
-const SUPPORTED_LANGUAGES = ["es", "en", "uk"] as const;
-
 export const SEO = ({ title, description, path = "", image, preloadImages, type = "website" }: SEOProps) => {
+    const { i18n } = useTranslation();
     const fullTitle = path === "/" || !path ? SITE_NAME : `${title} | ${SITE_NAME}`;
-    const url = `${BASE_URL}${path}`;
+    const url = `${BASE_URL}${getPrefixForLanguage(i18n.language)}${path}`;
     const imageUrl = `${BASE_URL}${image || DEFAULT_IMAGE}`;
 
     return (
-        <Helmet>
+        <Helmet htmlAttributes={{ lang: i18n.language }}>
             <title>{fullTitle}</title>
             <meta name="description" content={description} />
             <link rel="canonical" href={url} />
 
             {/* Hreflang tags */}
             {SUPPORTED_LANGUAGES.map((lang) => (
-                <link key={lang} rel="alternate" hrefLang={lang} href={url} />
+                <link key={lang} rel="alternate" hrefLang={lang} href={`${BASE_URL}${getPrefixForLanguage(lang)}${path}`} />
             ))}
-            <link rel="alternate" hrefLang="x-default" href={url} />
+            <link rel="alternate" hrefLang="x-default" href={`${BASE_URL}${path}`} />
 
             {/* Open Graph */}
             <meta property="og:type" content={type} />

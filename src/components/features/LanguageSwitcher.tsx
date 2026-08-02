@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { getPathForLanguage } from "../../lib/i18nRouting";
 
 const languages = [
     { code: "uk", label: "UA", flag: "/flags/UA.svg" },
@@ -29,8 +30,9 @@ export const LanguageSwitcher = ({ theme = "light" }: LanguageSwitcherProps) => 
     }, []);
 
     const handleSelect = (code: string) => {
-        i18n.changeLanguage(code);
         setIsOpen(false);
+        if (code === i18n.language) return;
+        window.location.assign(getPathForLanguage(code));
     };
 
     const isDark = theme === "dark";
