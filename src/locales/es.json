@@ -100,6 +100,12 @@
             "p1": "Reserva una mesa y pasa una velada en una atmósfera de sofisticación e inspiración.",
             "p2": "Tu velada en La Medusa será una historia a la que querrás volver.",
             "button": "Hacer una reserva"
+        },
+        "delivery": {
+            "decorative": "Pedir Online",
+            "title": "Lleva La Medusa a tu puerta",
+            "description": "¿No puedes venir a Los Cristianos esta noche? Disfruta de nuestros platos mediterráneos, recién preparados y entregados directamente en tu casa.",
+            "button": "Ver Delivery"
         }
     },
     "about": {

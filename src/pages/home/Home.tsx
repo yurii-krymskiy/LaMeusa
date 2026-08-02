@@ -2,6 +2,7 @@
 import { useTranslation } from "react-i18next";
 import { SEO } from "../../components/SEO";
 import { HomeAboutUs } from "./sections/HomeAboutUs";
+import { HomeDelivery } from "./sections/HomeDelivery";
 import { HomeFoodStory } from "./sections/HomeFoodStory";
 import { HomeGallery } from "./sections/HomeGallery";
 import { HomeHero } from "./sections/HomeHero";
@@ -31,6 +32,7 @@ const Home = () => {
             <HomeFoodStory />
             <HomeMeets />
             {/* <HomeSpecial /> */}
+            <HomeDelivery />
             <HomeQueries />
             <HomeReserve />
         </>

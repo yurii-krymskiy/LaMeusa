@@ -100,6 +100,12 @@
             "p1": "Book a table and spend an evening in an atmosphere of sophistication and inspiration.",
             "p2": "Your evening at La Medusa will be a story you will want to return to.",
             "button": "Make a reservation"
+        },
+        "delivery": {
+            "decorative": "Order Online",
+            "title": "Bring La Medusa to Your Door",
+            "description": "Can't make it to Los Cristianos tonight? Enjoy our signature Mediterranean dishes freshly prepared and delivered right to your home.",
+            "button": "Explore Delivery"
         }
     },
     "about": {
