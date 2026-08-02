@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { TiptapEditor } from "../../components/blog/TiptapEditor";
 import { useArticleManagement } from "../../lib/useArticleManagement";
@@ -15,10 +15,15 @@ export const AdminBlogEditor = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [isUploadingMainImage, setIsUploadingMainImage] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
 
   const {
     handleTitleChange,
     handleDescriptionChange,
+    handleMetaTitleChange,
+    handleMetaDescriptionChange,
+    handleMainImageChange,
     handleEditorContentChange,
     setArticle,
     article,
@@ -27,6 +32,8 @@ export const AdminBlogEditor = () => {
     editor,
     fileInputRef,
   } = useArticleManagement();
+
+  const mainImageInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const fetchArticle = async () => {
@@ -124,8 +131,33 @@ export const AdminBlogEditor = () => {
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
+  const handleMainImageFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    setIsUploadingMainImage(true);
+    try {
+      const publicUrl = await uploadImage(file);
+      handleMainImageChange(publicUrl);
+      toast.success("Main image uploaded successfully");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Failed to upload main image");
+    } finally {
+      setIsUploadingMainImage(false);
+      if (mainImageInputRef.current) mainImageInputRef.current.value = "";
+    }
+  };
+
   const handleCancel = () => {
     navigate("/admin/blog");
+  };
+
+  const handlePreview = () => {
+    setShowPreview(true);
+  };
+
+  const handleClosePreview = () => {
+    setShowPreview(false);
   };
 
   return (
@@ -143,15 +175,24 @@ export const AdminBlogEditor = () => {
           article={article}
           handleTitleChange={handleTitleChange}
           handleDescriptionChange={handleDescriptionChange}
+          handleMetaTitleChange={handleMetaTitleChange}
+          handleMetaDescriptionChange={handleMetaDescriptionChange}
+          handleMainImageChange={handleMainImageChange}
           editor={editor}
           fileInputRef={fileInputRef}
           handleFileChange={handleFileChange}
+          mainImageInputRef={mainImageInputRef}
+          handleMainImageFileChange={handleMainImageFileChange}
+          isUploadingMainImage={isUploadingMainImage}
         />
       </div>
 
       <div className="admin-blog-editor-actions">
         <button onClick={handleCancel} className="admin-blog-editor-cancel-btn">
           Cancel
+        </button>
+        <button onClick={handlePreview} className="admin-blog-editor-preview-btn">
+          Preview
         </button>
         <button
           onClick={handleSave}
@@ -161,6 +202,51 @@ export const AdminBlogEditor = () => {
           {isLoading ? "Saving..." : id ? "Update Article" : "Create Article"}
         </button>
       </div>
+
+      {showPreview && (
+        <div className="admin-blog-preview-modal" onClick={handleClosePreview}>
+          <div className="admin-blog-preview-content" onClick={(e) => e.stopPropagation()}>
+            <div className="admin-blog-preview-header">
+              <h2>Article Preview</h2>
+              <button onClick={handleClosePreview} className="admin-blog-preview-close">
+                ✕
+              </button>
+            </div>
+            <div className="admin-blog-preview-body">
+              <div className="blog-article-preview-wrapper">
+                <h1 className="blog-article-preview-title">{article.article_title || "Untitled Article"}</h1>
+                
+                <time className="blog-article-main-date">
+                  {new Date(article.created_date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+
+                {article.main_image && (
+                  <div className="blog-article-main-image-wrapper">
+                    <img 
+                      src={article.main_image} 
+                      alt={article.article_title} 
+                      className="blog-article-main-image"
+                    />
+                  </div>
+                )}
+                
+                {article.article_description && (
+                  <p className="blog-article-description">{article.article_description}</p>
+                )}
+                
+                <div
+                  className="blog-article-content"
+                  dangerouslySetInnerHTML={{ __html: editor?.getHTML() || "" }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

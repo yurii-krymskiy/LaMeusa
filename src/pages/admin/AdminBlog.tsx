@@ -11,6 +11,7 @@ export const AdminBlog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [previewArticle, setPreviewArticle] = useState<Article | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,6 +45,14 @@ export const AdminBlog = () => {
     navigate("/admin/blog/create");
   };
 
+  const handlePreview = (article: Article) => {
+    setPreviewArticle(article);
+  };
+
+  const handleClosePreview = () => {
+    setPreviewArticle(null);
+  };
+
   return (
     <div className="admin-blog-container">
       <div className="admin-blog-header">
@@ -75,6 +84,12 @@ export const AdminBlog = () => {
               </p>
               <div className="admin-blog-card-actions">
                 <button
+                  onClick={() => handlePreview(article)}
+                  className="admin-blog-preview-btn"
+                >
+                  Preview
+                </button>
+                <button
                   onClick={() => handleEdit(article.id!)}
                   className="admin-blog-edit-btn"
                 >
@@ -95,6 +110,51 @@ export const AdminBlog = () => {
       {!isLoading && articles.length === 0 && (
         <div className="admin-blog-empty">
           No articles found. Create your first article!
+        </div>
+      )}
+
+      {previewArticle && (
+        <div className="admin-blog-preview-modal" onClick={handleClosePreview}>
+          <div className="admin-blog-preview-content" onClick={(e) => e.stopPropagation()}>
+            <div className="admin-blog-preview-header">
+              <h2>Article Preview</h2>
+              <button onClick={handleClosePreview} className="admin-blog-preview-close">
+                ✕
+              </button>
+            </div>
+            <div className="admin-blog-preview-body">
+              <div className="blog-article-preview-wrapper">
+                <h1 className="blog-article-preview-title">{previewArticle.article_title}</h1>
+                
+                <time className="blog-article-main-date">
+                  {new Date(previewArticle.created_date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+
+                {previewArticle.main_image && (
+                  <div className="blog-article-main-image-wrapper">
+                    <img 
+                      src={previewArticle.main_image} 
+                      alt={previewArticle.article_title} 
+                      className="blog-article-main-image"
+                    />
+                  </div>
+                )}
+                
+                {previewArticle.article_description && (
+                  <p className="blog-article-description">{previewArticle.article_description}</p>
+                )}
+                
+                <div
+                  className="blog-article-content"
+                  dangerouslySetInnerHTML={{ __html: previewArticle.article_content }}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       )}
 

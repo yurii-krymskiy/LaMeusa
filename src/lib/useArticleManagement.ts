@@ -17,6 +17,9 @@ export const useArticleManagement = () => {
     article_content: "",
     article_title: "",
     article_description: "",
+    meta_title: "",
+    meta_description: "",
+    main_image: "",
     created_date: new Date().toISOString(),
   });
 
@@ -58,6 +61,27 @@ export const useArticleManagement = () => {
     []
   );
 
+  const handleMetaTitleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setArticle((prev) => ({ ...prev, meta_title: e.target.value }));
+    },
+    []
+  );
+
+  const handleMetaDescriptionChange = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setArticle((prev) => ({ ...prev, meta_description: e.target.value }));
+    },
+    []
+  );
+
+  const handleMainImageChange = useCallback(
+    (url: string) => {
+      setArticle((prev) => ({ ...prev, main_image: url }));
+    },
+    []
+  );
+
   const handleEditorContentChange = useCallback((content: string) => {
     setArticle((prev) => ({ ...prev, article_content: content }));
   }, []);
@@ -71,6 +95,9 @@ export const useArticleManagement = () => {
     editor,
     handleTitleChange,
     handleDescriptionChange,
+    handleMetaTitleChange,
+    handleMetaDescriptionChange,
+    handleMainImageChange,
     handleEditorContentChange,
   };
 };

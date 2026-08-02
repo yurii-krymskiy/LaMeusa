@@ -6,6 +6,7 @@ interface SEOProps {
     path?: string;
     image?: string;
     preloadImages?: string[];
+    type?: "website" | "article";
 }
 
 const SITE_NAME = "La Medusa";
@@ -14,7 +15,7 @@ const DEFAULT_IMAGE = "/images/home/home-hero.jpg";
 
 const SUPPORTED_LANGUAGES = ["es", "en", "uk"] as const;
 
-export const SEO = ({ title, description, path = "", image, preloadImages }: SEOProps) => {
+export const SEO = ({ title, description, path = "", image, preloadImages, type = "website" }: SEOProps) => {
     const fullTitle = path === "/" || !path ? SITE_NAME : `${title} | ${SITE_NAME}`;
     const url = `${BASE_URL}${path}`;
     const imageUrl = `${BASE_URL}${image || DEFAULT_IMAGE}`;
@@ -32,7 +33,7 @@ export const SEO = ({ title, description, path = "", image, preloadImages }: SEO
             <link rel="alternate" hrefLang="x-default" href={url} />
 
             {/* Open Graph */}
-            <meta property="og:type" content="website" />
+            <meta property="og:type" content={type} />
             <meta property="og:title" content={fullTitle} />
             <meta property="og:description" content={description} />
             <meta property="og:url" content={url} />

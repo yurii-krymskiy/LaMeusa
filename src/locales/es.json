@@ -19,6 +19,8 @@
         "burger": "Hamburguesa",
         "pizza": "Pizza",
         "paella": "Paella",
+        "desserts": "Postres",
+        "fishAndSeafoods": "Pescado y mariscos",
         "contact": "Contacto",
         "copyright": "© {{year}} La Medusa. Todos los derechos reservados.",
         "terms": "Términos de servicio",

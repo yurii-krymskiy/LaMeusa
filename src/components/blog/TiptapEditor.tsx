@@ -6,18 +6,30 @@ interface TiptapEditorProps {
   article: Article;
   handleTitleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleDescriptionChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  handleMetaTitleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleMetaDescriptionChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  handleMainImageChange: (url: string) => void;
   editor: Editor | null;
   fileInputRef: React.RefObject<HTMLInputElement>;
   handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  mainImageInputRef: React.RefObject<HTMLInputElement>;
+  handleMainImageFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  isUploadingMainImage: boolean;
 }
 
 export const TiptapEditor: React.FC<TiptapEditorProps> = ({
   article,
   handleTitleChange,
   handleDescriptionChange,
+  handleMetaTitleChange,
+  handleMetaDescriptionChange,
+  handleMainImageChange,
   editor,
   fileInputRef,
   handleFileChange,
+  mainImageInputRef,
+  handleMainImageFileChange,
+  isUploadingMainImage,
 }) => {
   if (!editor) {
     return null;
@@ -47,6 +59,87 @@ export const TiptapEditor: React.FC<TiptapEditorProps> = ({
           className="editor-description-input"
           rows={3}
         />
+
+        {/* SEO Fields */}
+        <div style={{ marginTop: "16px", padding: "16px", backgroundColor: "#f3f4f6", borderRadius: "8px" }}>
+          <h3 style={{ fontSize: "16px", fontWeight: "600", marginBottom: "12px", color: "#374151" }}>
+            SEO Settings
+          </h3>
+          <input
+            type="text"
+            placeholder="Meta Title (for search engines)"
+            value={article.meta_title}
+            onChange={handleMetaTitleChange}
+            className="editor-title-input"
+            style={{ marginBottom: "12px" }}
+          />
+          <textarea
+            placeholder="Meta Description (for search engines)"
+            value={article.meta_description}
+            onChange={handleMetaDescriptionChange}
+            className="editor-description-input"
+            rows={2}
+            style={{ marginBottom: "12px" }}
+          />
+          
+          {/* Main Image Field */}
+          <div>
+            <label style={{ display: "block", fontSize: "14px", fontWeight: "500", marginBottom: "8px", color: "#374151" }}>
+              Main Image (Featured Image)
+            </label>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              <button
+                onClick={() => mainImageInputRef.current?.click()}
+                type="button"
+                disabled={isUploadingMainImage}
+                style={{
+                  padding: "8px 16px",
+                  backgroundColor: "#4f46e5",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "6px",
+                  cursor: isUploadingMainImage ? "not-allowed" : "pointer",
+                  opacity: isUploadingMainImage ? 0.6 : 1,
+                  fontSize: "14px",
+                  fontWeight: "500"
+                }}
+              >
+                {isUploadingMainImage ? "Uploading..." : "Upload Image"}
+              </button>
+              <input
+                type="file"
+                ref={mainImageInputRef}
+                onChange={handleMainImageFileChange}
+                accept="image/*"
+                style={{ display: "none" }}
+              />
+              {article.main_image && (
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <img 
+                    src={article.main_image} 
+                    alt="Main" 
+                    style={{ width: "60px", height: "60px", objectFit: "cover", borderRadius: "4px" }} 
+                  />
+                  <button
+                    onClick={() => handleMainImageChange("")}
+                    type="button"
+                    style={{
+                      padding: "4px 8px",
+                      backgroundColor: "#ef4444",
+                      color: "white",
+                      border: "none",
+                      borderRadius: "4px",
+                      cursor: "pointer",
+                      fontSize: "12px"
+                    }}
+                  >
+                    Remove
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="editor-toolbar">

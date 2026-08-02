@@ -60,6 +60,9 @@ export const createArticle = async (article: Article) => {
       article_content: article.article_content,
       article_title: article.article_title,
       article_description: article.article_description,
+      meta_title: article.meta_title,
+      meta_description: article.meta_description,
+      main_image: article.main_image,
       created_date: new Date().toISOString(),
     },
   ]);
@@ -74,7 +77,7 @@ export const updateArticle = async (articleId: string, article: Article) => {
   // Get the old article to compare images
   const { data: oldArticle, error: fetchError } = await supabase
     .from("articles")
-    .select("article_content")
+    .select("article_content, main_image")
     .eq('id', articleId)
     .single();
 
@@ -86,11 +89,16 @@ export const updateArticle = async (articleId: string, article: Article) => {
   const oldImageUrls = extractImageUrls(oldArticle.article_content);
   const newImageUrls = extractImageUrls(article.article_content);
 
-  // Find images that were removed
+  // Find images that were removed from content
   const removedImages = oldImageUrls.filter(url => !newImageUrls.includes(url));
 
-  // Delete removed images
+  // Delete removed images from content
   await Promise.all(removedImages.map(url => deleteImage(url)));
+
+  // Check if main image was changed or removed
+  if (oldArticle.main_image && oldArticle.main_image !== article.main_image) {
+    await deleteImage(oldArticle.main_image);
+  }
 
   // Update the article
   const { error } = await supabase
@@ -99,6 +107,9 @@ export const updateArticle = async (articleId: string, article: Article) => {
       article_content: article.article_content,
       article_title: article.article_title,
       article_description: article.article_description,
+      meta_title: article.meta_title,
+      meta_description: article.meta_description,
+      main_image: article.main_image,
       updated_date: new Date().toISOString(),
     })
     .eq('id', articleId);
@@ -113,7 +124,7 @@ export const deleteArticle = async (articleId: string) => {
   // Get the article to extract image URLs
   const { data: article, error: fetchError } = await supabase
     .from("articles")
-    .select("article_content")
+    .select("article_content, main_image")
     .eq('id', articleId)
     .single();
 
@@ -121,9 +132,14 @@ export const deleteArticle = async (articleId: string) => {
     throw new Error(`Error fetching article: ${fetchError.message}`);
   }
 
-  // Extract and delete all images
+  // Extract and delete all images from content
   const imageUrls = extractImageUrls(article.article_content);
   await Promise.all(imageUrls.map(url => deleteImage(url)));
+
+  // Delete the main image if it exists
+  if (article.main_image) {
+    await deleteImage(article.main_image);
+  }
 
   // Delete the article
   const { error } = await supabase

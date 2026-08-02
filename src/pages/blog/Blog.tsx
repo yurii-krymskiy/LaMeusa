@@ -78,14 +78,16 @@ export const Blog = () => {
                 const { firstImage, firstH1, firstParagraph } = extractPreview(
                   article.article_content
                 );
+                // Use main_image if available, otherwise fall back to first image in content
+                const displayImage = article.main_image || firstImage;
 
                 return (
                   <article key={article.id} className="blog-card">
-                    {firstImage && (
+                    {displayImage && (
                       <div className="blog-card-image-wrapper">
                         <img
-                          src={firstImage}
-                          alt={firstH1}
+                          src={displayImage}
+                          alt={article.article_title}
                           className="blog-card-image"
                         />
                       </div>

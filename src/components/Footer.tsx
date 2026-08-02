@@ -65,8 +65,10 @@ export const Footer = () => {
                             </ul>
                             <ul className="text-royal-blue flex flex-col gap-2.5 font-semibold md:text-lg">
                                 <li><Link to="/menu#burgers" className="hover:text-[#3650b9] transition-colors duration-200">{t("footer.burger")}</Link></li>
-                                <li><Link to="/happy-hours" className="hover:text-[#3650b9] transition-colors duration-200">{t("nav.happyHours")}</Link></li>
                                 <li><Link to="/menu#pizza" className="hover:text-[#3650b9] transition-colors duration-200">{t("footer.pizza")}</Link></li>
+                                <li><Link to="/menu#paella" className="hover:text-[#3650b9] transition-colors duration-200">{t("footer.paella")}</Link></li>
+                                <li><Link to="/menu#dessert" className="hover:text-[#3650b9] transition-colors duration-200">{t("footer.desserts")}</Link></li>
+                                <li><Link to="/menu#fish" className="hover:text-[#3650b9] transition-colors duration-200">{t("footer.fishAndSeafoods")}</Link></li>
                             </ul>
                         </div>
                     </div>

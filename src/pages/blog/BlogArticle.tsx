@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getArticleById } from "../../lib/article.service";
 import type { Article } from "../../lib/article.types";
+import { SEO } from "../../components/SEO";
 import "./BlogArticle.css";
 
 interface TocItem {
@@ -124,8 +125,46 @@ export const BlogArticle = () => {
     );
   }
 
+  // Generate Schema.org Article structured data
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.meta_title || article.article_title,
+    "description": article.meta_description || article.article_description,
+    "image": article.main_image || "",
+    "datePublished": article.created_date,
+    "dateModified": article.updated_date || article.created_date,
+    "author": {
+      "@type": "Organization",
+      "name": "La Medusa Restaurant"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "La Medusa Restaurant",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://lameusa.com/icons/logo.svg"
+      }
+    }
+  };
+
   return (
-    <div className="blog-article-page">
+    <>
+      {/* SEO Meta Tags */}
+      <SEO 
+        title={article.meta_title || article.article_title}
+        description={article.meta_description || article.article_description}
+        image={article.main_image}
+        type="article"
+      />
+
+      {/* Schema.org Article structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      
+      <div className="blog-article-page">
       <div className="blog-article-sidebar">
         <button onClick={() => navigate("/blog")} className="blog-article-back">
           <span>←</span>
@@ -160,6 +199,26 @@ export const BlogArticle = () => {
       </div>
 
       <div className="blog-article-content-wrapper">
+        <h1 className="blog-article-main-title">{article.article_title}</h1>
+        
+        <time className="blog-article-main-date">
+          {new Date(article.created_date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </time>
+
+        {article.main_image && (
+          <div className="blog-article-main-image-wrapper">
+            <img 
+              src={article.main_image} 
+              alt={article.article_title} 
+              className="blog-article-main-image"
+            />
+          </div>
+        )}
+        
         {article.article_description && (
           <p className="blog-article-description">{article.article_description}</p>
         )}
@@ -170,5 +229,6 @@ export const BlogArticle = () => {
         />
       </div>
     </div>
+    </>
   );
 };
