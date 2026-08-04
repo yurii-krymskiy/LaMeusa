@@ -199,7 +199,7 @@ export const BlogArticle = () => {
       </div>
 
       <div className="blog-article-content-wrapper">
-        <h1 className="blog-article-main-title">{article.article_title}</h1>
+        <h2 className="blog-article-main-title">{article.article_title}</h2>
         
         <time className="blog-article-main-date">
           {new Date(article.created_date).toLocaleDateString("en-US", {
