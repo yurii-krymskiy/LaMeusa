@@ -1,27 +1,29 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import Link from "@tiptap/extension-link";
 import TextAlign from "@tiptap/extension-text-align";
-import type { Article } from "./article.types";
+import type { Article, ArticleLanguage, ArticleTranslation } from "./article.types";
+import { emptyTranslation } from "./article.types";
 
 interface LocalImage {
   blobUrl: string;
   file: File;
 }
 
+const emptyTranslations = (): Record<ArticleLanguage, ArticleTranslation> => ({
+  en: emptyTranslation("en"),
+  uk: emptyTranslation("uk"),
+  es: emptyTranslation("es"),
+});
+
 export const useArticleManagement = () => {
-  const [article, setArticle] = useState<Article>({
-    id: null,
-    article_content: "",
-    article_title: "",
-    article_description: "",
-    meta_title: "",
-    meta_description: "",
-    main_image: "",
-    created_date: new Date().toISOString(),
-  });
+  const [id, setId] = useState<string | null>(null);
+  const [mainImage, setMainImage] = useState("");
+  const [createdDate, setCreatedDate] = useState(new Date().toISOString());
+  const [translations, setTranslations] = useState<Record<ArticleLanguage, ArticleTranslation>>(emptyTranslations);
+  const [activeLanguage, setActiveLanguageState] = useState<ArticleLanguage>("en");
 
   const [localImages, setLocalImages] = useState<LocalImage[]>([]);
   const [, forceUpdate] = useState({});
@@ -38,7 +40,7 @@ export const useArticleManagement = () => {
         types: ["heading", "paragraph"],
       }),
     ],
-    content: article.article_content,
+    content: "",
     onUpdate: () => {
       forceUpdate({});
     },
@@ -47,48 +49,112 @@ export const useArticleManagement = () => {
     },
   });
 
+  // Sync the editor's content whenever it becomes ready or a different article is loaded.
+  // Deliberately not keyed on `translations`/`activeLanguage` so typing doesn't reset the editor.
+  useEffect(() => {
+    if (!editor) return;
+    editor.commands.setContent(translations[activeLanguage]?.article_content || "");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editor, id]);
+
+  const updateActiveTranslation = useCallback(
+    (patch: Partial<ArticleTranslation>) => {
+      setTranslations((prev) => ({
+        ...prev,
+        [activeLanguage]: { ...prev[activeLanguage], ...patch },
+      }));
+    },
+    [activeLanguage]
+  );
+
+  const setActiveLanguage = useCallback(
+    (language: ArticleLanguage) => {
+      if (language === activeLanguage) return;
+      if (editor) {
+        const html = editor.getHTML();
+        setTranslations((prev) => {
+          const next = { ...prev, [activeLanguage]: { ...prev[activeLanguage], article_content: html } };
+          editor.commands.setContent(next[language]?.article_content || "");
+          return next;
+        });
+      }
+      setActiveLanguageState(language);
+    },
+    [editor, activeLanguage]
+  );
+
   const handleTitleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      setArticle((prev) => ({ ...prev, article_title: e.target.value }));
+      updateActiveTranslation({ article_title: e.target.value });
     },
-    []
+    [updateActiveTranslation]
   );
 
   const handleDescriptionChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setArticle((prev) => ({ ...prev, article_description: e.target.value }));
+      updateActiveTranslation({ article_description: e.target.value });
     },
-    []
+    [updateActiveTranslation]
   );
 
   const handleMetaTitleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      setArticle((prev) => ({ ...prev, meta_title: e.target.value }));
+      updateActiveTranslation({ meta_title: e.target.value });
     },
-    []
+    [updateActiveTranslation]
   );
 
   const handleMetaDescriptionChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setArticle((prev) => ({ ...prev, meta_description: e.target.value }));
+      updateActiveTranslation({ meta_description: e.target.value });
     },
-    []
+    [updateActiveTranslation]
   );
 
-  const handleMainImageChange = useCallback(
-    (url: string) => {
-      setArticle((prev) => ({ ...prev, main_image: url }));
+  const handleMainImageChange = useCallback((url: string) => {
+    setMainImage(url);
+  }, []);
+
+  const handleEditorContentChange = useCallback(
+    (content: string) => {
+      updateActiveTranslation({ article_content: content });
     },
-    []
+    [updateActiveTranslation]
   );
 
-  const handleEditorContentChange = useCallback((content: string) => {
-    setArticle((prev) => ({ ...prev, article_content: content }));
+  // Flushes the currently-focused editor's HTML into `translations` and returns it.
+  // Needed before saving, since the active language's content only lives in the
+  // editor instance until a tab switch (or this) copies it out.
+  const flushActiveTranslation = useCallback((): Record<ArticleLanguage, ArticleTranslation> => {
+    if (!editor) return translations;
+    const html = editor.getHTML();
+    const next = { ...translations, [activeLanguage]: { ...translations[activeLanguage], article_content: html } };
+    setTranslations(next);
+    return next;
+  }, [editor, translations, activeLanguage]);
+
+  const loadArticle = useCallback((article: Article) => {
+    setId(article.id);
+    setMainImage(article.main_image);
+    setCreatedDate(article.created_date);
+    setTranslations({
+      en: article.translations.en ?? emptyTranslation("en"),
+      uk: article.translations.uk ?? emptyTranslation("uk"),
+      es: article.translations.es ?? emptyTranslation("es"),
+    });
+    setActiveLanguageState("en");
   }, []);
 
   return {
-    article,
-    setArticle,
+    id,
+    mainImage,
+    createdDate,
+    translations,
+    activeLanguage,
+    setActiveLanguage,
+    activeTranslation: translations[activeLanguage],
+    loadArticle,
+    flushActiveTranslation,
     localImages,
     setLocalImages,
     fileInputRef,

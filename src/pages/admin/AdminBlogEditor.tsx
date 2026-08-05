@@ -8,6 +8,8 @@ import {
   updateArticle,
   uploadImage,
 } from "../../lib/article.service";
+import type { ArticleLanguage, ArticleTranslation } from "../../lib/article.types";
+import { ARTICLE_LANGUAGES } from "../../lib/article.types";
 import { toast } from "sonner";
 import "./AdminBlogEditor.css";
 
@@ -19,14 +21,19 @@ export const AdminBlogEditor = () => {
   const [showPreview, setShowPreview] = useState(false);
 
   const {
+    mainImage,
+    createdDate,
+    translations,
+    activeLanguage,
+    setActiveLanguage,
+    activeTranslation,
+    loadArticle,
+    flushActiveTranslation,
     handleTitleChange,
     handleDescriptionChange,
     handleMetaTitleChange,
     handleMetaDescriptionChange,
     handleMainImageChange,
-    handleEditorContentChange,
-    setArticle,
-    article,
     setLocalImages,
     localImages,
     editor,
@@ -42,7 +49,7 @@ export const AdminBlogEditor = () => {
       setIsLoading(true);
       try {
         const fetchedArticle = await getArticleById(id);
-        setArticle(fetchedArticle);
+        loadArticle(fetchedArticle);
       } catch (error) {
         toast.error(error instanceof Error ? error.message : "Failed to fetch article");
         navigate("/admin/blog");
@@ -52,30 +59,25 @@ export const AdminBlogEditor = () => {
     };
 
     fetchArticle();
-  }, [id, setArticle, navigate]);
-
-  useEffect(() => {
-    if (editor && article?.article_content) {
-      editor.commands.setContent(article.article_content);
-    }
-  }, [editor, article]);
+  }, [id, loadArticle, navigate]);
 
   const handleSave = async () => {
-    if (!editor || !article) return;
+    if (!editor) return;
 
-    if (!article.article_title.trim()) {
-      toast.error("Please enter a title");
+    const flushed = flushActiveTranslation();
+
+    if (!flushed.en.article_title.trim()) {
+      toast.error("Please enter an English title");
       return;
     }
 
-    if (!article.article_description.trim()) {
-      toast.error("Please enter a description");
+    if (!flushed.en.article_description.trim()) {
+      toast.error("Please enter an English description");
       return;
     }
 
     setIsLoading(true);
     try {
-      let html = editor.getHTML();
       const updatedImages: Record<string, string> = {};
 
       // Upload local images and replace blob URLs with public URLs
@@ -84,23 +86,20 @@ export const AdminBlogEditor = () => {
         updatedImages[blobUrl] = publicUrl;
       }
 
-      Object.entries(updatedImages).forEach(([blob, url]) => {
-        html = html.replace(new RegExp(blob, "g"), url);
-      });
-
-      handleEditorContentChange(html);
+      const finalTranslations: Record<ArticleLanguage, ArticleTranslation> = { ...flushed };
+      for (const language of ARTICLE_LANGUAGES) {
+        let html = finalTranslations[language].article_content;
+        Object.entries(updatedImages).forEach(([blob, url]) => {
+          html = html.replace(new RegExp(blob, "g"), url);
+        });
+        finalTranslations[language] = { ...finalTranslations[language], article_content: html };
+      }
 
       if (id) {
-        await updateArticle(id, {
-          ...article,
-          article_content: html,
-        });
+        await updateArticle(id, mainImage, finalTranslations);
         toast.success("Article updated successfully");
       } else {
-        await createArticle({
-          ...article,
-          article_content: html,
-        });
+        await createArticle(mainImage, finalTranslations);
         toast.success("Article created successfully");
       }
 
@@ -160,6 +159,10 @@ export const AdminBlogEditor = () => {
     setShowPreview(false);
   };
 
+  const filledLanguages = ARTICLE_LANGUAGES.filter((language) =>
+    translations[language].article_title.trim()
+  );
+
   return (
     <div className="admin-blog-editor-container">
       <div className="admin-blog-editor-header">
@@ -172,7 +175,11 @@ export const AdminBlogEditor = () => {
 
       <div className="admin-blog-editor-main">
         <TiptapEditor
-          article={article}
+          translation={activeTranslation}
+          activeLanguage={activeLanguage}
+          onLanguageChange={setActiveLanguage}
+          filledLanguages={filledLanguages}
+          mainImage={mainImage}
           handleTitleChange={handleTitleChange}
           handleDescriptionChange={handleDescriptionChange}
           handleMetaTitleChange={handleMetaTitleChange}
@@ -207,37 +214,37 @@ export const AdminBlogEditor = () => {
         <div className="admin-blog-preview-modal" onClick={handleClosePreview}>
           <div className="admin-blog-preview-content" onClick={(e) => e.stopPropagation()}>
             <div className="admin-blog-preview-header">
-              <h2>Article Preview</h2>
+              <h2>Article Preview ({activeLanguage.toUpperCase()})</h2>
               <button onClick={handleClosePreview} className="admin-blog-preview-close">
                 ✕
               </button>
             </div>
             <div className="admin-blog-preview-body">
               <div className="blog-article-preview-wrapper">
-                <h1 className="blog-article-preview-title">{article.article_title || "Untitled Article"}</h1>
-                
+                <h1 className="blog-article-preview-title">{activeTranslation.article_title || "Untitled Article"}</h1>
+
                 <time className="blog-article-main-date">
-                  {new Date(article.created_date).toLocaleDateString("en-US", {
+                  {new Date(createdDate).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
                   })}
                 </time>
 
-                {article.main_image && (
+                {mainImage && (
                   <div className="blog-article-main-image-wrapper">
-                    <img 
-                      src={article.main_image} 
-                      alt={article.article_title} 
+                    <img
+                      src={mainImage}
+                      alt={activeTranslation.article_title}
                       className="blog-article-main-image"
                     />
                   </div>
                 )}
-                
-                {article.article_description && (
-                  <p className="blog-article-description">{article.article_description}</p>
+
+                {activeTranslation.article_description && (
+                  <p className="blog-article-description">{activeTranslation.article_description}</p>
                 )}
-                
+
                 <div
                   className="blog-article-content"
                   dangerouslySetInnerHTML={{ __html: editor?.getHTML() || "" }}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchArticles, deleteArticle } from "../../lib/article.service";
 import type { Article } from "../../lib/article.types";
+import { resolveTranslation } from "../../lib/article.types";
 import { toast } from "sonner";
 import "./AdminBlog.css";
 
@@ -15,7 +16,7 @@ export const AdminBlog = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchArticles(currentPage, searchQuery, setArticles, setTotalPages, setIsLoading);
+    fetchArticles(currentPage, searchQuery, "en", setArticles, setTotalPages, setIsLoading);
   }, [currentPage, searchQuery]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +36,7 @@ export const AdminBlog = () => {
     try {
       await deleteArticle(id);
       toast.success("Article deleted successfully");
-      fetchArticles(currentPage, searchQuery, setArticles, setTotalPages, setIsLoading);
+      fetchArticles(currentPage, searchQuery, "en", setArticles, setTotalPages, setIsLoading);
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "Failed to delete article");
     }
@@ -75,10 +76,12 @@ export const AdminBlog = () => {
         <div className="admin-blog-loading">Loading...</div>
       ) : (
         <div className="admin-blog-grid">
-          {articles.map((article) => (
+          {articles.map((article) => {
+            const translation = resolveTranslation(article, "en");
+            return (
             <div key={article.id} className="admin-blog-card">
-              <h3 className="admin-blog-card-title">{article.article_title}</h3>
-              <p className="admin-blog-card-desc">{article.article_description}</p>
+              <h3 className="admin-blog-card-title">{translation.article_title}</h3>
+              <p className="admin-blog-card-desc">{translation.article_description}</p>
               <p className="admin-blog-card-date">
                 {new Date(article.created_date).toLocaleDateString()}
               </p>
@@ -103,7 +106,8 @@ export const AdminBlog = () => {
                 </button>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       )}
 
@@ -113,7 +117,9 @@ export const AdminBlog = () => {
         </div>
       )}
 
-      {previewArticle && (
+      {previewArticle && (() => {
+        const previewTranslation = resolveTranslation(previewArticle, "en");
+        return (
         <div className="admin-blog-preview-modal" onClick={handleClosePreview}>
           <div className="admin-blog-preview-content" onClick={(e) => e.stopPropagation()}>
             <div className="admin-blog-preview-header">
@@ -124,8 +130,8 @@ export const AdminBlog = () => {
             </div>
             <div className="admin-blog-preview-body">
               <div className="blog-article-preview-wrapper">
-                <h1 className="blog-article-preview-title">{previewArticle.article_title}</h1>
-                
+                <h1 className="blog-article-preview-title">{previewTranslation.article_title}</h1>
+
                 <time className="blog-article-main-date">
                   {new Date(previewArticle.created_date).toLocaleDateString("en-US", {
                     year: "numeric",
@@ -136,27 +142,28 @@ export const AdminBlog = () => {
 
                 {previewArticle.main_image && (
                   <div className="blog-article-main-image-wrapper">
-                    <img 
-                      src={previewArticle.main_image} 
-                      alt={previewArticle.article_title} 
+                    <img
+                      src={previewArticle.main_image}
+                      alt={previewTranslation.article_title}
                       className="blog-article-main-image"
                     />
                   </div>
                 )}
-                
-                {previewArticle.article_description && (
-                  <p className="blog-article-description">{previewArticle.article_description}</p>
+
+                {previewTranslation.article_description && (
+                  <p className="blog-article-description">{previewTranslation.article_description}</p>
                 )}
-                
+
                 <div
                   className="blog-article-content"
-                  dangerouslySetInnerHTML={{ __html: previewArticle.article_content }}
+                  dangerouslySetInnerHTML={{ __html: previewTranslation.article_content }}
                 />
               </div>
             </div>
           </div>
         </div>
-      )}
+        );
+      })()}
 
       {totalPages > 1 && (
         <div className="admin-blog-pagination">

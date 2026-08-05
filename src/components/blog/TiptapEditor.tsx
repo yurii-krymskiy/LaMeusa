@@ -1,9 +1,20 @@
 import { Editor, EditorContent } from "@tiptap/react";
-import type { Article } from "../../lib/article.types";
+import type { ArticleLanguage, ArticleTranslation } from "../../lib/article.types";
+import { ARTICLE_LANGUAGES } from "../../lib/article.types";
 import "./TiptapEditor.css";
 
+const LANGUAGE_LABELS: Record<ArticleLanguage, string> = {
+  en: "English",
+  uk: "Українська",
+  es: "Español",
+};
+
 interface TiptapEditorProps {
-  article: Article;
+  translation: ArticleTranslation;
+  activeLanguage: ArticleLanguage;
+  onLanguageChange: (language: ArticleLanguage) => void;
+  filledLanguages: ArticleLanguage[];
+  mainImage: string;
   handleTitleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleDescriptionChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   handleMetaTitleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -18,7 +29,11 @@ interface TiptapEditorProps {
 }
 
 export const TiptapEditor: React.FC<TiptapEditorProps> = ({
-  article,
+  translation,
+  activeLanguage,
+  onLanguageChange,
+  filledLanguages,
+  mainImage,
   handleTitleChange,
   handleDescriptionChange,
   handleMetaTitleChange,
@@ -45,16 +60,43 @@ export const TiptapEditor: React.FC<TiptapEditorProps> = ({
   return (
     <div className="tiptap-editor-container">
       <div className="editor-header">
+        <div style={{ display: "flex", gap: "8px", marginBottom: "16px" }}>
+          {ARTICLE_LANGUAGES.map((language) => (
+            <button
+              key={language}
+              type="button"
+              onClick={() => onLanguageChange(language)}
+              style={{
+                padding: "8px 16px",
+                borderRadius: "6px",
+                border: language === activeLanguage ? "2px solid #4f46e5" : "1px solid #d1d5db",
+                backgroundColor: language === activeLanguage ? "#eef2ff" : "white",
+                color: "#374151",
+                fontSize: "14px",
+                fontWeight: language === activeLanguage ? 600 : 500,
+                cursor: "pointer",
+              }}
+            >
+              {LANGUAGE_LABELS[language]}
+              {language !== "en" && filledLanguages.includes(language) && " ✓"}
+            </button>
+          ))}
+        </div>
+        {activeLanguage !== "en" && (
+          <p style={{ fontSize: "13px", color: "#6b7280", marginBottom: "12px" }}>
+            Leave blank to fall back to the English version on the site.
+          </p>
+        )}
         <input
           type="text"
           placeholder="Article Title"
-          value={article.article_title}
+          value={translation.article_title}
           onChange={handleTitleChange}
           className="editor-title-input"
         />
         <textarea
           placeholder="Article Description (for preview)"
-          value={article.article_description}
+          value={translation.article_description}
           onChange={handleDescriptionChange}
           className="editor-description-input"
           rows={3}
@@ -68,14 +110,14 @@ export const TiptapEditor: React.FC<TiptapEditorProps> = ({
           <input
             type="text"
             placeholder="Meta Title (for search engines)"
-            value={article.meta_title}
+            value={translation.meta_title}
             onChange={handleMetaTitleChange}
             className="editor-title-input"
             style={{ marginBottom: "12px" }}
           />
           <textarea
             placeholder="Meta Description (for search engines)"
-            value={article.meta_description}
+            value={translation.meta_description}
             onChange={handleMetaDescriptionChange}
             className="editor-description-input"
             rows={2}
@@ -87,57 +129,103 @@ export const TiptapEditor: React.FC<TiptapEditorProps> = ({
             <label style={{ display: "block", fontSize: "14px", fontWeight: "500", marginBottom: "8px", color: "#374151" }}>
               Main Image (Featured Image)
             </label>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <button
-                onClick={() => mainImageInputRef.current?.click()}
-                type="button"
-                disabled={isUploadingMainImage}
+            <input
+              type="file"
+              ref={mainImageInputRef}
+              onChange={handleMainImageFileChange}
+              accept="image/*"
+              style={{ display: "none" }}
+            />
+
+            {mainImage ? (
+              <div
                 style={{
-                  padding: "8px 16px",
-                  backgroundColor: "#4f46e5",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "6px",
-                  cursor: isUploadingMainImage ? "not-allowed" : "pointer",
-                  opacity: isUploadingMainImage ? 0.6 : 1,
-                  fontSize: "14px",
-                  fontWeight: "500"
+                  position: "relative",
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                  border: "1px solid #e5e7eb",
                 }}
               >
-                {isUploadingMainImage ? "Uploading..." : "Upload Image"}
-              </button>
-              <input
-                type="file"
-                ref={mainImageInputRef}
-                onChange={handleMainImageFileChange}
-                accept="image/*"
-                style={{ display: "none" }}
-              />
-              {article.main_image && (
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <img 
-                    src={article.main_image} 
-                    alt="Main" 
-                    style={{ width: "60px", height: "60px", objectFit: "cover", borderRadius: "4px" }} 
-                  />
+                <img
+                  src={mainImage}
+                  alt="Main"
+                  style={{ width: "100%", height: "180px", objectFit: "cover", display: "block" }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(to top, rgba(0,0,0,0.55), transparent 45%)",
+                    display: "flex",
+                    alignItems: "flex-end",
+                    justifyContent: "flex-end",
+                    gap: "8px",
+                    padding: "10px",
+                  }}
+                >
+                  <button
+                    onClick={() => mainImageInputRef.current?.click()}
+                    type="button"
+                    disabled={isUploadingMainImage}
+                    style={{
+                      padding: "6px 12px",
+                      backgroundColor: "white",
+                      color: "#374151",
+                      border: "none",
+                      borderRadius: "6px",
+                      cursor: isUploadingMainImage ? "not-allowed" : "pointer",
+                      opacity: isUploadingMainImage ? 0.6 : 1,
+                      fontSize: "13px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    {isUploadingMainImage ? "Uploading..." : "Change"}
+                  </button>
                   <button
                     onClick={() => handleMainImageChange("")}
                     type="button"
                     style={{
-                      padding: "4px 8px",
+                      padding: "6px 12px",
                       backgroundColor: "#ef4444",
                       color: "white",
                       border: "none",
-                      borderRadius: "4px",
+                      borderRadius: "6px",
                       cursor: "pointer",
-                      fontSize: "12px"
+                      fontSize: "13px",
+                      fontWeight: "500",
                     }}
                   >
                     Remove
                   </button>
                 </div>
-              )}
-            </div>
+              </div>
+            ) : (
+              <button
+                onClick={() => mainImageInputRef.current?.click()}
+                type="button"
+                disabled={isUploadingMainImage}
+                style={{
+                  width: "100%",
+                  height: "120px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "6px",
+                  backgroundColor: "white",
+                  color: "#6b7280",
+                  border: "2px dashed #d1d5db",
+                  borderRadius: "10px",
+                  cursor: isUploadingMainImage ? "not-allowed" : "pointer",
+                  opacity: isUploadingMainImage ? 0.6 : 1,
+                  fontSize: "14px",
+                  fontWeight: "500",
+                }}
+              >
+                <span style={{ fontSize: "22px" }}>🖼</span>
+                {isUploadingMainImage ? "Uploading..." : "Click to upload featured image"}
+              </button>
+            )}
           </div>
         </div>
       </div>

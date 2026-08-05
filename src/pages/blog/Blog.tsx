@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import ReactPaginate from "react-paginate";
 import { fetchArticles } from "../../lib/article.service";
-import type { Article } from "../../lib/article.types";
+import type { Article, ArticleLanguage } from "../../lib/article.types";
+import { resolveTranslation } from "../../lib/article.types";
 import "./Blog.css";
 
 const extractPreview = (content: string) => {
@@ -10,13 +12,13 @@ const extractPreview = (content: string) => {
   const doc = parser.parseFromString(content, "text/html");
 
   const firstImage = doc.querySelector("img")?.getAttribute("src") || "";
-  const firstH1 = doc.querySelector("h1")?.textContent || "Untitled";
-  const firstParagraph = doc.querySelector("p")?.textContent || "";
 
-  return { firstImage, firstH1, firstParagraph };
+  return { firstImage };
 };
 
 export const Blog = () => {
+  const { i18n } = useTranslation();
+  const language = i18n.language as ArticleLanguage;
   const [articles, setArticles] = useState<Article[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,8 +27,8 @@ export const Blog = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchArticles(currentPage, searchQuery, setArticles, setTotalPages, setIsLoading);
-  }, [currentPage, searchQuery]);
+    fetchArticles(currentPage, searchQuery, language, setArticles, setTotalPages, setIsLoading);
+  }, [currentPage, searchQuery, language]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -75,9 +77,8 @@ export const Blog = () => {
           <>
             <div className="blog-grid">
               {articles.map((article) => {
-                const { firstImage, firstH1, firstParagraph } = extractPreview(
-                  article.article_content
-                );
+                const translation = resolveTranslation(article, language);
+                const { firstImage } = extractPreview(translation.article_content);
                 // Use main_image if available, otherwise fall back to first image in content
                 const displayImage = article.main_image || firstImage;
 
@@ -87,7 +88,7 @@ export const Blog = () => {
                       <div className="blog-card-image-wrapper">
                         <img
                           src={displayImage}
-                          alt={article.article_title}
+                          alt={translation.article_title}
                           className="blog-card-image"
                         />
                       </div>
@@ -100,11 +101,11 @@ export const Blog = () => {
                           day: "numeric",
                         })}
                       </time>
-                      <h2 className="blog-card-title">{article.article_title}</h2>
+                      <h2 className="blog-card-title">{translation.article_title}</h2>
                       <p className="blog-card-description">
-                        {article.article_description.length > 150
-                          ? article.article_description.slice(0, 150) + "..."
-                          : article.article_description}
+                        {translation.article_description.length > 150
+                          ? translation.article_description.slice(0, 150) + "..."
+                          : translation.article_description}
                       </p>
                       <button
                         onClick={() => handleReadMore(article.id!)}

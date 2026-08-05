@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { getArticleById } from "../../lib/article.service";
-import type { Article } from "../../lib/article.types";
+import type { Article, ArticleLanguage } from "../../lib/article.types";
+import { resolveTranslation } from "../../lib/article.types";
 import { SEO } from "../../components/SEO";
 import "./BlogArticle.css";
 
@@ -29,7 +31,10 @@ const scrollToSection = (id: string, setActiveSectionId: (v: string) => void) =>
 export const BlogArticle = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
+  const language = i18n.language as ArticleLanguage;
   const [article, setArticle] = useState<Article | null>(null);
+  const [displayContent, setDisplayContent] = useState("");
   const [toc, setToc] = useState<TocItem[]>([]);
   const [activeSectionId, setActiveSectionId] = useState<string>("0");
   const [isLoading, setIsLoading] = useState(true);
@@ -57,11 +62,13 @@ export const BlogArticle = () => {
     fetchArticle();
   }, [id]);
 
+  const translation = article ? resolveTranslation(article, language) : null;
+
   useEffect(() => {
-    if (!article?.article_content) return;
+    if (!translation?.article_content) return;
 
     const parser = new DOMParser();
-    const doc = parser.parseFromString(article.article_content, "text/html");
+    const doc = parser.parseFromString(translation.article_content, "text/html");
 
     const headers = Array.from(doc.querySelectorAll("h1, h2, h3"));
     const tocItems: TocItem[] = headers.map((el, index) => {
@@ -76,8 +83,8 @@ export const BlogArticle = () => {
     });
 
     setToc(tocItems);
-    setArticle(prev => prev ? { ...prev, article_content: doc.body.innerHTML } : prev);
-  }, [article?.article_content]);
+    setDisplayContent(doc.body.innerHTML);
+  }, [translation?.article_content]);
 
   useEffect(() => {
     if (window.innerWidth < 900) return;
@@ -113,7 +120,7 @@ export const BlogArticle = () => {
     );
   }
 
-  if (error || !article) {
+  if (error || !article || !translation) {
     return (
       <div className="blog-article-error">
         <h2>Oops!</h2>
@@ -129,8 +136,8 @@ export const BlogArticle = () => {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": article.meta_title || article.article_title,
-    "description": article.meta_description || article.article_description,
+    "headline": translation.meta_title || translation.article_title,
+    "description": translation.meta_description || translation.article_description,
     "image": article.main_image || "",
     "datePublished": article.created_date,
     "dateModified": article.updated_date || article.created_date,
@@ -152,8 +159,8 @@ export const BlogArticle = () => {
     <>
       {/* SEO Meta Tags */}
       <SEO
-        title={article.meta_title || article.article_title}
-        description={article.meta_description || article.article_description}
+        title={translation.meta_title || translation.article_title}
+        description={translation.meta_description || translation.article_description}
         path={`/blog/${article.id}`}
         image={article.main_image}
         type="article"
@@ -164,7 +171,7 @@ export const BlogArticle = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      
+
       <div className="blog-article-page">
       <div className="blog-article-sidebar">
         <button onClick={() => navigate("/blog")} className="blog-article-back">
@@ -172,8 +179,8 @@ export const BlogArticle = () => {
           <span>Back to all blogs</span>
         </button>
 
-        <h1 className="blog-article-sidebar-title">{article.article_title}</h1>
-        
+        <h1 className="blog-article-sidebar-title">{translation.article_title}</h1>
+
         <time className="blog-article-sidebar-date">
           {new Date(article.created_date).toLocaleDateString("en-US", {
             year: "numeric",
@@ -200,8 +207,8 @@ export const BlogArticle = () => {
       </div>
 
       <div className="blog-article-content-wrapper">
-        <h2 className="blog-article-main-title">{article.article_title}</h2>
-        
+        <h2 className="blog-article-main-title">{translation.article_title}</h2>
+
         <time className="blog-article-main-date">
           {new Date(article.created_date).toLocaleDateString("en-US", {
             year: "numeric",
@@ -212,21 +219,21 @@ export const BlogArticle = () => {
 
         {article.main_image && (
           <div className="blog-article-main-image-wrapper">
-            <img 
-              src={article.main_image} 
-              alt={article.article_title} 
+            <img
+              src={article.main_image}
+              alt={translation.article_title}
               className="blog-article-main-image"
             />
           </div>
         )}
-        
-        {article.article_description && (
-          <p className="blog-article-description">{article.article_description}</p>
+
+        {translation.article_description && (
+          <p className="blog-article-description">{translation.article_description}</p>
         )}
-        
+
         <div
           className="blog-article-content"
-          dangerouslySetInnerHTML={{ __html: article.article_content }}
+          dangerouslySetInnerHTML={{ __html: displayContent }}
         />
       </div>
     </div>

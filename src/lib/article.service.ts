@@ -1,5 +1,28 @@
 import { supabase } from "./supabase";
-import type { Article } from "./article.types";
+import type { Article, ArticleLanguage, ArticleTranslation } from "./article.types";
+import { resolveTranslation } from "./article.types";
+
+type TranslationsMap = Partial<Record<ArticleLanguage, ArticleTranslation>>;
+
+type DbArticleRow = {
+  id: string;
+  main_image: string;
+  created_date: string;
+  updated_date?: string;
+  article_translations: ArticleTranslation[];
+};
+
+const toArticle = (row: DbArticleRow): Article => ({
+  id: row.id,
+  main_image: row.main_image,
+  created_date: row.created_date,
+  updated_date: row.updated_date,
+  translations: Object.fromEntries(row.article_translations.map((t) => [t.language, t])),
+});
+
+// Only persist languages the admin actually filled in (English is required by the UI).
+const filledTranslations = (translations: TranslationsMap): ArticleTranslation[] =>
+  Object.values(translations).filter((t): t is ArticleTranslation => !!t && t.article_title.trim().length > 0);
 
 // Helper to extract image URLs from HTML content
 export const extractImageUrls = (content: string): string[] => {
@@ -14,21 +37,17 @@ export const extractImageUrls = (content: string): string[] => {
 
 // Upload image to Supabase storage
 export const uploadImage = async (file: File): Promise<string> => {
-  const fileExt = file.name.split('.').pop();
+  const fileExt = file.name.split(".").pop();
   const fileName = `${Math.random()}.${fileExt}`;
   const filePath = `${fileName}`;
 
-  const { error: uploadError } = await supabase.storage
-    .from('article-images')
-    .upload(filePath, file);
+  const { error: uploadError } = await supabase.storage.from("article-images").upload(filePath, file);
 
   if (uploadError) {
     throw new Error(`Error uploading image: ${uploadError.message}`);
   }
 
-  const { data } = supabase.storage
-    .from('article-images')
-    .getPublicUrl(filePath);
+  const { data } = supabase.storage.from("article-images").getPublicUrl(filePath);
 
   return data.publicUrl;
 };
@@ -36,172 +55,209 @@ export const uploadImage = async (file: File): Promise<string> => {
 // Delete image from Supabase storage
 export const deleteImage = async (url: string): Promise<void> => {
   try {
-    const urlParts = url.split('/article-images/');
+    const urlParts = url.split("/article-images/");
     if (urlParts.length < 2) return;
 
     const filePath = urlParts[1];
 
-    const { error } = await supabase.storage
-      .from('article-images')
-      .remove([filePath]);
+    const { error } = await supabase.storage.from("article-images").remove([filePath]);
 
     if (error) {
-      console.error('Error deleting image:', error);
+      console.error("Error deleting image:", error);
     }
   } catch (error) {
-    console.error('Error deleting image:', error);
+    console.error("Error deleting image:", error);
   }
 };
 
-// Create article
-export const createArticle = async (article: Article) => {
-  const { error } = await supabase.from("articles").insert([
-    {
-      article_content: article.article_content,
-      article_title: article.article_title,
-      article_description: article.article_description,
-      meta_title: article.meta_title,
-      meta_description: article.meta_description,
-      main_image: article.main_image,
-      created_date: new Date().toISOString(),
-    },
-  ]);
+// Create article: one language-independent row + one translation row per filled language
+export const createArticle = async (mainImage: string, translations: TranslationsMap): Promise<string> => {
+  const { data, error } = await supabase
+    .from("articles")
+    .insert([{ main_image: mainImage, created_date: new Date().toISOString() }])
+    .select("id")
+    .single();
 
   if (error) {
     throw new Error(`Error creating article: ${error.message}`);
   }
+
+  const rows = filledTranslations(translations).map((t) => ({ ...t, article_id: data.id }));
+  if (rows.length) {
+    const { error: translationsError } = await supabase.from("article_translations").insert(rows);
+    if (translationsError) {
+      throw new Error(`Error creating article translations: ${translationsError.message}`);
+    }
+  }
+
+  return data.id as string;
 };
 
 // Update article
-export const updateArticle = async (articleId: string, article: Article) => {
-  // Get the old article to compare images
-  const { data: oldArticle, error: fetchError } = await supabase
+export const updateArticle = async (
+  articleId: string,
+  mainImage: string,
+  translations: TranslationsMap
+): Promise<void> => {
+  const { data: oldArticle, error: articleFetchError } = await supabase
     .from("articles")
-    .select("article_content, main_image")
-    .eq('id', articleId)
+    .select("main_image")
+    .eq("id", articleId)
     .single();
 
-  if (fetchError) {
-    throw new Error(`Error fetching old article: ${fetchError.message}`);
+  if (articleFetchError) {
+    throw new Error(`Error fetching old article: ${articleFetchError.message}`);
   }
 
-  // Extract image URLs from old and new content
-  const oldImageUrls = extractImageUrls(oldArticle.article_content);
-  const newImageUrls = extractImageUrls(article.article_content);
+  const { data: oldTranslations, error: translationsFetchError } = await supabase
+    .from("article_translations")
+    .select("language, article_content")
+    .eq("article_id", articleId);
 
-  // Find images that were removed from content
-  const removedImages = oldImageUrls.filter(url => !newImageUrls.includes(url));
+  if (translationsFetchError) {
+    throw new Error(`Error fetching old translations: ${translationsFetchError.message}`);
+  }
 
-  // Delete removed images from content
-  await Promise.all(removedImages.map(url => deleteImage(url)));
+  const newRows = filledTranslations(translations);
 
-  // Check if main image was changed or removed
-  if (oldArticle.main_image && oldArticle.main_image !== article.main_image) {
+  // Clean up images that no longer appear in any translation's content
+  const oldImageUrls = (oldTranslations ?? []).flatMap((t) => extractImageUrls(t.article_content));
+  const newImageUrls = new Set(newRows.flatMap((t) => extractImageUrls(t.article_content)));
+  const removedImages = oldImageUrls.filter((url) => !newImageUrls.has(url));
+  await Promise.all(removedImages.map(deleteImage));
+
+  if (oldArticle.main_image && oldArticle.main_image !== mainImage) {
     await deleteImage(oldArticle.main_image);
   }
 
-  // Update the article
-  const { error } = await supabase
+  const { error: articleUpdateError } = await supabase
     .from("articles")
-    .update({
-      article_content: article.article_content,
-      article_title: article.article_title,
-      article_description: article.article_description,
-      meta_title: article.meta_title,
-      meta_description: article.meta_description,
-      main_image: article.main_image,
-      updated_date: new Date().toISOString(),
-    })
-    .eq('id', articleId);
+    .update({ main_image: mainImage, updated_date: new Date().toISOString() })
+    .eq("id", articleId);
 
-  if (error) {
-    throw new Error(`Error updating article: ${error.message}`);
+  if (articleUpdateError) {
+    throw new Error(`Error updating article: ${articleUpdateError.message}`);
+  }
+
+  // Drop translations for languages that were cleared out in the editor
+  const keptLanguages = newRows.map((t) => t.language);
+  const removedLanguages = (oldTranslations ?? [])
+    .map((t) => t.language)
+    .filter((lang) => !keptLanguages.includes(lang));
+
+  if (removedLanguages.length) {
+    const { error: deleteTranslationsError } = await supabase
+      .from("article_translations")
+      .delete()
+      .eq("article_id", articleId)
+      .in("language", removedLanguages);
+
+    if (deleteTranslationsError) {
+      throw new Error(`Error removing translations: ${deleteTranslationsError.message}`);
+    }
+  }
+
+  if (newRows.length) {
+    const { error: upsertError } = await supabase
+      .from("article_translations")
+      .upsert(
+        newRows.map((t) => ({ ...t, article_id: articleId })),
+        { onConflict: "article_id,language" }
+      );
+
+    if (upsertError) {
+      throw new Error(`Error saving translations: ${upsertError.message}`);
+    }
   }
 };
 
 // Delete article
-export const deleteArticle = async (articleId: string) => {
-  // Get the article to extract image URLs
-  const { data: article, error: fetchError } = await supabase
+export const deleteArticle = async (articleId: string): Promise<void> => {
+  const { data: article, error: articleFetchError } = await supabase
     .from("articles")
-    .select("article_content, main_image")
-    .eq('id', articleId)
+    .select("main_image")
+    .eq("id", articleId)
     .single();
 
-  if (fetchError) {
-    throw new Error(`Error fetching article: ${fetchError.message}`);
+  if (articleFetchError) {
+    throw new Error(`Error fetching article: ${articleFetchError.message}`);
   }
 
-  // Extract and delete all images from content
-  const imageUrls = extractImageUrls(article.article_content);
-  await Promise.all(imageUrls.map(url => deleteImage(url)));
+  const { data: translations, error: translationsFetchError } = await supabase
+    .from("article_translations")
+    .select("article_content")
+    .eq("article_id", articleId);
 
-  // Delete the main image if it exists
+  if (translationsFetchError) {
+    throw new Error(`Error fetching article translations: ${translationsFetchError.message}`);
+  }
+
+  const imageUrls = (translations ?? []).flatMap((t) => extractImageUrls(t.article_content));
+  await Promise.all(imageUrls.map(deleteImage));
+
   if (article.main_image) {
     await deleteImage(article.main_image);
   }
 
-  // Delete the article
-  const { error } = await supabase
-    .from("articles")
-    .delete()
-    .eq('id', articleId);
+  // article_translations rows cascade-delete via the FK
+  const { error } = await supabase.from("articles").delete().eq("id", articleId);
 
   if (error) {
     throw new Error(`Error deleting article: ${error.message}`);
   }
 };
 
-// Get article by ID
+// Get article by ID, with all of its translations
 export const getArticleById = async (articleId: string): Promise<Article> => {
   const { data, error } = await supabase
     .from("articles")
-    .select("*")
-    .eq('id', articleId)
+    .select("*, article_translations(*)")
+    .eq("id", articleId)
     .single();
 
   if (error) {
     throw new Error(`Error fetching article: ${error.message}`);
   }
 
-  return data;
+  return toArticle(data as DbArticleRow);
 };
 
-// Fetch articles with pagination and search
+// Fetch articles with pagination and search, resolved to `language` (falling back to English)
 export const fetchArticles = async (
   page: number,
   search: string,
+  language: ArticleLanguage,
   setArticles: (v: Article[]) => void,
   setTotalPages: (v: number) => void,
-  setIsLoading: (v: boolean) => void,
+  setIsLoading: (v: boolean) => void
 ) => {
   setIsLoading(true);
   try {
     const articlesPerPage = 6;
 
-    let query = supabase
-      .from('articles')
-      .select('*', { count: 'exact' })
-      .order('created_date', { ascending: false });
-
-    if (search) {
-      query = query.ilike('article_title', `%${search}%`);
-    }
-
-    const { data, error, count } = await query.range(
-      (page - 1) * articlesPerPage,
-      page * articlesPerPage - 1
-    );
+    const { data, error } = await supabase
+      .from("articles")
+      .select("*, article_translations(*)")
+      .order("created_date", { ascending: false });
 
     if (error) {
-      console.error('Error fetching articles:', error);
+      console.error("Error fetching articles:", error);
       return;
     }
 
-    setArticles(data || []);
-    setTotalPages(Math.ceil((count || 0) / articlesPerPage));
+    let articles = (data as DbArticleRow[] | null)?.map(toArticle) ?? [];
+
+    if (search) {
+      const query = search.toLowerCase();
+      articles = articles.filter((article) =>
+        resolveTranslation(article, language).article_title.toLowerCase().includes(query)
+      );
+    }
+
+    setTotalPages(Math.max(1, Math.ceil(articles.length / articlesPerPage)));
+    setArticles(articles.slice((page - 1) * articlesPerPage, page * articlesPerPage));
   } catch (error) {
-    console.error('Error fetching articles:', error);
+    console.error("Error fetching articles:", error);
   } finally {
     setIsLoading(false);
   }
