@@ -21,7 +21,7 @@ const scrollToSection = (id: string, setActiveSectionId: (v: string) => void) =>
 
     window.scrollTo({
       top: offset,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }
 };
@@ -63,15 +63,15 @@ export const BlogArticle = () => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(article.article_content, "text/html");
 
-    const headers = Array.from(doc.querySelectorAll('h1, h2, h3'));
+    const headers = Array.from(doc.querySelectorAll("h1, h2, h3"));
     const tocItems: TocItem[] = headers.map((el, index) => {
       const text = el.textContent || `Section ${index + 1}`;
-      const id = index + '';
-      el.setAttribute('id', id);
+      const id = index + "";
+      el.setAttribute("id", id);
       return {
         id,
         text,
-        level: el.tagName === 'H1' ? 1 : el.tagName === 'H2' ? 2 : 3,
+        level: el.tagName === "H1" ? 1 : el.tagName === "H2" ? 2 : 3,
       };
     });
 
@@ -151,9 +151,10 @@ export const BlogArticle = () => {
   return (
     <>
       {/* SEO Meta Tags */}
-      <SEO 
+      <SEO
         title={article.meta_title || article.article_title}
         description={article.meta_description || article.article_description}
+        path={`/blog/${article.id}`}
         image={article.main_image}
         type="article"
       />
@@ -187,9 +188,9 @@ export const BlogArticle = () => {
             {toc.map((item, index) => (
               <h2
                 key={index}
-                className={`blog-article-toc-item level-${item.level} ${activeSectionId === item.id ? 'active' : ''}`}
+                className={`blog-article-toc-item level-${item.level} ${activeSectionId === item.id ? "active" : ""}`}
                 onClick={() => scrollToSection(item.id, setActiveSectionId)}
-                style={{ paddingLeft: item.level === 3 ? '16px' : item.level === 2 ? '8px' : '0' }}
+                style={{ paddingLeft: item.level === 3 ? "16px" : item.level === 2 ? "8px" : "0" }}
               >
                 {item.text}
               </h2>
