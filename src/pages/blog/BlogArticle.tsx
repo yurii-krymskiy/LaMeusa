@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { getArticleById } from "../../lib/article.service";
+import { getArticleById, fetchRecommendedArticles } from "../../lib/article.service";
 import type { Article, ArticleLanguage } from "../../lib/article.types";
 import { resolveTranslation } from "../../lib/article.types";
 import { SEO } from "../../components/SEO";
 import { OceanLoader } from "../../components/blog/OceanLoader";
 import { dateLocaleFor } from "../../lib/dateLocale";
 import "./BlogArticle.css";
+import "./Blog.css";
 
 interface TocItem {
   id: string;
@@ -41,6 +42,7 @@ export const BlogArticle = () => {
   const [activeSectionId, setActiveSectionId] = useState<string>("0");
   const [isLoading, setIsLoading] = useState(true);
   const [errorKind, setErrorKind] = useState<"notFound" | "loadFailed" | null>(null);
+  const [recommended, setRecommended] = useState<Article[]>([]);
 
   useEffect(() => {
     const fetchArticle = async () => {
@@ -51,9 +53,11 @@ export const BlogArticle = () => {
       }
 
       setIsLoading(true);
+      setRecommended([]);
       try {
         const fetchedArticle = await getArticleById(id);
         setArticle(fetchedArticle);
+        fetchRecommendedArticles(id).then(setRecommended);
       } catch {
         setErrorKind("loadFailed");
       } finally {
@@ -238,6 +242,55 @@ export const BlogArticle = () => {
         />
       </div>
     </div>
+
+    {recommended.length > 0 && (
+      <div className="blog-article-recommended">
+        <h2 className="blog-article-recommended-title">{t("blog.article.recommended")}</h2>
+        <div className="blog-grid">
+          {recommended.map((recommendedArticle) => {
+            const recommendedTranslation = resolveTranslation(recommendedArticle, language);
+            return (
+              <article
+                key={recommendedArticle.id}
+                className="blog-card"
+                onClick={() => navigate(`/blog/${recommendedArticle.id}`)}
+              >
+                {recommendedArticle.main_image && (
+                  <div className="blog-card-image-wrapper">
+                    <img
+                      src={recommendedArticle.main_image}
+                      alt={recommendedTranslation.article_title}
+                      className="blog-card-image"
+                    />
+                  </div>
+                )}
+                <div className="blog-card-content">
+                  <time className="blog-card-date">
+                    {new Date(recommendedArticle.created_date).toLocaleDateString(dateLocaleFor(language), {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <h3 className="blog-card-title">{recommendedTranslation.article_title}</h3>
+                  <p className="blog-card-description">
+                    {recommendedTranslation.article_description.length > 150
+                      ? recommendedTranslation.article_description.slice(0, 150) + "..."
+                      : recommendedTranslation.article_description}
+                  </p>
+                  <button
+                    onClick={() => navigate(`/blog/${recommendedArticle.id}`)}
+                    className="blog-card-button"
+                  >
+                    {t("blog.readMore")} →
+                  </button>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    )}
     </>
   );
 };

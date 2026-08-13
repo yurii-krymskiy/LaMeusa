@@ -729,7 +729,8 @@
             "notFound": "Artículo no encontrado",
             "loadFailed": "No se pudo cargar el artículo",
             "oops": "¡Vaya!",
-            "backToBlog": "Volver al blog"
+            "backToBlog": "Volver al blog",
+            "recommended": "Más de nuestro blog"
         }
     },
     "seo": {

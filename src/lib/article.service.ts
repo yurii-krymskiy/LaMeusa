@@ -222,6 +222,23 @@ export const getArticleById = async (articleId: string): Promise<Article> => {
   return toArticle(data as DbArticleRow);
 };
 
+// Fetch a handful of other articles, for a "you might also like" section
+export const fetchRecommendedArticles = async (excludeArticleId: string, limit = 3): Promise<Article[]> => {
+  const { data, error } = await supabase
+    .from("articles")
+    .select("*, article_translations(*)")
+    .neq("id", excludeArticleId)
+    .order("created_date", { ascending: false })
+    .limit(limit);
+
+  if (error) {
+    console.error("Error fetching recommended articles:", error);
+    return [];
+  }
+
+  return (data as DbArticleRow[] | null)?.map(toArticle) ?? [];
+};
+
 // Fetch articles with pagination and search, resolved to `language` (falling back to English)
 export const fetchArticles = async (
   page: number,

@@ -770,7 +770,8 @@
             "notFound": "Article not found",
             "loadFailed": "Failed to load article",
             "oops": "Oops!",
-            "backToBlog": "Back to Blog"
+            "backToBlog": "Back to Blog",
+            "recommended": "More From Our Blog"
         }
     },
     "seo": {
