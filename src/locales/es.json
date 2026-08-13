@@ -709,6 +709,29 @@
             "orderButton": "Pedir Ahora"
         }
     },
+    "blog": {
+        "hero": {
+            "title": "Nuestro Blog",
+            "description": "Descubre las últimas noticias, recetas e historias de La Medusa"
+        },
+        "search": "Buscar artículos...",
+        "loadingArticles": "Cargando artículos",
+        "loadingArticle": "Cargando artículo",
+        "empty": "No se encontraron artículos. ¡Vuelve pronto!",
+        "readMore": "Leer más",
+        "pagination": {
+            "previous": "← Anterior",
+            "next": "Siguiente →"
+        },
+        "article": {
+            "back": "Volver a todos los blogs",
+            "toc": "Tabla de contenidos",
+            "notFound": "Artículo no encontrado",
+            "loadFailed": "No se pudo cargar el artículo",
+            "oops": "¡Vaya!",
+            "backToBlog": "Volver al blog"
+        }
+    },
     "seo": {
         "delivery": {
             "title": "Medusa a Domicilio – Pedir Online | La Medusa Los Cristianos",

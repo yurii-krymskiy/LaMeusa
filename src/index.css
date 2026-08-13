@@ -181,6 +181,15 @@
   @apply absolute inset-0 bg-black/40;
 }
 
+.blog-hero-banner {
+  @apply relative flex flex-col items-center justify-center bg-[url('/IMG_3390.jpeg')] bg-center bg-cover py-20;
+}
+
+.blog-hero-banner::before {
+  content: "";
+  @apply absolute inset-0 bg-black/50;
+}
+
 .delivery-hero > * {
   @apply relative;
 }

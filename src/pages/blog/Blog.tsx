@@ -5,6 +5,8 @@ import ReactPaginate from "react-paginate";
 import { fetchArticles } from "../../lib/article.service";
 import type { Article, ArticleLanguage } from "../../lib/article.types";
 import { resolveTranslation } from "../../lib/article.types";
+import { OceanLoader } from "../../components/blog/OceanLoader";
+import { dateLocaleFor } from "../../lib/dateLocale";
 import "./Blog.css";
 
 const extractPreview = (content: string) => {
@@ -17,7 +19,7 @@ const extractPreview = (content: string) => {
 };
 
 export const Blog = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const language = i18n.language as ArticleLanguage;
   const [articles, setArticles] = useState<Article[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -46,10 +48,10 @@ export const Blog = () => {
 
   return (
     <div className="blog-page">
-      <div className="blog-hero">
-        <h1 className="blog-hero-title">Our Blog</h1>
-        <p className="blog-hero-subtitle">
-          Discover the latest news, recipes, and stories from La Meusa
+      <div className="hero blog-hero-banner">
+        <h1 className="title hero-title relative">{t("blog.hero.title")}</h1>
+        <p className="description hero-description relative">
+          {t("blog.hero.description")}
         </p>
       </div>
 
@@ -57,7 +59,7 @@ export const Blog = () => {
         <div className="blog-search-section">
           <input
             type="text"
-            placeholder="Search articles..."
+            placeholder={t("blog.search")}
             value={searchQuery}
             onChange={handleSearchChange}
             className="blog-search-input"
@@ -66,12 +68,11 @@ export const Blog = () => {
 
         {isLoading ? (
           <div className="blog-loading">
-            <div className="blog-spinner"></div>
-            <p>Loading articles...</p>
+            <OceanLoader label={t("blog.loadingArticles")} />
           </div>
         ) : articles.length === 0 ? (
           <div className="blog-empty">
-            <p>No articles found. Check back soon!</p>
+            <p>{t("blog.empty")}</p>
           </div>
         ) : (
           <>
@@ -95,7 +96,7 @@ export const Blog = () => {
                     )}
                     <div className="blog-card-content">
                       <time className="blog-card-date">
-                        {new Date(article.created_date).toLocaleDateString("en-US", {
+                        {new Date(article.created_date).toLocaleDateString(dateLocaleFor(language), {
                           year: "numeric",
                           month: "long",
                           day: "numeric",
@@ -111,7 +112,7 @@ export const Blog = () => {
                         onClick={() => handleReadMore(article.id!)}
                         className="blog-card-button"
                       >
-                        Read More →
+                        {t("blog.readMore")} →
                       </button>
                     </div>
                   </article>
@@ -121,8 +122,8 @@ export const Blog = () => {
 
             {totalPages > 1 && (
               <ReactPaginate
-                previousLabel={"← Previous"}
-                nextLabel={"Next →"}
+                previousLabel={t("blog.pagination.previous")}
+                nextLabel={t("blog.pagination.next")}
                 breakLabel={"..."}
                 pageCount={totalPages}
                 marginPagesDisplayed={2}

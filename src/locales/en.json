@@ -750,6 +750,29 @@
             "orderButton": "Order Now"
         }
     },
+    "blog": {
+        "hero": {
+            "title": "Our Blog",
+            "description": "Discover the latest news, recipes, and stories from La Medusa"
+        },
+        "search": "Search articles...",
+        "loadingArticles": "Loading articles",
+        "loadingArticle": "Loading article",
+        "empty": "No articles found. Check back soon!",
+        "readMore": "Read More",
+        "pagination": {
+            "previous": "← Previous",
+            "next": "Next →"
+        },
+        "article": {
+            "back": "Back to all blogs",
+            "toc": "Table of Contents",
+            "notFound": "Article not found",
+            "loadFailed": "Failed to load article",
+            "oops": "Oops!",
+            "backToBlog": "Back to Blog"
+        }
+    },
     "seo": {
         "delivery": {
             "title": "Medusa Delivery – Order Online | La Medusa Los Cristianos",

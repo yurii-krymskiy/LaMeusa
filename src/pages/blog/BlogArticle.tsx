@@ -5,6 +5,8 @@ import { getArticleById } from "../../lib/article.service";
 import type { Article, ArticleLanguage } from "../../lib/article.types";
 import { resolveTranslation } from "../../lib/article.types";
 import { SEO } from "../../components/SEO";
+import { OceanLoader } from "../../components/blog/OceanLoader";
+import { dateLocaleFor } from "../../lib/dateLocale";
 import "./BlogArticle.css";
 
 interface TocItem {
@@ -31,19 +33,19 @@ const scrollToSection = (id: string, setActiveSectionId: (v: string) => void) =>
 export const BlogArticle = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const language = i18n.language as ArticleLanguage;
   const [article, setArticle] = useState<Article | null>(null);
   const [displayContent, setDisplayContent] = useState("");
   const [toc, setToc] = useState<TocItem[]>([]);
   const [activeSectionId, setActiveSectionId] = useState<string>("0");
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [errorKind, setErrorKind] = useState<"notFound" | "loadFailed" | null>(null);
 
   useEffect(() => {
     const fetchArticle = async () => {
       if (!id) {
-        setError("Article not found");
+        setErrorKind("notFound");
         setIsLoading(false);
         return;
       }
@@ -52,8 +54,8 @@ export const BlogArticle = () => {
       try {
         const fetchedArticle = await getArticleById(id);
         setArticle(fetchedArticle);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to load article");
+      } catch {
+        setErrorKind("loadFailed");
       } finally {
         setIsLoading(false);
       }
@@ -114,19 +116,18 @@ export const BlogArticle = () => {
   if (isLoading) {
     return (
       <div className="blog-article-loading">
-        <div className="blog-spinner"></div>
-        <p>Loading article...</p>
+        <OceanLoader label={t("blog.loadingArticle")} />
       </div>
     );
   }
 
-  if (error || !article || !translation) {
+  if (errorKind || !article || !translation) {
     return (
       <div className="blog-article-error">
-        <h2>Oops!</h2>
-        <p>{error || "Article not found"}</p>
+        <h2>{t("blog.article.oops")}</h2>
+        <p>{t(`blog.article.${errorKind ?? "notFound"}`)}</p>
         <button onClick={() => navigate("/blog")} className="blog-article-back-btn">
-          Back to Blog
+          {t("blog.article.backToBlog")}
         </button>
       </div>
     );
@@ -176,13 +177,13 @@ export const BlogArticle = () => {
       <div className="blog-article-sidebar">
         <button onClick={() => navigate("/blog")} className="blog-article-back">
           <span>←</span>
-          <span>Back to all blogs</span>
+          <span>{t("blog.article.back")}</span>
         </button>
 
         <h1 className="blog-article-sidebar-title">{translation.article_title}</h1>
 
         <time className="blog-article-sidebar-date">
-          {new Date(article.created_date).toLocaleDateString("en-US", {
+          {new Date(article.created_date).toLocaleDateString(dateLocaleFor(language), {
             year: "numeric",
             month: "long",
             day: "numeric",
@@ -191,7 +192,7 @@ export const BlogArticle = () => {
 
         {toc.length > 0 && (
           <div className="blog-article-toc">
-            <p className="blog-article-toc-title">TABLE OF CONTENTS</p>
+            <p className="blog-article-toc-title">{t("blog.article.toc")}</p>
             {toc.map((item, index) => (
               <h2
                 key={index}
@@ -210,7 +211,7 @@ export const BlogArticle = () => {
         <h2 className="blog-article-main-title">{translation.article_title}</h2>
 
         <time className="blog-article-main-date">
-          {new Date(article.created_date).toLocaleDateString("en-US", {
+          {new Date(article.created_date).toLocaleDateString(dateLocaleFor(language), {
             year: "numeric",
             month: "long",
             day: "numeric",
