@@ -180,7 +180,7 @@ const SeoChildrenMenu = () => {
             </section>
 
             {/* Menu */}
-            <MenuDelicios />
+            <MenuDelicios categorySlug="kids" />
 
             {/* Meets */}
             <section className="section">

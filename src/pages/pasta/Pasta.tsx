@@ -24,7 +24,7 @@ export const Pasta = () => {
             <PastaWhy />
             <PastaGallery />
             <PastaHours />
-            <MenuDelicios />
+            <MenuDelicios categorySlug="pasta" />
             <PastaMeets />
             <PastVideo />
 

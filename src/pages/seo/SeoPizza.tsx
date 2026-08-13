@@ -179,7 +179,7 @@ const SeoPizza = () => {
             </section>
 
             {/* Menu */}
-            <MenuDelicios />
+            <MenuDelicios categorySlug="pizza" />
 
             {/* Meets */}
             <section className="section">

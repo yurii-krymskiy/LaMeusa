@@ -1,5 +1,6 @@
 import { SEO } from "../../components/SEO";
 import { ButtonOpenReservation } from "../../components/features/reservation-form/ButtonOpenReservation";
+import { MenuDelicios } from "../menu/sections/MenuDelicios";
 
 const SeoSeafood = () => {
     return (
@@ -164,6 +165,9 @@ const SeoSeafood = () => {
                     </p>
                 </div>
             </section>
+
+            {/* Menu */}
+            <MenuDelicios categorySlug="fish" />
 
             {/* CTA */}
             <section className="section bg-white-100">

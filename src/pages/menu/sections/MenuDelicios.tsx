@@ -10,7 +10,12 @@ import { useMenuItems } from "../../../hooks/useMenuItems";
 import { CategoryTabsSkeleton } from "../../../components/features/menu/content/CategoryTabsSkeleton";
 import { MenuItemSkeletonGrid } from "../../../components/features/menu/content/item/MenuItemSkeleton";
 
-export const MenuDelicios = () => {
+type MenuDeliciosProps = {
+    // When set, show only this category (by slug) instead of the first 4
+    categorySlug?: string;
+};
+
+export const MenuDelicios = ({ categorySlug }: MenuDeliciosProps = {}) => {
     const { t } = useTranslation();
     const navigate = useNavigate();
     const location = useLocation().pathname;
@@ -20,8 +25,9 @@ export const MenuDelicios = () => {
         return new MenuResolver(items).resolve();
     }, [items]);
 
-    // Show only first 4 categories for this component
-    const categories = allCategories.slice(0, 4);
+    const categories = categorySlug
+        ? allCategories.filter((category) => category.slug === categorySlug)
+        : allCategories.slice(0, 4); // Show only first 4 categories for this component
 
     const [activeCategory, setActiveCategory] = useState("");
 
@@ -43,7 +49,7 @@ export const MenuDelicios = () => {
             ?.items ?? [];
 
     // Capitalize first letter of title
-    const capitalize = (str: string) => 
+    const capitalize = (str: string) =>
         str.charAt(0).toUpperCase() + str.slice(1);
 
     if (isLoading) {
@@ -55,12 +61,14 @@ export const MenuDelicios = () => {
                             <img
                                 src="/icons/star.svg"
                                 alt="star"
-                                className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
+                                className="mx-auto mb-1.5 size-[22px] lg:mb-6"
                             />
                         ) : (
                             <p className="decorative">Menu</p>
                         )}
-                        <h2 className="title section-title">{t("menu.delicious.title")}</h2>
+                        <h2 className="title section-title">
+                            {t("menu.delicious.title")}
+                        </h2>
                     </div>
 
                     <CategoryTabsSkeleton />
@@ -84,31 +92,37 @@ export const MenuDelicios = () => {
                         <img
                             src="/icons/star.svg"
                             alt="star"
-                            className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
+                            className="mx-auto mb-1.5 size-[22px] lg:mb-6"
                         />
                     ) : (
                         <p className="decorative">Menu</p>
                     )}
 
-                    <h2 className="title section-title">{t("menu.delicious.title")}</h2>
+                    <h2 className="title section-title">
+                        {t("menu.delicious.title")}
+                    </h2>
                 </div>
 
-                <div className="mb-11 flex flex-wrap justify-center gap-5">
-                    {categories.map((category) => {
-                        const isActive = category.slug === currentCategory;
-                        return (
-                            <button
-                                key={category.slug}
-                                type="button"
-                                onClick={() => setActiveCategory(category.slug)}
-                                className={`cursor-pointer text-lg lg:text-xl font-medium transition-colors hover:opacity-80 ${isActive ? "text-royal-blue font-semibold underline decoration-2 underline-offset-4" : "text-gray-700"}`}
-                                aria-pressed={isActive}
-                            >
-                                {capitalize(category.title)}
-                            </button>
-                        );
-                    })}
-                </div>
+                {categories.length > 1 && (
+                    <div className="mb-11 flex flex-wrap justify-center gap-5">
+                        {categories.map((category) => {
+                            const isActive = category.slug === currentCategory;
+                            return (
+                                <button
+                                    key={category.slug}
+                                    type="button"
+                                    onClick={() =>
+                                        setActiveCategory(category.slug)
+                                    }
+                                    className={`cursor-pointer text-lg font-medium transition-colors hover:opacity-80 lg:text-xl ${isActive ? "text-royal-blue font-semibold underline decoration-2 underline-offset-4" : "text-gray-700"}`}
+                                    aria-pressed={isActive}
+                                >
+                                    {capitalize(category.title)}
+                                </button>
+                            );
+                        })}
+                    </div>
+                )}
 
                 <article className="grid-col-1 mb-10 grid gap-x-10 gap-y-10 lg:grid-cols-2">
                     {activeItems.map((item) => (
@@ -116,7 +130,10 @@ export const MenuDelicios = () => {
                     ))}
                 </article>
                 <div className="text-center">
-                    <Button variant="blue" onClick={() => navigate(`/menu#${currentCategory}`)}>
+                    <Button
+                        variant="blue"
+                        onClick={() => navigate(`/menu#${currentCategory}`)}
+                    >
                         {t("menu.delicious.button")}
                     </Button>
                 </div>

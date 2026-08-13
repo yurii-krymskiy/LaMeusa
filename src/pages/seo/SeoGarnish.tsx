@@ -179,7 +179,7 @@ const SeoGarnish = () => {
             </section>
 
             {/* Menu */}
-            <MenuDelicios />
+            <MenuDelicios categorySlug="sauces" />
 
             {/* Meets */}
             <section className="section">

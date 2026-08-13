@@ -21,7 +21,7 @@ const Seafood = () => {
             />
             <SeafoodHero />
             <SeafoodPhilosophy />
-            <MenuDelicios />
+            <MenuDelicios categorySlug="fish" />
             <SeafoodHappyHours />
             <SeafoodWhy />
             <SeafoodGallery />
