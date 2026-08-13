@@ -1,27 +1,23 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SEO } from "../../components/SEO";
 import { ButtonOpenReservation } from "../../components/features/reservation-form/ButtonOpenReservation";
 import { Button } from "../../components/ui/Button";
 import { Breadcrumb } from "../../components/ui/Breadcrumb";
-import GallerySlider from "../../components/features/GallerySlider";
 import ScrollCircle from "../../components/features/ScrollCircle";
 import { MenuDelicios } from "../menu/sections/MenuDelicios";
+import { SeoKitchenSection } from "./components/SeoKitchenSection";
 import { Paths } from "../../router";
 
 const SeoDessert = () => {
     const navigate = useNavigate();
-
-    const slides = [
-        { src: "/images/pasta/image-2.webp", alt: "Gallery image 1" },
-        { src: "/images/pasta/image-3.webp", alt: "Gallery image 2" },
-        { src: "/images/pasta/image-4.webp", alt: "Gallery image 3" },
-    ];
+    const { t } = useTranslation();
 
     return (
         <>
             <SEO
-                title="Dessert in Los Cristianos, Tenerife | La Medusa"
-                description="Enjoy elegant dessert at La Medusa in Los Cristianos. Discover refined dessert in Tenerife, crafted with care and served in a beautiful seaside setting."
+                title={t("seoPages.dessert.meta.title")}
+                description={t("seoPages.dessert.meta.description")}
                 path="/dessert-los-cristianos"
             />
 
@@ -30,22 +26,28 @@ const SeoDessert = () => {
                 <div className="container">
                     <div className="mb-10 max-w-[800px]">
                         <h1 className="title hero-title md:!text-left">
-                            The Art of Dessert
+                            {t("seoPages.dessert.hero.title")}
                         </h1>
                         <p className="description hero-description !ml-0 md:!text-left">
-                            At La Medusa, dessert is more than the final course — it is the perfect ending to a memorable dining experience. Our kitchen creates each dessert with attention to flavour, texture and presentation, turning sweet moments into lasting memories.
+                            {t("seoPages.dessert.hero.description")}
                         </p>
                     </div>
-                    <div className="mb-20 flex gap-3 flex-wrap">
-                        <Button variant="white-outline" onClick={() => navigate("/menu")}>
-                            Explore Menu
+                    <div className="mb-20 flex flex-wrap gap-3">
+                        <Button
+                            variant="white-outline"
+                            onClick={() => navigate("/menu")}
+                        >
+                            {t("seoCommon.exploreMenu")}
                         </Button>
                         <ButtonOpenReservation
                             variant="default"
                             className="!text-white"
                         >
-                            <span>Reserve a Table</span>
-                            <img src="/icons/arrow-right.svg" className="size-7" />
+                            <span>{t("seoCommon.reserveTable")}</span>
+                            <img
+                                src="/icons/arrow-right.svg"
+                                className="size-7"
+                            />
                         </ButtonOpenReservation>
                     </div>
                 </div>
@@ -55,27 +57,29 @@ const SeoDessert = () => {
             <section className="section-breadcrumb">
                 <div className="container">
                     <Breadcrumb />
-                    <div className="mx-auto mb-5 lg:mb-10 max-w-[850px] text-center">
+                    <div className="mx-auto mb-5 max-w-[850px] text-center lg:mb-10">
                         <img
                             src="/icons/star.svg"
                             alt="star"
-                            className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
+                            className="mx-auto mb-1.5 size-[22px] lg:mb-6"
                         />
-                        <h2 className="title section-title">Our Philosophy of Dessert</h2>
-                        <p className="description hidden lg:inline-block section-description">
-                            Guests looking for an exceptional dessert in Los Cristianos will find elegance and creativity in every plate. If you are exploring refined dessert in Tenerife, La Medusa offers a sweet experience that complements the beauty of the oceanfront setting.
+                        <h2 className="title section-title">
+                            {t("seoPages.dessert.why.title")}
+                        </h2>
+                        <p className="description section-description hidden lg:inline-block">
+                            {t("seoPages.dessert.why.longDesc")}
                         </p>
-                        <p className="description lg:hidden section-description inline-block">
-                            Guests looking for an exceptional dessert in Los Cristianos will find elegance and creativity in every plate.
+                        <p className="description section-description inline-block lg:hidden">
+                            {t("seoPages.dessert.why.shortDesc")}
                         </p>
                     </div>
                     <img
-                        src="/images/pasta/image-1.webp"
-                        alt="The Art of Dessert"
-                        className="mb-5 lg:mb-10 min-h-[225px] object-cover"
+                        src="/images/home-slider/img9.jpeg"
+                        alt={t("seoPages.dessert.hero.title")}
+                        className="mb-5 min-h-[225px] object-cover lg:mb-10"
                     />
 
-                    <div className="mb-5 lg:mb-10 flex flex-col gap-5 lg:gap-14 md:flex-row">
+                    <div className="mb-5 flex flex-col gap-5 md:flex-row lg:mb-10 lg:gap-14">
                         <div className="text-center">
                             <img
                                 src="/icons/fruit.svg"
@@ -83,10 +87,10 @@ const SeoDessert = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Carefully Selected Ingredients
+                                    {t("seoPages.dessert.why.feature1Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    Every dessert is prepared with fresh ingredients chosen for their natural sweetness and balance.
+                                    {t("seoPages.dessert.why.feature1Desc")}
                                 </p>
                             </div>
                         </div>
@@ -97,10 +101,10 @@ const SeoDessert = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Mediterranean Inspiration
+                                    {t("seoPages.dessert.why.feature2Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    Guests enjoying dessert in Tenerife will notice subtle Mediterranean influences that make our creations unique.
+                                    {t("seoPages.dessert.why.feature2Desc")}
                                 </p>
                             </div>
                         </div>
@@ -111,10 +115,10 @@ const SeoDessert = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    The Perfect Ending
+                                    {t("seoPages.dessert.why.feature3Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    Across the Mediterranean, dessert represents celebration and shared joy. At La Medusa, we embrace this tradition by offering sweet creations designed to complete your dining experience beautifully.
+                                    {t("seoPages.dessert.why.feature3Desc")}
                                 </p>
                             </div>
                         </div>
@@ -122,29 +126,13 @@ const SeoDessert = () => {
 
                     <div className="flex flex-wrap justify-center gap-5 md:gap-10">
                         <ButtonOpenReservation variant="blue">
-                            Reserve a Table
+                            {t("seoCommon.reserveTable")}
                         </ButtonOpenReservation>
                         <Button variant="blue-outline" to={Paths.contact}>
-                            Contact Us
+                            {t("seoCommon.contactUs")}
                         </Button>
                     </div>
                 </div>
-            </section>
-
-            {/* Gallery */}
-            <section className="flex flex-col items-center py-10 lg:py-15">
-                <div className="container !max-w-[765px]">
-                    <span className="decorative mx-auto block text-center text-[34px]">
-                        Sweet Moments
-                    </span>
-                    <h2 className="title section-title lg:my-6 mt-1 mb-3 text-center text-[48px]">
-                        A Sweet Moment to Remember
-                    </h2>
-                    <p className="description section-description mb-5 lg:mb-10 text-center">
-                        A well-prepared dessert has the power to transform a meal into a celebration. Whether enjoyed after dinner or as a special treat, our dessert in Los Cristianos offers the perfect finishing touch.
-                    </p>
-                </div>
-                <GallerySlider slides={slides} />
             </section>
 
             {/* Hours */}
@@ -152,25 +140,27 @@ const SeoDessert = () => {
                 <div className="container">
                     <div className="flex flex-col items-center gap-5 lg:flex-row lg:gap-24">
                         <img
-                            src="/images/pasta/image-5.webp"
+                            src="/IMG_3093.jpeg"
                             loading="lazy"
-                            alt="Atmosphere by the Ocean"
-                            className="max-w-[620px]"
+                            alt={t("seoPages.dessert.hours.title")}
+                            className="max-h-[500px] max-w-[620px] object-cover lg:max-h-[600px]"
                         />
 
                         <div>
                             <div className="mb-5 lg:mb-10">
                                 <h2 className="section-title title mb-7 inline-block">
-                                    Atmosphere by the Ocean
+                                    {t("seoPages.dessert.hours.title")}
                                 </h2>
                                 <p className="section-description description">
-                                    Among the many places serving dessert in Tenerife, La Medusa stands out for its elegant atmosphere and dedication to quality. Every dessert is carefully presented to delight both the eyes and the palate.
+                                    {t("seoPages.dessert.hours.description")}
                                 </p>
                             </div>
                             <div className="flex flex-wrap gap-6">
-                                <Button to="/happy-hours" variant="blue">View Happy Hours</Button>
+                                <Button to="/happy-hours" variant="blue">
+                                    {t("seoCommon.viewHappyHours")}
+                                </Button>
                                 <ButtonOpenReservation variant="blue-outline">
-                                    Book Now
+                                    {t("seoCommon.bookNow")}
                                 </ButtonOpenReservation>
                             </div>
                         </div>
@@ -182,52 +172,26 @@ const SeoDessert = () => {
             <MenuDelicios categorySlug="dessert" />
 
             {/* Meets */}
-            <section className="section">
-                <div className="container">
-                    <div className="mb-5 lg:mb-10 text-center">
-                        <span className="decorative mb-2.5">
-                            Our Promise
-                        </span>
-                        <h2 className="title section-title">
-                            Sweetness with Sophistication
-                        </h2>
-                    </div>
-
-                    <div className="flex flex-col gap-5 lg:gap-14 md:flex-row">
-                        <div className="max-w-[740px]">
-                            <img
-                                src="/images/pasta/image-6.webp"
-                                alt=""
-                                className="mb-6 min-h-[200px] object-cover"
-                            />
-                            <p className="section-description description mb-4">
-                                Great dessert begins with balance. At La Medusa, we combine quality ingredients with thoughtful preparation to create flavours that feel both rich and delicate.
-                            </p>
-                            <p className="section-description description mb-4">
-                                Each dessert reflects the spirit of Mediterranean cuisine — simple yet refined. Visitors searching for memorable dessert in Los Cristianos often discover that our creations bring together tradition and modern presentation.
-                            </p>
-                            <p className="section-description description">
-                                For those enjoying dessert in Tenerife, La Medusa offers sweetness that feels sophisticated rather than overwhelming.
-                            </p>
-                        </div>
-                        <div>
-                            <img
-                                src="/images/pasta/image-7.webp"
-                                className="h-full object-cover"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <SeoKitchenSection
+                decorative={t("seoPages.dessert.kitchen.decorative")}
+                title={t("seoPages.dessert.kitchen.title")}
+                image1="/IMG_3440.jpeg"
+                image2="/IMG_3438.jpeg"
+                paragraphs={[
+                    t("seoPages.dessert.kitchen.p1"),
+                    t("seoPages.dessert.kitchen.p2"),
+                    t("seoPages.dessert.kitchen.p3"),
+                ]}
+            />
 
             {/* Video */}
-            <section className="bg-[url('/images/pasta/image-8.webp')] grid items-center bg-cover bg-no-repeat py-9 md:py-[151px] px-4">
-                <div className="mx-auto max-w-[850px] text-center flex-col flex items-center">
+            <section className="grid items-center bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/IMG_3083.jpeg')] bg-cover bg-no-repeat px-4 py-9 md:py-[151px]">
+                <div className="mx-auto flex max-w-[850px] flex-col items-center text-center">
                     <h2 className="section-title title mb-7 text-white">
-                        The Sweetest Finale
+                        {t("seoPages.dessert.video.title")}
                     </h2>
                     <p className="description section-description mb-14 inline-block text-white">
-                        For guests discovering dessert in Tenerife, our restaurant provides a moment of indulgence where flavour, atmosphere and hospitality come together.
+                        {t("seoPages.dessert.video.description")}
                     </p>
 
                     <ScrollCircle />
@@ -246,20 +210,20 @@ const SeoDessert = () => {
                     <div className="lg:-ml-10">
                         <div className="mb-5 lg:mb-10">
                             <span className="decorative mb-2.5">
-                                Join Us
+                                {t("seoCommon.joinUs")}
                             </span>
                             <h2 className="title section-title">
-                                Finish Your Evening in Style
+                                {t("seoPages.dessert.reserve.title")}
                             </h2>
                             <p className="description section-description mb-2">
-                                Reserve your table and enjoy an unforgettable dessert in Los Cristianos at La Medusa.
+                                {t("seoPages.dessert.reserve.p1")}
                             </p>
                             <p className="description section-description">
-                                Your experience of elegant dessert in Tenerife will be a moment you will want to relive — where sweetness, atmosphere and Mediterranean charm create the perfect ending to your meal.
+                                {t("seoPages.dessert.reserve.p2")}
                             </p>
                         </div>
                         <ButtonOpenReservation variant="blue">
-                            Book a Table
+                            {t("seoCommon.bookATable")}
                         </ButtonOpenReservation>
                     </div>
                 </div>

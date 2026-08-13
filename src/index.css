@@ -157,11 +157,16 @@
 }
 
 .happy-hours-hero {
-    @apply flex flex-col items-start justify-center bg-[url('/images/happy-hours/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp')] bg-bottom pt-8;
+    @apply relative flex flex-col items-start justify-center bg-[url('/images/home/gallery-1.jpg')] bg-center bg-cover pt-8;
 }
 
-.happy-hours-hero {
-    @apply flex flex-col items-start justify-center bg-[url('/images/pasta/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp')] bg-bottom pt-8;
+.happy-hours-hero::before {
+    content: "";
+    @apply absolute inset-0 bg-black/50;
+}
+
+.happy-hours-hero > * {
+    @apply relative;
 }
 
 .menu-hero {

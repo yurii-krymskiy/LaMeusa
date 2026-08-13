@@ -1,27 +1,23 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SEO } from "../../components/SEO";
 import { ButtonOpenReservation } from "../../components/features/reservation-form/ButtonOpenReservation";
 import { Button } from "../../components/ui/Button";
 import { Breadcrumb } from "../../components/ui/Breadcrumb";
-import GallerySlider from "../../components/features/GallerySlider";
 import ScrollCircle from "../../components/features/ScrollCircle";
 import { MenuDelicios } from "../menu/sections/MenuDelicios";
+import { SeoKitchenSection } from "./components/SeoKitchenSection";
 import { Paths } from "../../router";
 
 const SeoTapas = () => {
     const navigate = useNavigate();
-
-    const slides = [
-        { src: "/images/pasta/image-2.webp", alt: "Gallery image 1" },
-        { src: "/images/pasta/image-3.webp", alt: "Gallery image 2" },
-        { src: "/images/pasta/image-4.webp", alt: "Gallery image 3" },
-    ];
+    const { t } = useTranslation();
 
     return (
         <>
             <SEO
-                title="Tapas and Appetizers in Los Cristianos, Tenerife | La Medusa"
-                description="Enjoy tapas and appetizers in Los Cristianos at La Medusa. Discover refined tapas and appetizers in Tenerife with Mediterranean flavours and ocean views."
+                title={t("seoPages.tapas.meta.title")}
+                description={t("seoPages.tapas.meta.description")}
                 path="/tapas-appetizers-los-cristianos"
             />
 
@@ -30,22 +26,28 @@ const SeoTapas = () => {
                 <div className="container">
                     <div className="mb-10 max-w-[800px]">
                         <h1 className="title hero-title md:!text-left">
-                            Discover the Flavour of Tapas and Appetizers
+                            {t("seoPages.tapas.hero.title")}
                         </h1>
                         <p className="description hero-description !ml-0 md:!text-left">
-                            At La Medusa, tapas and appetizers are the perfect way to begin your culinary journey. Inspired by Mediterranean traditions, our small plates bring together fresh ingredients, vibrant flavours and elegant presentation.
+                            {t("seoPages.tapas.hero.description")}
                         </p>
                     </div>
-                    <div className="mb-20 flex gap-3 flex-wrap">
-                        <Button variant="white-outline" onClick={() => navigate("/menu")}>
-                            Explore Menu
+                    <div className="mb-20 flex flex-wrap gap-3">
+                        <Button
+                            variant="white-outline"
+                            onClick={() => navigate("/menu")}
+                        >
+                            {t("seoCommon.exploreMenu")}
                         </Button>
                         <ButtonOpenReservation
                             variant="default"
                             className="!text-white"
                         >
-                            <span>Reserve a Table</span>
-                            <img src="/icons/arrow-right.svg" className="size-7" />
+                            <span>{t("seoCommon.reserveTable")}</span>
+                            <img
+                                src="/icons/arrow-right.svg"
+                                className="size-7"
+                            />
                         </ButtonOpenReservation>
                     </div>
                 </div>
@@ -55,27 +57,29 @@ const SeoTapas = () => {
             <section className="section-breadcrumb">
                 <div className="container">
                     <Breadcrumb />
-                    <div className="mx-auto mb-5 lg:mb-10 max-w-[850px] text-center">
+                    <div className="mx-auto mb-5 max-w-[850px] text-center lg:mb-10">
                         <img
                             src="/icons/star.svg"
                             alt="star"
-                            className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
+                            className="mx-auto mb-1.5 size-[22px] lg:mb-6"
                         />
-                        <h2 className="title section-title">Our Philosophy of Tapas and Appetizers</h2>
-                        <p className="description hidden lg:inline-block section-description">
-                            If you are looking for memorable tapas and appetizers in Los Cristianos, our oceanfront restaurant offers a relaxed yet refined experience. For guests exploring exceptional tapas and appetizers in Tenerife, La Medusa creates dishes that celebrate the spirit of sharing and discovery.
+                        <h2 className="title section-title">
+                            {t("seoPages.tapas.why.title")}
+                        </h2>
+                        <p className="description section-description hidden lg:inline-block">
+                            {t("seoPages.tapas.why.longDesc")}
                         </p>
-                        <p className="description lg:hidden section-description inline-block">
-                            If you are looking for memorable tapas and appetizers in Los Cristianos, our oceanfront restaurant offers a relaxed yet refined experience.
+                        <p className="description section-description inline-block lg:hidden">
+                            {t("seoPages.tapas.why.shortDesc")}
                         </p>
                     </div>
                     <img
-                        src="/images/pasta/image-1.webp"
-                        alt="Discover the Flavour of Tapas and Appetizers"
-                        className="mb-5 lg:mb-10 min-h-[225px] object-cover"
+                        src="/images/home-slider/img9.jpeg"
+                        alt={t("seoPages.tapas.hero.title")}
+                        className="mb-5 min-h-[225px] object-cover lg:mb-10"
                     />
 
-                    <div className="mb-5 lg:mb-10 flex flex-col gap-5 lg:gap-14 md:flex-row">
+                    <div className="mb-5 flex flex-col gap-5 md:flex-row lg:mb-10 lg:gap-14">
                         <div className="text-center">
                             <img
                                 src="/icons/fruit.svg"
@@ -83,10 +87,10 @@ const SeoTapas = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Fresh Ingredients
+                                    {t("seoPages.tapas.why.feature1Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    Our tapas and appetizers in Los Cristianos are prepared using high-quality seasonal products to ensure freshness and flavour.
+                                    {t("seoPages.tapas.why.feature1Desc")}
                                 </p>
                             </div>
                         </div>
@@ -97,10 +101,10 @@ const SeoTapas = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Oceanfront Atmosphere
+                                    {t("seoPages.tapas.why.feature2Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    As a destination for tapas and appetizers in Tenerife, our restaurant offers beautiful sea views that make every bite more memorable.
+                                    {t("seoPages.tapas.why.feature2Desc")}
                                 </p>
                             </div>
                         </div>
@@ -111,10 +115,10 @@ const SeoTapas = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Warm Hospitality
+                                    {t("seoPages.tapas.why.feature3Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    Our team takes care of every detail, ensuring your experience with tapas and appetizers in Los Cristianos is welcoming, relaxed and enjoyable.
+                                    {t("seoPages.tapas.why.feature3Desc")}
                                 </p>
                             </div>
                         </div>
@@ -122,29 +126,13 @@ const SeoTapas = () => {
 
                     <div className="flex flex-wrap justify-center gap-5 md:gap-10">
                         <ButtonOpenReservation variant="blue">
-                            Reserve a Table
+                            {t("seoCommon.reserveTable")}
                         </ButtonOpenReservation>
                         <Button variant="blue-outline" to={Paths.contact}>
-                            Contact Us
+                            {t("seoCommon.contactUs")}
                         </Button>
                     </div>
                 </div>
-            </section>
-
-            {/* Gallery */}
-            <section className="flex flex-col items-center py-10 lg:py-15">
-                <div className="container !max-w-[765px]">
-                    <span className="decorative mx-auto block text-center text-[34px]">
-                        Sharing & Discovery
-                    </span>
-                    <h2 className="title section-title lg:my-6 mt-1 mb-3 text-center text-[48px]">
-                        Small Plates, Big Experience
-                    </h2>
-                    <p className="description section-description mb-5 lg:mb-10 text-center">
-                        Great tapas and appetizers are designed to be shared and enjoyed slowly. Whether you are starting a meal or enjoying a light evening by the sea, our selection offers variety and elegance.
-                    </p>
-                </div>
-                <GallerySlider slides={slides} />
             </section>
 
             {/* Hours */}
@@ -152,25 +140,27 @@ const SeoTapas = () => {
                 <div className="container">
                     <div className="flex flex-col items-center gap-5 lg:flex-row lg:gap-24">
                         <img
-                            src="/images/pasta/image-5.webp"
+                            src="/IMG_3093.jpeg"
                             loading="lazy"
-                            alt="A Taste of Mediterranean Culture"
-                            className="max-w-[620px]"
+                            alt={t("seoPages.tapas.hours.title")}
+                            className="max-h-[500px] max-w-[620px] object-cover lg:max-h-[600px]"
                         />
 
                         <div>
                             <div className="mb-5 lg:mb-10">
                                 <h2 className="section-title title mb-7 inline-block">
-                                    A Taste of Mediterranean Culture
+                                    {t("seoPages.tapas.hours.title")}
                                 </h2>
                                 <p className="section-description description">
-                                    We believe that the best tapas and appetizers are simple, fresh and full of character. At La Medusa, each plate is carefully prepared to highlight natural ingredients and balanced flavours.
+                                    {t("seoPages.tapas.hours.description")}
                                 </p>
                             </div>
                             <div className="flex flex-wrap gap-6">
-                                <Button to="/happy-hours" variant="blue">View Happy Hours</Button>
+                                <Button to="/happy-hours" variant="blue">
+                                    {t("seoCommon.viewHappyHours")}
+                                </Button>
                                 <ButtonOpenReservation variant="blue-outline">
-                                    Book Now
+                                    {t("seoCommon.bookNow")}
                                 </ButtonOpenReservation>
                             </div>
                         </div>
@@ -182,52 +172,26 @@ const SeoTapas = () => {
             <MenuDelicios categorySlug="tapas" />
 
             {/* Meets */}
-            <section className="section">
-                <div className="container">
-                    <div className="mb-5 lg:mb-10 text-center">
-                        <span className="decorative mb-2.5">
-                            Our Philosophy
-                        </span>
-                        <h2 className="title section-title">
-                            Flavour, Atmosphere and Hospitality
-                        </h2>
-                    </div>
-
-                    <div className="flex flex-col gap-5 lg:gap-14 md:flex-row">
-                        <div className="max-w-[740px]">
-                            <img
-                                src="/images/pasta/image-6.webp"
-                                alt=""
-                                className="mb-6 min-h-[200px] object-cover"
-                            />
-                            <p className="section-description description mb-4">
-                                Our approach to tapas and appetizers in Los Cristianos blends Mediterranean inspiration with contemporary creativity.
-                            </p>
-                            <p className="section-description description mb-4">
-                                Among the many places serving tapas and appetizers in Tenerife, La Medusa stands out for its atmosphere, presentation and attention to detail.
-                            </p>
-                            <p className="section-description description">
-                                For guests exploring tapas and appetizers in Tenerife, our restaurant offers a place where flavour, atmosphere and hospitality meet.
-                            </p>
-                        </div>
-                        <div>
-                            <img
-                                src="/images/pasta/image-7.webp"
-                                className="h-full object-cover"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <SeoKitchenSection
+                decorative={t("seoPages.tapas.kitchen.decorative")}
+                title={t("seoPages.tapas.kitchen.title")}
+                image1="/IMG_3440.jpeg"
+                image2="/IMG_3438.jpeg"
+                paragraphs={[
+                    t("seoPages.tapas.kitchen.p1"),
+                    t("seoPages.tapas.kitchen.p2"),
+                    t("seoPages.tapas.kitchen.p3"),
+                ]}
+            />
 
             {/* Video */}
-            <section className="bg-[url('/images/pasta/image-8.webp')] grid items-center bg-cover bg-no-repeat py-9 md:py-[151px] px-4">
-                <div className="mx-auto max-w-[850px] text-center flex-col flex items-center">
+            <section className="grid items-center bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/IMG_3083.jpeg')] bg-cover bg-no-repeat px-4 py-9 md:py-[151px]">
+                <div className="mx-auto flex max-w-[850px] flex-col items-center text-center">
                     <h2 className="section-title title mb-7 text-white">
-                        Mediterranean Spirit on Every Plate
+                        {t("seoPages.tapas.video.title")}
                     </h2>
                     <p className="description section-description mb-14 inline-block text-white">
-                        Sharing tapas and appetizers is part of Mediterranean lifestyle and tradition. At La Medusa, we bring that culture to life in every plate.
+                        {t("seoPages.tapas.video.description")}
                     </p>
 
                     <ScrollCircle />
@@ -246,20 +210,20 @@ const SeoTapas = () => {
                     <div className="lg:-ml-10">
                         <div className="mb-5 lg:mb-10">
                             <span className="decorative mb-2.5">
-                                Join Us
+                                {t("seoCommon.joinUs")}
                             </span>
                             <h2 className="title section-title">
-                                Begin Your Evening at La Medusa
+                                {t("seoPages.tapas.reserve.title")}
                             </h2>
                             <p className="description section-description mb-2">
-                                Reserve your table and enjoy refined tapas and appetizers in Los Cristianos in an elegant seaside setting.
+                                {t("seoPages.tapas.reserve.p1")}
                             </p>
                             <p className="description section-description">
-                                Your experience of tapas and appetizers in Tenerife at La Medusa will be a moment of flavour, conversation and Mediterranean charm you will want to return to again.
+                                {t("seoPages.tapas.reserve.p2")}
                             </p>
                         </div>
                         <ButtonOpenReservation variant="blue">
-                            Book a Table
+                            {t("seoCommon.bookATable")}
                         </ButtonOpenReservation>
                     </div>
                 </div>

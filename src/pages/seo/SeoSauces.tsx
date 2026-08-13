@@ -1,27 +1,23 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SEO } from "../../components/SEO";
 import { ButtonOpenReservation } from "../../components/features/reservation-form/ButtonOpenReservation";
 import { Button } from "../../components/ui/Button";
 import { Breadcrumb } from "../../components/ui/Breadcrumb";
-import GallerySlider from "../../components/features/GallerySlider";
 import ScrollCircle from "../../components/features/ScrollCircle";
 import { MenuDelicios } from "../menu/sections/MenuDelicios";
+import { SeoKitchenSection } from "./components/SeoKitchenSection";
 import { Paths } from "../../router";
 
 const SeoSauces = () => {
     const navigate = useNavigate();
-
-    const slides = [
-        { src: "/images/pasta/image-2.webp", alt: "Gallery image 1" },
-        { src: "/images/pasta/image-3.webp", alt: "Gallery image 2" },
-        { src: "/images/pasta/image-4.webp", alt: "Gallery image 3" },
-    ];
+    const { t } = useTranslation();
 
     return (
         <>
             <SEO
-                title="Sauces and Adds in Los Cristianos, Tenerife | La Medusa"
-                description="Discover sauces and adds at La Medusa in Los Cristianos. Enhance your meal in Tenerife with carefully crafted sauces and flavourful additions."
+                title={t("seoPages.sauces.meta.title")}
+                description={t("seoPages.sauces.meta.description")}
                 path="/sauces-adds-los-cristianos"
             />
 
@@ -30,22 +26,28 @@ const SeoSauces = () => {
                 <div className="container">
                     <div className="mb-10 max-w-[800px]">
                         <h1 className="title hero-title md:!text-left">
-                            The Perfect Touch: Sauces and Adds
+                            {t("seoPages.sauces.hero.title")}
                         </h1>
                         <p className="description hero-description !ml-0 md:!text-left">
-                            At La Medusa, sauces and adds play an important role in completing the flavour of every dish. These small yet essential details allow guests to personalise their meals and enjoy a richer culinary experience.
+                            {t("seoPages.sauces.hero.description")}
                         </p>
                     </div>
-                    <div className="mb-20 flex gap-3 flex-wrap">
-                        <Button variant="white-outline" onClick={() => navigate("/menu")}>
-                            Explore Menu
+                    <div className="mb-20 flex flex-wrap gap-3">
+                        <Button
+                            variant="white-outline"
+                            onClick={() => navigate("/menu")}
+                        >
+                            {t("seoCommon.exploreMenu")}
                         </Button>
                         <ButtonOpenReservation
                             variant="default"
                             className="!text-white"
                         >
-                            <span>Reserve a Table</span>
-                            <img src="/icons/arrow-right.svg" className="size-7" />
+                            <span>{t("seoCommon.reserveTable")}</span>
+                            <img
+                                src="/icons/arrow-right.svg"
+                                className="size-7"
+                            />
                         </ButtonOpenReservation>
                     </div>
                 </div>
@@ -55,27 +57,29 @@ const SeoSauces = () => {
             <section className="section-breadcrumb">
                 <div className="container">
                     <Breadcrumb />
-                    <div className="mx-auto mb-5 lg:mb-10 max-w-[850px] text-center">
+                    <div className="mx-auto mb-5 max-w-[850px] text-center lg:mb-10">
                         <img
                             src="/icons/star.svg"
                             alt="star"
-                            className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
+                            className="mx-auto mb-1.5 size-[22px] lg:mb-6"
                         />
-                        <h2 className="title section-title">Our Philosophy of Sauces and Adds</h2>
-                        <p className="description hidden lg:inline-block section-description">
-                            Whether you are enhancing a main course or adding a finishing touch, our sauces and adds bring balance, aroma and character to every plate. Guests exploring flavourful dining options in Los Cristianos often appreciate the thoughtful selection available at La Medusa.
+                        <h2 className="title section-title">
+                            {t("seoPages.sauces.why.title")}
+                        </h2>
+                        <p className="description section-description hidden lg:inline-block">
+                            {t("seoPages.sauces.why.longDesc")}
                         </p>
-                        <p className="description lg:hidden section-description inline-block">
-                            Whether you are enhancing a main course or adding a finishing touch, our sauces and adds bring balance, aroma and character to every plate.
+                        <p className="description section-description inline-block lg:hidden">
+                            {t("seoPages.sauces.why.shortDesc")}
                         </p>
                     </div>
                     <img
-                        src="/images/pasta/image-1.webp"
-                        alt="The Perfect Touch: Sauces and Adds"
-                        className="mb-5 lg:mb-10 min-h-[225px] object-cover"
+                        src="/images/home-slider/img9.jpeg"
+                        alt={t("seoPages.sauces.hero.title")}
+                        className="mb-5 min-h-[225px] object-cover lg:mb-10"
                     />
 
-                    <div className="mb-5 lg:mb-10 flex flex-col gap-5 lg:gap-14 md:flex-row">
+                    <div className="mb-5 flex flex-col gap-5 md:flex-row lg:mb-10 lg:gap-14">
                         <div className="text-center">
                             <img
                                 src="/icons/fruit.svg"
@@ -83,10 +87,10 @@ const SeoSauces = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Crafted with Care
+                                    {t("seoPages.sauces.why.feature1Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    Our sauces and adds are prepared with quality ingredients to ensure balanced and authentic flavour.
+                                    {t("seoPages.sauces.why.feature1Desc")}
                                 </p>
                             </div>
                         </div>
@@ -97,10 +101,10 @@ const SeoSauces = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Complementing Every Dish
+                                    {t("seoPages.sauces.why.feature2Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    Each of our sauces and adds is designed to pair perfectly with a variety of dishes across the menu.
+                                    {t("seoPages.sauces.why.feature2Desc")}
                                 </p>
                             </div>
                         </div>
@@ -111,10 +115,10 @@ const SeoSauces = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Attention to Detail
+                                    {t("seoPages.sauces.why.feature3Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    We believe that thoughtful sauces and adds can elevate a meal from enjoyable to unforgettable.
+                                    {t("seoPages.sauces.why.feature3Desc")}
                                 </p>
                             </div>
                         </div>
@@ -122,29 +126,13 @@ const SeoSauces = () => {
 
                     <div className="flex flex-wrap justify-center gap-5 md:gap-10">
                         <ButtonOpenReservation variant="blue">
-                            Reserve a Table
+                            {t("seoCommon.reserveTable")}
                         </ButtonOpenReservation>
                         <Button variant="blue-outline" to={Paths.contact}>
-                            Contact Us
+                            {t("seoCommon.contactUs")}
                         </Button>
                     </div>
                 </div>
-            </section>
-
-            {/* Gallery */}
-            <section className="flex flex-col items-center py-10 lg:py-15">
-                <div className="container !max-w-[765px]">
-                    <span className="decorative mx-auto block text-center text-[34px]">
-                        Personalise
-                    </span>
-                    <h2 className="title section-title lg:my-6 mt-1 mb-3 text-center text-[48px]">
-                        Enhance Your Dining Experience
-                    </h2>
-                    <p className="description section-description mb-5 lg:mb-10 text-center">
-                        The right sauces and adds allow every guest to tailor their meal to their personal taste. From subtle flavour accents to richer combinations, these additions create new layers of enjoyment.
-                    </p>
-                </div>
-                <GallerySlider slides={slides} />
             </section>
 
             {/* Hours */}
@@ -152,25 +140,27 @@ const SeoSauces = () => {
                 <div className="container">
                     <div className="flex flex-col items-center gap-5 lg:flex-row lg:gap-24">
                         <img
-                            src="/images/pasta/image-5.webp"
+                            src="/IMG_3093.jpeg"
                             loading="lazy"
-                            alt="A Small Detail with a Big Impact"
-                            className="max-w-[620px]"
+                            alt={t("seoPages.sauces.hours.title")}
+                            className="max-h-[500px] max-w-[620px] object-cover lg:max-h-[600px]"
                         />
 
                         <div>
                             <div className="mb-5 lg:mb-10">
                                 <h2 className="section-title title mb-7 inline-block">
-                                    A Small Detail with a Big Impact
+                                    {t("seoPages.sauces.hours.title")}
                                 </h2>
                                 <p className="section-description description">
-                                    Though often overlooked, sauces and adds are essential to a complete dining experience. At La Medusa, we ensure these elements reflect the same level of care and creativity as the main dishes.
+                                    {t("seoPages.sauces.hours.description")}
                                 </p>
                             </div>
                             <div className="flex flex-wrap gap-6">
-                                <Button to="/happy-hours" variant="blue">View Happy Hours</Button>
+                                <Button to="/happy-hours" variant="blue">
+                                    {t("seoCommon.viewHappyHours")}
+                                </Button>
                                 <ButtonOpenReservation variant="blue-outline">
-                                    Book Now
+                                    {t("seoCommon.bookNow")}
                                 </ButtonOpenReservation>
                             </div>
                         </div>
@@ -182,52 +172,26 @@ const SeoSauces = () => {
             <MenuDelicios categorySlug="sauces" />
 
             {/* Meets */}
-            <section className="section">
-                <div className="container">
-                    <div className="mb-5 lg:mb-10 text-center">
-                        <span className="decorative mb-2.5">
-                            Every Detail Matters
-                        </span>
-                        <h2 className="title section-title">
-                            Flavour That Completes the Meal
-                        </h2>
-                    </div>
-
-                    <div className="flex flex-col gap-5 lg:gap-14 md:flex-row">
-                        <div className="max-w-[740px]">
-                            <img
-                                src="/images/pasta/image-6.webp"
-                                alt=""
-                                className="mb-6 min-h-[200px] object-cover"
-                            />
-                            <p className="section-description description mb-4">
-                                Great cuisine is often defined by its details. At La Medusa, our sauces and adds are carefully prepared to complement the natural flavours of each dish.
-                            </p>
-                            <p className="section-description description mb-4">
-                                Every element is designed to enhance rather than overpower. Our chefs believe that well-balanced sauces and adds can transform a meal.
-                            </p>
-                            <p className="section-description description">
-                                Guests dining in Tenerife discover that our sauces and adds add personality and depth to every plate.
-                            </p>
-                        </div>
-                        <div>
-                            <img
-                                src="/images/pasta/image-7.webp"
-                                className="h-full object-cover"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <SeoKitchenSection
+                decorative={t("seoPages.sauces.kitchen.decorative")}
+                title={t("seoPages.sauces.kitchen.title")}
+                image1="/IMG_3440.jpeg"
+                image2="/IMG_3438.jpeg"
+                paragraphs={[
+                    t("seoPages.sauces.kitchen.p1"),
+                    t("seoPages.sauces.kitchen.p2"),
+                    t("seoPages.sauces.kitchen.p3"),
+                ]}
+            />
 
             {/* Video */}
-            <section className="bg-[url('/images/pasta/image-8.webp')] grid items-center bg-cover bg-no-repeat py-9 md:py-[151px] px-4">
-                <div className="mx-auto max-w-[850px] text-center flex-col flex items-center">
+            <section className="grid items-center bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/IMG_3083.jpeg')] bg-cover bg-no-repeat px-4 py-9 md:py-[151px]">
+                <div className="mx-auto flex max-w-[850px] flex-col items-center text-center">
                     <h2 className="section-title title mb-7 text-white">
-                        The Finishing Touch
+                        {t("seoPages.sauces.video.title")}
                     </h2>
                     <p className="description section-description mb-14 inline-block text-white">
-                        Visitors dining in Los Cristianos often appreciate the freedom to customise their plates with our selection of sauces and adds, making each visit feel unique and personal.
+                        {t("seoPages.sauces.video.description")}
                     </p>
 
                     <ScrollCircle />
@@ -246,20 +210,20 @@ const SeoSauces = () => {
                     <div className="lg:-ml-10">
                         <div className="mb-5 lg:mb-10">
                             <span className="decorative mb-2.5">
-                                Join Us
+                                {t("seoCommon.joinUs")}
                             </span>
                             <h2 className="title section-title">
-                                Complete Your Meal at La Medusa
+                                {t("seoPages.sauces.reserve.title")}
                             </h2>
                             <p className="description section-description mb-2">
-                                Reserve your table and explore the flavours that thoughtful sauces and adds can bring to your meal.
+                                {t("seoPages.sauces.reserve.p1")}
                             </p>
                             <p className="description section-description">
-                                At La Medusa, every detail matters — from the main dish to the carefully prepared sauces and adds that make each bite memorable.
+                                {t("seoPages.sauces.reserve.p2")}
                             </p>
                         </div>
                         <ButtonOpenReservation variant="blue">
-                            Book a Table
+                            {t("seoCommon.bookATable")}
                         </ButtonOpenReservation>
                     </div>
                 </div>

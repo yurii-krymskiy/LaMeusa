@@ -1,27 +1,23 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SEO } from "../../components/SEO";
 import { ButtonOpenReservation } from "../../components/features/reservation-form/ButtonOpenReservation";
 import { Button } from "../../components/ui/Button";
 import { Breadcrumb } from "../../components/ui/Breadcrumb";
-import GallerySlider from "../../components/features/GallerySlider";
 import ScrollCircle from "../../components/features/ScrollCircle";
 import { MenuDelicios } from "../menu/sections/MenuDelicios";
+import { SeoKitchenSection } from "./components/SeoKitchenSection";
 import { Paths } from "../../router";
 
 const SeoGarnish = () => {
     const navigate = useNavigate();
-
-    const slides = [
-        { src: "/images/pasta/image-2.webp", alt: "Gallery image 1" },
-        { src: "/images/pasta/image-3.webp", alt: "Gallery image 2" },
-        { src: "/images/pasta/image-4.webp", alt: "Gallery image 3" },
-    ];
+    const { t } = useTranslation();
 
     return (
         <>
             <SEO
-                title="Garnish in Los Cristianos, Tenerife | La Medusa"
-                description="Discover refined garnish at La Medusa in Los Cristianos. Elegant garnish in Tenerife that enhances flavour, presentation and the dining experience."
+                title={t("seoPages.garnish.meta.title")}
+                description={t("seoPages.garnish.meta.description")}
                 path="/garnish-los-cristianos"
             />
 
@@ -30,22 +26,28 @@ const SeoGarnish = () => {
                 <div className="container">
                     <div className="mb-10 max-w-[800px]">
                         <h1 className="title hero-title md:!text-left">
-                            The Art of Garnish
+                            {t("seoPages.garnish.hero.title")}
                         </h1>
                         <p className="description hero-description !ml-0 md:!text-left">
-                            At La Medusa, garnish is more than decoration — it is an essential element that completes every dish. Carefully chosen ingredients and thoughtful presentation allow each garnish to enhance both flavour and visual appeal.
+                            {t("seoPages.garnish.hero.description")}
                         </p>
                     </div>
-                    <div className="mb-20 flex gap-3 flex-wrap">
-                        <Button variant="white-outline" onClick={() => navigate("/menu")}>
-                            Explore Menu
+                    <div className="mb-20 flex flex-wrap gap-3">
+                        <Button
+                            variant="white-outline"
+                            onClick={() => navigate("/menu")}
+                        >
+                            {t("seoCommon.exploreMenu")}
                         </Button>
                         <ButtonOpenReservation
                             variant="default"
                             className="!text-white"
                         >
-                            <span>Reserve a Table</span>
-                            <img src="/icons/arrow-right.svg" className="size-7" />
+                            <span>{t("seoCommon.reserveTable")}</span>
+                            <img
+                                src="/icons/arrow-right.svg"
+                                className="size-7"
+                            />
                         </ButtonOpenReservation>
                     </div>
                 </div>
@@ -55,27 +57,29 @@ const SeoGarnish = () => {
             <section className="section-breadcrumb">
                 <div className="container">
                     <Breadcrumb />
-                    <div className="mx-auto mb-5 lg:mb-10 max-w-[850px] text-center">
+                    <div className="mx-auto mb-5 max-w-[850px] text-center lg:mb-10">
                         <img
                             src="/icons/star.svg"
                             alt="star"
-                            className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
+                            className="mx-auto mb-1.5 size-[22px] lg:mb-6"
                         />
-                        <h2 className="title section-title">Our Philosophy of Garnish</h2>
-                        <p className="description hidden lg:inline-block section-description">
-                            Guests dining in Los Cristianos often notice how every garnish adds character and elegance to the plate. For visitors exploring refined dining experiences in Tenerife, La Medusa offers beautifully presented dishes where garnish plays a meaningful role.
+                        <h2 className="title section-title">
+                            {t("seoPages.garnish.why.title")}
+                        </h2>
+                        <p className="description section-description hidden lg:inline-block">
+                            {t("seoPages.garnish.why.longDesc")}
                         </p>
-                        <p className="description lg:hidden section-description inline-block">
-                            Guests dining in Los Cristianos often notice how every garnish adds character and elegance to the plate.
+                        <p className="description section-description inline-block lg:hidden">
+                            {t("seoPages.garnish.why.shortDesc")}
                         </p>
                     </div>
                     <img
-                        src="/images/pasta/image-1.webp"
-                        alt="The Art of Garnish"
-                        className="mb-5 lg:mb-10 min-h-[225px] object-cover"
+                        src="/images/home-slider/img9.jpeg"
+                        alt={t("seoPages.garnish.hero.title")}
+                        className="mb-5 min-h-[225px] object-cover lg:mb-10"
                     />
 
-                    <div className="mb-5 lg:mb-10 flex flex-col gap-5 lg:gap-14 md:flex-row">
+                    <div className="mb-5 flex flex-col gap-5 md:flex-row lg:mb-10 lg:gap-14">
                         <div className="text-center">
                             <img
                                 src="/icons/fruit.svg"
@@ -83,10 +87,10 @@ const SeoGarnish = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Thoughtful Presentation
+                                    {t("seoPages.garnish.why.feature1Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    Each garnish is carefully placed to create a visually appealing and balanced dish.
+                                    {t("seoPages.garnish.why.feature1Desc")}
                                 </p>
                             </div>
                         </div>
@@ -97,10 +101,10 @@ const SeoGarnish = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Fresh Ingredients
+                                    {t("seoPages.garnish.why.feature2Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    We use fresh components to ensure that every garnish contributes natural flavour and colour.
+                                    {t("seoPages.garnish.why.feature2Desc")}
                                 </p>
                             </div>
                         </div>
@@ -111,10 +115,10 @@ const SeoGarnish = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Culinary Harmony
+                                    {t("seoPages.garnish.why.feature3Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    Our chefs design every garnish to complement the dish and enhance the overall dining experience.
+                                    {t("seoPages.garnish.why.feature3Desc")}
                                 </p>
                             </div>
                         </div>
@@ -122,29 +126,13 @@ const SeoGarnish = () => {
 
                     <div className="flex flex-wrap justify-center gap-5 md:gap-10">
                         <ButtonOpenReservation variant="blue">
-                            Reserve a Table
+                            {t("seoCommon.reserveTable")}
                         </ButtonOpenReservation>
                         <Button variant="blue-outline" to={Paths.contact}>
-                            Contact Us
+                            {t("seoCommon.contactUs")}
                         </Button>
                     </div>
                 </div>
-            </section>
-
-            {/* Gallery */}
-            <section className="flex flex-col items-center py-10 lg:py-15">
-                <div className="container !max-w-[765px]">
-                    <span className="decorative mx-auto block text-center text-[34px]">
-                        Subtle Elegance
-                    </span>
-                    <h2 className="title section-title lg:my-6 mt-1 mb-3 text-center text-[48px]">
-                        Garnish as a Culinary Detail
-                    </h2>
-                    <p className="description section-description mb-5 lg:mb-10 text-center">
-                        While often subtle, garnish can transform a dish into something memorable. At La Medusa, every garnish is selected with purpose — to add freshness, colour and a final touch of sophistication.
-                    </p>
-                </div>
-                <GallerySlider slides={slides} />
             </section>
 
             {/* Hours */}
@@ -152,25 +140,27 @@ const SeoGarnish = () => {
                 <div className="container">
                     <div className="flex flex-col items-center gap-5 lg:flex-row lg:gap-24">
                         <img
-                            src="/images/pasta/image-5.webp"
+                            src="/IMG_3093.jpeg"
                             loading="lazy"
-                            alt="Every Detail Counts"
-                            className="max-w-[620px]"
+                            alt={t("seoPages.garnish.hours.title")}
+                            className="max-h-[500px] max-w-[620px] object-cover lg:max-h-[600px]"
                         />
 
                         <div>
                             <div className="mb-5 lg:mb-10">
                                 <h2 className="section-title title mb-7 inline-block">
-                                    Every Detail Counts
+                                    {t("seoPages.garnish.hours.title")}
                                 </h2>
                                 <p className="section-description description">
-                                    A well-prepared garnish should complement the dish rather than overpower it. At La Medusa, our chefs carefully design each garnish to highlight the natural flavours and textures of the main ingredients.
+                                    {t("seoPages.garnish.hours.description")}
                                 </p>
                             </div>
                             <div className="flex flex-wrap gap-6">
-                                <Button to="/happy-hours" variant="blue">View Happy Hours</Button>
+                                <Button to="/happy-hours" variant="blue">
+                                    {t("seoCommon.viewHappyHours")}
+                                </Button>
                                 <ButtonOpenReservation variant="blue-outline">
-                                    Book Now
+                                    {t("seoCommon.bookNow")}
                                 </ButtonOpenReservation>
                             </div>
                         </div>
@@ -182,52 +172,26 @@ const SeoGarnish = () => {
             <MenuDelicios categorySlug="sauces" />
 
             {/* Meets */}
-            <section className="section">
-                <div className="container">
-                    <div className="mb-5 lg:mb-10 text-center">
-                        <span className="decorative mb-2.5">
-                            Creativity & Care
-                        </span>
-                        <h2 className="title section-title">
-                            A Detail That Completes the Dish
-                        </h2>
-                    </div>
-
-                    <div className="flex flex-col gap-5 lg:gap-14 md:flex-row">
-                        <div className="max-w-[740px]">
-                            <img
-                                src="/images/pasta/image-6.webp"
-                                alt=""
-                                className="mb-6 min-h-[200px] object-cover"
-                            />
-                            <p className="section-description description mb-4">
-                                At La Medusa, garnish is part of the story behind every plate. It represents creativity, care and the pursuit of culinary balance.
-                            </p>
-                            <p className="section-description description mb-4">
-                                Guests enjoying meals in Los Cristianos appreciate the way our garnish elevates both the appearance and the flavour of each plate.
-                            </p>
-                            <p className="section-description description">
-                                Guests dining in Tenerife discover that even the smallest garnish can make a meaningful difference in flavour, presentation and enjoyment.
-                            </p>
-                        </div>
-                        <div>
-                            <img
-                                src="/images/pasta/image-7.webp"
-                                className="h-full object-cover"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <SeoKitchenSection
+                decorative={t("seoPages.garnish.kitchen.decorative")}
+                title={t("seoPages.garnish.kitchen.title")}
+                image1="/IMG_3440.jpeg"
+                image2="/IMG_3438.jpeg"
+                paragraphs={[
+                    t("seoPages.garnish.kitchen.p1"),
+                    t("seoPages.garnish.kitchen.p2"),
+                    t("seoPages.garnish.kitchen.p3"),
+                ]}
+            />
 
             {/* Video */}
-            <section className="bg-[url('/images/pasta/image-8.webp')] grid items-center bg-cover bg-no-repeat py-9 md:py-[151px] px-4">
-                <div className="mx-auto max-w-[850px] text-center flex-col flex items-center">
+            <section className="grid items-center bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/IMG_3083.jpeg')] bg-cover bg-no-repeat px-4 py-9 md:py-[151px]">
+                <div className="mx-auto flex max-w-[850px] flex-col items-center text-center">
                     <h2 className="section-title title mb-7 text-white">
-                        The Beauty of Attention to Detail
+                        {t("seoPages.garnish.video.title")}
                     </h2>
                     <p className="description section-description mb-14 inline-block text-white">
-                        In Tenerife's vibrant dining scene, these small details help create a truly refined experience. At La Medusa, the smallest elements receive the same level of attention as the main ingredients.
+                        {t("seoPages.garnish.video.description")}
                     </p>
 
                     <ScrollCircle />
@@ -246,20 +210,20 @@ const SeoGarnish = () => {
                     <div className="lg:-ml-10">
                         <div className="mb-5 lg:mb-10">
                             <span className="decorative mb-2.5">
-                                Join Us
+                                {t("seoCommon.joinUs")}
                             </span>
                             <h2 className="title section-title">
-                                Experience the Details at La Medusa
+                                {t("seoPages.garnish.reserve.title")}
                             </h2>
                             <p className="description section-description mb-2">
-                                Reserve a table and enjoy dishes where every garnish is prepared with care and precision.
+                                {t("seoPages.garnish.reserve.p1")}
                             </p>
                             <p className="description section-description">
-                                At La Medusa in Los Cristianos, every detail — including the garnish — contributes to a dining experience defined by elegance, flavour and Mediterranean inspiration.
+                                {t("seoPages.garnish.reserve.p2")}
                             </p>
                         </div>
                         <ButtonOpenReservation variant="blue">
-                            Book a Table
+                            {t("seoCommon.bookATable")}
                         </ButtonOpenReservation>
                     </div>
                 </div>

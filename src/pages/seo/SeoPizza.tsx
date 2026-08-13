@@ -1,27 +1,23 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SEO } from "../../components/SEO";
 import { ButtonOpenReservation } from "../../components/features/reservation-form/ButtonOpenReservation";
 import { Button } from "../../components/ui/Button";
 import { Breadcrumb } from "../../components/ui/Breadcrumb";
-import GallerySlider from "../../components/features/GallerySlider";
 import ScrollCircle from "../../components/features/ScrollCircle";
 import { MenuDelicios } from "../menu/sections/MenuDelicios";
+import { SeoKitchenSection } from "./components/SeoKitchenSection";
 import { Paths } from "../../router";
 
 const SeoPizza = () => {
     const navigate = useNavigate();
-
-    const slides = [
-        { src: "/images/pasta/image-2.webp", alt: "Gallery image 1" },
-        { src: "/images/pasta/image-3.webp", alt: "Gallery image 2" },
-        { src: "/images/pasta/image-4.webp", alt: "Gallery image 3" },
-    ];
+    const { t } = useTranslation();
 
     return (
         <>
             <SEO
-                title="Pizza in Los Cristianos, Tenerife | La Medusa"
-                description="Enjoy authentic pizza in Los Cristianos at La Medusa. Discover fresh, oven-baked pizza in Tenerife with Mediterranean flavour and ocean views."
+                title={t("seoPages.pizza.meta.title")}
+                description={t("seoPages.pizza.meta.description")}
                 path="/pizza-los-cristianos"
             />
 
@@ -30,22 +26,28 @@ const SeoPizza = () => {
                 <div className="container">
                     <div className="mb-10 max-w-[800px]">
                         <h1 className="title hero-title md:!text-left">
-                            A Celebration of Pizza
+                            {t("seoPages.pizza.hero.title")}
                         </h1>
                         <p className="description hero-description !ml-0 md:!text-left">
-                            At La Medusa, we believe that great pizza is more than a dish — it is an experience. Our kitchen brings together Mediterranean inspiration and traditional techniques to create exceptional pizza in Los Cristianos.
+                            {t("seoPages.pizza.hero.description")}
                         </p>
                     </div>
-                    <div className="mb-20 flex gap-3 flex-wrap">
-                        <Button variant="white-outline" onClick={() => navigate("/menu")}>
-                            Explore Menu
+                    <div className="mb-20 flex flex-wrap gap-3">
+                        <Button
+                            variant="white-outline"
+                            onClick={() => navigate("/menu")}
+                        >
+                            {t("seoCommon.exploreMenu")}
                         </Button>
                         <ButtonOpenReservation
                             variant="default"
                             className="!text-white"
                         >
-                            <span>Reserve a Table</span>
-                            <img src="/icons/arrow-right.svg" className="size-7" />
+                            <span>{t("seoCommon.reserveTable")}</span>
+                            <img
+                                src="/icons/arrow-right.svg"
+                                className="size-7"
+                            />
                         </ButtonOpenReservation>
                     </div>
                 </div>
@@ -55,27 +57,29 @@ const SeoPizza = () => {
             <section className="section-breadcrumb">
                 <div className="container">
                     <Breadcrumb />
-                    <div className="mx-auto mb-5 lg:mb-10 max-w-[850px] text-center">
+                    <div className="mx-auto mb-5 max-w-[850px] text-center lg:mb-10">
                         <img
                             src="/icons/star.svg"
                             alt="star"
-                            className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
+                            className="mx-auto mb-1.5 size-[22px] lg:mb-6"
                         />
-                        <h2 className="title section-title">Why Our Pizza?</h2>
-                        <p className="description hidden lg:inline-block section-description">
-                            If you are looking for unforgettable pizza in Tenerife, our restaurant offers the perfect combination of flavour, atmosphere and ocean views.
+                        <h2 className="title section-title">
+                            {t("seoPages.pizza.why.title")}
+                        </h2>
+                        <p className="description section-description hidden lg:inline-block">
+                            {t("seoPages.pizza.why.longDesc")}
                         </p>
-                        <p className="description lg:hidden section-description inline-block">
-                            If you are looking for unforgettable pizza in Tenerife, our restaurant offers the perfect combination of flavour and atmosphere.
+                        <p className="description section-description inline-block lg:hidden">
+                            {t("seoPages.pizza.why.shortDesc")}
                         </p>
                     </div>
                     <img
-                        src="/images/pasta/image-1.webp"
-                        alt="A Celebration of Pizza"
-                        className="mb-5 lg:mb-10 min-h-[225px] object-cover"
+                        src="/images/home-slider/img9.jpeg"
+                        alt={t("seoPages.pizza.hero.title")}
+                        className="mb-5 min-h-[225px] object-cover lg:mb-10"
                     />
 
-                    <div className="mb-5 lg:mb-10 flex flex-col gap-5 lg:gap-14 md:flex-row">
+                    <div className="mb-5 flex flex-col gap-5 md:flex-row lg:mb-10 lg:gap-14">
                         <div className="text-center">
                             <img
                                 src="/icons/fruit.svg"
@@ -83,10 +87,10 @@ const SeoPizza = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Freshly Prepared Dough
+                                    {t("seoPages.pizza.why.feature1Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    Our pizza in Los Cristianos begins with carefully prepared dough, made to achieve the perfect balance of crispness and softness.
+                                    {t("seoPages.pizza.why.feature1Desc")}
                                 </p>
                             </div>
                         </div>
@@ -97,10 +101,10 @@ const SeoPizza = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Quality Ingredients
+                                    {t("seoPages.pizza.why.feature2Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    For authentic pizza in Tenerife, we select fresh produce and premium toppings that enhance every bite.
+                                    {t("seoPages.pizza.why.feature2Desc")}
                                 </p>
                             </div>
                         </div>
@@ -111,10 +115,10 @@ const SeoPizza = () => {
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
-                                    Mediterranean Touch
+                                    {t("seoPages.pizza.why.feature3Title")}
                                 </h3>
                                 <p className="description md:text-lg">
-                                    Each pizza reflects the warmth and richness of Mediterranean cuisine, offering a harmonious blend of flavours.
+                                    {t("seoPages.pizza.why.feature3Desc")}
                                 </p>
                             </div>
                         </div>
@@ -122,29 +126,13 @@ const SeoPizza = () => {
 
                     <div className="flex flex-wrap justify-center gap-5 md:gap-10">
                         <ButtonOpenReservation variant="blue">
-                            Reserve a Table
+                            {t("seoCommon.reserveTable")}
                         </ButtonOpenReservation>
                         <Button variant="blue-outline" to={Paths.contact}>
-                            Contact Us
+                            {t("seoCommon.contactUs")}
                         </Button>
                     </div>
                 </div>
-            </section>
-
-            {/* Gallery */}
-            <section className="flex flex-col items-center py-10 lg:py-15">
-                <div className="container !max-w-[765px]">
-                    <span className="decorative mx-auto block text-center text-[34px]">
-                        Our Craft
-                    </span>
-                    <h2 className="title section-title lg:my-6 mt-1 mb-3 text-center text-[48px]">
-                        Tradition Meets Modern Flair
-                    </h2>
-                    <p className="description section-description mb-5 lg:mb-10 text-center">
-                        Pizza has long been a symbol of comfort and shared moments. At La Medusa, we honour this tradition while adding our own elegant touch.
-                    </p>
-                </div>
-                <GallerySlider slides={slides} />
             </section>
 
             {/* Hours */}
@@ -152,25 +140,27 @@ const SeoPizza = () => {
                 <div className="container">
                     <div className="flex flex-col items-center gap-5 lg:flex-row lg:gap-24">
                         <img
-                            src="/images/pasta/image-5.webp"
+                            src="/IMG_3093.jpeg"
                             loading="lazy"
-                            alt="Pizza for Every Taste"
-                            className="max-w-[620px]"
+                            alt={t("seoPages.pizza.hours.title")}
+                            className="max-h-[500px] max-w-[620px] object-cover lg:max-h-[600px]"
                         />
 
                         <div>
                             <div className="mb-5 lg:mb-10">
                                 <h2 className="section-title title mb-7 inline-block">
-                                    Pizza for Every Taste
+                                    {t("seoPages.pizza.hours.title")}
                                 </h2>
                                 <p className="section-description description">
-                                    Guests searching for premium pizza in Tenerife often choose La Medusa for its refined setting and consistent quality. Each pizza is oven-baked to perfection, delivering rich aroma, balanced texture and satisfying flavour.
+                                    {t("seoPages.pizza.hours.description")}
                                 </p>
                             </div>
                             <div className="flex flex-wrap gap-6">
-                                <Button to="/happy-hours" variant="blue">View Happy Hours</Button>
+                                <Button to="/happy-hours" variant="blue">
+                                    {t("seoCommon.viewHappyHours")}
+                                </Button>
                                 <ButtonOpenReservation variant="blue-outline">
-                                    Book Now
+                                    {t("seoCommon.bookNow")}
                                 </ButtonOpenReservation>
                             </div>
                         </div>
@@ -182,52 +172,26 @@ const SeoPizza = () => {
             <MenuDelicios categorySlug="pizza" />
 
             {/* Meets */}
-            <section className="section">
-                <div className="container">
-                    <div className="mb-5 lg:mb-10 text-center">
-                        <span className="decorative mb-2.5">
-                            Heritage & Style
-                        </span>
-                        <h2 className="title section-title">
-                            From Our Oven to Your Table
-                        </h2>
-                    </div>
-
-                    <div className="flex flex-col gap-5 lg:gap-14 md:flex-row">
-                        <div className="max-w-[740px]">
-                            <img
-                                src="/images/pasta/image-6.webp"
-                                alt=""
-                                className="mb-6 min-h-[200px] object-cover"
-                            />
-                            <p className="section-description description mb-4">
-                                Every pizza is prepared with passion — from stretching the dough to the final finishing touches before serving.
-                            </p>
-                            <p className="section-description description mb-4">
-                                When you choose La Medusa for pizza in Los Cristianos, you are choosing flavour, atmosphere and attention to detail.
-                            </p>
-                            <p className="section-description description">
-                                If you are exploring options for excellent pizza in Tenerife, our restaurant promises a memorable dining experience by the sea.
-                            </p>
-                        </div>
-                        <div>
-                            <img
-                                src="/images/pasta/image-7.webp"
-                                className="h-full object-cover"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <SeoKitchenSection
+                decorative={t("seoPages.pizza.kitchen.decorative")}
+                title={t("seoPages.pizza.kitchen.title")}
+                image1="/IMG_3440.jpeg"
+                image2="/IMG_3438.jpeg"
+                paragraphs={[
+                    t("seoPages.pizza.kitchen.p1"),
+                    t("seoPages.pizza.kitchen.p2"),
+                    t("seoPages.pizza.kitchen.p3"),
+                ]}
+            />
 
             {/* Video */}
-            <section className="bg-[url('/images/pasta/image-8.webp')] grid items-center bg-cover bg-no-repeat py-9 md:py-[151px] px-4">
-                <div className="mx-auto max-w-[850px] text-center flex-col flex items-center">
+            <section className="grid items-center bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/IMG_3083.jpeg')] bg-cover bg-no-repeat px-4 py-9 md:py-[151px]">
+                <div className="mx-auto flex max-w-[850px] flex-col items-center text-center">
                     <h2 className="section-title title mb-7 text-white">
-                        A Taste of Tradition
+                        {t("seoPages.pizza.video.title")}
                     </h2>
                     <p className="description section-description mb-14 inline-block text-white">
-                        As a destination for quality pizza in Los Cristianos, we combine time-tested techniques with contemporary presentation. Our approach ensures that every pizza in Tenerife served at our restaurant feels both authentic and distinctive.
+                        {t("seoPages.pizza.video.description")}
                     </p>
 
                     <ScrollCircle />
@@ -246,20 +210,20 @@ const SeoPizza = () => {
                     <div className="lg:-ml-10">
                         <div className="mb-5 lg:mb-10">
                             <span className="decorative mb-2.5">
-                                Join Us
+                                {t("seoCommon.joinUs")}
                             </span>
                             <h2 className="title section-title">
-                                Make Your Evening Special
+                                {t("seoPages.pizza.reserve.title")}
                             </h2>
                             <p className="description section-description mb-2">
-                                Reserve a table and enjoy refined pizza in Los Cristianos in an elegant coastal setting.
+                                {t("seoPages.pizza.reserve.p1")}
                             </p>
                             <p className="description section-description">
-                                Your experience of pizza in Tenerife at La Medusa will be one you will wish to revisit — a perfect blend of taste, comfort and Mediterranean charm.
+                                {t("seoPages.pizza.reserve.p2")}
                             </p>
                         </div>
                         <ButtonOpenReservation variant="blue">
-                            Book a Table
+                            {t("seoCommon.bookATable")}
                         </ButtonOpenReservation>
                     </div>
                 </div>
