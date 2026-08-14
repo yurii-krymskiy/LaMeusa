@@ -1287,41 +1287,33 @@
                 "title": "Descubre el Sabor del Océano",
                 "description": "En La Medusa, el pescado y el marisco están en el corazón de nuestra identidad culinaria. Recién llegados cada día y preparados con las técnicas originales de nuestros chefs, nuestros platos reflejan la riqueza de la costa mediterránea."
             },
-            "intro": {
-                "p1": "Si buscas pescado y marisco excepcionales en Los Cristianos, nuestro restaurante frente al mar ofrece una experiencia refinada pero auténtica.",
-                "p2": "Para los huéspedes que buscan el mejor pescado y marisco de Tenerife, La Medusa ofrece sabor, frescura y elegancia en cada plato."
-            },
-            "philosophy": {
-                "decorative": "Nuestra Filosofía",
+            "why": {
                 "title": "Nuestra Filosofía del Pescado y el Marisco",
-                "p1": "Creemos que el secreto de una comida perfecta reside en un pescado y marisco excepcionales, especias cuidadosamente seleccionadas y un equilibrio preciso de sabores.",
-                "p2": "Nuestro enfoque del pescado y el marisco en Los Cristianos combina la sencillez con una presentación sofisticada, garantizando que cada bocado capture la sensación de una escapada costera.",
-                "p3": "Al elegir pescado y marisco en Tenerife, la calidad y la autenticidad marcan la diferencia — y eso es exactamente lo que prometemos en La Medusa."
-            },
-            "freshness": {
-                "decorative": "Desde el Océano",
-                "title": "Frescura Inspirada en el Mar",
-                "p1": "La esencia de un gran pescado y marisco comienza con la frescura. En La Medusa, seleccionamos cuidadosamente nuestros ingredientes para garantizar un sabor natural y una textura delicada.",
-                "p2": "Los huéspedes que buscan un pescado y marisco memorables en Los Cristianos aprecian nuestra dedicación a la calidad. Entre los muchos restaurantes que ofrecen pescado y marisco en Tenerife, destacamos por nuestro compromiso con la consistencia, la elegancia y la maestría culinaria."
-            },
-            "whyChoose": {
-                "decorative": "Nuestra Promesa",
-                "title": "¿Por Qué Elegir Pescado y Marisco en La Medusa?",
-                "intro": "En La Medusa, cada ingrediente y cada sabor es una respetuosa expresión de la tradición mediterránea. Nuestros chefs se aseguran de que cada plato de pescado y marisco se convierta en algo más que comida — se convierte en una experiencia para recordar.",
+                "longDesc": "Si buscas pescado y marisco excepcionales en Los Cristianos, nuestro restaurante frente al mar ofrece una experiencia refinada pero auténtica. Para los huéspedes que buscan el mejor pescado y marisco de Tenerife, La Medusa ofrece sabor, frescura y elegancia en cada plato.",
+                "shortDesc": "Si buscas pescado y marisco excepcionales en Los Cristianos, nuestro restaurante frente al mar ofrece una experiencia refinada pero auténtica.",
                 "feature1Title": "Sabor y Calidad",
                 "feature1Desc": "Utilizamos ingredientes locales e importados cuidadosamente seleccionados para preparar un pescado y marisco excepcionales en Los Cristianos, prestando mucha atención al equilibrio de sabores y al refinamiento.",
                 "feature2Title": "Ambiente con Vistas al Mar",
                 "feature2Desc": "Como destino líder de pescado y marisco en Tenerife, nuestro restaurante ofrece vistas panorámicas al mar donde la luz, el espacio y el sabor se combinan sin esfuerzo.",
                 "feature3Title": "Servicio con Alma",
-                "feature3Desc": "Nuestro equipo recibe a cada huésped con calidez y atención al detalle, mejorando tu experiencia con el pescado y el marisco en Los Cristianos desde el primer hasta el último momento.",
-                "feature4Title": "Más que un Plato",
-                "feature4Desc": "Para nosotros, el pescado y el marisco representan historia, cultura y tradición costera. Comer pescado y marisco en Tenerife debe sentirse especial — una pausa en el tiempo donde el sabor, el ambiente y la compañía se unen."
+                "feature3Desc": "Nuestro equipo recibe a cada huésped con calidez y atención al detalle, mejorando tu experiencia con el pescado y el marisco en Los Cristianos desde el primer hasta el último momento."
             },
-            "memory": {
-                "p1": "En La Medusa, disfrutar de pescado y marisco en Los Cristianos no es simplemente un almuerzo o una cena; es la creación de un recuerdo."
+            "hours": {
+                "title": "Frescura Inspirada en el Mar",
+                "description": "La esencia de un gran pescado y marisco comienza con la frescura. En La Medusa, seleccionamos cuidadosamente nuestros ingredientes para garantizar un sabor natural y una textura delicada. Los huéspedes que buscan un pescado y marisco memorables en Los Cristianos aprecian nuestra dedicación a la calidad. Entre los muchos restaurantes que ofrecen pescado y marisco en Tenerife, destacamos por nuestro compromiso con la consistencia, la elegancia y la maestría culinaria."
             },
-            "cta": {
-                "decorative": "Únete a Nosotros",
+            "kitchen": {
+                "decorative": "Nuestra Promesa",
+                "title": "¿Por Qué Elegir Pescado y Marisco en La Medusa?",
+                "p1": "En La Medusa, cada ingrediente y cada sabor es una respetuosa expresión de la tradición mediterránea. Nuestros chefs se aseguran de que cada plato de pescado y marisco se convierta en algo más que comida — se convierte en una experiencia para recordar.",
+                "p2": "Para nosotros, el pescado y el marisco representan historia, cultura y tradición costera. Comer pescado y marisco en Tenerife debe sentirse especial — una pausa en el tiempo donde el sabor, el ambiente y la compañía se unen.",
+                "p3": "En La Medusa, disfrutar de pescado y marisco en Los Cristianos no es simplemente un almuerzo o una cena; es la creación de un recuerdo."
+            },
+            "video": {
+                "title": "Fresco del Océano, Servido con Pasión",
+                "description": "Creemos que el secreto de una comida perfecta reside en un pescado y marisco excepcionales, especias cuidadosamente seleccionadas y un equilibrio preciso de sabores. Nuestro enfoque del pescado y el marisco en Los Cristianos combina la sencillez con una presentación sofisticada, garantizando que cada bocado capture la sensación de una escapada costera. Al elegir pescado y marisco en Tenerife, la calidad y la autenticidad marcan la diferencia — y eso es exactamente lo que prometemos en La Medusa."
+            },
+            "reserve": {
                 "title": "Haz que tu Cena sea Especial",
                 "p1": "Reserva tu mesa y disfruta de un pescado y marisco excepcionales en Los Cristianos en un elegante entorno costero.",
                 "p2": "Tu noche disfrutando de pescado y marisco premium en Tenerife en La Medusa será una historia que querrás revivir — donde el sabor, la hospitalidad y el mar crean algo verdaderamente inolvidable."
@@ -1336,40 +1328,33 @@
                 "title": "El Arte de la Pasta",
                 "description": "En La Medusa, la pasta es más que un plato tradicional — es un arte culinario que celebra el sabor, la sencillez y la herencia mediterránea. Nuestros chefs preparan cada plato de pasta con esmero, creando un equilibrio de textura, aroma y presentación."
             },
-            "intro": {
-                "p1": "Los huéspedes que buscan una pasta excepcional en Los Cristianos encontrarán una experiencia gastronómica refinada donde los ingredientes de calidad se combinan con un ambiente elegante.",
-                "p2": "Para quienes buscan una pasta memorable en Tenerife, La Medusa ofrece la combinación perfecta de comodidad y sofisticación."
-            },
-            "philosophy": {
-                "decorative": "Nuestra Filosofía",
+            "why": {
                 "title": "Nuestra Filosofía de la Pasta",
-                "p1": "Una gran pasta comienza con ingredientes de calidad y una preparación cuidadosa. En La Medusa, nos centramos en la frescura, la autenticidad y la armonía de sabores.",
-                "p2": "Cada porción de pasta refleja las tradiciones culinarias mediterráneas mientras abraza la creatividad moderna. Este enfoque convierte a nuestro restaurante en un destino para quienes buscan una pasta excepcional en Tenerife y una pasta llena de sabor en Los Cristianos."
-            },
-            "freshPasta": {
-                "decorative": "Tradición y Sabor",
-                "title": "Pasta Fresca, Sabor Atemporal",
-                "p1": "La belleza de la pasta reside en su sencillez. Los ingredientes cuidadosamente preparados permiten que los sabores naturales brillen, creando platos a la vez reconfortantes y refinados.",
-                "p2": "Los visitantes que buscan una pasta memorable en Los Cristianos aprecian el equilibrio que logramos entre tradición y elegancia. Entre los muchos lugares que sirven pasta en Tenerife, La Medusa destaca por su atención al detalle y su calidad."
-            },
-            "whyChoose": {
-                "decorative": "Nuestra Promesa",
-                "title": "¿Por Qué la Pasta en La Medusa?",
-                "intro": "En La Medusa, cada plato de pasta refleja nuestra dedicación a la excelencia culinaria y a la hospitalidad mediterránea.",
+                "longDesc": "Los huéspedes que buscan una pasta excepcional en Los Cristianos encontrarán una experiencia gastronómica refinada donde los ingredientes de calidad se combinan con un ambiente elegante. Para quienes buscan una pasta memorable en Tenerife, La Medusa ofrece la combinación perfecta de comodidad y sofisticación.",
+                "shortDesc": "Los huéspedes que buscan una pasta excepcional en Los Cristianos encontrarán una experiencia gastronómica refinada donde los ingredientes de calidad se combinan con un ambiente elegante.",
                 "feature1Title": "Ingredientes Frescos",
                 "feature1Desc": "Nuestra pasta se prepara con ingredientes cuidadosamente seleccionados para garantizar un sabor rico y una textura satisfactoria.",
                 "feature2Title": "Inspirada en la Cocina Mediterránea",
                 "feature2Desc": "Los huéspedes que disfrutan de la pasta en Tenerife notarán la sutil influencia mediterránea que define nuestros platos.",
                 "feature3Title": "Elegante Entorno Frente al Mar",
-                "feature3Desc": "Disfrutar de la pasta en Los Cristianos se vuelve aún más especial acompañado de hermosas vistas al mar y un ambiente acogedor.",
-                "feature4Title": "Un Plato que Une a las Personas",
-                "feature4Desc": "En todo el Mediterráneo, la pasta representa comodidad, tradición y momentos compartidos alrededor de la mesa. En La Medusa, celebramos esta tradición ofreciendo platos refinados que crean recuerdos duraderos."
+                "feature3Desc": "Disfrutar de la pasta en Los Cristianos se vuelve aún más especial acompañado de hermosas vistas al mar y un ambiente acogedor."
             },
-            "closing": {
-                "p1": "Para los huéspedes que descubren la pasta en Tenerife, nuestro restaurante ofrece una experiencia donde el sabor, el ambiente y la hospitalidad se combinan maravillosamente."
+            "hours": {
+                "title": "Pasta Fresca, Sabor Atemporal",
+                "description": "La belleza de la pasta reside en su sencillez. Los ingredientes cuidadosamente preparados permiten que los sabores naturales brillen, creando platos a la vez reconfortantes y refinados. Los visitantes que buscan una pasta memorable en Los Cristianos aprecian el equilibrio que logramos entre tradición y elegancia. Entre los muchos lugares que sirven pasta en Tenerife, La Medusa destaca por su atención al detalle y su calidad."
             },
-            "cta": {
-                "decorative": "Únete a Nosotros",
+            "kitchen": {
+                "decorative": "Nuestra Promesa",
+                "title": "¿Por Qué la Pasta en La Medusa?",
+                "p1": "En La Medusa, cada plato de pasta refleja nuestra dedicación a la excelencia culinaria y a la hospitalidad mediterránea.",
+                "p2": "En todo el Mediterráneo, la pasta representa comodidad, tradición y momentos compartidos alrededor de la mesa. En La Medusa, celebramos esta tradición ofreciendo platos refinados que crean recuerdos duraderos.",
+                "p3": "Para los huéspedes que descubren la pasta en Tenerife, nuestro restaurante ofrece una experiencia donde el sabor, el ambiente y la hospitalidad se combinan maravillosamente."
+            },
+            "video": {
+                "title": "Sabor Mediterráneo, Arte Atemporal",
+                "description": "Una gran pasta comienza con ingredientes de calidad y una preparación cuidadosa. En La Medusa, nos centramos en la frescura, la autenticidad y la armonía de sabores. Cada porción de pasta refleja las tradiciones culinarias mediterráneas mientras abraza la creatividad moderna. Este enfoque convierte a nuestro restaurante en un destino para quienes buscan una pasta excepcional en Tenerife y una pasta llena de sabor en Los Cristianos."
+            },
+            "reserve": {
                 "title": "Haz que tu Cena sea Memorable",
                 "p1": "Reserva una mesa y disfruta de una pasta excepcional en Los Cristianos en La Medusa.",
                 "p2": "Tu experiencia con la pasta auténtica en Tenerife será una a la que querrás volver — donde el sabor mediterráneo, el entorno elegante y el servicio cálido crean una noche perfecta."

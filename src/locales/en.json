@@ -1365,41 +1365,33 @@
                 "title": "Discover the Taste of the Ocean",
                 "description": "At La Medusa, fish and seafood are at the heart of our culinary identity. Freshly delivered each day and prepared using our chefs' original techniques, our dishes reflect the richness of the Mediterranean coast."
             },
-            "intro": {
-                "p1": "If you are searching for exceptional fish and seafood in Los Cristianos, our oceanfront restaurant offers a refined yet authentic experience.",
-                "p2": "For guests exploring the finest fish and seafood in Tenerife, La Medusa delivers flavour, freshness and elegance in every plate."
-            },
-            "philosophy": {
-                "decorative": "Our Philosophy",
+            "why": {
                 "title": "Our Philosophy of Fish and Seafood",
-                "p1": "We believe that the secret to a perfect meal lies in outstanding fish and seafood, thoughtfully selected spices and a precise balance of flavours.",
-                "p2": "Our approach to fish and seafood in Los Cristianos combines simplicity with sophisticated presentation, ensuring every bite captures the feeling of a seaside escape.",
-                "p3": "When choosing fish and seafood in Tenerife, quality and authenticity make all the difference — and this is exactly what we promise at La Medusa."
-            },
-            "freshness": {
-                "decorative": "From the Ocean",
-                "title": "Freshness Inspired by the Sea",
-                "p1": "The essence of great fish and seafood begins with freshness. At La Medusa, we carefully source ingredients to ensure natural flavour and delicate texture.",
-                "p2": "Guests looking for memorable fish and seafood in Los Cristianos appreciate our dedication to quality. Among the many restaurants offering fish and seafood in Tenerife, we stand out for our commitment to consistency, elegance and culinary craftsmanship."
-            },
-            "whyChoose": {
-                "decorative": "Our Promise",
-                "title": "Why Choose Fish and Seafood at La Medusa?",
-                "intro": "At La Medusa, every ingredient and every flavour is a respectful embodiment of Mediterranean tradition. Our chefs ensure that each plate of fish and seafood becomes more than just food — it becomes an experience to remember.",
+                "longDesc": "If you are searching for exceptional fish and seafood in Los Cristianos, our oceanfront restaurant offers a refined yet authentic experience. For guests exploring the finest fish and seafood in Tenerife, La Medusa delivers flavour, freshness and elegance in every plate.",
+                "shortDesc": "If you are searching for exceptional fish and seafood in Los Cristianos, our oceanfront restaurant offers a refined yet authentic experience.",
                 "feature1Title": "Taste and Quality",
                 "feature1Desc": "We use carefully selected local and imported ingredients to prepare outstanding fish and seafood in Los Cristianos, paying close attention to flavour balance and refinement.",
                 "feature2Title": "Atmosphere with Ocean Views",
                 "feature2Desc": "As a leading destination for fish and seafood in Tenerife, our restaurant offers panoramic sea views where light, space and flavour blend seamlessly.",
                 "feature3Title": "Service with Soul",
-                "feature3Desc": "Our team welcomes every guest with warmth and attention to detail, enhancing your experience of fish and seafood in Los Cristianos from the first moment to the last.",
-                "feature4Title": "More Than Just a Dish",
-                "feature4Desc": "For us, fish and seafood represent history, culture and coastal tradition. Dining on fish and seafood in Tenerife should feel special — a pause in time where flavour, atmosphere and company come together."
+                "feature3Desc": "Our team welcomes every guest with warmth and attention to detail, enhancing your experience of fish and seafood in Los Cristianos from the first moment to the last."
             },
-            "memory": {
-                "p1": "At La Medusa, enjoying fish and seafood in Los Cristianos is not simply lunch or dinner; it is a memory in the making."
+            "hours": {
+                "title": "Freshness Inspired by the Sea",
+                "description": "The essence of great fish and seafood begins with freshness. At La Medusa, we carefully source ingredients to ensure natural flavour and delicate texture. Guests looking for memorable fish and seafood in Los Cristianos appreciate our dedication to quality. Among the many restaurants offering fish and seafood in Tenerife, we stand out for our commitment to consistency, elegance and culinary craftsmanship."
             },
-            "cta": {
-                "decorative": "Join Us",
+            "kitchen": {
+                "decorative": "Our Promise",
+                "title": "Why Choose Fish and Seafood at La Medusa?",
+                "p1": "At La Medusa, every ingredient and every flavour is a respectful embodiment of Mediterranean tradition. Our chefs ensure that each plate of fish and seafood becomes more than just food — it becomes an experience to remember.",
+                "p2": "For us, fish and seafood represent history, culture and coastal tradition. Dining on fish and seafood in Tenerife should feel special — a pause in time where flavour, atmosphere and company come together.",
+                "p3": "At La Medusa, enjoying fish and seafood in Los Cristianos is not simply lunch or dinner; it is a memory in the making."
+            },
+            "video": {
+                "title": "Fresh From the Ocean, Served with Passion",
+                "description": "We believe that the secret to a perfect meal lies in outstanding fish and seafood, thoughtfully selected spices and a precise balance of flavours. Our approach to fish and seafood in Los Cristianos combines simplicity with sophisticated presentation, ensuring every bite captures the feeling of a seaside escape. When choosing fish and seafood in Tenerife, quality and authenticity make all the difference — and this is exactly what we promise at La Medusa."
+            },
+            "reserve": {
                 "title": "Make Your Dinner Special",
                 "p1": "Reserve your table and experience exceptional fish and seafood in Los Cristianos in an elegant seaside setting.",
                 "p2": "Your evening enjoying premium fish and seafood in Tenerife at La Medusa will be a story you will wish to relive — where flavour, hospitality and the ocean create something truly unforgettable."
@@ -1414,40 +1406,33 @@
                 "title": "The Art of Pasta",
                 "description": "At La Medusa, pasta is more than a traditional dish — it is a culinary craft that celebrates flavour, simplicity and Mediterranean heritage. Our chefs prepare every plate of pasta with care, creating a balance of texture, aroma and presentation."
             },
-            "intro": {
-                "p1": "Guests searching for exceptional pasta in Los Cristianos will find a refined dining experience where quality ingredients meet elegant atmosphere.",
-                "p2": "For those exploring memorable pasta in Tenerife, La Medusa offers the perfect blend of comfort and sophistication."
-            },
-            "philosophy": {
-                "decorative": "Our Philosophy",
+            "why": {
                 "title": "Our Philosophy of Pasta",
-                "p1": "Great pasta begins with quality ingredients and thoughtful preparation. At La Medusa, we focus on freshness, authenticity and harmony of flavour.",
-                "p2": "Each portion of pasta reflects Mediterranean culinary traditions while embracing modern creativity. This approach makes our restaurant a destination for guests looking for outstanding pasta in Tenerife and flavourful pasta in Los Cristianos."
-            },
-            "freshPasta": {
-                "decorative": "Tradition & Taste",
-                "title": "Fresh Pasta, Timeless Flavour",
-                "p1": "The beauty of pasta lies in its simplicity. Carefully prepared ingredients allow natural flavours to shine, creating dishes that feel both comforting and refined.",
-                "p2": "Visitors searching for memorable pasta in Los Cristianos appreciate the balance we achieve between tradition and elegance. Among the many places serving pasta in Tenerife, La Medusa stands out for its attention to detail and quality."
-            },
-            "whyChoose": {
-                "decorative": "Our Promise",
-                "title": "Why Pasta at La Medusa?",
-                "intro": "At La Medusa, every plate of pasta reflects our dedication to culinary excellence and Mediterranean hospitality.",
+                "longDesc": "Guests searching for exceptional pasta in Los Cristianos will find a refined dining experience where quality ingredients meet elegant atmosphere. For those exploring memorable pasta in Tenerife, La Medusa offers the perfect blend of comfort and sophistication.",
+                "shortDesc": "Guests searching for exceptional pasta in Los Cristianos will find a refined dining experience where quality ingredients meet elegant atmosphere.",
                 "feature1Title": "Fresh Ingredients",
                 "feature1Desc": "Our pasta is prepared with carefully selected ingredients to ensure rich flavour and satisfying texture.",
                 "feature2Title": "Inspired by Mediterranean Cuisine",
                 "feature2Desc": "Guests enjoying pasta in Tenerife will notice the subtle Mediterranean influence that defines our dishes.",
                 "feature3Title": "Elegant Oceanfront Setting",
-                "feature3Desc": "Dining on pasta in Los Cristianos becomes even more special when accompanied by beautiful ocean views and a welcoming atmosphere.",
-                "feature4Title": "A Dish That Brings People Together",
-                "feature4Desc": "Across the Mediterranean, pasta represents comfort, tradition and shared moments around the table. At La Medusa, we celebrate this tradition by offering refined dishes that create lasting memories."
+                "feature3Desc": "Dining on pasta in Los Cristianos becomes even more special when accompanied by beautiful ocean views and a welcoming atmosphere."
             },
-            "closing": {
-                "p1": "For guests discovering pasta in Tenerife, our restaurant provides an experience where flavour, atmosphere and hospitality come together beautifully."
+            "hours": {
+                "title": "Fresh Pasta, Timeless Flavour",
+                "description": "The beauty of pasta lies in its simplicity. Carefully prepared ingredients allow natural flavours to shine, creating dishes that feel both comforting and refined. Visitors searching for memorable pasta in Los Cristianos appreciate the balance we achieve between tradition and elegance. Among the many places serving pasta in Tenerife, La Medusa stands out for its attention to detail and quality."
             },
-            "cta": {
-                "decorative": "Join Us",
+            "kitchen": {
+                "decorative": "Our Promise",
+                "title": "Why Pasta at La Medusa?",
+                "p1": "At La Medusa, every plate of pasta reflects our dedication to culinary excellence and Mediterranean hospitality.",
+                "p2": "Across the Mediterranean, pasta represents comfort, tradition and shared moments around the table. At La Medusa, we celebrate this tradition by offering refined dishes that create lasting memories.",
+                "p3": "For guests discovering pasta in Tenerife, our restaurant provides an experience where flavour, atmosphere and hospitality come together beautifully."
+            },
+            "video": {
+                "title": "Mediterranean Flavour, Timeless Craft",
+                "description": "Great pasta begins with quality ingredients and thoughtful preparation. At La Medusa, we focus on freshness, authenticity and harmony of flavour. Each portion of pasta reflects Mediterranean culinary traditions while embracing modern creativity. This approach makes our restaurant a destination for guests looking for outstanding pasta in Tenerife and flavourful pasta in Los Cristianos."
+            },
+            "reserve": {
                 "title": "Make Your Dinner Memorable",
                 "p1": "Reserve a table and enjoy exceptional pasta in Los Cristianos at La Medusa.",
                 "p2": "Your experience of authentic pasta in Tenerife will be one you will want to revisit — where Mediterranean taste, elegant surroundings and warm service create a perfect evening."

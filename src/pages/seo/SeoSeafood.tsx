@@ -1,10 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SEO } from "../../components/SEO";
 import { ButtonOpenReservation } from "../../components/features/reservation-form/ButtonOpenReservation";
+import { Button } from "../../components/ui/Button";
+import { Breadcrumb } from "../../components/ui/Breadcrumb";
+import ScrollCircle from "../../components/features/ScrollCircle";
 import { MenuDelicios } from "../menu/sections/MenuDelicios";
+import { SeoKitchenSection } from "./components/SeoKitchenSection";
+import { Paths } from "../../router";
 
 const SeoSeafood = () => {
+    const navigate = useNavigate();
     const { t } = useTranslation();
+
     return (
         <>
             <SEO
@@ -14,88 +22,210 @@ const SeoSeafood = () => {
             />
 
             {/* Hero */}
-            <section className="hero about-hero">
-                <div className="max-w-6xl">
-                    <h1 className="title hero-title">{t("seoPages.seafood.hero.title")}</h1>
-                    <p className="description hero-description">{t("seoPages.seafood.hero.description")}</p>
+            <main className="hero happy-hours-hero">
+                <div className="container">
+                    <div className="mb-10 max-w-[800px]">
+                        <h1 className="title hero-title md:!text-left">
+                            {t("seoPages.seafood.hero.title")}
+                        </h1>
+                        <p className="description hero-description !ml-0 md:!text-left">
+                            {t("seoPages.seafood.hero.description")}
+                        </p>
+                    </div>
+                    <div className="mb-20 flex flex-wrap gap-3">
+                        <Button
+                            variant="white-outline"
+                            onClick={() => navigate("/menu")}
+                        >
+                            {t("seoCommon.exploreMenu")}
+                        </Button>
+                        <ButtonOpenReservation
+                            variant="default"
+                            className="!text-white"
+                        >
+                            <span>{t("seoCommon.reserveTable")}</span>
+                            <img
+                                src="/icons/arrow-right.svg"
+                                className="size-7"
+                            />
+                        </ButtonOpenReservation>
+                    </div>
                 </div>
-            </section>
+            </main>
 
-            {/* Intro */}
-            <section className="section">
-                <div className="container max-w-4xl">
-                    <p className="description section-description mb-4">{t("seoPages.seafood.intro.p1")}</p>
-                    <p className="description section-description">{t("seoPages.seafood.intro.p2")}</p>
-                </div>
-            </section>
+            {/* Why Section */}
+            <section className="section-breadcrumb">
+                <div className="container">
+                    <Breadcrumb />
+                    <div className="mx-auto mb-5 max-w-[850px] text-center lg:mb-10">
+                        <img
+                            src="/icons/star.svg"
+                            alt="star"
+                            className="mx-auto mb-1.5 size-[22px] lg:mb-6"
+                        />
+                        <h2 className="title section-title">
+                            {t("seoPages.seafood.why.title")}
+                        </h2>
+                        <p className="description section-description hidden lg:inline-block">
+                            {t("seoPages.seafood.why.longDesc")}
+                        </p>
+                        <p className="description section-description inline-block lg:hidden">
+                            {t("seoPages.seafood.why.shortDesc")}
+                        </p>
+                    </div>
+                    <img
+                        src="/images/home-slider/img9.jpeg"
+                        alt={t("seoPages.seafood.hero.title")}
+                        className="mb-5 max-h-[500px] min-h-[225px] object-cover lg:mb-10"
+                    />
 
-            {/* Our Philosophy */}
-            <section className="section bg-white-100">
-                <div className="container max-w-4xl">
-                    <p className="decorative">{t("seoPages.seafood.philosophy.decorative")}</p>
-                    <h2 className="title section-title">{t("seoPages.seafood.philosophy.title")}</h2>
-                    <p className="description section-description mb-4">{t("seoPages.seafood.philosophy.p1")}</p>
-                    <p className="description section-description mb-4">{t("seoPages.seafood.philosophy.p2")}</p>
-                    <p className="description section-description">{t("seoPages.seafood.philosophy.p3")}</p>
-                </div>
-            </section>
-
-            {/* Freshness Inspired by the Sea */}
-            <section className="section">
-                <div className="container max-w-4xl">
-                    <p className="decorative">{t("seoPages.seafood.freshness.decorative")}</p>
-                    <h2 className="title section-title">{t("seoPages.seafood.freshness.title")}</h2>
-                    <p className="description section-description mb-4">{t("seoPages.seafood.freshness.p1")}</p>
-                    <p className="description section-description">{t("seoPages.seafood.freshness.p2")}</p>
-                </div>
-            </section>
-
-            {/* Why Choose */}
-            <section className="section bg-white-100">
-                <div className="container max-w-4xl">
-                    <p className="decorative">{t("seoPages.seafood.whyChoose.decorative")}</p>
-                    <h2 className="title section-title">{t("seoPages.seafood.whyChoose.title")}</h2>
-                    <p className="description section-description mb-8">{t("seoPages.seafood.whyChoose.intro")}</p>
-
-                    <div className="grid gap-8 md:grid-cols-2">
-                        <div>
-                            <h3 className="title mb-2 text-xl">{t("seoPages.seafood.whyChoose.feature1Title")}</h3>
-                            <p className="description section-description">{t("seoPages.seafood.whyChoose.feature1Desc")}</p>
+                    <div className="mb-5 flex flex-col gap-5 md:flex-row lg:mb-10 lg:gap-14">
+                        <div className="text-center">
+                            <img
+                                src="/icons/fruit.svg"
+                                className="mx-auto mb-2.5 size-[100px]"
+                            />
+                            <div>
+                                <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
+                                    {t("seoPages.seafood.why.feature1Title")}
+                                </h3>
+                                <p className="description md:text-lg">
+                                    {t("seoPages.seafood.why.feature1Desc")}
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 className="title mb-2 text-xl">{t("seoPages.seafood.whyChoose.feature2Title")}</h3>
-                            <p className="description section-description">{t("seoPages.seafood.whyChoose.feature2Desc")}</p>
+                        <div className="text-center">
+                            <img
+                                src="/icons/flour.svg"
+                                className="mx-auto mb-2.5 size-[100px]"
+                            />
+                            <div>
+                                <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
+                                    {t("seoPages.seafood.why.feature2Title")}
+                                </h3>
+                                <p className="description md:text-lg">
+                                    {t("seoPages.seafood.why.feature2Desc")}
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 className="title mb-2 text-xl">{t("seoPages.seafood.whyChoose.feature3Title")}</h3>
-                            <p className="description section-description">{t("seoPages.seafood.whyChoose.feature3Desc")}</p>
+                        <div className="text-center">
+                            <img
+                                src="/icons/marinara-sauce.svg"
+                                className="mx-auto mb-2.5 size-[100px]"
+                            />
+                            <div>
+                                <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
+                                    {t("seoPages.seafood.why.feature3Title")}
+                                </h3>
+                                <p className="description md:text-lg">
+                                    {t("seoPages.seafood.why.feature3Desc")}
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 className="title mb-2 text-xl">{t("seoPages.seafood.whyChoose.feature4Title")}</h3>
-                            <p className="description section-description">{t("seoPages.seafood.whyChoose.feature4Desc")}</p>
-                        </div>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center gap-5 md:gap-10">
+                        <ButtonOpenReservation variant="blue">
+                            {t("seoCommon.reserveTable")}
+                        </ButtonOpenReservation>
+                        <Button variant="blue-outline" to={Paths.contact}>
+                            {t("seoCommon.contactUs")}
+                        </Button>
                     </div>
                 </div>
             </section>
 
-            {/* Memory */}
+            {/* Hours */}
             <section className="section">
-                <div className="container max-w-4xl">
-                    <p className="description section-description">{t("seoPages.seafood.memory.p1")}</p>
+                <div className="container">
+                    <div className="flex flex-col items-center gap-5 lg:flex-row lg:gap-24">
+                        <img
+                            src="/IMG_3093.jpeg"
+                            loading="lazy"
+                            alt={t("seoPages.seafood.hours.title")}
+                            className="max-h-[500px] max-w-[620px] object-cover lg:max-h-[600px]"
+                        />
+
+                        <div>
+                            <div className="mb-5 lg:mb-10">
+                                <h2 className="section-title title mb-7 inline-block">
+                                    {t("seoPages.seafood.hours.title")}
+                                </h2>
+                                <p className="section-description description">
+                                    {t("seoPages.seafood.hours.description")}
+                                </p>
+                            </div>
+                            <div className="flex flex-wrap gap-6">
+                                <Button to="/happy-hours" variant="blue">
+                                    {t("seoCommon.viewHappyHours")}
+                                </Button>
+                                <ButtonOpenReservation variant="blue-outline">
+                                    {t("seoCommon.bookNow")}
+                                </ButtonOpenReservation>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             {/* Menu */}
             <MenuDelicios categorySlug="fish" />
 
-            {/* CTA */}
-            <section className="section bg-white-100">
-                <div className="container flex max-w-4xl flex-col items-center text-center">
-                    <p className="decorative">{t("seoPages.seafood.cta.decorative")}</p>
-                    <h2 className="title section-title">{t("seoPages.seafood.cta.title")}</h2>
-                    <p className="description section-description mb-4">{t("seoPages.seafood.cta.p1")}</p>
-                    <p className="description section-description mb-8">{t("seoPages.seafood.cta.p2")}</p>
-                    <ButtonOpenReservation variant="blue">{t("seoCommon.bookATable")}</ButtonOpenReservation>
+            {/* Meets */}
+            <SeoKitchenSection
+                decorative={t("seoPages.seafood.kitchen.decorative")}
+                title={t("seoPages.seafood.kitchen.title")}
+                image1="/IMG_3440.jpeg"
+                image2="/IMG_3438.jpeg"
+                paragraphs={[
+                    t("seoPages.seafood.kitchen.p1"),
+                    t("seoPages.seafood.kitchen.p2"),
+                    t("seoPages.seafood.kitchen.p3"),
+                ]}
+            />
+
+            {/* Video */}
+            <section className="grid items-center bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/IMG_3083.jpeg')] bg-cover bg-no-repeat px-4 py-9 md:py-[151px]">
+                <div className="mx-auto flex max-w-[850px] flex-col items-center text-center">
+                    <h2 className="section-title title mb-7 text-white">
+                        {t("seoPages.seafood.video.title")}
+                    </h2>
+                    <p className="description section-description mb-14 inline-block text-white">
+                        {t("seoPages.seafood.video.description")}
+                    </p>
+
+                    <ScrollCircle />
+                </div>
+            </section>
+
+            {/* Reserve */}
+            <section className="section">
+                <div className="container flex flex-col items-center lg:flex-row">
+                    <img
+                        src="/images/seafood/image-6.webp"
+                        alt="image"
+                        className="max-w-[610px]"
+                    />
+
+                    <div className="lg:-ml-10">
+                        <div className="mb-5 lg:mb-10">
+                            <span className="decorative mb-2.5">
+                                {t("seoCommon.joinUs")}
+                            </span>
+                            <h2 className="title section-title">
+                                {t("seoPages.seafood.reserve.title")}
+                            </h2>
+                            <p className="description section-description mb-2">
+                                {t("seoPages.seafood.reserve.p1")}
+                            </p>
+                            <p className="description section-description">
+                                {t("seoPages.seafood.reserve.p2")}
+                            </p>
+                        </div>
+                        <ButtonOpenReservation variant="blue">
+                            {t("seoCommon.bookATable")}
+                        </ButtonOpenReservation>
+                    </div>
                 </div>
             </section>
         </>
