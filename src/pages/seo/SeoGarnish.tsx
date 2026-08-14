@@ -76,7 +76,7 @@ const SeoGarnish = () => {
                     <img
                         src="/images/home-slider/img9.jpeg"
                         alt={t("seoPages.garnish.hero.title")}
-                        className="mb-5 min-h-[225px] object-cover lg:mb-10"
+                        className="mb-5 max-h-[500px] min-h-[225px] object-cover lg:mb-10"
                     />
 
                     <div className="mb-5 flex flex-col gap-5 md:flex-row lg:mb-10 lg:gap-14">
