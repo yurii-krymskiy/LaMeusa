@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { useUberEatsLink } from "../../../hooks/useUberEatsLink";
 
 const infoItems = [
     {
@@ -39,7 +38,6 @@ const infoItems = [
 
 export const DeliveryInfo = () => {
     const { t } = useTranslation();
-    const { handleOrderClick } = useUberEatsLink();
 
     return (
         <section className="section">
@@ -79,7 +77,6 @@ export const DeliveryInfo = () => {
                             href="https://www.ubereats.com/store/la-medusa/kVOTcHp3W06MryRUirVDLQ?diningMode=DELIVERY&ps=1&surfaceName="
                             target="_blank"
                             rel="noopener noreferrer"
-                            onClick={handleOrderClick}
                             className="title button button-blue text-center"
                         >
                             {t("delivery.info.orderButton")}

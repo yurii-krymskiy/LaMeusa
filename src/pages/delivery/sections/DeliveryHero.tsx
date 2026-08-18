@@ -1,9 +1,7 @@
 import { useTranslation } from "react-i18next";
-import { useUberEatsLink } from "../../../hooks/useUberEatsLink";
 
 export const DeliveryHero = () => {
     const { t } = useTranslation();
-    const { handleOrderClick } = useUberEatsLink();
 
     return (
         <main className="hero delivery-hero">
@@ -18,7 +16,6 @@ export const DeliveryHero = () => {
                     href="https://www.ubereats.com/store/la-medusa/kVOTcHp3W06MryRUirVDLQ?diningMode=DELIVERY&ps=1&surfaceName="
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={handleOrderClick}
                     className="title button button-white-outline text-center"
                 >
                     {t("delivery.hero.orderButton")}
