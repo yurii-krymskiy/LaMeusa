@@ -14,14 +14,14 @@ export const useUberEatsLink = () => {
             iframe.src = appUrl;
             document.body.appendChild(iframe);
 
-            // Fallback to web if app is not installed (after 1.5 seconds).
+            // Fallback to web if app is not installed.
             // Using location.href (not window.open) avoids Safari's popup
             // blocker, which would otherwise silently drop a window.open
             // call made from inside a setTimeout.
             setTimeout(() => {
                 document.body.removeChild(iframe);
                 window.location.href = webUrl;
-            }, 1500);
+            }, 600);
         }
     };
 
