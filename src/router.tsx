@@ -130,5 +130,5 @@ export const pagesLabels = [
     { path: Paths.pasta, label: "nav.pasta" },
     { path: Paths.menu, label: "nav.menu" },
     { path: Paths.delivery, label: "nav.delivery" },
-    { path: Paths.blog, label: "nav.blog" },
+    // { path: Paths.blog, label: "nav.blog" },
 ];
