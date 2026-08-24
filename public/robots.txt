@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /reservation/cancel
+Disallow: /visitors
+
+Sitemap: https://www.lamedusa-restaurant.com/sitemap.xml

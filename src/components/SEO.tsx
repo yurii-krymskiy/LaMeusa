@@ -12,7 +12,7 @@ interface SEOProps {
 }
 
 const SITE_NAME = "La Medusa";
-const BASE_URL = "https://lamedusa.es";
+const BASE_URL = "https://www.lamedusa-restaurant.com";
 const DEFAULT_IMAGE = "/images/home/home-hero.jpg";
 
 export const SEO = ({ title, description, path = "", image, preloadImages, type = "website" }: SEOProps) => {

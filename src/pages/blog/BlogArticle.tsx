@@ -155,7 +155,7 @@ export const BlogArticle = () => {
       "name": "La Medusa Restaurant",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://lameusa.com/icons/logo.svg"
+        "url": "https://www.lamedusa-restaurant.com/icons/logo.svg"
       }
     }
   };
