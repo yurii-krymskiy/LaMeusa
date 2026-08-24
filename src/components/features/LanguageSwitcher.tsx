@@ -6,6 +6,10 @@ const languages = [
     { code: "uk", label: "UA", flag: "/flags/UA.svg" },
     { code: "en", label: "EN", flag: "/flags/GB.svg" },
     { code: "es", label: "ES", flag: "/flags/ES.svg" },
+    { code: "it", label: "IT", flag: "/flags/IT.svg" },
+    { code: "fr", label: "FR", flag: "/flags/FR.svg" },
+    { code: "de", label: "DE", flag: "/flags/DE.svg" },
+    { code: "nl", label: "NL", flag: "/flags/NL.svg" },
 ];
 
 type LanguageSwitcherProps = {

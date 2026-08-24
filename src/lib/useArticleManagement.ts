@@ -16,6 +16,10 @@ const emptyTranslations = (): Record<ArticleLanguage, ArticleTranslation> => ({
   en: emptyTranslation("en"),
   uk: emptyTranslation("uk"),
   es: emptyTranslation("es"),
+  it: emptyTranslation("it"),
+  fr: emptyTranslation("fr"),
+  de: emptyTranslation("de"),
+  nl: emptyTranslation("nl"),
 });
 
 export const useArticleManagement = () => {
@@ -141,6 +145,10 @@ export const useArticleManagement = () => {
       en: article.translations.en ?? emptyTranslation("en"),
       uk: article.translations.uk ?? emptyTranslation("uk"),
       es: article.translations.es ?? emptyTranslation("es"),
+      it: article.translations.it ?? emptyTranslation("it"),
+      fr: article.translations.fr ?? emptyTranslation("fr"),
+      de: article.translations.de ?? emptyTranslation("de"),
+      nl: article.translations.nl ?? emptyTranslation("nl"),
     });
     setActiveLanguageState("en");
   }, []);

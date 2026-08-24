@@ -8,6 +8,10 @@ export const DEFAULT_LANGUAGE = "en";
 export const LANGUAGE_PREFIXES: Record<string, string> = {
     uk: "ua",
     es: "es",
+    it: "it",
+    fr: "fr",
+    de: "de",
+    nl: "nl",
 };
 
 const PREFIX_TO_LANGUAGE: Record<string, string> = Object.fromEntries(

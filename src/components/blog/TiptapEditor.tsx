@@ -7,6 +7,10 @@ const LANGUAGE_LABELS: Record<ArticleLanguage, string> = {
   en: "English",
   uk: "Українська",
   es: "Español",
+  it: "Italiano",
+  fr: "Français",
+  de: "Deutsch",
+  nl: "Nederlands",
 };
 
 interface TiptapEditorProps {

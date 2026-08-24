@@ -1,6 +1,6 @@
-export type ArticleLanguage = "en" | "uk" | "es";
+export type ArticleLanguage = "en" | "uk" | "es" | "it" | "fr" | "de" | "nl";
 
-export const ARTICLE_LANGUAGES: ArticleLanguage[] = ["en", "uk", "es"];
+export const ARTICLE_LANGUAGES: ArticleLanguage[] = ["en", "uk", "es", "it", "fr", "de", "nl"];
 
 export interface ArticleTranslation {
   language: ArticleLanguage;

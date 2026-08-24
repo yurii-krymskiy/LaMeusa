@@ -1,0 +1,1442 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "Over ons",
+        "contact": "Contact",
+        "menu": "Menu",
+        "seafood": "Zeevruchten",
+        "pasta": "Pasta",
+        "happyHours": "Happy Hours",
+        "birthday": "Verjaardagsvieringen",
+        "delivery": "Bezorging",
+        "blog": "Blog",
+        "bookNow": "Reserveren",
+        "bookNowFull": "Nu Reserveren"
+    },
+    "footer": {
+        "reviews": "Recensies",
+        "explore": "Ontdekken",
+        "burger": "Burger",
+        "pizza": "Pizza",
+        "paella": "Paella",
+        "desserts": "Desserts",
+        "fishAndSeafoods": "Vis & Zeevruchten",
+        "contact": "Contact",
+        "copyright": "© {{year}} La Medusa. Alle rechten voorbehouden.",
+        "terms": "Servicevoorwaarden",
+        "privacy": "Privacybeleid",
+        "cookies": "Cookie-instellingen"
+    },
+    "home": {
+        "hero": {
+            "title": "Een Ochtend aan Zee, Een Diner met Elegantie",
+            "description": "Welkom bij La Medusa, een verfijnd restaurant in Los Cristianos waar de Atlantische Oceaan het perfecte decor vormt voor uw eetervaring.",
+            "button": "Nu Reserveren"
+        },
+        "ourMenu": {
+            "decorative": "Ons Menu",
+            "title": "Ontdek Ons Menu",
+            "p1": "In ons restaurant in Los Cristianos is elk gerecht een verfijnde combinatie van verse ingrediënten, oceaanverse smaken en kenmerkende mediterrane smaken. Als toonaangevend restaurant in Tenerife richten wij ons op kwaliteit, seizoensgebondenheid en authenticiteit.",
+            "p2": "Onze chef-koks bereiden elk gerecht met de meest verse lokale producten. Geworteld in de mediterrane traditie met een originele toets, staat La Medusa trots bekend als een van de beste restaurants in de regio.",
+            "button": "Bekijk Menu"
+        },
+        "story": {
+            "title": "Elk gerecht vertelt een verhaal",
+            "description": "Bij La Medusa is elk ingrediënt en elke smaak een dankbare belichaming van de mediterrane traditie. Als gewaardeerd zeevruchtenrestaurant in Tenerife zorgen wij ervoor dat elk gerecht niet zomaar eten is, maar een ervaring die nog lang na de laatste hap blijft hangen."
+        },
+        "aboutUs": {
+            "decorative": "Over Ons",
+            "title": "De Geest van La Medusa",
+            "p1": "Als gerenommeerd restaurant in Tenerife combineren wij panoramisch uitzicht, oprechte service en een gastvrije sfeer die uitnodigt om te blijven hangen.",
+            "p2": "Van het licht dat op de tafels valt tot de muziek die 's avonds speelt, alles in ons restaurant in Los Cristianos is met zorg ontworpen. Onder de laatavond geopende restaurants aan zee biedt La Medusa een werkelijk intieme setting, perfect voor koppels, gezinnen en bijzondere gelegenheden.",
+            "button": "Meer Weten"
+        },
+        "gallery": {
+            "title": "Galerij van het restaurant",
+            "description": "Werp een blik in het hart van ons restaurant in Los Cristianos. Blader door onze galerij en ontdek waarom La Medusa wordt beschouwd als een van de beste restaurants in Tenerife."
+        },
+        "foodStory": {
+            "decorative": "Verhaal van Eten",
+            "title": "Verse Ingrediënten, Authentieke Smaak",
+            "p1": "Zee, zon en ziel — dit alles op elk bord bij ons restaurant in Tenerife. Wij geven voorrang aan verse lokale ingrediënten, gecombineerd met verfijnde uitvoering.",
+            "p2": "Deze toewijding plaatst La Medusa onder de meest aanbevolen restaurants die het hele jaar door geopend zijn in Los Cristianos.",
+            "p3": "Elk gerecht weerspiegelt harmonie: zachte texturen, levendige kleuren en rijke aroma's. Als eersteklas restaurant in Los Cristianos vieren wij eenvoud en verfijning in gelijke mate."
+        },
+        "meets": {
+            "decorative": "Smaak en sfeer met uitzicht op zee",
+            "title": "Waar de zee de smaak ontmoet",
+            "p1": "La Medusa is meer dan alleen een restaurant in Los Cristianos. Het is een bestemming. Met panoramisch uitzicht op zee en verfijnde mediterrane keuken creëren wij een sfeer waarin smaak en esthetiek één naadloze ervaring worden.",
+            "p2": "Of u nu op zoek bent naar romantische restaurants, verfijnde restaurants die laat geopend zijn, of een uitzonderlijk zeevruchtenrestaurant in Tenerife, La Medusa nodigt u uit om te ontdekken waarom wij worden erkend als een van de beste restaurants op het eiland.",
+            "viewMenu": "Bekijk Menu",
+            "reserveTable": "Reserveer een Tafel"
+        },
+        "special": {
+            "title": "Speciale Aanbiedingen",
+            "deal1Title": "Twee Burgers voor de Prijs van Één",
+            "deal1Desc": "Van 14.30 tot 18.00 uur krijgt u twee burgers voor de prijs van één.",
+            "deal2Title": "Pasta Liefhebbers Uur",
+            "deal2Desc": "Elke dinsdag en woensdag van 14.00 tot 17.00 uur, een glas wijn cadeau bij elke pasta.",
+            "deal3Title": "Zeevruchtenmenu + Wijn",
+            "deal3Desc": "Dagelijks van 15.00 tot 17.00 uur, bij het bestellen van een zeevruchtenmenu is een glas witte wijn gratis.",
+            "discoverMenu": "Ontdek Volledig Menu",
+            "reserveTable": "Reserveer een Tafel"
+        },
+        "queries": {
+            "title": "Veelgestelde Vragen",
+            "q1": "Is La Medusa een zeevruchtenrestaurant?",
+            "a1": "Ja, La Medusa is een mediterraan zeevruchtenrestaurant in Los Cristianos, met verse vis en lokaal ingekochte ingrediënten, elegant bereid.",
+            "q2": "Waar bevindt La Medusa zich?",
+            "a2": "Wij zijn een restaurant aan zee in Los Cristianos, een van de levendigste eetgelegenheden van Tenerife.",
+            "q3": "Bent u laat geopend?",
+            "a3": "Ja, wij behoren tot de laatavond geopende restaurants in de omgeving, perfect voor romantische diners met uitzicht op zee.",
+            "q4": "Is La Medusa geschikt voor romantische diners?",
+            "a4": "Absoluut. Onze locatie aan zee maakt ons een van de meest aanbevolen romantische restaurants in Tenerife.",
+            "q5": "Moet ik reserveren?",
+            "a5": "Hoewel we walk-ins verwelkomen, raden wij aan om vooraf te boeken, vooral in het hoogseizoen, aangezien een van de beste restaurants in Los Cristianos doorgaans snel vol zit."
+        },
+        "reserve": {
+            "decorative": "Reserveer een Tafel",
+            "title": "Maak uw diner bijzonder",
+            "p1": "Reserveer een tafel en breng een avond door in een sfeer van verfijning en inspiratie.",
+            "p2": "Uw avond bij La Medusa wordt een verhaal waar u naar terug wilt keren.",
+            "button": "Maak een reservering"
+        },
+        "delivery": {
+            "decorative": "Online Bestellen",
+            "title": "La Medusa bij u Thuisbezorgd",
+            "description": "Lukt het niet om vanavond naar Los Cristianos te komen? Geniet van onze karakteristieke mediterrane gerechten, vers bereid en rechtstreeks bij u thuisbezorgd.",
+            "button": "Bekijk Bezorging"
+        }
+    },
+    "about": {
+        "hero": {
+            "title": "WIE WIJ ZIJN",
+            "description": "Het belangrijkste voor ons is om u een comfortabele eetervaring te bieden"
+        },
+        "cuisine": {
+            "decorative": "Verhaal van Eten",
+            "title": "Onze Keuken",
+            "p1": "Gerechten van La Medusa zijn een combinatie van mediterrane traditie met een moderne visie. Wij bereiden zodanig dat elk gerecht een verhaal is: texturen, smaken, aroma's - alles wordt gevoeld.",
+            "p2": "Onze chef-kok experimenteert met bijgerechten bij de zee, met gebruik van lokale producten en recepten die door de jaren heen zijn verrijkt.",
+            "button": "Bekijk Menu"
+        },
+        "ourTeam": {
+            "title": "Ons team",
+            "description": "Wij zijn een groep mensen die verliefd zijn op gastronomie en de zee. Van chef-kok tot ober, iedereen draagt een stukje van zichzelf bij aan de ervaring die u bij La Medusa krijgt."
+        },
+        "chooseUs": {
+            "title": "Waarom Voor Ons Kiezen",
+            "description": "Bij La Medusa is elk ingrediënt, elke smaak een dankbare belichaming van de mediterrane traditie. Onze chef-koks streven ernaar dat elk gerecht niet zomaar eten is, maar een emotie die bij u blijft.",
+            "feature1Title": "Smaak en Kwaliteit",
+            "feature1Desc": "Wij gebruiken alleen verse lokale en geïmporteerde producten en besteden nauwkeurige aandacht aan elke smaak en combinatie.",
+            "feature2Title": "Sfeer met uitzicht",
+            "feature2Desc": "Een restaurant met panoramisch uitzicht op zee, waar elk moment gevuld is met licht en ruimte.",
+            "feature3Title": "Service met een ziel",
+            "feature3Desc": "Ons team zorgt oprecht voor u, met aandacht voor de kleine dingen: van bediening tot gerechtaanbevelingen.",
+            "reserveTable": "Reserveer een Tafel",
+            "contactUs": "Neem contact op"
+        },
+        "ourStory": {
+            "decorative": "Het Team",
+            "title": "Ons Verhaal",
+            "p1": "La Medusa is geboren uit het idee om een plek te creëren waar gastronomie en de zee samenkomen in één sfeer...",
+            "p2": "Vanaf het allereerste begin kozen wij voor verfijning: verse ingrediënten, doordachte recepten en een service die begint nog voordat u aankomt...",
+            "p3": "La Medusa is een team van mensen die verliefd zijn op koken en gastvrijheid. Wij streven ernaar dat elk van onze gasten zich niet slechts een bezoeker voelt, maar een deel van het verhaal dat wij samen schrijven."
+        },
+        "grid": {
+            "guitar": {
+                "title": "Spaanse Gitaarnachten",
+                "p1": "Elke maandag en zaterdag speelt La Medusa de beste hits, uitgevoerd door meesters van de Spaanse gitaar...",
+                "p2": "Dit is het perfecte moment om te genieten van onze signatuurcocktails, prachtige uitzichten en een avond in voortreffelijk gezelschap.",
+                "reserveTable": "Reserveer een Tafel",
+                "discoverCocktails": "Ontdek Onze Cocktails"
+            },
+            "vocal": {
+                "title": "Live Zanghits & Cocktails",
+                "p1": "Elke donderdag en vrijdag wachten live zangoptredens met bekende wereldhits op u...",
+                "p2": "Breng het einde van de week door met smaak en ritme — bij La Medusa.",
+                "button": "Ontdek Onze Drankjes"
+            },
+            "burgers": {
+                "title": "De Hele Dag Geluk",
+                "p1": "Bij La Medusa is geluk niet beperkt tot een paar uurtjes — het is een gevoel dat de hele dag duurt.",
+                "p2": "Vanaf de eerste slok wijn tot de laatste hap zeevruchten, elk moment hier is bedoeld om langzaam te genieten, met uitzicht, met goed gezelschap en met een vleugje mediterrane magie.",
+                "p3": "Momenteel werken wij aan iets speciaals voor u — nieuwe aanbiedingen en ervaringen zijn onderweg.",
+                "button": "Boek een Tafel"
+            }
+        }
+    },
+    "menu": {
+        "hero": {
+            "title": "ontdek nieuwe facetten van smaak",
+            "description": "Beleef de smaak van de mediterrane keuken tegen de achtergrond van de Atlantische Oceaan. Bij La Medusa creëren wij een sfeer waarin elk moment een genot is en elk gerecht een verhaal."
+        },
+        "delicious": {
+            "title": "Ons heerlijke menu",
+            "button": "bekijk menu"
+        },
+        "reserve": {
+            "decorative": "Reserveer een Tafel",
+            "title": "Plan Uw Perfecte Verjaardag"
+        },
+        "categories": {
+            "tapas": "Tapas & Voorgerechten",
+            "salads": "Salades",
+            "pizza": "Pizza",
+            "pasta": "Pasta",
+            "fish": "Vis & Zeevruchten",
+            "meat": "Vlees",
+            "burgers": "Burgers & Meer",
+            "paella": "Paella",
+            "desserts": "Desserts",
+            "kids": "Kindermenu",
+            "sauces": "Sauzen & Extra's"
+        },
+        "sections": {
+            "menu": "Menu",
+            "bar": "Bardranken",
+            "cocktails": "Cocktails"
+        }
+    },
+    "contact": {
+        "hero": {
+            "title": "Neem Contact Op",
+            "description": "Elke dag de meest verse ingrediënten voor u",
+            "openTime": "Openingstijden",
+            "monSat": "Maandag - Zaterdag",
+            "hours": "Maandag - Zaterdag, 12.00 - 23.00",
+            "music": "Muziek 18.30 - 20.30"
+        },
+        "us": {
+            "decorative": "Neem Contact Op",
+            "title": "Hoe ons te vinden",
+            "description": "Wij wachten elke dag op het afgesproken tijdstip op u, met een service die klaar staat om sfeer en smaak te bieden.",
+            "restaurantHours": "OPENINGSTIJDEN RESTAURANT",
+            "address": "Adres",
+            "phone": "Telefoon",
+            "email": "E-mail"
+        },
+        "instagram": {
+            "title": "Onze instagram",
+            "button": "Volg ons"
+        },
+        "reserve": {
+            "decorative": "Reserveer een Tafel",
+            "title": "Reservering"
+        }
+    },
+    "birthday": {
+        "hero": {
+            "title": "Uw Verjaardag, Onze Viering",
+            "description": "Bij La Medusa wordt een verjaardag een evenement dat u zich lang zult herinneren. Voortreffelijke keuken, een gezellige sfeer en panoramisch uitzicht creëren de perfecte plek voor bijzondere momenten.",
+            "bookButton": "Boek Uw Viering",
+            "menuButton": "Ontdek Onze Menu's"
+        },
+        "why": {
+            "title": "Waarom Kiezen voor La Medusa voor Uw Verjaardag",
+            "feature1Title": "Sfeer",
+            "feature1Desc": "Elegant interieur en een magisch zeezicht.",
+            "feature2Title": "Individueel menu",
+            "feature2Desc": "Wij helpen u de perfecte selectie van gerechten en drankjes samen te stellen.",
+            "feature3Title": "Live muziek en cocktails",
+            "feature3Desc": "Creëert een speciale sfeer voor gasten.",
+            "reserveTable": "Reserveer een Tafel",
+            "contactUs": "Neem contact op"
+        },
+        "gallery": {
+            "title": "Een Plek om te Onthouden",
+            "description": "Ons restaurant creëert de perfecte combinatie van voortreffelijke keuken en panoramisch uitzicht. Dit is een plek waar een verjaardag meer wordt dan een viering - het is een onvergetelijke ervaring."
+        },
+        "gift": {
+            "decorative": "Suggesties",
+            "title": "Verjaardagscadeaus van La Medusa",
+            "p1": "Op uw speciale dag zorgen wij ervoor dat de sfeer nog warmer wordt. Voor elke jarige bereidt onze chef-kok een verjaardagstaart, die wij serveren met felicitaties van het hele personeel.",
+            "p2": "Dit is het moment waarop het restaurant gevuld wordt met oprechte emoties en uw avond nog feestelijker wordt. Wij geloven dat zulke details herinneringen creëren die voor altijd blijven.",
+            "button": "Vier Mee met Ons"
+        },
+        "grid": {
+            "set1Title": "Zeevruchten Feestmenu",
+            "set1Desc": "Zeevruchtenspecialiteiten: oesters, garnalen, gegrilde zalm en een selectie witte wijnen...",
+            "set2Title": "Pasta & Wijnavond",
+            "set2Desc": "Een verscheidenheid aan pasta's (Carbonara, Vongole, Truffeltagliatelle) gepaard met Italiaanse wijn...",
+            "set3Title": "Zoete Verjaardagstafel",
+            "set3Desc": "Een assortiment desserts van de chef-kok: verjaardagstaart, verfijnde tiramisu, panna cotta...",
+            "reserveTable": "Reserveer een Tafel",
+            "viewMenu": "Bekijk Volledig Verjaardagsmenu"
+        },
+        "reserve": {
+            "decorative": "Reserveer een Tafel",
+            "title": "Plan Uw Perfecte Verjaardag"
+        }
+    },
+    "happy": {
+        "hero": {
+            "title": "Happy Hours bij La Medusa",
+            "description": "Het beste moment van de dag is wanneer u kunt genieten van uw favoriete gerechten en drankjes tegen speciale prijzen. Wij creëerden Happy Hours om uw ontmoetingen met vrienden of collega's nog aangenamer te maken.",
+            "exploreMenu": "Bekijk Menu",
+            "reserveTable": "Reserveer een Tafel"
+        },
+        "why": {
+            "decorative": "Happy Hours",
+            "title": "Waarom U Van Onze Happy Hours Zult Houden",
+            "p1": "Op dit moment verandert La Medusa in een plek met een bijzondere sfeer. Wij verwelkomen niet alleen voordelige aanbiedingen, maar ook de kans om signatuurcocktails, kenmerkende gerechten te proeven en te genieten van live muziek.",
+            "p2": "Happy Hours gaan niet alleen over geld besparen, maar ook over nieuwe emoties."
+        },
+        "special": {
+            "title": "Speciale Aanbiedingen",
+            "discoverMenu": "Ontdek Volledig Menu"
+        },
+        "gallery": {
+            "decorative": "Galerij",
+            "title": "Goede Vibes, Fijn Gezelschap",
+            "description": "Happy Hours bij La Medusa zijn meer dan alleen een promotie. Het is een moment waarop mensen samenkomen om te ontspannen, te genieten van de muziek, te socializen en van de sfeer van ons restaurant."
+        },
+        "reserve": {
+            "decorative": "Reserveer een Tafel",
+            "title": "Doe Mee met Onze Happy Hours",
+            "description": "Mis de kans niet om de sfeer van La Medusa te ervaren op een speciaal moment. Reserveer een tafel en breng de beste uren van uw dag bij ons door.",
+            "reserveNow": "Nu Reserveren",
+            "contactUs": "Neem contact op"
+        }
+    },
+    "booking": {
+        "decorative": "Boek een Tafel",
+        "title": "Reservering",
+        "back": "Terug",
+        "table": {
+            "title": "Boek een tafel",
+            "description": "Boek vandaag nog een tafel bij ons, wij hebben een geweldige sfeer die u zult waarderen.",
+            "note": "*Meer dan 8 pers. neem alstublieft contact op",
+            "noteEmail": "lamedusarestaurants@gmail.com"
+        },
+        "confirm": {
+            "title": "Bevestiging van reservering",
+            "description": "Bevestig alstublieft of u alles correct heeft ingevoerd en vermeld uw e-mailadres en telefoonnummer om de reservering te bevestigen."
+        }
+    },
+    "pasta": {
+        "hero": {
+            "title": "Een Symfonie van Pasta",
+            "description": "Zelfgemaakte pasta met de fijnste ingrediënten vormt het hart van de Italiaanse keuken. Bij La Medusa creëren wij gerechten die traditie en originaliteit combineren...",
+            "exploreMenu": "Bekijk Pastamenu",
+            "reserveTable": "Reserveer een Tafel"
+        },
+        "why": {
+            "title": "Waarom Onze Pasta?",
+            "descDesktop": "Pasta is niet zomaar een gerecht, maar een moment van genieten.",
+            "descMobile": "Bij La Medusa is elk ingrediënt, elke smaak een dankbare belichaming van de mediterrane traditie...",
+            "feature1Title": "Vers elke dag",
+            "feature1Desc": "Wij bereiden de pasta zelf, met authentieke technieken.",
+            "feature2Title": "Lokale en Italiaanse ingrediënten",
+            "feature2Desc": "Een combinatie van het beste van beide werelden.",
+            "feature3Title": "Auteurssauzen",
+            "feature3Desc": "Van klassieke bolognese tot unieke combinaties met zeevruchten.",
+            "reserveTable": "Reserveer een Tafel",
+            "contactUs": "Neem contact op"
+        },
+        "gallery": {
+            "decorative": "Galerij",
+            "title": "Voor Elke Smaak",
+            "description": "Verfijnde tagliatelle, geurige penne, voortreffelijke ravioli of klassieke spaghetti - ons menu heeft een pasta voor elke stemming..."
+        },
+        "hours": {
+            "decorative": "La Medusa",
+            "title": "Elk Bord Komt met Vreugde",
+            "p1": "Bij La Medusa is geluk niet beperkt tot een paar uurtjes — het is een gevoel dat de hele dag duurt.",
+            "p2": "Vanaf de eerste slok wijn tot de laatste hap zeevruchten, elk moment hier is bedoeld om langzaam te genieten, met uitzicht, met goed gezelschap en met een vleugje mediterrane magie.",
+            "p3": "Momenteel werken wij aan iets speciaals voor u — nieuwe aanbiedingen en ervaringen zijn onderweg.",
+            "bookNow": "Nu Reserveren"
+        },
+        "meets": {
+            "decorative": "Reserveer een Tafel",
+            "title": "Traditie Ontmoet Creativiteit",
+            "p1": "Pasta is een gerecht dat door de eeuwen heen is gegaan en een symbool blijft van comfort en gastronomische cultuur...",
+            "p2": "Bij La Medusa geloven wij dat pasta de taal van emoties is...",
+            "p3": "Voor ons is pasta niet zomaar eten, maar een moment waarop de tijd stilstaat en u geniet van de harmonie van smaak, aroma en sfeer."
+        },
+        "video": {
+            "title": "Uit Onze Keuken Met Liefde",
+            "description": "Wij geloven dat onze gasten onze liefde voor het proces voelen. Van het kneden van het deeg tot de laatste toets op het bord, La Medusa-pasta wordt met ziel gecreëerd."
+        },
+        "reserve": {
+            "decorative": "Reserveer een Tafel",
+            "title": "Maak uw diner bijzonder",
+            "p1": "Reserveer een tafel en breng een avond door in een sfeer van verfijning en inspiratie.",
+            "p2": "Uw avond bij La Medusa wordt een verhaal waar u naar terug wilt keren.",
+            "button": "Maak een reservering"
+        }
+    },
+    "seafood": {
+        "hero": {
+            "title": "Ontdek de Smaak van de Oceaan",
+            "description": "Dagelijks vers geleverde zeevruchten, bereid volgens de originele recepten van onze chef-koks. Dit is een culinaire reis langs de mediterrane kust - van klassieke gerechten tot moderne interpretaties.",
+            "exploreMenu": "Bekijk Menu",
+            "reserveTable": "Reserveer een Tafel"
+        },
+        "philosophy": {
+            "title": "Onze Filosofie van Zeevruchten",
+            "p1": "Wij geloven dat het geheim van een perfecte maaltijd verse vis en zeevruchten is, zorgvuldig geselecteerde kruiden en een balans van smaken...",
+            "p2": "Zeevruchten bij La Medusa maken deel uit van geschiedenis en cultuur. Wij willen dat elke maaltijd meer is dan alleen lunch of diner, maar een moment om te onthouden."
+        },
+        "happyHours": {
+            "decorative": "La Medusa",
+            "title": "Elk Moment Is Happy Hour",
+            "p1": "Bij La Medusa is geluk niet beperkt tot een paar uurtjes — het is een gevoel dat de hele dag duurt.",
+            "p2": "Vanaf de eerste slok wijn tot de laatste hap zeevruchten, elk moment hier is bedoeld om langzaam te genieten, met uitzicht, met goed gezelschap en met een vleugje mediterrane magie.",
+            "p3": "Momenteel werken wij aan iets speciaals voor u — nieuwe aanbiedingen en ervaringen zijn onderweg.",
+            "bookNow": "Nu Reserveren"
+        },
+        "why": {
+            "title": "Waarom Zeevruchten bij La Medusa?",
+            "description": "Bij La Medusa is elk ingrediënt, elke smaak een dankbare belichaming van de mediterrane traditie...",
+            "feature1Title": "Smaak en Kwaliteit",
+            "feature1Desc": "Wij gebruiken alleen verse lokale en geïmporteerde producten en besteden nauwkeurige aandacht aan elke smaak en combinatie.",
+            "feature2Title": "Sfeer met uitzicht",
+            "feature2Desc": "Een restaurant met panoramisch uitzicht op zee, waar elk moment gevuld is met licht en ruimte.",
+            "feature3Title": "Service met een ziel",
+            "feature3Desc": "Ons team zorgt oprecht voor u, met aandacht voor de kleine dingen: van bediening tot gerechtaanbevelingen.",
+            "reserveTable": "Reserveer een Tafel",
+            "contactUs": "Neem contact op"
+        },
+        "gallery": {
+            "decorative": "Galerij",
+            "title": "Meer Dan Alleen een Gerecht",
+            "description": "Zeevruchten bij La Medusa maken deel uit van geschiedenis en cultuur. Wij willen dat elke maaltijd meer is dan alleen lunch of diner, maar een moment om te onthouden."
+        },
+        "reserve": {
+            "decorative": "Reserveer een Tafel",
+            "title": "Maak uw diner bijzonder",
+            "p1": "Reserveer een tafel en breng een avond door in een sfeer van verfijning en inspiratie.",
+            "p2": "Uw avond bij La Medusa wordt een verhaal waar u naar terug wilt keren.",
+            "button": "Maak een reservering"
+        }
+    },
+    "reservation": {
+        "fullName": "Volledige Naam",
+        "numberOfGuests": "Aantal gasten",
+        "email": "E-mail",
+        "phone": "Telefoonnummer",
+        "time": "Tijd",
+        "date": "Datum",
+        "additionalWishes": "Aanvullende wensen",
+        "promoCode": "Voer hier uw promocode in",
+        "apply": "Toepassen",
+        "bookNow": "Nu Reserveren",
+        "reserveNow": "Nu Reserveren",
+        "booking": "Bezig met reserveren...",
+        "checking": "Bezig met controleren...",
+        "confirming": "Bezig met bevestigen...",
+        "confirm": "Bevestigen",
+        "makeAnother": "Nog een Reservering Maken",
+        "goHome": "Ga naar Home",
+        "guestsQuestion": "Hoeveel gasten komen er?",
+        "maxGuests": "Voor groepen groter dan 8, bel ons alstublieft",
+        "enterName": "Voer alstublieft uw volledige naam in",
+        "enterGuests": "Voer alstublieft het aantal gasten in",
+        "selectTime": "Selecteer alstublieft een reserveringstijd",
+        "selectDate": "Selecteer alstublieft een reserveringsdatum",
+        "noTables": "Geen tafels beschikbaar voor dit tijdstip",
+        "checkFailed": "Controleren van beschikbaarheid mislukt. Probeer het alstublieft opnieuw.",
+        "createFailed": "Reservering aanmaken mislukt",
+        "unexpectedError": "Er is een onverwachte fout opgetreden. Probeer het alstublieft opnieuw.",
+        "checkingAvailability": "Beschikbaarheid controleren...",
+        "tablesAvailable": "Tafels beschikbaar voor uw reservering!",
+        "confirmed": "Reservering Bevestigd!",
+        "thankYou": "Bedankt voor uw reservering. Wij kijken ernaar uit u te zien!",
+        "sendingConfirmation": "Bevestiging versturen...",
+        "emailSent": "Bevestigingsmail verzonden!",
+        "emailFailed": "Kon geen e-mail versturen, maar de reservering is bevestigd.",
+        "disclaimer": "Door op de reserveringsknop te klikken, gaat u akkoord met de verwerking van persoonsgegevens",
+        "numberOfGuestsLabel": "Aantal Gasten",
+        "dateAndTime": "Datum en Tijd",
+        "person": "persoon",
+        "persons": "personen",
+        "missingDetails": "Ontbrekende reserveringsgegevens",
+        "yourTableReserved": "Uw tafel is gereserveerd voor {{guests}} {{personWord}} op {{date}}."
+    },
+    "privacy": {
+        "title": "Privacybeleid",
+        "subtitle": "La Medusa Restaurant",
+        "lastUpdated": "Laatst bijgewerkt: 2025",
+        "s1": {
+            "title": "1. Inleiding",
+            "p1": "La Medusa Restaurant respecteert uw privacy en zet zich in voor de bescherming van uw persoonsgegevens.",
+            "p2": "Dit Privacybeleid legt uit hoe wij uw persoonlijke gegevens verzamelen, gebruiken, opslaan en beschermen wanneer u onze website gebruikt of contact heeft met onze diensten.",
+            "p3": "Dit beleid is opgesteld in overeenstemming met de Algemene Verordening Gegevensbescherming (AVG) van de Europese Unie.",
+            "p4": "Door onze website te gebruiken, gaat u akkoord met de praktijken beschreven in dit Privacybeleid."
+        },
+        "s2": {
+            "title": "2. Verwerkingsverantwoordelijke",
+            "p1": "De verwerkingsverantwoordelijke voor de verwerking van persoonsgegevens is:",
+            "name": "La Medusa Restaurant & Cocktail Bar",
+            "location": "Tenerife, Spanje",
+            "website": "https://www.lamedusa-restaurant.com",
+            "p2": "Voor privacygerelateerde vragen kunt u contact met ons opnemen via het contactformulier op de website of officiële communicatiekanalen."
+        },
+        "s3": {
+            "title": "3. Persoonsgegevens Die Wij Verzamelen",
+            "sub1": "Informatie die u rechtstreeks verstrekt",
+            "items1": [
+                "Naam",
+                "E-mailadres",
+                "Telefoonnummer",
+                "Reserveringsgegevens",
+                "Speciale verzoeken met betrekking tot boekingen"
+            ],
+            "sub2": "Automatisch verzamelde informatie",
+            "items2": [
+                "IP-adres",
+                "Browsertype",
+                "Apparaatinformatie",
+                "Bezochte pagina's op de website",
+                "Cookies en soortgelijke technologieën"
+            ]
+        },
+        "s4": {
+            "title": "4. Hoe Wij Uw Gegevens Gebruiken",
+            "p1": "Wij verwerken persoonsgegevens voor de volgende doeleinden:",
+            "items": [
+                "Beheer van tafelreserveringen",
+                "Beantwoorden van klantvragen",
+                "Leveren van restaurantdiensten",
+                "Verbeteren van de website-ervaring",
+                "Waarborgen van de veiligheid van de website",
+                "Voldoen aan wettelijke verplichtingen"
+            ],
+            "p2": "Wij verwerken persoonsgegevens alleen wanneer wij een geldige wettelijke grondslag hebben onder de AVG."
+        },
+        "s5": {
+            "title": "5. Wettelijke Grondslag voor Verwerking",
+            "p1": "De wettelijke grondslag voor de verwerking van persoonsgegevens omvat:",
+            "items": [
+                "Uitvoering van een overeenkomst (restaurantreserveringen)",
+                "Gerechtvaardigd belang (functionaliteit en veiligheid van de website)",
+                "Toestemming (indien vereist voor marketing of cookies)",
+                "Naleving van wettelijke verplichtingen"
+            ]
+        },
+        "s6": {
+            "title": "6. Delen van Gegevens",
+            "p1": "Wij verkopen geen persoonsgegevens.",
+            "p2": "Uw gegevens kunnen alleen worden gedeeld met vertrouwde dienstverleners wanneer nodig, zoals:",
+            "items": [
+                "Hostingproviders van de website",
+                "Systemen voor reserveringsbeheer",
+                "Betalingsverwerkers"
+            ],
+            "p3": "Alle derde partijen zijn verplicht te voldoen aan de AVG-normen."
+        },
+        "s7": {
+            "title": "7. Bewaartermijn van Gegevens",
+            "p1": "Persoonsgegevens worden alleen opgeslagen zolang als nodig is voor de doeleinden waarvoor ze zijn verzameld.",
+            "p2": "Gegevens gerelateerd aan reserveringen kunnen worden bewaard om operationele en juridische redenen.",
+            "p3": "Na deze periode worden de gegevens veilig verwijderd of geanonimiseerd."
+        },
+        "s8": {
+            "title": "8. Uw Rechten Onder de AVG",
+            "p1": "Onder de Algemene Verordening Gegevensbescherming heeft u de volgende rechten:",
+            "items": [
+                "Het recht op toegang tot uw persoonsgegevens",
+                "Het recht om onjuiste informatie te corrigeren",
+                "Het recht om verwijdering van uw gegevens te verzoeken",
+                "Het recht om verwerking te beperken",
+                "Het recht op gegevensoverdraagbaarheid",
+                "Het recht om bezwaar te maken tegen bepaalde verwerkingsactiviteiten"
+            ],
+            "p2": "Verzoeken met betrekking tot uw persoonsgegevens kunnen worden ingediend via onze contactkanalen."
+        },
+        "s9": {
+            "title": "9. Cookies",
+            "p1": "Onze website kan cookies gebruiken om de gebruikerservaring te verbeteren en het websiteverkeer te analyseren.",
+            "p2": "Cookies kunnen onder andere omvatten:",
+            "items": [
+                "Essentiële cookies die nodig zijn voor de werking van de website",
+                "Analytische cookies",
+                "Voorkeurscookies"
+            ],
+            "p3": "U kunt de cookie-instellingen beheren via uw browser."
+        },
+        "s10": {
+            "title": "10. Gegevensbeveiliging",
+            "p1": "Wij nemen passende technische en organisatorische maatregelen om persoonsgegevens te beschermen tegen:",
+            "items": [
+                "Ongeautoriseerde toegang",
+                "Verlies",
+                "Misbruik",
+                "Openbaarmaking"
+            ],
+            "p2": "Er kan echter geen enkel online systeem absolute veiligheid garanderen."
+        },
+        "s11": {
+            "title": "11. Links naar Derden",
+            "p1": "Onze website kan links bevatten naar websites van derden.",
+            "p2": "Wij zijn niet verantwoordelijk voor de privacypraktijken van deze externe websites."
+        },
+        "s12": {
+            "title": "12. Wijzigingen in dit Privacybeleid",
+            "p1": "Wij kunnen dit Privacybeleid van tijd tot tijd bijwerken.",
+            "p2": "Eventuele wijzigingen worden op deze pagina gepubliceerd."
+        }
+    },
+    "terms": {
+        "title": "Servicevoorwaarden",
+        "subtitle": "La Medusa Restaurant",
+        "lastUpdated": "Laatst bijgewerkt: 2025",
+        "s1": {
+            "title": "1. Inleiding",
+            "p1": "Welkom bij La Medusa Restaurant. Deze Servicevoorwaarden regelen het gebruik van onze website en diensten, inclusief tafelreserveringen, restaurantdiensten en alle communicatie via onze website of online platforms.",
+            "p2": "Door onze website te bezoeken of een reservering te maken, gaat u akkoord met naleving van deze Servicevoorwaarden.",
+            "p3": "Als u niet akkoord gaat met deze voorwaarden, gebruik dan onze website of diensten niet."
+        },
+        "s2": {
+            "title": "2. Restaurantinformatie",
+            "name": "La Medusa Restaurant & Cocktail Bar",
+            "location": "Tenerife, Spanje",
+            "website": "https://www.lamedusa-restaurant.com",
+            "p1": "Het restaurant opereert in overeenstemming met de wetten van Spanje en de regelgeving van de Europese Unie."
+        },
+        "s3": {
+            "title": "3. Reserveringen",
+            "p1": "Klanten kunnen reserveringen maken via:",
+            "items": [
+                "De website",
+                "E-mail",
+                "Telefoon",
+                "Sociale media berichtenplatforms"
+            ],
+            "p2": "Het restaurant behoudt zich het recht voor om reserveringen handmatig te bevestigen.",
+            "p3": "Voor grote groepsreserveringen (meestal meer dan 8 personen) kan een minimumbesteding of aanbetaling vereist zijn.",
+            "p4": "Reserveringen worden 15 minuten na het geplande tijdstip aangehouden, tenzij anders overeengekomen."
+        },
+        "s4": {
+            "title": "4. Aanbetalingen en Minimumbesteding",
+            "p1": "Voor groepsboekingen of speciale evenementen kan het restaurant vereisen:",
+            "items": [
+                "Een aanbetaling",
+                "Een minimumbesteding per persoon"
+            ],
+            "p2": "Aanbetalingen zijn vereist om de reservering te waarborgen en last-minute annuleringen te voorkomen.",
+            "p3": "Voorwaarden voor aanbetalingen worden altijd vóór bevestiging van de boeking gecommuniceerd.",
+            "p4": "Als een klant annuleert binnen de tijdens de boeking overeengekomen annuleringstermijn, kan de aanbetaling worden terugbetaald of overgedragen naar een andere reserveringsdatum."
+        },
+        "s5": {
+            "title": "5. Annuleringsbeleid",
+            "p1": "Klanten worden aangemoedigd om reserveringen zo vroeg mogelijk te annuleren.",
+            "p2": "Voor grote boekingen waarvoor een aanbetaling vereist is:",
+            "items": [
+                "Annuleringen minstens 24 uur van tevoren kunnen in aanmerking komen voor terugbetaling",
+                "Latere annuleringen kunnen ertoe leiden dat de aanbetaling wordt ingehouden"
+            ],
+            "p3": "Het restaurant behoudt zich het recht voor om reserveringen te annuleren wegens:",
+            "items2": [
+                "Operationele problemen",
+                "Veiligheidsredenen",
+                "Overmacht"
+            ]
+        },
+        "s6": {
+            "title": "6. Prijzen en Betalingen",
+            "p1": "Alle door het restaurant vermelde prijzen zijn in euro's (€), tenzij anders vermeld.",
+            "p2": "Prijzen kunnen toepasselijke belastingen bevatten volgens de Spaanse wetgeving.",
+            "p3": "Betaalmethoden kunnen omvatten:",
+            "items": [
+                "Contant geld",
+                "Creditcards",
+                "Betaalpassen",
+                "Online betalingen voor aanbetalingen"
+            ],
+            "p4": "Prijzen kunnen zonder voorafgaande kennisgeving veranderen."
+        },
+        "s7": {
+            "title": "7. Gedrag van Klanten",
+            "p1": "Van klanten wordt verwacht dat zij zich respectvol gedragen tegenover personeel en andere gasten.",
+            "p2": "Het restaurant behoudt zich het recht voor om service te weigeren aan klanten die:",
+            "items": [
+                "Zich agressief gedragen",
+                "Andere gasten storen",
+                "Lokale wetten of veiligheidsregels overtreden"
+            ]
+        },
+        "s8": {
+            "title": "8. Voedselallergieën en Dieetwensen",
+            "p1": "Klanten met voedselallergieën of dieetbeperkingen dienen het personeel te informeren vóór het bestellen.",
+            "p2": "Hoewel het restaurant voorzorgsmaatregelen neemt, kan het geen volledig allergeenvrije omgeving garanderen."
+        },
+        "s9": {
+            "title": "9. Gebruik van de Website",
+            "p1": "Gebruikers gaan ermee akkoord de website niet te misbruiken.",
+            "p2": "Verboden activiteiten omvatten onder andere:",
+            "items": [
+                "Pogingen om ongeautoriseerde toegang tot de website te verkrijgen",
+                "Het kopiëren van inhoud zonder toestemming",
+                "Het verstoren van de werking van de website"
+            ],
+            "p3": "Alle inhoud van de website, inclusief afbeeldingen, branding en tekst, behoort toe aan het restaurant, tenzij anders vermeld."
+        },
+        "s10": {
+            "title": "10. Privacy en Gegevensbescherming",
+            "p1": "Het restaurant verwerkt persoonsgegevens in overeenstemming met de Algemene Verordening Gegevensbescherming (AVG).",
+            "p2": "Verzamelde persoonsgegevens kunnen omvatten:",
+            "items": [
+                "Naam",
+                "Contactgegevens",
+                "Reserveringsgegevens"
+            ],
+            "p3": "Deze informatie wordt uitsluitend gebruikt voor reserveringsbeheer en klantcommunicatie.",
+            "p4": "Persoonsgegevens worden nooit verkocht aan derden.",
+            "p5": "Raadpleeg voor meer informatie ons Privacybeleid."
+        },
+        "s11": {
+            "title": "11. Aansprakelijkheid",
+            "p1": "Het restaurant is niet verantwoordelijk voor:",
+            "items": [
+                "Verlies van persoonlijke eigendommen",
+                "Vertragingen veroorzaakt door omstandigheden buiten onze controle",
+                "Serviceonderbrekingen veroorzaakt door technische problemen"
+            ],
+            "p2": "Klanten maken op eigen risico gebruik van de restaurantdiensten."
+        },
+        "s12": {
+            "title": "12. Toepasselijk Recht",
+            "p1": "Deze Servicevoorwaarden worden beheerst door de wetten van Spanje en de Europese Unie.",
+            "p2": "Eventuele geschillen worden opgelost in overeenstemming met het Spaanse recht."
+        },
+        "s13": {
+            "title": "13. Wijzigingen in de Voorwaarden",
+            "p1": "Het restaurant behoudt zich het recht voor om deze Servicevoorwaarden op elk moment bij te werken.",
+            "p2": "Bijgewerkte versies worden gepubliceerd op de website."
+        }
+    },
+    "cookies": {
+        "title": "Cookie-instellingen",
+        "subtitle": "La Medusa Restaurant",
+        "lastUpdated": "Laatst bijgewerkt: 2025",
+        "s1": {
+            "title": "1. Wat Zijn Cookies",
+            "p1": "Cookies zijn kleine tekstbestanden die op uw apparaat worden opgeslagen wanneer u een website bezoekt. Ze helpen websites correct te functioneren, verbeteren de gebruikerservaring en bieden analytische informatie over hoe bezoekers omgaan met de site.",
+            "p2": "Cookies bevatten doorgaans geen informatie die een gebruiker rechtstreeks identificeert, maar kunnen gekoppeld worden aan persoonsgegevens indien dergelijke informatie is verstrekt."
+        },
+        "s2": {
+            "title": "2. Hoe Wij Cookies Gebruiken",
+            "p1": "La Medusa Restaurant gebruikt cookies voor verschillende doeleinden, waaronder:",
+            "items": [
+                "Zorgen dat de website correct functioneert",
+                "Onthouden van gebruikersvoorkeuren",
+                "Analyseren van websiteverkeer en prestaties",
+                "Verbeteren van de algehele gebruikerservaring"
+            ],
+            "p2": "Cookies kunnen ons ook helpen begrijpen hoe bezoekers omgaan met onze website, zodat wij onze diensten kunnen verbeteren."
+        },
+        "s3": {
+            "title": "3. Soorten Cookies Die Wij Gebruiken",
+            "type1": "Essentiële Cookies",
+            "type1Desc": "Deze cookies zijn noodzakelijk voor de correcte werking van de website. Zonder deze cookies zijn bepaalde diensten op de website mogelijk niet beschikbaar.",
+            "type1Examples": "Voorbeelden zijn onder andere:",
+            "type1Items": [
+                "Sessiebeheer",
+                "Beveiligingsfuncties",
+                "Reserveringsfunctionaliteit"
+            ],
+            "type1Note": "Deze cookies kunnen niet worden uitgeschakeld.",
+            "type2": "Analytische Cookies",
+            "type2Desc": "Analytische cookies helpen ons te begrijpen hoe bezoekers de website gebruiken.",
+            "type2Info": "Ze kunnen informatie verzamelen zoals:",
+            "type2Items": [
+                "Bezochte pagina's",
+                "Tijd doorgebracht op de website",
+                "Websiteprestaties"
+            ],
+            "type2Note": "Deze informatie helpt de functionaliteit van de website te verbeteren.",
+            "type3": "Voorkeurscookies",
+            "type3Desc": "Deze cookies onthouden gebruikersvoorkeuren, zoals taalinstellingen of interfacevoorkeuren."
+        },
+        "s4": {
+            "title": "4. Cookies van Derden",
+            "p1": "Sommige cookies kunnen worden geplaatst door diensten van derden die in de website zijn geïntegreerd.",
+            "p2": "Deze kunnen onder andere diensten omvatten zoals:",
+            "items": [
+                "Aanbieders van websiteanalyse",
+                "Reserveringsplatforms",
+                "Ingesloten kaarten of inhoud van sociale media"
+            ],
+            "p3": "Derde partijen hebben hun eigen privacy- en cookiebeleid."
+        },
+        "s5": {
+            "title": "5. Cookies Beheren",
+            "p1": "Wanneer u onze website voor het eerst bezoekt, ziet u mogelijk een cookiebanner waarmee u cookies kunt accepteren of beheren.",
+            "p2": "U kunt:",
+            "items1": [
+                "Alle cookies accepteren",
+                "Niet-essentiële cookies weigeren",
+                "Cookievoorkeuren aanpassen"
+            ],
+            "p3": "U kunt cookies ook beheren via uw browserinstellingen.",
+            "p4": "De meeste browsers stellen u in staat om:",
+            "items2": [
+                "Cookies te blokkeren",
+                "Bestaande cookies te verwijderen",
+                "Meldingen te ontvangen wanneer cookies worden geplaatst"
+            ],
+            "p5": "Het uitschakelen van sommige cookies kan echter de functionaliteit van de website beïnvloeden."
+        },
+        "s6": {
+            "title": "6. Wettelijke Grondslag",
+            "p1": "Het gebruik van cookies op deze website is gebaseerd op:",
+            "items": [
+                "Gerechtvaardigd belang (voor essentiële cookies)",
+                "Toestemming van de gebruiker (voor analytische of optionele cookies)"
+            ],
+            "p2": "Deze aanpak voldoet aan de EU-AVG en de ePrivacyrichtlijn."
+        },
+        "s7": {
+            "title": "7. Updates van dit Cookiebeleid",
+            "p1": "Wij kunnen dit Cookiebeleid van tijd tot tijd bijwerken.",
+            "p2": "De bijgewerkte versie is altijd beschikbaar op deze pagina."
+        }
+    },
+    "delivery": {
+        "hero": {
+            "decorative": "Online Bestellen",
+            "title": "Medusa Bezorging",
+            "description": "Geniet van La Medusa's kenmerkende mediterrane gerechten vanuit het comfort van uw huis. Vers, smaakvol en rechtstreeks bij u thuisbezorgd in Los Cristianos.",
+            "orderButton": "Nu Bestellen"
+        },
+        "howto": {
+            "decorative": "Eenvoudig & Snel",
+            "title": "Hoe te Bestellen",
+            "steps": {
+                "browse": {
+                    "title": "Bekijk het Menu",
+                    "desc": "Ontdek ons bezorgmenu hieronder en kies uw favoriete gerechten."
+                },
+                "order": {
+                    "title": "Plaats Uw Bestelling",
+                    "desc": "Klik op de knop Nu Bestellen en voltooi uw bestelling via Uber Eats."
+                },
+                "enjoy": {
+                    "title": "Geniet Thuis",
+                    "desc": "Leun achterover en ontspan — uw vers bereide maaltijd is onderweg."
+                }
+            }
+        },
+        "menu": {
+            "decorative": "Ons Bezorgmenu",
+            "title": "Wat Wij Bezorgen",
+            "description": "Van krokante pizza's en handgemaakte burgers tot onze kenmerkende kreeftenpasta — al uw favorieten, vers bezorgd.",
+            "categories": {
+                "appetizers": "Voorgerechten",
+                "salads": "Salades",
+                "pizza": "Pizza",
+                "pasta": "Pasta",
+                "mainCourse": "Hoofdgerecht",
+                "burgers": "Burgers & Sandwiches",
+                "desserts": "Desserts"
+            }
+        },
+        "info": {
+            "decorative": "Bezorgdetails",
+            "title": "Goed om te Weten",
+            "items": {
+                "area": {
+                    "label": "Bezorggebied",
+                    "value": "Los Cristianos & omgeving"
+                },
+                "hours": {
+                    "label": "Bezorgtijden",
+                    "value": "13:00 – 22:00 dagelijks"
+                },
+                "minOrder": {
+                    "label": "Minimale Bestelling",
+                    "value": "€15"
+                },
+                "time": {
+                    "label": "Geschatte Tijd",
+                    "value": "30 – 45 minuten"
+                }
+            },
+            "cta": "Klaar om te bestellen? Klik hieronder om te bestellen via Uber Eats.",
+            "orderButton": "Nu Bestellen"
+        }
+    },
+    "blog": {
+        "hero": {
+            "title": "Onze Blog",
+            "description": "Ontdek het laatste nieuws, recepten en verhalen van La Medusa"
+        },
+        "search": "Artikelen zoeken...",
+        "loadingArticles": "Artikelen laden",
+        "loadingArticle": "Artikel laden",
+        "empty": "Geen artikelen gevonden. Kom binnenkort terug!",
+        "readMore": "Lees Meer",
+        "pagination": {
+            "previous": "← Vorige",
+            "next": "Volgende →"
+        },
+        "article": {
+            "back": "Terug naar alle blogs",
+            "toc": "Inhoudsopgave",
+            "notFound": "Artikel niet gevonden",
+            "loadFailed": "Artikel laden mislukt",
+            "oops": "Oeps!",
+            "backToBlog": "Terug naar Blog",
+            "recommended": "Meer Van Onze Blog"
+        }
+    },
+    "seo": {
+        "delivery": {
+            "title": "Medusa Bezorging – Online Bestellen | La Medusa Los Cristianos",
+            "description": "Bestel La Medusa's kenmerkende mediterrane gerechten voor bezorging in Los Cristianos. Verse pizza, pasta, burgers, zeevruchten en meer bij u thuisbezorgd."
+        },
+        "home": {
+            "title": "La Medusa – Restaurant in Los Cristianos, Tenerife",
+            "description": "Restaurant La Medusa in Los Cristianos, Tenerife – een romantisch zeevruchtenrestaurant met uitzicht op zee. Een van de beste laatavond geopende restaurants aan zee."
+        },
+        "about": {
+            "title": "Over Ons",
+            "description": "Leer meer over La Medusa — ons verhaal, ons team en onze passie voor de mediterrane keuken aan zee."
+        },
+        "contact": {
+            "title": "Contact",
+            "description": "Neem contact op met La Medusa. Vind onze locatie, openingstijden en contactgegevens voor reserveringen."
+        },
+        "menu": {
+            "title": "Menu",
+            "description": "Ontdek ons mediterrane menu — tapas, zeevruchten, pasta, pizza, paella en meer bij La Medusa."
+        },
+        "seafood": {
+            "title": "Vis en Zeevruchten in Los Cristianos, Tenerife | La Medusa",
+            "description": "Geniet van eersteklas vis en zeevruchten in Los Cristianos bij La Medusa. Ontdek verfijnde vis en zeevruchten in Tenerife, vers geserveerd met uitzicht op zee."
+        },
+        "pasta": {
+            "title": "Pasta in Los Cristianos, Tenerife | La Medusa",
+            "description": "Geniet van authentieke pasta bij La Medusa in Los Cristianos. Ontdek verse pasta in Tenerife met mediterrane smaak en elegant dineren aan zee."
+        },
+        "happyHours": {
+            "title": "Happy Hours",
+            "description": "Geniet van speciale aanbiedingen tijdens Happy Hours bij La Medusa. Heerlijke drankjes en hapjes tegen onverslaanbare prijzen."
+        },
+        "birthdays": {
+            "title": "Verjaardagsvieringen",
+            "description": "Vier uw verjaardag bij La Medusa. Speciale pakketten voor onvergetelijke momenten met vrienden en familie."
+        },
+        "booking": {
+            "title": "Boek een Tafel",
+            "description": "Reserveer uw tafel bij La Medusa. Snel en eenvoudig online boeken voor de perfecte mediterrane eetervaring."
+        },
+        "privacyPolicy": {
+            "title": "Privacybeleid",
+            "description": "Lees het privacybeleid van La Medusa. Ontdek hoe wij uw persoonsgegevens verzamelen, gebruiken en beschermen."
+        },
+        "termsOfService": {
+            "title": "Servicevoorwaarden",
+            "description": "Voorwaarden voor het gebruik van de website en restaurantdiensten van La Medusa."
+        },
+        "cookiesSettings": {
+            "title": "Cookiebeleid",
+            "description": "Ontdek hoe La Medusa cookies gebruikt om uw surfervaring te verbeteren."
+        }
+    },
+    "seoCommon": {
+        "exploreMenu": "Bekijk Menu",
+        "reserveTable": "Reserveer een Tafel",
+        "contactUs": "Neem Contact Op",
+        "bookATable": "Boek een Tafel",
+        "bookNow": "Nu Reserveren",
+        "viewHappyHours": "Bekijk Happy Hours",
+        "joinUs": "Doe Mee"
+    },
+    "seoPages": {
+        "salads": {
+            "meta": {
+                "title": "Beste Salades in Los Cristianos, Tenerife | La Medusa",
+                "description": "Ontdek salades in Los Cristianos bij La Medusa – wij serveren enkele van de beste salades in Tenerife, vers, levendig en vol mediterrane smaak."
+            },
+            "hero": {
+                "title": "Een Symfonie van Salades",
+                "description": "Vers, levendig en vol mediterraan karakter, onze salades zijn een viering van smaak en eenvoud. Bij La Medusa serveren wij trots enkele van de beste salades in Tenerife, waarbij kwaliteitsingrediënten worden gecombineerd met verfijnde presentatie."
+            },
+            "why": {
+                "title": "Waarom Onze Salades?",
+                "longDesc": "Als u op zoek bent naar uitzonderlijke salades in Los Cristianos, creëert onze keuken gerechten die versheid, textuur en kleur in balans brengen. Elk bord weerspiegelt de geest van het eiland en de elegantie van ons restaurant.",
+                "shortDesc": "Als u op zoek bent naar uitzonderlijke salades in Los Cristianos, creëert onze keuken gerechten die versheid, textuur en kleur in balans brengen.",
+                "feature1Title": "Elke Dag Vers",
+                "feature1Desc": "Onze salades in Los Cristianos worden dagelijks bereid met zorgvuldig geselecteerde seizoensgebonden ingrediënten.",
+                "feature2Title": "Lokale Inspiratie",
+                "feature2Desc": "Wij geven voorrang aan lokale producten om ervoor te zorgen dat onze gasten genieten van enkele van de beste salades in Tenerife, geïnspireerd door de mediterrane traditie.",
+                "feature3Title": "Creatieve Combinaties",
+                "feature3Desc": "Elk van onze salades is doordacht samengesteld om harmonie in smaak, kleur en textuur te bieden."
+            },
+            "hours": {
+                "title": "Gecombineerd met het Perfecte Moment",
+                "description": "Onder de vele salades in Los Cristianos onderscheidt La Medusa zich door kwaliteit en presentatie. Onze chef-koks richten zich op balans — knapperige texturen, levendige ingrediënten en zorgvuldig gekozen dressings die elke hap verheffen."
+            },
+            "kitchen": {
+                "decorative": "Traditie & Innovatie",
+                "title": "Uit Onze Keuken Met Liefde",
+                "p1": "Elk bord van onze salades wordt met zorg bereid — van het selecteren van de meest verse producten tot de uiteindelijke presentatie. Wij geloven dat gasten de passie kunnen voelen achter wat wij creëren.",
+                "p2": "Op zoek naar de beste salades in Tenerife, biedt La Medusa niet alleen smaak, maar ook sfeer.",
+                "p3": "Onze salades in Los Cristianos zijn ontworpen om het uitzicht op zee en de elegante setting van het restaurant aan te vullen."
+            },
+            "video": {
+                "title": "Een Smaak van de Middellandse Zee",
+                "description": "Gasten vertellen ons vaak dat wij de beste salades in Tenerife serveren, dankzij onze toewijding aan versheid en smaak. Voor elke smaak, voor elke gelegenheid."
+            },
+            "reserve": {
+                "title": "Maak Uw Maaltijd Bijzonder",
+                "p1": "Reserveer een tafel en geniet van een onvergetelijke eetervaring met enkele van de beste salades in Tenerife.",
+                "p2": "Uw bezoek om te genieten van onze salades in Los Cristianos wordt een moment van frisheid, elegantie en mediterrane charme — een moment waar u steeds weer naar terug wilt keren."
+            }
+        },
+        "pizza": {
+            "meta": {
+                "title": "Pizza in Los Cristianos, Tenerife | La Medusa",
+                "description": "Geniet van authentieke pizza in Los Cristianos bij La Medusa. Ontdek verse, in de oven gebakken pizza in Tenerife met mediterrane smaak en uitzicht op zee."
+            },
+            "hero": {
+                "title": "Een Viering van Pizza",
+                "description": "Bij La Medusa geloven wij dat een goede pizza meer is dan een gerecht — het is een ervaring. Onze keuken brengt mediterrane inspiratie en traditionele technieken samen om uitzonderlijke pizza in Los Cristianos te creëren."
+            },
+            "why": {
+                "title": "Waarom Onze Pizza?",
+                "longDesc": "Als u op zoek bent naar onvergetelijke pizza in Tenerife, biedt ons restaurant de perfecte combinatie van smaak, sfeer en uitzicht op zee.",
+                "shortDesc": "Als u op zoek bent naar onvergetelijke pizza in Tenerife, biedt ons restaurant de perfecte combinatie van smaak en sfeer.",
+                "feature1Title": "Vers Bereid Deeg",
+                "feature1Desc": "Onze pizza in Los Cristianos begint met zorgvuldig bereid deeg, gemaakt om de perfecte balans tussen krokantheid en zachtheid te bereiken.",
+                "feature2Title": "Kwaliteitsingrediënten",
+                "feature2Desc": "Voor authentieke pizza in Tenerife selecteren wij verse producten en premium toppings die elke hap versterken.",
+                "feature3Title": "Mediterrane Toets",
+                "feature3Desc": "Elke pizza weerspiegelt de warmte en rijkdom van de mediterrane keuken, met een harmonieuze mix van smaken."
+            },
+            "hours": {
+                "title": "Pizza voor Elke Smaak",
+                "description": "Gasten die op zoek zijn naar eersteklas pizza in Tenerife kiezen vaak voor La Medusa vanwege de verfijnde setting en consistente kwaliteit. Elke pizza wordt tot in de perfectie in de oven gebakken, met een rijk aroma, een gebalanceerde textuur en een bevredigende smaak."
+            },
+            "kitchen": {
+                "decorative": "Erfgoed & Stijl",
+                "title": "Van Onze Oven naar Uw Tafel",
+                "p1": "Elke pizza wordt met passie bereid — van het uitrekken van het deeg tot de laatste afwerking voor het serveren.",
+                "p2": "Wanneer u La Medusa kiest voor pizza in Los Cristianos, kiest u voor smaak, sfeer en aandacht voor detail.",
+                "p3": "Als u op zoek bent naar uitstekende pizza in Tenerife, belooft ons restaurant een gedenkwaardige eetervaring aan zee."
+            },
+            "video": {
+                "title": "Een Smaak van Traditie",
+                "description": "Als bestemming voor kwaliteitspizza in Los Cristianos combineren wij beproefde technieken met eigentijdse presentatie. Onze aanpak zorgt ervoor dat elke pizza in Tenerife die bij ons restaurant wordt geserveerd zowel authentiek als onderscheidend aanvoelt."
+            },
+            "reserve": {
+                "title": "Maak Uw Avond Bijzonder",
+                "p1": "Reserveer een tafel en geniet van verfijnde pizza in Los Cristianos in een elegante setting aan de kust.",
+                "p2": "Uw ervaring van pizza in Tenerife bij La Medusa wordt er een die u opnieuw wilt beleven — een perfecte mix van smaak, comfort en mediterrane charme."
+            }
+        },
+        "meat": {
+            "meta": {
+                "title": "Vlees in Los Cristianos, Tenerife | La Medusa",
+                "description": "Ontdek uitzonderlijk vlees in Los Cristianos bij La Medusa. Geniet van premium vlees in Tenerife, perfect bereid in een elegante setting aan zee."
+            },
+            "hero": {
+                "title": "Een Viering van Vlees",
+                "description": "Bij La Medusa geloven wij dat perfect bereid vlees de basis is van een onvergetelijke eetervaring. Onze chef-koks richten zich op kwaliteit, techniek en presentatie om verfijnd vlees in Los Cristianos te bieden dat zelfs de meest kieskeurige gasten tevredenstelt."
+            },
+            "why": {
+                "title": "Waarom Ons Vlees Kiezen?",
+                "longDesc": "Als u op zoek bent naar uitstekend vlees in Tenerife, combineert La Medusa premium ingrediënten met mediterrane flair en uitzicht op zee.",
+                "shortDesc": "Als u op zoek bent naar uitstekend vlees in Tenerife, combineert La Medusa premium ingrediënten met mediterrane flair.",
+                "feature1Title": "Zorgvuldig Geselecteerde Stukken",
+                "feature1Desc": "Ons vlees in Los Cristianos begint met eersteklas selecties, gekozen om hun versheid en textuur.",
+                "feature2Title": "Deskundige Bereiding",
+                "feature2Desc": "Om uitzonderlijk vlees in Tenerife te serveren, gebruiken onze chef-koks gebalanceerde kooktechnieken die de natuurlijke smaak versterken en de sappigheid behouden.",
+                "feature3Title": "Mediterrane Inspiratie",
+                "feature3Desc": "Elk bord vlees weerspiegelt de rijkdom van de mediterrane keuken, waarbij eenvoud en verfijning worden gecombineerd."
+            },
+            "hours": {
+                "title": "Vlees voor Elke Gelegenheid",
+                "description": "Gasten die op zoek zijn naar hoogwaardig vlees in Tenerife waarderen de balans tussen smaak, presentatie en sfeer die La Medusa kenmerkt. Elk gerecht wordt doordacht bereid om harmonie te creëren tussen smaak, textuur en aroma."
+            },
+            "kitchen": {
+                "decorative": "Meesterschap & Respect",
+                "title": "Van Onze Keuken naar Uw Tafel",
+                "p1": "Elk vleesgerecht wordt met aandacht voor detail bereid — van het kruiden tot de presentatie.",
+                "p2": "Door La Medusa te kiezen voor vlees in Los Cristianos, kiest u voor kwaliteit, sfeer en culinaire expertise.",
+                "p3": "Als u op zoek bent naar voortreffelijk vlees in Tenerife, biedt ons restaurant een gedenkwaardige ervaring aan zee."
+            },
+            "video": {
+                "title": "Een Premium Eetervaring",
+                "description": "Als bestemming voor premium vlees in Los Cristianos combineren wij klassieke culinaire methoden met moderne elegantie. Onze toewijding zorgt ervoor dat elk stuk vlees in Tenerife dat bij ons restaurant wordt geserveerd voldoening en verfijning biedt."
+            },
+            "reserve": {
+                "title": "Maak Uw Diner Uitzonderlijk",
+                "p1": "Reserveer uw tafel en geniet van verfijnd vlees in Los Cristianos in een elegante setting aan zee.",
+                "p2": "Uw ervaring van premium vlees in Tenerife bij La Medusa wordt er een om te onthouden — waar smaak, gastvrijheid en sfeer prachtig samenkomen."
+            }
+        },
+        "burgers": {
+            "meta": {
+                "title": "Burgers in Los Cristianos, Tenerife | La Medusa",
+                "description": "Geniet van premium burgers in Los Cristianos bij La Medusa. Ontdek smaakvolle burgers in Tenerife, vers bereid en geserveerd aan zee."
+            },
+            "hero": {
+                "title": "Burgers, Opnieuw Uitgevonden",
+                "description": "Bij La Medusa worden burgers bereid met zorg, balans en aandacht voor smaak. Wij transformeren een tijdloze favoriet in iets verfijnds, maar bevredigends."
+            },
+            "why": {
+                "title": "Wat Maakt Onze Burgers Bijzonder?",
+                "longDesc": "Voor gasten op zoek naar gedenkwaardige burgers in Los Cristianos biedt ons restaurant een combinatie van kwaliteitsingrediënten en een elegante sfeer. Als u op zoek bent naar de beste burgers in Tenerife, biedt La Medusa een ervaring die comfort combineert met verfijning.",
+                "shortDesc": "Voor gasten op zoek naar gedenkwaardige burgers in Los Cristianos biedt ons restaurant een combinatie van kwaliteitsingrediënten en een elegante sfeer.",
+                "feature1Title": "Zorgvuldig Geselecteerde Ingrediënten",
+                "feature1Desc": "Onze burgers in Los Cristianos beginnen met eersteklas componenten, gekozen om versheid en consistentie.",
+                "feature2Title": "Op Bestelling Bereid",
+                "feature2Desc": "Elke portie van onze burgers wordt vers bereid, wat warmte, sappigheid en balans in elke hap garandeert.",
+                "feature3Title": "Harmonie van Smaak",
+                "feature3Desc": "Wie op zoek is naar opvallende burgers in Tenerife waardeert onze doordachte combinaties die rijkdom, versheid en presentatie samenbrengen."
+            },
+            "hours": {
+                "title": "Burgers voor Elke Gelegenheid",
+                "description": "Onder de vele plekken die burgers in Tenerife serveren, onderscheidt La Medusa zich door de verfijnde setting en betrouwbare kwaliteit. Elk gerecht weerspiegelt dezelfde toewijding die te vinden is in ons hele menu."
+            },
+            "kitchen": {
+                "decorative": "Erfgoed & Stijl",
+                "title": "Met Passie Gemaakt",
+                "p1": "Van bereiding tot presentatie, onze burgers worden met aandacht voor detail gecreëerd.",
+                "p2": "La Medusa kiezen voor burgers in Los Cristianos betekent genieten van kwaliteitskeuken in een elegante setting aan de kust.",
+                "p3": "Voor gasten op zoek naar verfijnde burgers in Tenerife beloven wij smaak, sfeer en een gedenkwaardige ervaring."
+            },
+            "video": {
+                "title": "Een Verheven Klassieker",
+                "description": "Als u overweegt waar u van premium burgers in Tenerife wilt genieten, biedt ons restaurant aan zee zowel ontspannen charme als verheven dineren."
+            },
+            "reserve": {
+                "title": "Maak Uw Bezoek Gedenkwaardig",
+                "p1": "Reserveer uw tafel en ontdek uitzonderlijke burgers in Los Cristianos bij La Medusa.",
+                "p2": "Uw ervaring van vakkundig bereide burgers in Tenerife wordt er een om te herhalen — waar smaak, gastvrijheid en elegantie aan zee samenkomen."
+            }
+        },
+        "paella": {
+            "meta": {
+                "title": "Paella in Los Cristianos, Tenerife | La Medusa",
+                "description": "Geniet van authentieke paella in Los Cristianos bij La Medusa. Ontdek rijke, smaakvolle paella in Tenerife, geserveerd in een elegante setting aan zee."
+            },
+            "hero": {
+                "title": "Een Ware Smaak van Paella",
+                "description": "Bij La Medusa is paella meer dan een gerecht — het is een viering van de mediterrane traditie. Bereid met zorg en respect voor authentieke technieken, vangt onze paella in Los Cristianos de warmte en rijkdom van de kustkeuken."
+            },
+            "why": {
+                "title": "Waarom Onze Paella Uitblinkt",
+                "longDesc": "Als u op zoek bent naar onvergetelijke paella in Tenerife, biedt ons restaurant de perfecte setting om deze iconische specialiteit aan zee te genieten.",
+                "shortDesc": "Als u op zoek bent naar onvergetelijke paella in Tenerife, biedt ons restaurant de perfecte setting om deze iconische specialiteit te genieten.",
+                "feature1Title": "Zorgvuldig Geselecteerde Ingrediënten",
+                "feature1Desc": "Onze paella in Los Cristianos wordt bereid met verse, hoogwaardige ingrediënten die het mediterrane karakter weerspiegelen.",
+                "feature2Title": "Traditionele Techniek",
+                "feature2Desc": "Om uitstekende paella in Tenerife te serveren, volgen wij tijdloze methoden die smaken op natuurlijke wijze laten ontwikkelen.",
+                "feature3Title": "Rijke, Gebalanceerde Smaak",
+                "feature3Desc": "Elke portie van onze paella biedt harmonie — zachte texturen, aromatische rijst en een diepgang van smaak die zowel troostrijk als verfijnd aanvoelt."
+            },
+            "hours": {
+                "title": "Paella voor Gedenkwaardige Momenten",
+                "description": "Onder de vele opties voor paella in Tenerife biedt La Medusa een verfijnde sfeer die elke hap versterkt. Of het nu gaat om lunch in de zon of diner bij zonsondergang, onze paella maakt van een maaltijd een gebeurtenis."
+            },
+            "kitchen": {
+                "decorative": "Erfgoed & Elegantie",
+                "title": "Een Ervaring aan Zee",
+                "p1": "Genieten van paella in Los Cristianos bij La Medusa betekent dineren waar uitzicht op zee en de mediterrane keuken naadloos samenkomen.",
+                "p2": "Gasten die op zoek zijn naar authentieke maar verheven paella in Los Cristianos vinden een perfecte balans tussen comfort en verfijning.",
+                "p3": "Bij het kiezen van paella in Tenerife nodigen wij u uit om La Medusa te ervaren — waar smaak, gastvrijheid en elegantie aan zee momenten creëren die u steeds weer wilt herbeleven."
+            },
+            "video": {
+                "title": "Een Viering van de Kustkeuken",
+                "description": "Paella delen in Los Cristianos is een ervaring die langzaam moet worden genoten, in goed gezelschap en met een prachtig uitzicht op zee."
+            },
+            "reserve": {
+                "title": "Deel een Bijzonder Moment",
+                "p1": "Reserveer uw tafel en geniet van authentieke paella in Los Cristianos in een elegante setting aan zee bij La Medusa.",
+                "p2": "Uw ervaring van rijke, smaakvolle paella in Tenerife wordt een moment dat u opnieuw wilt beleven — waar traditie, smaak en de zee prachtig samenkomen."
+            }
+        },
+        "tapas": {
+            "meta": {
+                "title": "Tapas en Voorgerechten in Los Cristianos, Tenerife | La Medusa",
+                "description": "Geniet van tapas en voorgerechten in Los Cristianos bij La Medusa. Ontdek verfijnde tapas en voorgerechten in Tenerife met mediterrane smaken en uitzicht op zee."
+            },
+            "hero": {
+                "title": "Ontdek de Smaak van Tapas en Voorgerechten",
+                "description": "Bij La Medusa zijn tapas en voorgerechten de perfecte manier om uw culinaire reis te beginnen. Geïnspireerd door mediterrane tradities brengen onze kleine gerechten verse ingrediënten, levendige smaken en elegante presentatie samen."
+            },
+            "why": {
+                "title": "Onze Filosofie van Tapas en Voorgerechten",
+                "longDesc": "Als u op zoek bent naar gedenkwaardige tapas en voorgerechten in Los Cristianos, biedt ons restaurant aan zee een ontspannen maar verfijnde ervaring. Voor gasten op zoek naar uitzonderlijke tapas en voorgerechten in Tenerife creëert La Medusa gerechten die de geest van delen en ontdekken vieren.",
+                "shortDesc": "Als u op zoek bent naar gedenkwaardige tapas en voorgerechten in Los Cristianos, biedt ons restaurant aan zee een ontspannen maar verfijnde ervaring.",
+                "feature1Title": "Verse Ingrediënten",
+                "feature1Desc": "Onze tapas en voorgerechten in Los Cristianos worden bereid met hoogwaardige seizoensproducten om versheid en smaak te garanderen.",
+                "feature2Title": "Sfeer aan Zee",
+                "feature2Desc": "Als bestemming voor tapas en voorgerechten in Tenerife biedt ons restaurant een prachtig uitzicht op zee dat elke hap gedenkwaardiger maakt.",
+                "feature3Title": "Warme Gastvrijheid",
+                "feature3Desc": "Ons team besteedt aandacht aan elk detail, zodat uw ervaring met tapas en voorgerechten in Los Cristianos gastvrij, ontspannen en aangenaam is."
+            },
+            "hours": {
+                "title": "Een Smaak van de Mediterrane Cultuur",
+                "description": "Wij geloven dat de beste tapas en voorgerechten eenvoudig, vers en vol karakter zijn. Bij La Medusa wordt elk gerecht zorgvuldig bereid om natuurlijke ingrediënten en gebalanceerde smaken te benadrukken."
+            },
+            "kitchen": {
+                "decorative": "Onze Filosofie",
+                "title": "Smaak, Sfeer en Gastvrijheid",
+                "p1": "Onze benadering van tapas en voorgerechten in Los Cristianos combineert mediterrane inspiratie met eigentijdse creativiteit.",
+                "p2": "Onder de vele plekken die tapas en voorgerechten in Tenerife serveren, onderscheidt La Medusa zich door sfeer, presentatie en aandacht voor detail.",
+                "p3": "Voor gasten op zoek naar tapas en voorgerechten in Tenerife biedt ons restaurant een plek waar smaak, sfeer en gastvrijheid samenkomen."
+            },
+            "video": {
+                "title": "Mediterrane Geest op Elk Bord",
+                "description": "Het delen van tapas en voorgerechten maakt deel uit van de mediterrane levensstijl en traditie. Bij La Medusa brengen wij die cultuur tot leven op elk bord."
+            },
+            "reserve": {
+                "title": "Begin Uw Avond bij La Medusa",
+                "p1": "Reserveer uw tafel en geniet van verfijnde tapas en voorgerechten in Los Cristianos in een elegante setting aan zee.",
+                "p2": "Uw ervaring van tapas en voorgerechten in Tenerife bij La Medusa wordt een moment van smaak, gesprek en mediterrane charme waar u steeds weer naar terug wilt keren."
+            }
+        },
+        "dessert": {
+            "meta": {
+                "title": "Dessert in Los Cristianos, Tenerife | La Medusa",
+                "description": "Geniet van elegant dessert bij La Medusa in Los Cristianos. Ontdek verfijnd dessert in Tenerife, met zorg bereid en geserveerd in een prachtige setting aan zee."
+            },
+            "hero": {
+                "title": "De Kunst van het Dessert",
+                "description": "Bij La Medusa is dessert meer dan het laatste gangetje — het is de perfecte afsluiting van een gedenkwaardige eetervaring. Onze keuken creëert elk dessert met aandacht voor smaak, textuur en presentatie, waardoor zoete momenten blijvende herinneringen worden."
+            },
+            "why": {
+                "title": "Onze Filosofie van Dessert",
+                "longDesc": "Gasten die op zoek zijn naar een uitzonderlijk dessert in Los Cristianos vinden elegantie en creativiteit op elk bord. Als u op zoek bent naar verfijnd dessert in Tenerife, biedt La Medusa een zoete ervaring die de schoonheid van de setting aan zee aanvult.",
+                "shortDesc": "Gasten die op zoek zijn naar een uitzonderlijk dessert in Los Cristianos vinden elegantie en creativiteit op elk bord.",
+                "feature1Title": "Zorgvuldig Geselecteerde Ingrediënten",
+                "feature1Desc": "Elk dessert wordt bereid met verse ingrediënten, gekozen om hun natuurlijke zoetheid en balans.",
+                "feature2Title": "Mediterrane Inspiratie",
+                "feature2Desc": "Gasten die genieten van dessert in Tenerife zullen subtiele mediterrane invloeden opmerken die onze creaties uniek maken.",
+                "feature3Title": "De Perfecte Afsluiting",
+                "feature3Desc": "Overal aan de Middellandse Zee staat dessert voor viering en gedeelde vreugde. Bij La Medusa omarmen wij deze traditie door zoete creaties aan te bieden die uw eetervaring op prachtige wijze afronden."
+            },
+            "hours": {
+                "title": "Sfeer aan Zee",
+                "description": "Onder de vele plekken die dessert in Tenerife serveren, onderscheidt La Medusa zich door de elegante sfeer en toewijding aan kwaliteit. Elk dessert wordt zorgvuldig gepresenteerd om zowel de ogen als het gehemelte te verrukken."
+            },
+            "kitchen": {
+                "decorative": "Onze Belofte",
+                "title": "Zoetheid met Verfijning",
+                "p1": "Een goed dessert begint met balans. Bij La Medusa combineren wij kwaliteitsingrediënten met doordachte bereiding om smaken te creëren die zowel rijk als delicaat aanvoelen.",
+                "p2": "Elk dessert weerspiegelt de geest van de mediterrane keuken — eenvoudig maar verfijnd. Bezoekers op zoek naar gedenkwaardig dessert in Los Cristianos ontdekken vaak dat onze creaties traditie en moderne presentatie samenbrengen.",
+                "p3": "Voor wie geniet van dessert in Tenerife biedt La Medusa zoetheid die verfijnd aanvoelt in plaats van overweldigend."
+            },
+            "video": {
+                "title": "De Zoetste Finale",
+                "description": "Voor gasten die dessert in Tenerife ontdekken, biedt ons restaurant een moment van verwennerij waarin smaak, sfeer en gastvrijheid samenkomen."
+            },
+            "reserve": {
+                "title": "Sluit Uw Avond in Stijl Af",
+                "p1": "Reserveer uw tafel en geniet van een onvergetelijk dessert in Los Cristianos bij La Medusa.",
+                "p2": "Uw ervaring van elegant dessert in Tenerife wordt een moment dat u opnieuw wilt beleven — waar zoetheid, sfeer en mediterrane charme de perfecte afsluiting van uw maaltijd creëren."
+            }
+        },
+        "childrenMenu": {
+            "meta": {
+                "title": "Kindermenu in Los Cristianos, Tenerife | La Medusa",
+                "description": "Ontdek ons kindermenu bij La Medusa in Los Cristianos. Een doordacht kindermenu in Tenerife, ontworpen voor jonge gasten en ontspannen dineren met het gezin."
+            },
+            "hero": {
+                "title": "Een Speciaal Kindermenu voor Jonge Gasten",
+                "description": "Bij La Medusa geloven wij dat elke gast zich welkom moet voelen — ook de jongsten. Ons zorgvuldig samengestelde kindermenu biedt eenvoudige, heerlijke opties waar kinderen van genieten, terwijl ouders ontspannen en van de sfeer genieten."
+            },
+            "why": {
+                "title": "Onze Filosofie van het Kindermenu",
+                "longDesc": "Gezinnen op zoek naar een gastvrij kindermenu in Los Cristianos vinden de perfecte balans tussen kwaliteitsingrediënten, vertrouwde smaken en comfortabel dineren. Voor wie op zoek is naar restaurants met een doordacht kindermenu in Tenerife biedt La Medusa een warme, gezinsvriendelijke ervaring aan zee.",
+                "shortDesc": "Gezinnen op zoek naar een gastvrij kindermenu in Los Cristianos vinden de perfecte balans tussen kwaliteitsingrediënten, vertrouwde smaken en comfortabel dineren.",
+                "feature1Title": "Eenvoudige en Lekkere Gerechten",
+                "feature1Desc": "Ons kindermenu richt zich op smaken waar jonge gasten van genieten, met behoud van versheid en kwaliteit.",
+                "feature2Title": "Ontspannen Sfeer aan Zee",
+                "feature2Desc": "Gezinnen die genieten van het kindermenu in Los Cristianos kunnen ontspannen in een prachtige setting aan zee met veel ruimte en licht.",
+                "feature3Title": "Vriendelijke Service",
+                "feature3Desc": "Ons team zorgt ervoor dat gasten op zoek naar restaurants met een kindermenu in Tenerife zich welkom en goed verzorgd voelen."
+            },
+            "hours": {
+                "title": "Een Plek Waar Gezinnen Zich Welkom Voelen",
+                "description": "Gasten op zoek naar een gezinsvriendelijk kindermenu in Los Cristianos kiezen vaak voor La Medusa omdat wij heerlijk eten combineren met een rustige setting aan zee. Onder de restaurants die een kindermenu in Tenerife aanbieden, streven wij ernaar elk bezoek comfortabel te maken voor zowel ouders als kinderen."
+            },
+            "kitchen": {
+                "decorative": "Ontspan & Geniet",
+                "title": "Kwaliteit voor Elke Leeftijd",
+                "p1": "Een goed kindermenu moet zowel plezierig als zorgvuldig bereid zijn. Bij La Medusa richten wij ons op versheid, kwaliteit en smaken die jonge gasten aanspreken, terwijl wij dezelfde hoge standaarden hanteren als voor de rest van ons menu.",
+                "p2": "Ons kindermenu in Los Cristianos is ontworpen om gebalanceerde gerechten te bieden die bevredigend en gemakkelijk te genieten zijn.",
+                "p3": "Voor gezinnen die restaurants met een kindermenu in Tenerife ontdekken, biedt La Medusa een warme omgeving waar kinderen en volwassenen samen kunnen genieten van een aangename maaltijd aan zee."
+            },
+            "video": {
+                "title": "Gezinsmomenten aan Zee",
+                "description": "Een doordacht kindermenu is een belangrijk onderdeel van een comfortabele eetervaring met het gezin. Bij La Medusa willen wij dat elk bezoek ontspannen, aangenaam en gedenkwaardig aanvoelt voor gasten van alle leeftijden."
+            },
+            "reserve": {
+                "title": "Geniet van Dineren met het Gezin bij La Medusa",
+                "p1": "Reserveer een tafel en beleef een gastvrij kindermenu in Los Cristianos bij La Medusa.",
+                "p2": "Uw bezoek om te genieten van ons kindermenu in Tenerife wordt een ontspannen en aangenaam moment — waar heerlijk eten, prachtige uitzichten en gezinstijd perfect samenkomen."
+            }
+        },
+        "sauces": {
+            "meta": {
+                "title": "Sauzen en Extra's in Los Cristianos, Tenerife | La Medusa",
+                "description": "Ontdek sauzen en extra's bij La Medusa in Los Cristianos. Verrijk uw maaltijd in Tenerife met zorgvuldig bereide sauzen en smaakvolle toevoegingen."
+            },
+            "hero": {
+                "title": "De Perfecte Toets: Sauzen en Extra's",
+                "description": "Bij La Medusa spelen sauzen en extra's een belangrijke rol bij het afronden van de smaak van elk gerecht. Deze kleine maar essentiële details stellen gasten in staat hun maaltijden te personaliseren en te genieten van een rijkere culinaire ervaring."
+            },
+            "why": {
+                "title": "Onze Filosofie van Sauzen en Extra's",
+                "longDesc": "Of u nu een hoofdgerecht wilt versterken of een laatste toets wilt toevoegen, onze sauzen en extra's brengen balans, aroma en karakter naar elk bord. Gasten die op zoek zijn naar smaakvolle eetopties in Los Cristianos waarderen vaak de doordachte selectie die bij La Medusa beschikbaar is.",
+                "shortDesc": "Of u nu een hoofdgerecht wilt versterken of een laatste toets wilt toevoegen, onze sauzen en extra's brengen balans, aroma en karakter naar elk bord.",
+                "feature1Title": "Met Zorg Bereid",
+                "feature1Desc": "Onze sauzen en extra's worden bereid met kwaliteitsingrediënten om een gebalanceerde en authentieke smaak te garanderen.",
+                "feature2Title": "Aanvullend op Elk Gerecht",
+                "feature2Desc": "Elk van onze sauzen en extra's is ontworpen om perfect te combineren met een verscheidenheid aan gerechten op het menu.",
+                "feature3Title": "Aandacht voor Detail",
+                "feature3Desc": "Wij geloven dat doordachte sauzen en extra's een maaltijd kunnen tillen van aangenaam naar onvergetelijk."
+            },
+            "hours": {
+                "title": "Een Klein Detail met een Grote Impact",
+                "description": "Hoewel vaak over het hoofd gezien, zijn sauzen en extra's essentieel voor een complete eetervaring. Bij La Medusa zorgen wij ervoor dat deze elementen dezelfde zorg en creativiteit weerspiegelen als de hoofdgerechten."
+            },
+            "kitchen": {
+                "decorative": "Elk Detail Telt",
+                "title": "Smaak Die de Maaltijd Compleet Maakt",
+                "p1": "Voortreffelijke keuken wordt vaak bepaald door haar details. Bij La Medusa worden onze sauzen en extra's zorgvuldig bereid om de natuurlijke smaken van elk gerecht aan te vullen.",
+                "p2": "Elk element is ontworpen om te versterken in plaats van te overheersen. Onze chef-koks geloven dat goed gebalanceerde sauzen en extra's een maaltijd kunnen transformeren.",
+                "p3": "Gasten die in Tenerife dineren ontdekken dat onze sauzen en extra's persoonlijkheid en diepgang toevoegen aan elk bord."
+            },
+            "video": {
+                "title": "De Laatste Toets",
+                "description": "Bezoekers die in Los Cristianos dineren waarderen vaak de vrijheid om hun gerechten aan te passen met onze selectie sauzen en extra's, waardoor elk bezoek uniek en persoonlijk aanvoelt."
+            },
+            "reserve": {
+                "title": "Maak Uw Maaltijd Compleet bij La Medusa",
+                "p1": "Reserveer uw tafel en ontdek de smaken die doordachte sauzen en extra's aan uw maaltijd kunnen toevoegen.",
+                "p2": "Bij La Medusa telt elk detail — van het hoofdgerecht tot de zorgvuldig bereide sauzen en extra's die elke hap gedenkwaardig maken."
+            }
+        },
+        "garnish": {
+            "meta": {
+                "title": "Garnering in Los Cristianos, Tenerife | La Medusa",
+                "description": "Ontdek verfijnde garnering bij La Medusa in Los Cristianos. Elegante garnering in Tenerife die smaak, presentatie en de eetervaring verbetert."
+            },
+            "hero": {
+                "title": "De Kunst van de Garnering",
+                "description": "Bij La Medusa is garnering meer dan decoratie — het is een essentieel element dat elk gerecht compleet maakt. Zorgvuldig gekozen ingrediënten en doordachte presentatie zorgen ervoor dat elke garnering zowel de smaak als de visuele aantrekkingskracht versterkt."
+            },
+            "why": {
+                "title": "Onze Filosofie van Garnering",
+                "longDesc": "Gasten die in Los Cristianos dineren merken vaak op hoe elke garnering karakter en elegantie aan het bord toevoegt. Voor bezoekers die op zoek zijn naar verfijnde eetervaringen in Tenerife biedt La Medusa prachtig gepresenteerde gerechten waarin garnering een betekenisvolle rol speelt.",
+                "shortDesc": "Gasten die in Los Cristianos dineren merken vaak op hoe elke garnering karakter en elegantie aan het bord toevoegt.",
+                "feature1Title": "Doordachte Presentatie",
+                "feature1Desc": "Elke garnering wordt zorgvuldig geplaatst om een visueel aantrekkelijk en gebalanceerd gerecht te creëren.",
+                "feature2Title": "Verse Ingrediënten",
+                "feature2Desc": "Wij gebruiken verse componenten om ervoor te zorgen dat elke garnering natuurlijke smaak en kleur bijdraagt.",
+                "feature3Title": "Culinaire Harmonie",
+                "feature3Desc": "Onze chef-koks ontwerpen elke garnering om het gerecht aan te vullen en de algehele eetervaring te versterken."
+            },
+            "hours": {
+                "title": "Elk Detail Telt",
+                "description": "Een goed voorbereide garnering moet het gerecht aanvullen in plaats van overheersen. Bij La Medusa ontwerpen onze chef-koks elke garnering zorgvuldig om de natuurlijke smaken en texturen van de hoofdingrediënten te benadrukken."
+            },
+            "kitchen": {
+                "decorative": "Creativiteit & Zorg",
+                "title": "Een Detail Dat Het Gerecht Compleet Maakt",
+                "p1": "Bij La Medusa is garnering deel van het verhaal achter elk bord. Het staat voor creativiteit, zorg en het streven naar culinaire balans.",
+                "p2": "Gasten die maaltijden in Los Cristianos genieten waarderen hoe onze garnering zowel het uiterlijk als de smaak van elk bord verheft.",
+                "p3": "Gasten die in Tenerife dineren ontdekken dat zelfs de kleinste garnering een betekenisvol verschil kan maken in smaak, presentatie en genot."
+            },
+            "video": {
+                "title": "De Schoonheid van Aandacht voor Detail",
+                "description": "In de levendige eetcultuur van Tenerife helpen deze kleine details een werkelijk verfijnde ervaring te creëren. Bij La Medusa krijgen de kleinste elementen dezelfde aandacht als de hoofdingrediënten."
+            },
+            "reserve": {
+                "title": "Beleef de Details bij La Medusa",
+                "p1": "Reserveer een tafel en geniet van gerechten waarin elke garnering met zorg en precisie wordt bereid.",
+                "p2": "Bij La Medusa in Los Cristianos draagt elk detail — inclusief de garnering — bij aan een eetervaring die wordt gekenmerkt door elegantie, smaak en mediterrane inspiratie."
+            }
+        },
+        "seafood": {
+            "meta": {
+                "title": "Vis en Zeevruchten in Los Cristianos, Tenerife | La Medusa",
+                "description": "Geniet van eersteklas vis en zeevruchten in Los Cristianos bij La Medusa. Ontdek verfijnde vis en zeevruchten in Tenerife, vers geserveerd met uitzicht op zee."
+            },
+            "hero": {
+                "title": "Ontdek de Smaak van de Oceaan",
+                "description": "Bij La Medusa vormen vis en zeevruchten het hart van onze culinaire identiteit. Dagelijks vers geleverd en bereid volgens de originele technieken van onze chef-koks, weerspiegelen onze gerechten de rijkdom van de mediterrane kust."
+            },
+            "why": {
+                "title": "Onze Filosofie van Vis en Zeevruchten",
+                "longDesc": "Als u op zoek bent naar uitzonderlijke vis en zeevruchten in Los Cristianos, biedt ons restaurant aan zee een verfijnde maar authentieke ervaring. Voor gasten op zoek naar de beste vis en zeevruchten in Tenerife levert La Medusa smaak, versheid en elegantie in elk bord.",
+                "shortDesc": "Als u op zoek bent naar uitzonderlijke vis en zeevruchten in Los Cristianos, biedt ons restaurant aan zee een verfijnde maar authentieke ervaring.",
+                "feature1Title": "Smaak en Kwaliteit",
+                "feature1Desc": "Wij gebruiken zorgvuldig geselecteerde lokale en geïmporteerde ingrediënten om uitstekende vis en zeevruchten in Los Cristianos te bereiden, met nauwkeurige aandacht voor smaakbalans en verfijning.",
+                "feature2Title": "Sfeer met Uitzicht op Zee",
+                "feature2Desc": "Als toonaangevende bestemming voor vis en zeevruchten in Tenerife biedt ons restaurant panoramisch uitzicht op zee waar licht, ruimte en smaak naadloos samensmelten.",
+                "feature3Title": "Service met Ziel",
+                "feature3Desc": "Ons team verwelkomt elke gast met warmte en aandacht voor detail, wat uw ervaring van vis en zeevruchten in Los Cristianos vanaf het eerste tot het laatste moment versterkt."
+            },
+            "hours": {
+                "title": "Versheid Geïnspireerd door de Zee",
+                "description": "De essentie van voortreffelijke vis en zeevruchten begint met versheid. Bij La Medusa betrekken wij zorgvuldig ingrediënten om natuurlijke smaak en delicate textuur te garanderen. Gasten op zoek naar gedenkwaardige vis en zeevruchten in Los Cristianos waarderen onze toewijding aan kwaliteit. Onder de vele restaurants die vis en zeevruchten in Tenerife aanbieden, onderscheiden wij ons door onze toewijding aan consistentie, elegantie en culinair vakmanschap."
+            },
+            "kitchen": {
+                "decorative": "Onze Belofte",
+                "title": "Waarom Vis en Zeevruchten bij La Medusa Kiezen?",
+                "p1": "Bij La Medusa zijn elk ingrediënt en elke smaak een respectvolle belichaming van de mediterrane traditie. Onze chef-koks zorgen ervoor dat elk bord vis en zeevruchten meer wordt dan alleen eten — het wordt een ervaring om te onthouden.",
+                "p2": "Voor ons vertegenwoordigen vis en zeevruchten geschiedenis, cultuur en kusttraditie. Dineren met vis en zeevruchten in Tenerife moet bijzonder aanvoelen — een pauze in de tijd waarin smaak, sfeer en gezelschap samenkomen.",
+                "p3": "Bij La Medusa is genieten van vis en zeevruchten in Los Cristianos niet zomaar lunch of diner; het is een herinnering in wording."
+            },
+            "video": {
+                "title": "Vers uit de Oceaan, Geserveerd met Passie",
+                "description": "Wij geloven dat het geheim van een perfecte maaltijd ligt in uitstekende vis en zeevruchten, doordacht geselecteerde kruiden en een precieze balans van smaken. Onze aanpak van vis en zeevruchten in Los Cristianos combineert eenvoud met verfijnde presentatie, zodat elke hap het gevoel van een uitstapje aan zee vastlegt. Bij het kiezen van vis en zeevruchten in Tenerife maken kwaliteit en authenticiteit het verschil — en dat is precies wat wij bij La Medusa beloven."
+            },
+            "reserve": {
+                "title": "Maak Uw Diner Bijzonder",
+                "p1": "Reserveer uw tafel en beleef uitzonderlijke vis en zeevruchten in Los Cristianos in een elegante setting aan zee.",
+                "p2": "Uw avond met premium vis en zeevruchten in Tenerife bij La Medusa wordt een verhaal dat u opnieuw wilt beleven — waar smaak, gastvrijheid en de zee iets werkelijk onvergetelijks creëren."
+            }
+        },
+        "pasta": {
+            "meta": {
+                "title": "Pasta in Los Cristianos, Tenerife | La Medusa",
+                "description": "Geniet van authentieke pasta bij La Medusa in Los Cristianos. Ontdek verse pasta in Tenerife met mediterrane smaak en elegant dineren aan zee."
+            },
+            "hero": {
+                "title": "De Kunst van de Pasta",
+                "description": "Bij La Medusa is pasta meer dan een traditioneel gerecht — het is een culinair vakmanschap dat smaak, eenvoud en mediterraan erfgoed viert. Onze chef-koks bereiden elk bord pasta met zorg, waarbij een balans van textuur, aroma en presentatie ontstaat."
+            },
+            "why": {
+                "title": "Onze Filosofie van Pasta",
+                "longDesc": "Gasten op zoek naar uitzonderlijke pasta in Los Cristianos vinden een verfijnde eetervaring waarin kwaliteitsingrediënten en een elegante sfeer samenkomen. Voor wie op zoek is naar gedenkwaardige pasta in Tenerife biedt La Medusa de perfecte mix van comfort en verfijning.",
+                "shortDesc": "Gasten op zoek naar uitzonderlijke pasta in Los Cristianos vinden een verfijnde eetervaring waarin kwaliteitsingrediënten en een elegante sfeer samenkomen.",
+                "feature1Title": "Verse Ingrediënten",
+                "feature1Desc": "Onze pasta wordt bereid met zorgvuldig geselecteerde ingrediënten om een rijke smaak en bevredigende textuur te garanderen.",
+                "feature2Title": "Geïnspireerd door de Mediterrane Keuken",
+                "feature2Desc": "Gasten die genieten van pasta in Tenerife zullen de subtiele mediterrane invloed opmerken die onze gerechten definieert.",
+                "feature3Title": "Elegante Setting aan Zee",
+                "feature3Desc": "Pasta eten in Los Cristianos wordt nog bijzonderder wanneer het gepaard gaat met een prachtig uitzicht op zee en een gastvrije sfeer."
+            },
+            "hours": {
+                "title": "Verse Pasta, Tijdloze Smaak",
+                "description": "De schoonheid van pasta ligt in de eenvoud ervan. Zorgvuldig bereide ingrediënten laten natuurlijke smaken tot hun recht komen, wat gerechten oplevert die zowel troostrijk als verfijnd aanvoelen. Bezoekers op zoek naar gedenkwaardige pasta in Los Cristianos waarderen de balans die wij bereiken tussen traditie en elegantie. Onder de vele plekken die pasta in Tenerife serveren, onderscheidt La Medusa zich door aandacht voor detail en kwaliteit."
+            },
+            "kitchen": {
+                "decorative": "Onze Belofte",
+                "title": "Waarom Pasta bij La Medusa?",
+                "p1": "Bij La Medusa weerspiegelt elk bord pasta onze toewijding aan culinaire excellentie en mediterrane gastvrijheid.",
+                "p2": "Overal aan de Middellandse Zee staat pasta voor comfort, traditie en gedeelde momenten rond de tafel. Bij La Medusa vieren wij deze traditie door verfijnde gerechten aan te bieden die blijvende herinneringen creëren.",
+                "p3": "Voor gasten die pasta in Tenerife ontdekken, biedt ons restaurant een ervaring waarin smaak, sfeer en gastvrijheid prachtig samenkomen."
+            },
+            "video": {
+                "title": "Mediterrane Smaak, Tijdloos Vakmanschap",
+                "description": "Voortreffelijke pasta begint met kwaliteitsingrediënten en doordachte bereiding. Bij La Medusa richten wij ons op versheid, authenticiteit en harmonie van smaak. Elke portie pasta weerspiegelt mediterrane culinaire tradities en omarmt tegelijkertijd moderne creativiteit. Deze aanpak maakt ons restaurant een bestemming voor gasten op zoek naar uitstekende pasta in Tenerife en smaakvolle pasta in Los Cristianos."
+            },
+            "reserve": {
+                "title": "Maak Uw Diner Gedenkwaardig",
+                "p1": "Reserveer een tafel en geniet van uitzonderlijke pasta in Los Cristianos bij La Medusa.",
+                "p2": "Uw ervaring van authentieke pasta in Tenerife wordt er een die u opnieuw wilt beleven — waar mediterrane smaak, elegante omgeving en warme service samen een perfecte avond creëren."
+            }
+        }
+    }
+}

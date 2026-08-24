@@ -13,7 +13,7 @@ const OUTPUT_PATH = resolve(__dirname, "../public/sitemap.xml");
 
 const BASE_URL = "https://www.lamedusa-restaurant.com";
 const DEFAULT_LANGUAGE = "en";
-const LANGUAGE_PREFIXES = { uk: "ua", es: "es" };
+const LANGUAGE_PREFIXES = { uk: "ua", es: "es", it: "it", fr: "fr", de: "de", nl: "nl" };
 const SUPPORTED_LANGUAGES = [DEFAULT_LANGUAGE, ...Object.keys(LANGUAGE_PREFIXES)];
 const prefixFor = (lang) => (LANGUAGE_PREFIXES[lang] ? `/${LANGUAGE_PREFIXES[lang]}` : "");
 

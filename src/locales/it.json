@@ -1,0 +1,1442 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "Chi Siamo",
+        "contact": "Contatti",
+        "menu": "Menù",
+        "seafood": "Pesce",
+        "pasta": "Pasta",
+        "happyHours": "Happy Hour",
+        "birthday": "Feste di Compleanno",
+        "delivery": "Consegna",
+        "blog": "Blog",
+        "bookNow": "Prenota",
+        "bookNowFull": "Prenota Ora"
+    },
+    "footer": {
+        "reviews": "Recensioni",
+        "explore": "Esplora",
+        "burger": "Burger",
+        "pizza": "Pizza",
+        "paella": "Paella",
+        "desserts": "Dessert",
+        "fishAndSeafoods": "Pesce e Frutti di Mare",
+        "contact": "Contatti",
+        "copyright": "© {{year}} La Medusa. Tutti i diritti riservati.",
+        "terms": "Termini di Servizio",
+        "privacy": "Informativa sulla Privacy",
+        "cookies": "Impostazioni Cookie"
+    },
+    "home": {
+        "hero": {
+            "title": "Un Mattino sull'Oceano, Una Cena all'Insegna dell'Eleganza",
+            "description": "Benvenuti da La Medusa, un raffinato ristorante a Los Cristianos dove l'Oceano Atlantico diventa lo sfondo perfetto per la vostra esperienza culinaria.",
+            "button": "Prenota Ora"
+        },
+        "ourMenu": {
+            "decorative": "Il Nostro Menù",
+            "title": "Scopri il Nostro Menù",
+            "p1": "Nel nostro ristorante a Los Cristianos, ogni piatto è una raffinata combinazione di ingredienti freschi, freschezza dell'oceano e sapori mediterranei distintivi. Come ristorante di riferimento a Tenerife, puntiamo su qualità, stagionalità e autenticità.",
+            "p2": "I nostri chef creano ogni piatto con i prodotti locali più freschi. Radicato nella tradizione mediterranea con un tocco originale, La Medusa si distingue con orgoglio tra i migliori ristoranti della regione.",
+            "button": "Vedi il Menù"
+        },
+        "story": {
+            "title": "Ogni piatto racconta una storia",
+            "description": "Da La Medusa, ogni ingrediente e ogni sapore è un'espressione autentica della tradizione mediterranea. Come apprezzato ristorante di pesce a Tenerife, ci assicuriamo che ogni piatto non sia semplicemente cibo, ma un'esperienza che rimane a lungo dopo l'ultimo boccone."
+        },
+        "aboutUs": {
+            "decorative": "Chi Siamo",
+            "title": "Lo Spirito di La Medusa",
+            "p1": "Come rinomato ristorante a Tenerife, uniamo viste panoramiche, un servizio sentito e un'atmosfera accogliente che invita a fermarsi.",
+            "p2": "Dal modo in cui la luce cade sui tavoli alla musica suonata la sera, tutto nel nostro ristorante a Los Cristianos è pensato con cura. Tra i ristoranti aperti fino a tardi sull'oceano, La Medusa offre un ambiente davvero intimo, perfetto per coppie, famiglie e occasioni speciali.",
+            "button": "Scopri di Più"
+        },
+        "gallery": {
+            "title": "Galleria del ristorante",
+            "description": "Dai uno sguardo al cuore del nostro ristorante a Los Cristianos. Sfoglia la nostra galleria e scopri perché La Medusa è considerato uno dei migliori ristoranti di Tenerife."
+        },
+        "foodStory": {
+            "decorative": "La Storia del Cibo",
+            "title": "Ingredienti Freschi, Sapore Autentico",
+            "p1": "Mare, sole e anima — tutto questo in ogni piatto del nostro ristorante a Tenerife. Diamo priorità agli ingredienti locali freschi, uniti a un'esecuzione delicata.",
+            "p2": "Questo impegno colloca La Medusa tra i ristoranti più consigliati aperti tutto l'anno a Los Cristianos.",
+            "p3": "Ogni piatto riflette armonia: consistenze morbide, colori vivaci e aromi ricchi. Come ristorante di prestigio a Los Cristianos, celebriamo semplicità e raffinatezza in egual misura."
+        },
+        "meets": {
+            "decorative": "Gusto e atmosfera con vista sull'oceano",
+            "title": "Dove il mare incontra il gusto",
+            "p1": "La Medusa è più di un semplice ristorante a Los Cristianos. È una destinazione. Con viste panoramiche sull'oceano e una raffinata cucina mediterranea, creiamo un'atmosfera in cui gusto ed estetica diventano un'unica esperienza senza soluzione di continuità.",
+            "p2": "Che siate alla ricerca di ristoranti romantici, ristoranti raffinati aperti fino a tardi o un eccezionale ristorante di pesce a Tenerife, La Medusa vi accoglie per scoprire perché siamo riconosciuti tra i migliori ristoranti dell'isola.",
+            "viewMenu": "Vedi il Menù",
+            "reserveTable": "Prenota un Tavolo"
+        },
+        "special": {
+            "title": "Offerte Speciali",
+            "deal1Title": "Due Burger al Prezzo di Uno",
+            "deal1Desc": "Dalle 14:30 alle 18:00, due burger al prezzo di uno.",
+            "deal2Title": "L'Ora degli Amanti della Pasta",
+            "deal2Desc": "Ogni martedì e mercoledì dalle 14:00 alle 17:00, un bicchiere di vino in omaggio con qualsiasi piatto di pasta.",
+            "deal3Title": "Set di Pesce + Vino",
+            "deal3Desc": "Ogni giorno dalle 15:00 alle 17:00, ordinando un set di pesce, un bicchiere di vino bianco è gratuito.",
+            "discoverMenu": "Scopri il Menù Completo",
+            "reserveTable": "Prenota un Tavolo"
+        },
+        "queries": {
+            "title": "Domande Frequenti",
+            "q1": "La Medusa è un ristorante di pesce?",
+            "a1": "Sì, La Medusa è un ristorante di pesce mediterraneo a Los Cristianos, che offre pesce fresco e ingredienti locali preparati con eleganza.",
+            "q2": "Dove si trova La Medusa?",
+            "a2": "Siamo un ristorante sul mare a Los Cristianos, una delle zone gastronomiche più vivaci di Tenerife.",
+            "q3": "Siete aperti fino a tardi?",
+            "a3": "Sì, siamo tra i ristoranti aperti fino a tardi della zona, perfetti per cene romantiche con vista sull'oceano.",
+            "q4": "La Medusa è adatto per cene romantiche?",
+            "a4": "Assolutamente. La nostra posizione fronte oceano ci rende uno dei ristoranti romantici più consigliati di Tenerife.",
+            "q5": "Devo prenotare?",
+            "a5": "Sebbene accettiamo anche clienti senza prenotazione, consigliamo di prenotare in anticipo, specialmente in alta stagione, poiché uno dei migliori ristoranti di Los Cristianos tende a riempirsi rapidamente."
+        },
+        "reserve": {
+            "decorative": "Prenota un Tavolo",
+            "title": "Rendi speciale la tua cena",
+            "p1": "Prenota un tavolo e trascorri una serata in un'atmosfera di raffinatezza e ispirazione.",
+            "p2": "La tua serata da La Medusa sarà una storia a cui vorrai tornare.",
+            "button": "Prenota"
+        },
+        "delivery": {
+            "decorative": "Ordina Online",
+            "title": "Porta La Medusa a Casa Tua",
+            "description": "Non puoi venire a Los Cristianos stasera? Goditi i nostri piatti mediterranei signature, preparati freschi e consegnati direttamente a casa tua.",
+            "button": "Scopri la Consegna"
+        }
+    },
+    "about": {
+        "hero": {
+            "title": "CHI SIAMO",
+            "description": "La cosa più importante per noi è offrirti un'esperienza culinaria confortevole"
+        },
+        "cuisine": {
+            "decorative": "La Storia del Cibo",
+            "title": "La Nostra Cucina",
+            "p1": "I piatti de La Medusa sono una combinazione di tradizione mediterranea e visione moderna. Prepariamo ogni piatto perché sia una storia: consistenze, sapori, aromi - tutto si percepisce.",
+            "p2": "Il nostro chef sperimenta abbinamenti con il mare, utilizzando prodotti locali e ricette arricchite nel corso degli anni.",
+            "button": "Vedi il Menù"
+        },
+        "ourTeam": {
+            "title": "Il nostro team",
+            "description": "Siamo un gruppo di persone innamorate della gastronomia e del mare. Dallo chef al cameriere, ognuno contribuisce con una parte di sé all'esperienza che vivrai da La Medusa."
+        },
+        "chooseUs": {
+            "title": "Perché Sceglierci",
+            "description": "Da La Medusa, ogni ingrediente, ogni sapore è un'espressione autentica della tradizione mediterranea. I nostri chef si impegnano affinché ogni piatto non sia solo cibo, ma un'emozione che resta con te.",
+            "feature1Title": "Gusto e Qualità",
+            "feature1Desc": "Utilizziamo solo prodotti freschi, locali e importati, prestando grande attenzione a ogni sapore e combinazione.",
+            "feature2Title": "Atmosfera con vista",
+            "feature2Desc": "Un ristorante con vista panoramica sul mare, dove ogni momento è pieno di luce e spazio.",
+            "feature3Title": "Servizio con anima",
+            "feature3Desc": "Il nostro team si prende cura di te con sincerità, curando ogni dettaglio: dal servizio ai consigli sui piatti.",
+            "reserveTable": "Prenota un Tavolo",
+            "contactUs": "Contattaci"
+        },
+        "ourStory": {
+            "decorative": "Il Team",
+            "title": "La Nostra Storia",
+            "p1": "La Medusa è nata dall'idea di creare un luogo dove gastronomia e mare si incontrano in un'unica atmosfera...",
+            "p2": "Fin dall'inizio abbiamo scelto la via della raffinatezza: ingredienti freschi, ricette curate e un servizio che inizia ancora prima del tuo arrivo...",
+            "p3": "La Medusa è un team di persone innamorate della cucina e dell'ospitalità. Ci impegniamo affinché ogni nostro ospite si senta non solo un visitatore, ma parte della storia che stiamo scrivendo insieme."
+        },
+        "grid": {
+            "guitar": {
+                "title": "Notti di Chitarra Spagnola",
+                "p1": "Ogni lunedì e sabato, La Medusa propone i migliori successi eseguiti da maestri della chitarra spagnola...",
+                "p2": "È il momento perfetto per gustare cocktail signature, ammirare splendide viste e trascorrere la serata in ottima compagnia.",
+                "reserveTable": "Prenota un Tavolo",
+                "discoverCocktails": "Scopri i Nostri Cocktail"
+            },
+            "vocal": {
+                "title": "Successi Vocali dal Vivo e Cocktail",
+                "p1": "Ogni giovedì e venerdì, esibizioni vocali dal vivo con i più famosi successi mondiali ti aspettano...",
+                "p2": "Trascorri la fine della settimana all'insegna del gusto e del ritmo — da La Medusa.",
+                "button": "Scopri i Nostri Drink"
+            },
+            "burgers": {
+                "title": "Felicità Tutto il Giorno",
+                "p1": "Da La Medusa, la felicità non si limita a un paio d'ore — è una sensazione che dura tutto il giorno.",
+                "p2": "Dal primo sorso di vino all'ultimo boccone di pesce, ogni momento qui è pensato per essere gustato con calma, con vista, in buona compagnia e con un tocco di magia mediterranea.",
+                "p3": "Stiamo attualmente preparando qualcosa di speciale per te — nuove offerte ed esperienze sono in arrivo.",
+                "button": "Prenota un Tavolo"
+            }
+        }
+    },
+    "menu": {
+        "hero": {
+            "title": "scopri nuove sfaccettature del gusto",
+            "description": "Vivi il sapore della cucina mediterranea sullo sfondo dell'Oceano Atlantico. Da La Medusa, creiamo un'atmosfera in cui ogni momento è un piacere e ogni piatto è una storia."
+        },
+        "delicious": {
+            "title": "Il nostro delizioso menù",
+            "button": "vedi il menù"
+        },
+        "reserve": {
+            "decorative": "Prenota un Tavolo",
+            "title": "Pianifica il Tuo Compleanno Perfetto"
+        },
+        "categories": {
+            "tapas": "Tapas e Antipasti",
+            "salads": "Insalate",
+            "pizza": "Pizza",
+            "pasta": "Pasta",
+            "fish": "Pesce e Frutti di Mare",
+            "meat": "Carne",
+            "burgers": "Burger e Altro",
+            "paella": "Paella",
+            "desserts": "Dessert",
+            "kids": "Menù Bambini",
+            "sauces": "Salse ed Extra"
+        },
+        "sections": {
+            "menu": "Menù",
+            "bar": "Drink del Bar",
+            "cocktails": "Cocktail"
+        }
+    },
+    "contact": {
+        "hero": {
+            "title": "Mettiti in Contatto",
+            "description": "Gli ingredienti più freschi per te ogni giorno",
+            "openTime": "Orario di Apertura",
+            "monSat": "Lunedì - Sabato",
+            "hours": "Lunedì - Sabato, 12.00 - 23.00",
+            "music": "Musica 18.30 - 20.30"
+        },
+        "us": {
+            "decorative": "Contattaci",
+            "title": "Come trovarci",
+            "description": "Ti aspettiamo ogni giorno all'orario stabilito, con un servizio pronto a offrirti atmosfera e gusto.",
+            "restaurantHours": "ORARI del Ristorante",
+            "address": "Indirizzo",
+            "phone": "Telefono",
+            "email": "Email"
+        },
+        "instagram": {
+            "title": "Il nostro instagram",
+            "button": "Seguici"
+        },
+        "reserve": {
+            "decorative": "Prenota un Tavolo",
+            "title": "Prenotazione"
+        }
+    },
+    "birthday": {
+        "hero": {
+            "title": "Il Tuo Compleanno, La Nostra Festa",
+            "description": "Da La Medusa, un compleanno diventa un evento che ricorderai a lungo. Cucina raffinata, atmosfera accogliente e vista panoramica creano il luogo perfetto per momenti speciali.",
+            "bookButton": "Prenota la Tua Festa",
+            "menuButton": "Scopri i Nostri Menù"
+        },
+        "why": {
+            "title": "Perché Scegliere La Medusa per il Tuo Compleanno",
+            "feature1Title": "Atmosfera",
+            "feature1Desc": "Interni eleganti e una magica vista sul mare.",
+            "feature2Title": "Menù personalizzato",
+            "feature2Desc": "Ti aiuteremo a creare la selezione perfetta di piatti e bevande.",
+            "feature3Title": "Musica dal vivo e cocktail",
+            "feature3Desc": "Creano un'atmosfera speciale per gli ospiti.",
+            "reserveTable": "Prenota un Tavolo",
+            "contactUs": "Contattaci"
+        },
+        "gallery": {
+            "title": "Un Luogo da Ricordare",
+            "description": "Il nostro ristorante crea la combinazione perfetta di cucina raffinata e viste panoramiche. Un luogo dove il compleanno diventa più di una festa - un'esperienza indimenticabile."
+        },
+        "gift": {
+            "decorative": "Suggerimenti",
+            "title": "Regali di Compleanno da La Medusa",
+            "p1": "Nel tuo giorno speciale, ci assicureremo che l'atmosfera sia ancora più calorosa. Per ogni festeggiato, il nostro chef prepara una torta di compleanno, che serviamo con gli auguri di tutto lo staff.",
+            "p2": "È il momento in cui il ristorante si riempie di emozioni sincere e la tua serata diventa ancora più festosa. Crediamo che questi dettagli creino ricordi che durano per sempre.",
+            "button": "Festeggia con Noi"
+        },
+        "grid": {
+            "set1Title": "Set Celebrazione di Mare",
+            "set1Desc": "Specialità di mare: ostriche, gamberi, salmone alla griglia e una selezione di vini bianchi...",
+            "set2Title": "Serata Pasta e Vino",
+            "set2Desc": "Una varietà di pasta (Carbonara, Vongole, Tagliatelle al Tartufo) abbinata a vino italiano...",
+            "set3Title": "Tavolo Dolce di Compleanno",
+            "set3Desc": "Un assortimento di dessert dello chef: torta di compleanno, delicato tiramisù, panna cotta...",
+            "reserveTable": "Prenota un Tavolo",
+            "viewMenu": "Vedi il Menù Completo di Compleanno"
+        },
+        "reserve": {
+            "decorative": "Prenota un Tavolo",
+            "title": "Pianifica il Tuo Compleanno Perfetto"
+        }
+    },
+    "happy": {
+        "hero": {
+            "title": "Happy Hour da La Medusa",
+            "description": "Il momento migliore della giornata è quando puoi gustare i tuoi piatti e drink preferiti a prezzi speciali. Abbiamo creato l'Happy Hour per rendere i tuoi incontri con amici o colleghi ancora più piacevoli.",
+            "exploreMenu": "Scopri il Menù",
+            "reserveTable": "Prenota un Tavolo"
+        },
+        "why": {
+            "decorative": "Happy Hour",
+            "title": "Perché Amerai il Nostro Happy Hour",
+            "p1": "In questo momento, La Medusa si trasforma in un luogo con un'atmosfera speciale. Non offriamo solo prezzi vantaggiosi, ma anche l'occasione di provare cocktail signature, piatti caratteristici e goderti la musica dal vivo.",
+            "p2": "L'Happy Hour non riguarda solo il risparmio, ma anche nuove emozioni."
+        },
+        "special": {
+            "title": "Offerte Speciali",
+            "discoverMenu": "Scopri il Menù Completo"
+        },
+        "gallery": {
+            "decorative": "Galleria",
+            "title": "Buone Vibrazioni, Ottima Compagnia",
+            "description": "L'Happy Hour da La Medusa è molto più di una semplice promozione. È un momento in cui le persone si riuniscono per rilassarsi, godersi la musica, socializzare e vivere l'atmosfera del nostro ristorante."
+        },
+        "reserve": {
+            "decorative": "Prenota un Tavolo",
+            "title": "unisciti a noi per l'Happy Hour",
+            "description": "Non perdere l'occasione di vivere l'atmosfera de La Medusa in un momento speciale. Prenota un tavolo e trascorri le ore migliori della tua giornata con noi.",
+            "reserveNow": "Prenota Ora",
+            "contactUs": "Contattaci"
+        }
+    },
+    "booking": {
+        "decorative": "Prenota un Tavolo",
+        "title": "Prenotazione",
+        "back": "Indietro",
+        "table": {
+            "title": "Prenota un tavolo",
+            "description": "Prenota un tavolo con noi oggi stesso, abbiamo un'atmosfera fantastica che adorerai.",
+            "note": "*Per più di 8 persone, contattaci",
+            "noteEmail": "lamedusarestaurants@gmail.com"
+        },
+        "confirm": {
+            "title": "Conferma prenotazione",
+            "description": "Verifica di aver inserito tutto correttamente e inserisci la tua email e il numero di telefono per confermare la prenotazione."
+        }
+    },
+    "pasta": {
+        "hero": {
+            "title": "Una Sinfonia di Pasta",
+            "description": "La pasta fatta in casa con i migliori ingredienti è il cuore della cucina italiana. Da La Medusa, creiamo piatti che uniscono tradizione e originalità...",
+            "exploreMenu": "Scopri il Menù Pasta",
+            "reserveTable": "Prenota un Tavolo"
+        },
+        "why": {
+            "title": "Perché la Nostra Pasta?",
+            "descDesktop": "La pasta non è solo un piatto, ma un momento di piacere.",
+            "descMobile": "Da La Medusa, ogni ingrediente, ogni sapore è un'espressione autentica della tradizione mediterranea...",
+            "feature1Title": "Fresca ogni giorno",
+            "feature1Desc": "Prepariamo la pasta noi stessi, utilizzando tecniche autentiche.",
+            "feature2Title": "Ingredienti locali e italiani",
+            "feature2Desc": "Uniamo il meglio di entrambi i mondi.",
+            "feature3Title": "Salse d'autore",
+            "feature3Desc": "Dalla classica Bolognese a combinazioni uniche con il pesce.",
+            "reserveTable": "Prenota un Tavolo",
+            "contactUs": "Contattaci"
+        },
+        "gallery": {
+            "decorative": "Galleria",
+            "title": "Per Ogni Gusto",
+            "description": "Tagliatelle delicate, penne aromatiche, ravioli raffinati o classici spaghetti - il nostro menù ha una pasta per ogni momento..."
+        },
+        "hours": {
+            "decorative": "La Medusa",
+            "title": "Ogni Piatto Arriva con Gioia",
+            "p1": "Da La Medusa, la felicità non si limita a un paio d'ore — è una sensazione che dura tutto il giorno.",
+            "p2": "Dal primo sorso di vino all'ultimo boccone di pesce, ogni momento qui è pensato per essere gustato con calma, con vista, in buona compagnia e con un tocco di magia mediterranea.",
+            "p3": "Stiamo attualmente preparando qualcosa di speciale per te — nuove offerte ed esperienze sono in arrivo.",
+            "bookNow": "Prenota Ora"
+        },
+        "meets": {
+            "decorative": "Prenota un Tavolo",
+            "title": "La Tradizione Incontra la Creatività",
+            "p1": "La pasta è un piatto che ha attraversato i secoli e resta un simbolo di comfort e cultura gastronomica...",
+            "p2": "Da La Medusa, crediamo che la pasta sia il linguaggio delle emozioni...",
+            "p3": "Per noi, la pasta non è solo cibo, ma un momento in cui il tempo si ferma e ti godi l'armonia di gusto, aroma e atmosfera."
+        },
+        "video": {
+            "title": "Dalla Nostra Cucina con Amore",
+            "description": "Crediamo che i nostri ospiti percepiscano il nostro amore per il processo. Dall'impasto al tocco finale sul piatto, la pasta de La Medusa è creata con anima."
+        },
+        "reserve": {
+            "decorative": "Prenota un Tavolo",
+            "title": "Rendi speciale la tua cena",
+            "p1": "Prenota un tavolo e trascorri una serata in un'atmosfera di raffinatezza e ispirazione.",
+            "p2": "La tua serata da La Medusa sarà una storia a cui vorrai tornare.",
+            "button": "Prenota"
+        }
+    },
+    "seafood": {
+        "hero": {
+            "title": "Scopri il Sapore dell'Oceano",
+            "description": "Pesce fresco consegnato ogni giorno, nelle ricette originali dei nostri chef. Un viaggio culinario lungo la costa mediterranea - dai piatti classici alle interpretazioni moderne.",
+            "exploreMenu": "Scopri il Menù",
+            "reserveTable": "Prenota un Tavolo"
+        },
+        "philosophy": {
+            "title": "La Nostra Filosofia del Pesce",
+            "p1": "Crediamo che il segreto di un pasto perfetto sia il pesce fresco e i frutti di mare, spezie selezionate con cura e un equilibrio di sapori...",
+            "p2": "Il pesce da La Medusa fa parte della storia e della cultura. Vogliamo che ogni pasto sia più di un semplice pranzo o cena, ma un momento da ricordare."
+        },
+        "happyHours": {
+            "decorative": "La Medusa",
+            "title": "Ogni Momento È Happy Hour",
+            "p1": "Da La Medusa, la felicità non si limita a un paio d'ore — è una sensazione che dura tutto il giorno.",
+            "p2": "Dal primo sorso di vino all'ultimo boccone di pesce, ogni momento qui è pensato per essere gustato con calma, con vista, in buona compagnia e con un tocco di magia mediterranea.",
+            "p3": "Stiamo attualmente preparando qualcosa di speciale per te — nuove offerte ed esperienze sono in arrivo.",
+            "bookNow": "Prenota Ora"
+        },
+        "why": {
+            "title": "Perché il Pesce da La Medusa?",
+            "description": "Da La Medusa, ogni ingrediente, ogni sapore è un'espressione autentica della tradizione mediterranea...",
+            "feature1Title": "Gusto e Qualità",
+            "feature1Desc": "Utilizziamo solo prodotti freschi, locali e importati, prestando grande attenzione a ogni sapore e combinazione.",
+            "feature2Title": "Atmosfera con vista",
+            "feature2Desc": "Un ristorante con vista panoramica sul mare, dove ogni momento è pieno di luce e spazio.",
+            "feature3Title": "Servizio con anima",
+            "feature3Desc": "Il nostro team si prende cura di te con sincerità, curando ogni dettaglio: dal servizio ai consigli sui piatti.",
+            "reserveTable": "Prenota un Tavolo",
+            "contactUs": "Contattaci"
+        },
+        "gallery": {
+            "decorative": "Galleria",
+            "title": "Più di un Semplice Piatto",
+            "description": "Il pesce da La Medusa fa parte della storia e della cultura. Vogliamo che ogni pasto sia più di un semplice pranzo o cena, ma un momento da ricordare."
+        },
+        "reserve": {
+            "decorative": "Prenota un Tavolo",
+            "title": "Rendi speciale la tua cena",
+            "p1": "Prenota un tavolo e trascorri una serata in un'atmosfera di raffinatezza e ispirazione.",
+            "p2": "La tua serata da La Medusa sarà una storia a cui vorrai tornare.",
+            "button": "Prenota"
+        }
+    },
+    "reservation": {
+        "fullName": "Nome Completo",
+        "numberOfGuests": "Numero di ospiti",
+        "email": "Email",
+        "phone": "Numero di Telefono",
+        "time": "Ora",
+        "date": "Data",
+        "additionalWishes": "Richieste aggiuntive",
+        "promoCode": "Inserisci qui il codice promozionale",
+        "apply": "Applica",
+        "bookNow": "Prenota Ora",
+        "reserveNow": "Prenota Ora",
+        "booking": "Prenotazione in corso...",
+        "checking": "Verifica in corso...",
+        "confirming": "Conferma in corso...",
+        "confirm": "Conferma",
+        "makeAnother": "Effettua un'Altra Prenotazione",
+        "goHome": "Vai alla Home",
+        "guestsQuestion": "Quanti ospiti parteciperanno?",
+        "maxGuests": "Per gruppi di più di 8 persone, chiamateci",
+        "enterName": "Inserisci il tuo nome completo",
+        "enterGuests": "Inserisci il numero di ospiti",
+        "selectTime": "Seleziona un orario di prenotazione",
+        "selectDate": "Seleziona una data di prenotazione",
+        "noTables": "Nessun tavolo disponibile per questo orario",
+        "checkFailed": "Impossibile verificare la disponibilità. Riprova.",
+        "createFailed": "Impossibile creare la prenotazione",
+        "unexpectedError": "Si è verificato un errore imprevisto. Riprova.",
+        "checkingAvailability": "Verifica disponibilità in corso...",
+        "tablesAvailable": "Tavoli disponibili per la tua prenotazione!",
+        "confirmed": "Prenotazione Confermata!",
+        "thankYou": "Grazie per la tua prenotazione. Ti aspettiamo con piacere!",
+        "sendingConfirmation": "Invio conferma in corso...",
+        "emailSent": "Email di conferma inviata!",
+        "emailFailed": "Impossibile inviare l'email, ma la prenotazione è confermata.",
+        "disclaimer": "Cliccando sul pulsante di prenotazione, accetti il trattamento dei dati personali",
+        "numberOfGuestsLabel": "Numero di Ospiti",
+        "dateAndTime": "Data e Ora",
+        "person": "persona",
+        "persons": "persone",
+        "missingDetails": "Dettagli della prenotazione mancanti",
+        "yourTableReserved": "Il tuo tavolo è stato prenotato per {{guests}} {{personWord}} il {{date}}."
+    },
+    "privacy": {
+        "title": "Informativa sulla Privacy",
+        "subtitle": "La Medusa Restaurant",
+        "lastUpdated": "Ultimo aggiornamento: 2025",
+        "s1": {
+            "title": "1. Introduzione",
+            "p1": "La Medusa Restaurant rispetta la tua privacy e si impegna a proteggere i tuoi dati personali.",
+            "p2": "Questa Informativa sulla Privacy spiega come raccogliamo, utilizziamo, conserviamo e proteggiamo le tue informazioni personali quando utilizzi il nostro sito web o interagisci con i nostri servizi.",
+            "p3": "Questa informativa è redatta in conformità con il Regolamento Generale sulla Protezione dei Dati (GDPR) dell'Unione Europea.",
+            "p4": "Utilizzando il nostro sito web, accetti le pratiche descritte in questa Informativa sulla Privacy."
+        },
+        "s2": {
+            "title": "2. Titolare del Trattamento",
+            "p1": "Il titolare del trattamento responsabile del trattamento dei dati personali è:",
+            "name": "La Medusa Restaurant & Cocktail Bar",
+            "location": "Tenerife, Spain",
+            "website": "https://www.lamedusa-restaurant.com",
+            "p2": "Per richieste relative alla privacy, puoi contattarci tramite il modulo di contatto del sito web o i canali di comunicazione ufficiali."
+        },
+        "s3": {
+            "title": "3. Dati Personali che Raccogliamo",
+            "sub1": "Informazioni fornite direttamente da te",
+            "items1": [
+                "Nome",
+                "Indirizzo email",
+                "Numero di telefono",
+                "Dettagli della prenotazione",
+                "Richieste speciali relative alle prenotazioni"
+            ],
+            "sub2": "Informazioni raccolte automaticamente",
+            "items2": [
+                "Indirizzo IP",
+                "Tipo di browser",
+                "Informazioni sul dispositivo",
+                "Pagine visitate sul sito web",
+                "Cookie e tecnologie simili"
+            ]
+        },
+        "s4": {
+            "title": "4. Come Utilizziamo i Tuoi Dati",
+            "p1": "Trattiamo i dati personali per le seguenti finalità:",
+            "items": [
+                "Gestione delle prenotazioni dei tavoli",
+                "Risposta alle richieste dei clienti",
+                "Erogazione dei servizi del ristorante",
+                "Miglioramento dell'esperienza del sito web",
+                "Garanzia della sicurezza del sito web",
+                "Adempimento di obblighi legali"
+            ],
+            "p2": "Trattiamo i dati personali solo quando disponiamo di una base giuridica valida ai sensi del GDPR."
+        },
+        "s5": {
+            "title": "5. Base Giuridica del Trattamento",
+            "p1": "La base giuridica per il trattamento dei dati personali include:",
+            "items": [
+                "Esecuzione di un contratto (prenotazioni del ristorante)",
+                "Legittimo interesse (funzionalità e sicurezza del sito web)",
+                "Consenso (quando richiesto per marketing o cookie)",
+                "Adempimento di obblighi legali"
+            ]
+        },
+        "s6": {
+            "title": "6. Condivisione dei Dati",
+            "p1": "Non vendiamo dati personali.",
+            "p2": "Le tue informazioni possono essere condivise solo con fornitori di servizi fidati quando necessario, come ad esempio:",
+            "items": [
+                "Fornitori di hosting del sito web",
+                "Sistemi di gestione delle prenotazioni",
+                "Elaboratori di pagamenti"
+            ],
+            "p3": "Tutte le terze parti sono tenute a rispettare gli standard del GDPR."
+        },
+        "s7": {
+            "title": "7. Conservazione dei Dati",
+            "p1": "I dati personali vengono conservati solo per il tempo necessario alle finalità per cui sono stati raccolti.",
+            "p2": "I dati relativi alle prenotazioni possono essere conservati per motivi operativi e legali.",
+            "p3": "Trascorso questo periodo, i dati verranno cancellati in modo sicuro o resi anonimi."
+        },
+        "s8": {
+            "title": "8. I Tuoi Diritti Secondo il GDPR",
+            "p1": "In base al Regolamento Generale sulla Protezione dei Dati, hai i seguenti diritti:",
+            "items": [
+                "Il diritto di accedere ai tuoi dati personali",
+                "Il diritto di correggere informazioni inesatte",
+                "Il diritto di richiedere la cancellazione dei tuoi dati",
+                "Il diritto di limitare il trattamento",
+                "Il diritto alla portabilità dei dati",
+                "Il diritto di opporti a determinate attività di trattamento"
+            ],
+            "p2": "Le richieste relative ai tuoi dati personali possono essere inviate tramite i nostri canali di contatto."
+        },
+        "s9": {
+            "title": "9. Cookie",
+            "p1": "Il nostro sito web può utilizzare cookie per migliorare l'esperienza utente e analizzare il traffico del sito.",
+            "p2": "I cookie possono includere:",
+            "items": [
+                "Cookie essenziali necessari per il funzionamento del sito web",
+                "Cookie analitici",
+                "Cookie di preferenza"
+            ],
+            "p3": "Puoi controllare le impostazioni dei cookie tramite il tuo browser."
+        },
+        "s10": {
+            "title": "10. Sicurezza dei Dati",
+            "p1": "Adottiamo misure tecniche e organizzative adeguate per proteggere i dati personali da:",
+            "items": [
+                "Accesso non autorizzato",
+                "Perdita",
+                "Uso improprio",
+                "Divulgazione"
+            ],
+            "p2": "Tuttavia, nessun sistema online può garantire una sicurezza assoluta."
+        },
+        "s11": {
+            "title": "11. Link di Terze Parti",
+            "p1": "Il nostro sito web può contenere link a siti web di terze parti.",
+            "p2": "Non siamo responsabili per le pratiche sulla privacy di tali siti web esterni."
+        },
+        "s12": {
+            "title": "12. Modifiche a questa Informativa sulla Privacy",
+            "p1": "Potremmo aggiornare questa Informativa sulla Privacy di volta in volta.",
+            "p2": "Eventuali modifiche saranno pubblicate su questa pagina."
+        }
+    },
+    "terms": {
+        "title": "Termini di Servizio",
+        "subtitle": "La Medusa Restaurant",
+        "lastUpdated": "Ultimo aggiornamento: 2025",
+        "s1": {
+            "title": "1. Introduzione",
+            "p1": "Benvenuti da La Medusa Restaurant. Questi Termini di Servizio disciplinano l'uso del nostro sito web e dei nostri servizi, incluse le prenotazioni dei tavoli, i servizi di ristorazione e qualsiasi comunicazione tramite il nostro sito web o le piattaforme online.",
+            "p2": "Accedendo al nostro sito web o effettuando una prenotazione, accetti di rispettare questi Termini di Servizio.",
+            "p3": "Se non accetti questi termini, ti preghiamo di non utilizzare il nostro sito web o i nostri servizi."
+        },
+        "s2": {
+            "title": "2. Informazioni sul Ristorante",
+            "name": "La Medusa Restaurant & Cocktail Bar",
+            "location": "Tenerife, Spain",
+            "website": "https://www.lamedusa-restaurant.com",
+            "p1": "Il ristorante opera in conformità con le leggi della Spagna e i regolamenti dell'Unione Europea."
+        },
+        "s3": {
+            "title": "3. Prenotazioni",
+            "p1": "I clienti possono effettuare prenotazioni tramite:",
+            "items": [
+                "Il sito web",
+                "Email",
+                "Telefono",
+                "Piattaforme di messaggistica sui social media"
+            ],
+            "p2": "Il ristorante si riserva il diritto di confermare manualmente le prenotazioni.",
+            "p3": "Per prenotazioni di gruppi numerosi (di solito più di 8 persone), potrebbe essere richiesta una spesa minima o una caparra.",
+            "p4": "Le prenotazioni vengono mantenute per 15 minuti dopo l'orario previsto, salvo diverso accordo."
+        },
+        "s4": {
+            "title": "4. Caparre e Spesa Minima",
+            "p1": "Per prenotazioni di gruppo o eventi speciali, il ristorante può richiedere:",
+            "items": [
+                "Una caparra",
+                "Una spesa minima a persona"
+            ],
+            "p2": "Le caparre sono richieste per garantire la prenotazione e prevenire cancellazioni dell'ultimo minuto.",
+            "p3": "Le condizioni della caparra saranno sempre comunicate prima della conferma della prenotazione.",
+            "p4": "Se un cliente cancella entro il periodo di cancellazione concordato al momento della prenotazione, la caparra potrà essere rimborsata o trasferita a un'altra data di prenotazione."
+        },
+        "s5": {
+            "title": "5. Politica di Cancellazione",
+            "p1": "I clienti sono invitati a cancellare le prenotazioni il prima possibile.",
+            "p2": "Per le prenotazioni di gruppo che richiedono una caparra:",
+            "items": [
+                "Le cancellazioni effettuate con almeno 24 ore di anticipo possono avere diritto a un rimborso",
+                "Le cancellazioni effettuate successivamente possono comportare il trattenimento della caparra"
+            ],
+            "p3": "Il ristorante si riserva il diritto di cancellare le prenotazioni a causa di:",
+            "items2": [
+                "Problemi operativi",
+                "Motivi di sicurezza",
+                "Eventi di forza maggiore"
+            ]
+        },
+        "s6": {
+            "title": "6. Prezzi e Pagamenti",
+            "p1": "Tutti i prezzi indicati dal ristorante sono in Euro (€) salvo diversa indicazione.",
+            "p2": "I prezzi possono includere le imposte applicabili secondo la legge spagnola.",
+            "p3": "I metodi di pagamento possono includere:",
+            "items": [
+                "Contanti",
+                "Carte di credito",
+                "Carte di debito",
+                "Pagamenti online per le caparre"
+            ],
+            "p4": "I prezzi possono variare senza preavviso."
+        },
+        "s7": {
+            "title": "7. Comportamento dei Clienti",
+            "p1": "Ci si aspetta che i clienti si comportino con rispetto verso lo staff e gli altri ospiti.",
+            "p2": "Il ristorante si riserva il diritto di rifiutare il servizio ai clienti che:",
+            "items": [
+                "Si comportano in modo aggressivo",
+                "Disturbano altri ospiti",
+                "Violano le leggi locali o le norme di sicurezza"
+            ]
+        },
+        "s8": {
+            "title": "8. Allergie Alimentari ed Esigenze Dietetiche",
+            "p1": "I clienti con allergie alimentari o restrizioni dietetiche devono informare lo staff prima di ordinare.",
+            "p2": "Sebbene il ristorante adotti tutte le precauzioni, non può garantire un ambiente completamente privo di allergeni."
+        },
+        "s9": {
+            "title": "9. Utilizzo del Sito Web",
+            "p1": "Gli utenti accettano di non utilizzare in modo improprio il sito web.",
+            "p2": "Le attività vietate includono:",
+            "items": [
+                "Tentativi di accesso non autorizzato al sito web",
+                "Copiare contenuti senza autorizzazione",
+                "Interrompere il funzionamento del sito web"
+            ],
+            "p3": "Tutti i contenuti del sito web, comprese immagini, branding e testo, appartengono al ristorante salvo diversa indicazione."
+        },
+        "s10": {
+            "title": "10. Privacy e Protezione dei Dati",
+            "p1": "Il ristorante tratta i dati personali in conformità con il Regolamento Generale sulla Protezione dei Dati (GDPR).",
+            "p2": "I dati personali raccolti possono includere:",
+            "items": [
+                "Nome",
+                "Informazioni di contatto",
+                "Dettagli della prenotazione"
+            ],
+            "p3": "Queste informazioni vengono utilizzate solo per la gestione delle prenotazioni e la comunicazione con i clienti.",
+            "p4": "I dati personali non vengono mai venduti a terzi.",
+            "p5": "Per maggiori informazioni, consulta la nostra Informativa sulla Privacy."
+        },
+        "s11": {
+            "title": "11. Responsabilità",
+            "p1": "Il ristorante non è responsabile per:",
+            "items": [
+                "Perdita di effetti personali",
+                "Ritardi causati da circostanze al di fuori del nostro controllo",
+                "Interruzioni del servizio causate da problemi tecnici"
+            ],
+            "p2": "I clienti utilizzano i servizi del ristorante a propria discrezione."
+        },
+        "s12": {
+            "title": "12. Legge Applicabile",
+            "p1": "Questi Termini di Servizio sono disciplinati dalle leggi della Spagna e dell'Unione Europea.",
+            "p2": "Eventuali controversie saranno risolte in conformità con la legge spagnola."
+        },
+        "s13": {
+            "title": "13. Modifiche ai Termini",
+            "p1": "Il ristorante si riserva il diritto di aggiornare questi Termini di Servizio in qualsiasi momento.",
+            "p2": "Le versioni aggiornate saranno pubblicate sul sito web."
+        }
+    },
+    "cookies": {
+        "title": "Impostazioni Cookie",
+        "subtitle": "La Medusa Restaurant",
+        "lastUpdated": "Ultimo aggiornamento: 2025",
+        "s1": {
+            "title": "1. Cosa Sono i Cookie",
+            "p1": "I cookie sono piccoli file di testo che vengono memorizzati sul tuo dispositivo quando visiti un sito web. Aiutano i siti web a funzionare correttamente, migliorano l'esperienza utente e forniscono informazioni analitiche su come i visitatori interagiscono con il sito.",
+            "p2": "I cookie di norma non contengono informazioni che identificano direttamente un utente, ma possono essere collegati a dati personali qualora tali informazioni vengano fornite."
+        },
+        "s2": {
+            "title": "2. Come Utilizziamo i Cookie",
+            "p1": "La Medusa Restaurant utilizza i cookie per diverse finalità, tra cui:",
+            "items": [
+                "Garantire il corretto funzionamento del sito web",
+                "Ricordare le preferenze dell'utente",
+                "Analizzare il traffico e le prestazioni del sito web",
+                "Migliorare l'esperienza utente complessiva"
+            ],
+            "p2": "I cookie possono anche aiutarci a comprendere come i visitatori interagiscono con il nostro sito web, così da poter migliorare i nostri servizi."
+        },
+        "s3": {
+            "title": "3. Tipi di Cookie che Utilizziamo",
+            "type1": "Cookie Essenziali",
+            "type1Desc": "Questi cookie sono necessari per il corretto funzionamento del sito web. Senza questi cookie, alcuni servizi del sito web potrebbero non essere disponibili.",
+            "type1Examples": "Gli esempi includono:",
+            "type1Items": [
+                "Gestione della sessione",
+                "Funzionalità di sicurezza",
+                "Funzionalità di prenotazione"
+            ],
+            "type1Note": "Questi cookie non possono essere disattivati.",
+            "type2": "Cookie Analitici",
+            "type2Desc": "I cookie analitici ci aiutano a capire come i visitatori utilizzano il sito web.",
+            "type2Info": "Possono raccogliere informazioni come:",
+            "type2Items": [
+                "Pagine visitate",
+                "Tempo trascorso sul sito web",
+                "Prestazioni del sito web"
+            ],
+            "type2Note": "Queste informazioni aiutano a migliorare la funzionalità del sito web.",
+            "type3": "Cookie di Preferenza",
+            "type3Desc": "Questi cookie ricordano le preferenze dell'utente, come le impostazioni della lingua o le preferenze dell'interfaccia."
+        },
+        "s4": {
+            "title": "4. Cookie di Terze Parti",
+            "p1": "Alcuni cookie possono essere impostati da servizi di terze parti integrati nel sito web.",
+            "p2": "Questi possono includere servizi come:",
+            "items": [
+                "Fornitori di analisi del sito web",
+                "Piattaforme di prenotazione",
+                "Mappe incorporate o contenuti dei social media"
+            ],
+            "p3": "I fornitori di terze parti hanno le proprie politiche sulla privacy e sui cookie."
+        },
+        "s5": {
+            "title": "5. Gestione dei Cookie",
+            "p1": "Quando visiti il nostro sito web per la prima volta, potresti visualizzare un banner sui cookie che ti consente di accettarli o gestirli.",
+            "p2": "Puoi:",
+            "items1": [
+                "Accettare tutti i cookie",
+                "Rifiutare i cookie non essenziali",
+                "Personalizzare le preferenze sui cookie"
+            ],
+            "p3": "Puoi anche gestire i cookie tramite le impostazioni del tuo browser.",
+            "p4": "La maggior parte dei browser ti consente di:",
+            "items2": [
+                "Bloccare i cookie",
+                "Eliminare i cookie esistenti",
+                "Ricevere notifiche quando i cookie vengono impostati"
+            ],
+            "p5": "Tuttavia, disattivare alcuni cookie potrebbe compromettere la funzionalità del sito web."
+        },
+        "s6": {
+            "title": "6. Base Giuridica",
+            "p1": "L'uso dei cookie su questo sito web si basa su:",
+            "items": [
+                "Legittimo interesse (per i cookie essenziali)",
+                "Consenso dell'utente (per i cookie analitici o facoltativi)"
+            ],
+            "p2": "Questo approccio è conforme al GDPR dell'UE e alla Direttiva ePrivacy."
+        },
+        "s7": {
+            "title": "7. Aggiornamenti a questa Politica sui Cookie",
+            "p1": "Potremmo aggiornare questa Politica sui Cookie di volta in volta.",
+            "p2": "La versione aggiornata sarà sempre disponibile su questa pagina."
+        }
+    },
+    "delivery": {
+        "hero": {
+            "decorative": "Ordina Online",
+            "title": "Medusa Delivery",
+            "description": "Gusta i piatti mediterranei signature de La Medusa dal comfort di casa tua. Freschi, saporiti e consegnati direttamente alla tua porta a Los Cristianos.",
+            "orderButton": "Ordina Ora"
+        },
+        "howto": {
+            "decorative": "Semplice e Veloce",
+            "title": "Come Ordinare",
+            "steps": {
+                "browse": {
+                    "title": "Sfoglia il Menù",
+                    "desc": "Esplora il nostro menù delivery qui sotto e scegli i tuoi piatti preferiti."
+                },
+                "order": {
+                    "title": "Effettua il Tuo Ordine",
+                    "desc": "Clicca sul pulsante Ordina Ora e completa il tuo ordine su Uber Eats."
+                },
+                "enjoy": {
+                    "title": "Goditelo a Casa",
+                    "desc": "Rilassati — il tuo pasto appena preparato è in arrivo."
+                }
+            }
+        },
+        "menu": {
+            "decorative": "Il Nostro Menù Delivery",
+            "title": "Cosa Consegniamo",
+            "description": "Dalle pizze croccanti ai burger fatti a mano, fino alla nostra pasta all'aragosta signature — tutti i tuoi preferiti, consegnati freschi.",
+            "categories": {
+                "appetizers": "Antipasti",
+                "salads": "Insalate",
+                "pizza": "Pizza",
+                "pasta": "Pasta",
+                "mainCourse": "Piatto Principale",
+                "burgers": "Burger e Sandwich",
+                "desserts": "Dessert"
+            }
+        },
+        "info": {
+            "decorative": "Dettagli sulla Consegna",
+            "title": "Buono a Sapersi",
+            "items": {
+                "area": {
+                    "label": "Area di Consegna",
+                    "value": "Los Cristianos e dintorni"
+                },
+                "hours": {
+                    "label": "Orari di Consegna",
+                    "value": "13:00 – 22:00 tutti i giorni"
+                },
+                "minOrder": {
+                    "label": "Ordine Minimo",
+                    "value": "€15"
+                },
+                "time": {
+                    "label": "Tempo Stimato",
+                    "value": "30 – 45 minuti"
+                }
+            },
+            "cta": "Pronto per ordinare? Clicca qui sotto per ordinare tramite Uber Eats.",
+            "orderButton": "Ordina Ora"
+        }
+    },
+    "blog": {
+        "hero": {
+            "title": "Il Nostro Blog",
+            "description": "Scopri le ultime notizie, ricette e storie de La Medusa"
+        },
+        "search": "Cerca articoli...",
+        "loadingArticles": "Caricamento articoli in corso",
+        "loadingArticle": "Caricamento articolo in corso",
+        "empty": "Nessun articolo trovato. Torna a trovarci presto!",
+        "readMore": "Leggi di Più",
+        "pagination": {
+            "previous": "← Precedente",
+            "next": "Successivo →"
+        },
+        "article": {
+            "back": "Torna a tutti i blog",
+            "toc": "Indice dei Contenuti",
+            "notFound": "Articolo non trovato",
+            "loadFailed": "Impossibile caricare l'articolo",
+            "oops": "Ops!",
+            "backToBlog": "Torna al Blog",
+            "recommended": "Altro dal Nostro Blog"
+        }
+    },
+    "seo": {
+        "delivery": {
+            "title": "Medusa Delivery – Ordina Online | La Medusa Los Cristianos",
+            "description": "Ordina i piatti mediterranei signature de La Medusa con consegna a Los Cristianos. Pizza, pasta, burger, pesce e altro ancora, consegnati a casa tua."
+        },
+        "home": {
+            "title": "La Medusa – Ristorante a Los Cristianos, Tenerife",
+            "description": "Ristorante La Medusa a Los Cristianos, Tenerife – un romantico ristorante di pesce con vista sull'oceano. Uno dei migliori ristoranti aperti fino a tardi sul mare."
+        },
+        "about": {
+            "title": "Chi Siamo",
+            "description": "Scopri La Medusa — la nostra storia, il nostro team e la nostra passione per la cucina mediterranea sull'oceano."
+        },
+        "contact": {
+            "title": "Contatti",
+            "description": "Mettiti in contatto con La Medusa. Trova la nostra posizione, gli orari di apertura e i contatti per le prenotazioni."
+        },
+        "menu": {
+            "title": "Menù",
+            "description": "Esplora il nostro menù mediterraneo — tapas, pesce, pasta, pizza, paella e altro ancora da La Medusa."
+        },
+        "seafood": {
+            "title": "Pesce e Frutti di Mare a Los Cristianos, Tenerife | La Medusa",
+            "description": "Gusta pesce e frutti di mare di prima qualità a Los Cristianos da La Medusa. Scopri pesce e frutti di mare raffinati a Tenerife, serviti freschi con vista sull'oceano."
+        },
+        "pasta": {
+            "title": "Pasta a Los Cristianos, Tenerife | La Medusa",
+            "description": "Gusta pasta autentica da La Medusa a Los Cristianos. Scopri pasta fresca a Tenerife con sapore mediterraneo ed elegante ristorazione fronte oceano."
+        },
+        "happyHours": {
+            "title": "Happy Hour",
+            "description": "Goditi offerte speciali durante l'Happy Hour da La Medusa. Ottimi drink e stuzzichini a prezzi imbattibili."
+        },
+        "birthdays": {
+            "title": "Feste di Compleanno",
+            "description": "Festeggia il tuo compleanno da La Medusa. Pacchetti speciali per momenti indimenticabili con amici e famiglia."
+        },
+        "booking": {
+            "title": "Prenota un Tavolo",
+            "description": "Prenota il tuo tavolo da La Medusa. Prenotazione online rapida e semplice per la perfetta esperienza culinaria mediterranea."
+        },
+        "privacyPolicy": {
+            "title": "Informativa sulla Privacy",
+            "description": "Leggi l'informativa sulla privacy de La Medusa. Scopri come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali."
+        },
+        "termsOfService": {
+            "title": "Termini di Servizio",
+            "description": "Termini e condizioni per l'utilizzo del sito web e dei servizi del ristorante La Medusa."
+        },
+        "cookiesSettings": {
+            "title": "Politica sui Cookie",
+            "description": "Scopri come La Medusa utilizza i cookie per migliorare la tua esperienza di navigazione."
+        }
+    },
+    "seoCommon": {
+        "exploreMenu": "Scopri il Menù",
+        "reserveTable": "Prenota un Tavolo",
+        "contactUs": "Contattaci",
+        "bookATable": "Prenota un Tavolo",
+        "bookNow": "Prenota Ora",
+        "viewHappyHours": "Vedi l'Happy Hour",
+        "joinUs": "Unisciti a Noi"
+    },
+    "seoPages": {
+        "salads": {
+            "meta": {
+                "title": "Le Migliori Insalate a Los Cristianos, Tenerife | La Medusa",
+                "description": "Scopri le insalate a Los Cristianos da La Medusa – tra le migliori insalate di Tenerife, fresche, vivaci e ricche di sapore mediterraneo."
+            },
+            "hero": {
+                "title": "Una Sinfonia di Insalate",
+                "description": "Fresche, vivaci e ricche di carattere mediterraneo, le nostre insalate sono una celebrazione di gusto e semplicità. Da La Medusa, serviamo con orgoglio alcune delle migliori insalate di Tenerife, unendo ingredienti di qualità a una presentazione raffinata."
+            },
+            "why": {
+                "title": "Perché le Nostre Insalate?",
+                "longDesc": "Se cerchi insalate eccezionali a Los Cristianos, la nostra cucina crea piatti che bilanciano freschezza, consistenza e colore. Ogni piatto riflette lo spirito dell'isola e l'eleganza del nostro ristorante.",
+                "shortDesc": "Se cerchi insalate eccezionali a Los Cristianos, la nostra cucina crea piatti che bilanciano freschezza, consistenza e colore.",
+                "feature1Title": "Fresche Ogni Giorno",
+                "feature1Desc": "Le nostre insalate a Los Cristianos sono preparate quotidianamente utilizzando ingredienti di stagione accuratamente selezionati.",
+                "feature2Title": "Ispirazione Locale",
+                "feature2Desc": "Diamo priorità ai prodotti locali per garantire ai nostri ospiti alcune delle migliori insalate di Tenerife, ispirate alla tradizione mediterranea.",
+                "feature3Title": "Combinazioni Creative",
+                "feature3Desc": "Ognuna delle nostre insalate è composta con cura per offrire armonia di sapore, colore e consistenza."
+            },
+            "hours": {
+                "title": "Abbinate al Momento Perfetto",
+                "description": "Tra le tante insalate di Los Cristianos, La Medusa si distingue per qualità e presentazione. I nostri chef puntano sull'equilibrio — consistenze croccanti, ingredienti vivaci e condimenti scelti con cura che esaltano ogni boccone."
+            },
+            "kitchen": {
+                "decorative": "Tradizione e Innovazione",
+                "title": "Dalla Nostra Cucina con Amore",
+                "p1": "Ogni piatto delle nostre insalate è preparato con cura — dalla selezione dei prodotti più freschi alla presentazione finale. Crediamo che gli ospiti possano percepire la passione dietro ciò che creiamo.",
+                "p2": "Quando cerchi le migliori insalate di Tenerife, La Medusa offre non solo gusto ma anche atmosfera.",
+                "p3": "Le nostre insalate a Los Cristianos sono pensate per completare la vista sull'oceano e l'elegante ambientazione del ristorante."
+            },
+            "video": {
+                "title": "Un Sapore di Mediterraneo",
+                "description": "Gli ospiti ci dicono spesso che serviamo le migliori insalate di Tenerife, grazie alla nostra dedizione alla freschezza e al sapore. Per ogni gusto, per ogni occasione."
+            },
+            "reserve": {
+                "title": "Rendi Speciale il Tuo Pasto",
+                "p1": "Prenota un tavolo e goditi un'esperienza culinaria indimenticabile con alcune delle migliori insalate di Tenerife.",
+                "p2": "La tua visita per gustare le nostre insalate a Los Cristianos sarà un momento di freschezza, eleganza e fascino mediterraneo — a cui vorrai tornare ancora e ancora."
+            }
+        },
+        "pizza": {
+            "meta": {
+                "title": "Pizza a Los Cristianos, Tenerife | La Medusa",
+                "description": "Gusta pizza autentica a Los Cristianos da La Medusa. Scopri pizza fresca cotta al forno a Tenerife con sapore mediterraneo e vista sull'oceano."
+            },
+            "hero": {
+                "title": "Una Celebrazione della Pizza",
+                "description": "Da La Medusa, crediamo che una grande pizza sia più di un semplice piatto — è un'esperienza. La nostra cucina unisce ispirazione mediterranea e tecniche tradizionali per creare una pizza eccezionale a Los Cristianos."
+            },
+            "why": {
+                "title": "Perché la Nostra Pizza?",
+                "longDesc": "Se cerchi una pizza indimenticabile a Tenerife, il nostro ristorante offre la combinazione perfetta di gusto, atmosfera e vista sull'oceano.",
+                "shortDesc": "Se cerchi una pizza indimenticabile a Tenerife, il nostro ristorante offre la combinazione perfetta di gusto e atmosfera.",
+                "feature1Title": "Impasto Fresco Preparato",
+                "feature1Desc": "La nostra pizza a Los Cristianos inizia con un impasto preparato con cura, realizzato per ottenere il perfetto equilibrio tra croccantezza e morbidezza.",
+                "feature2Title": "Ingredienti di Qualità",
+                "feature2Desc": "Per una pizza autentica a Tenerife, selezioniamo prodotti freschi e condimenti premium che esaltano ogni boccone.",
+                "feature3Title": "Tocco Mediterraneo",
+                "feature3Desc": "Ogni pizza riflette il calore e la ricchezza della cucina mediterranea, offrendo un mix armonioso di sapori."
+            },
+            "hours": {
+                "title": "Pizza per Ogni Gusto",
+                "description": "Gli ospiti alla ricerca di una pizza premium a Tenerife scelgono spesso La Medusa per l'ambientazione raffinata e la qualità costante. Ogni pizza è cotta al forno alla perfezione, offrendo aroma ricco, consistenza equilibrata e sapore appagante."
+            },
+            "kitchen": {
+                "decorative": "Eredità e Stile",
+                "title": "Dal Nostro Forno alla Tua Tavola",
+                "p1": "Ogni pizza è preparata con passione — dalla stesura dell'impasto agli ultimi tocchi finali prima di servirla.",
+                "p2": "Scegliendo La Medusa per la pizza a Los Cristianos, scegli gusto, atmosfera e attenzione ai dettagli.",
+                "p3": "Se stai esplorando le opzioni per un'eccellente pizza a Tenerife, il nostro ristorante promette un'esperienza culinaria memorabile sul mare."
+            },
+            "video": {
+                "title": "Un Sapore di Tradizione",
+                "description": "Come destinazione per una pizza di qualità a Los Cristianos, uniamo tecniche collaudate a una presentazione contemporanea. Il nostro approccio garantisce che ogni pizza a Tenerife servita nel nostro ristorante risulti autentica e distintiva."
+            },
+            "reserve": {
+                "title": "Rendi Speciale la Tua Serata",
+                "p1": "Prenota un tavolo e goditi una pizza raffinata a Los Cristianos in un'elegante ambientazione costiera.",
+                "p2": "La tua esperienza con la pizza a Tenerife da La Medusa sarà un momento a cui vorrai tornare — un perfetto mix di gusto, comfort e fascino mediterraneo."
+            }
+        },
+        "meat": {
+            "meta": {
+                "title": "Carne a Los Cristianos, Tenerife | La Medusa",
+                "description": "Scopri carne eccezionale a Los Cristianos da La Medusa. Gusta carne di qualità a Tenerife, preparata alla perfezione in un'elegante ambientazione fronte oceano."
+            },
+            "hero": {
+                "title": "Una Celebrazione della Carne",
+                "description": "Da La Medusa, crediamo che una carne preparata alla perfezione sia il fondamento di un'esperienza culinaria indimenticabile. I nostri chef puntano su qualità, tecnica e presentazione per offrire una carne raffinata a Los Cristianos che soddisfa anche gli ospiti più esigenti."
+            },
+            "why": {
+                "title": "Perché Scegliere la Nostra Carne?",
+                "longDesc": "Se cerchi una carne eccezionale a Tenerife, La Medusa unisce ingredienti premium a un tocco mediterraneo e vista sull'oceano.",
+                "shortDesc": "Se cerchi una carne eccezionale a Tenerife, La Medusa unisce ingredienti premium a un tocco mediterraneo.",
+                "feature1Title": "Tagli Selezionati con Cura",
+                "feature1Desc": "La nostra carne a Los Cristianos inizia con selezioni di qualità premium, scelte per freschezza e consistenza.",
+                "feature2Title": "Preparazione Esperta",
+                "feature2Desc": "Per servire una carne eccezionale a Tenerife, i nostri chef utilizzano tecniche di cottura equilibrate che esaltano il sapore naturale e preservano la succosità.",
+                "feature3Title": "Ispirazione Mediterranea",
+                "feature3Desc": "Ogni piatto di carne riflette la ricchezza della cucina mediterranea, unendo semplicità e raffinatezza."
+            },
+            "hours": {
+                "title": "Carne per Ogni Occasione",
+                "description": "Gli ospiti alla ricerca di carne di alta qualità a Tenerife apprezzano l'equilibrio tra gusto, presentazione e atmosfera che definisce La Medusa. Ogni piatto è preparato con cura per creare armonia tra sapore, consistenza e aroma."
+            },
+            "kitchen": {
+                "decorative": "Maestria e Rispetto",
+                "title": "Dalla Nostra Cucina alla Tua Tavola",
+                "p1": "Ogni piatto di carne è preparato con attenzione ai dettagli — dalla condimentazione alla presentazione.",
+                "p2": "Scegliendo La Medusa per la carne a Los Cristianos, scegli qualità, atmosfera e competenza culinaria.",
+                "p3": "Se stai esplorando le opzioni per una carne di pregio a Tenerife, il nostro ristorante offre un'esperienza memorabile sull'oceano."
+            },
+            "video": {
+                "title": "Un'Esperienza Culinaria Premium",
+                "description": "Come destinazione per carne premium a Los Cristianos, uniamo metodi culinari classici a un'eleganza moderna. Il nostro impegno garantisce che ogni porzione di carne a Tenerife servita nel nostro ristorante offra soddisfazione e raffinatezza."
+            },
+            "reserve": {
+                "title": "Rendi Eccezionale la Tua Cena",
+                "p1": "Prenota il tuo tavolo e goditi una carne raffinata a Los Cristianos in un'elegante ambientazione sul mare.",
+                "p2": "La tua esperienza con la carne premium a Tenerife da La Medusa sarà indimenticabile — dove gusto, ospitalità e atmosfera si uniscono splendidamente."
+            }
+        },
+        "burgers": {
+            "meta": {
+                "title": "Burger a Los Cristianos, Tenerife | La Medusa",
+                "description": "Gusta burger premium a Los Cristianos da La Medusa. Scopri burger saporiti a Tenerife, preparati freschi e serviti sul mare."
+            },
+            "hero": {
+                "title": "Burger, Reinventati",
+                "description": "Da La Medusa, i burger sono preparati con cura, equilibrio e attenzione al sapore. Trasformiamo un classico intramontabile in qualcosa di raffinato ma allo stesso tempo appagante."
+            },
+            "why": {
+                "title": "Cosa Rende Speciali i Nostri Burger?",
+                "longDesc": "Per gli ospiti alla ricerca di burger memorabili a Los Cristianos, il nostro ristorante offre una combinazione di ingredienti di qualità e atmosfera elegante. Se stai esplorando i migliori burger di Tenerife, La Medusa offre un'esperienza che unisce comfort e raffinatezza.",
+                "shortDesc": "Per gli ospiti alla ricerca di burger memorabili a Los Cristianos, il nostro ristorante offre una combinazione di ingredienti di qualità e atmosfera elegante.",
+                "feature1Title": "Ingredienti Selezionati con Cura",
+                "feature1Desc": "I nostri burger a Los Cristianos iniziano con componenti di qualità premium, scelti per freschezza e costanza.",
+                "feature2Title": "Preparati al Momento",
+                "feature2Desc": "Ogni porzione dei nostri burger è preparata fresca, garantendo calore, succosità ed equilibrio in ogni boccone.",
+                "feature3Title": "Armonia di Sapore",
+                "feature3Desc": "Chi cerca burger straordinari a Tenerife apprezza le nostre combinazioni studiate che uniscono ricchezza, freschezza e presentazione."
+            },
+            "hours": {
+                "title": "Burger per Ogni Occasione",
+                "description": "Tra i tanti locali che servono burger a Tenerife, La Medusa si distingue per l'ambientazione raffinata e l'affidabile qualità. Ogni piatto riflette la stessa dedizione che si ritrova in tutto il nostro menù."
+            },
+            "kitchen": {
+                "decorative": "Eredità e Stile",
+                "title": "Realizzati con Passione",
+                "p1": "Dalla preparazione alla presentazione, i nostri burger sono creati con attenzione ai dettagli.",
+                "p2": "Scegliere La Medusa per i burger a Los Cristianos significa gustare una cucina di qualità in un'elegante ambientazione costiera.",
+                "p3": "Per gli ospiti che cercano burger raffinati a Tenerife, promettiamo gusto, atmosfera e un'esperienza memorabile."
+            },
+            "video": {
+                "title": "Un Classico Elevato",
+                "description": "Se stai decidendo dove gustare burger premium a Tenerife, il nostro ristorante fronte oceano offre sia un fascino rilassato sia una cucina raffinata."
+            },
+            "reserve": {
+                "title": "Rendi Memorabile la Tua Visita",
+                "p1": "Prenota il tuo tavolo e scopri burger eccezionali a Los Cristianos da La Medusa.",
+                "p2": "La tua esperienza con burger sapientemente preparati a Tenerife sarà da ripetere — dove gusto, ospitalità ed eleganza sul mare si incontrano."
+            }
+        },
+        "paella": {
+            "meta": {
+                "title": "Paella a Los Cristianos, Tenerife | La Medusa",
+                "description": "Gusta paella autentica a Los Cristianos da La Medusa. Scopri una paella ricca e saporita a Tenerife, servita in un'elegante ambientazione fronte oceano."
+            },
+            "hero": {
+                "title": "Un Vero Sapore di Paella",
+                "description": "Da La Medusa, la paella è più di un semplice piatto — è una celebrazione della tradizione mediterranea. Preparata con cura e rispetto per le tecniche autentiche, la nostra paella a Los Cristianos cattura il calore e la ricchezza della cucina costiera."
+            },
+            "why": {
+                "title": "Perché la Nostra Paella si Distingue",
+                "longDesc": "Se cerchi una paella indimenticabile a Tenerife, il nostro ristorante offre l'ambientazione perfetta per gustare questa iconica specialità sul mare.",
+                "shortDesc": "Se cerchi una paella indimenticabile a Tenerife, il nostro ristorante offre l'ambientazione perfetta per gustare questa iconica specialità.",
+                "feature1Title": "Ingredienti Selezionati con Cura",
+                "feature1Desc": "La nostra paella a Los Cristianos è preparata con ingredienti freschi e di alta qualità che riflettono il carattere mediterraneo.",
+                "feature2Title": "Tecnica Tradizionale",
+                "feature2Desc": "Per servire una paella eccezionale a Tenerife, seguiamo metodi tradizionali che permettono ai sapori di svilupparsi naturalmente.",
+                "feature3Title": "Sapore Ricco ed Equilibrato",
+                "feature3Desc": "Ogni porzione della nostra paella offre armonia — consistenze morbide, riso aromatico e una profondità di sapore che risulta sia confortante che raffinata."
+            },
+            "hours": {
+                "title": "Paella per Momenti Memorabili",
+                "description": "Tra le tante opzioni di paella a Tenerife, La Medusa offre un'atmosfera raffinata che esalta ogni boccone. Che sia per un pranzo al sole o una cena al tramonto, la nostra paella trasforma un pasto in un'occasione."
+            },
+            "kitchen": {
+                "decorative": "Eredità ed Eleganza",
+                "title": "Un'Esperienza Fronte Oceano",
+                "p1": "Gustare la paella a Los Cristianos da La Medusa significa cenare dove la vista sul mare e la cucina mediterranea si fondono perfettamente.",
+                "p2": "Gli ospiti alla ricerca di una paella autentica ma raffinata a Los Cristianos troveranno un perfetto equilibrio tra comfort e sofisticatezza.",
+                "p3": "Quando scegli la paella a Tenerife, ti invitiamo a vivere La Medusa — dove gusto, ospitalità ed eleganza sul mare creano momenti che vorrai rivivere ancora e ancora."
+            },
+            "video": {
+                "title": "Una Celebrazione della Cucina Costiera",
+                "description": "Condividere la paella a Los Cristianos è un'esperienza da gustare con calma, in buona compagnia e con splendide viste sull'oceano."
+            },
+            "reserve": {
+                "title": "Condividi un Momento Speciale",
+                "p1": "Prenota il tuo tavolo e gusta una paella autentica a Los Cristianos in un'elegante ambientazione sul mare da La Medusa.",
+                "p2": "La tua esperienza con una paella ricca e saporita a Tenerife sarà un momento a cui vorrai tornare — dove tradizione, gusto e oceano si uniscono splendidamente."
+            }
+        },
+        "tapas": {
+            "meta": {
+                "title": "Tapas e Antipasti a Los Cristianos, Tenerife | La Medusa",
+                "description": "Gusta tapas e antipasti a Los Cristianos da La Medusa. Scopri tapas e antipasti raffinati a Tenerife con sapori mediterranei e vista sull'oceano."
+            },
+            "hero": {
+                "title": "Scopri il Sapore di Tapas e Antipasti",
+                "description": "Da La Medusa, tapas e antipasti sono il modo perfetto per iniziare il tuo viaggio culinario. Ispirati alle tradizioni mediterranee, i nostri piccoli piatti uniscono ingredienti freschi, sapori vivaci ed elegante presentazione."
+            },
+            "why": {
+                "title": "La Nostra Filosofia di Tapas e Antipasti",
+                "longDesc": "Se cerchi tapas e antipasti memorabili a Los Cristianos, il nostro ristorante fronte oceano offre un'esperienza rilassata ma raffinata. Per gli ospiti che esplorano tapas e antipasti eccezionali a Tenerife, La Medusa crea piatti che celebrano lo spirito della condivisione e della scoperta.",
+                "shortDesc": "Se cerchi tapas e antipasti memorabili a Los Cristianos, il nostro ristorante fronte oceano offre un'esperienza rilassata ma raffinata.",
+                "feature1Title": "Ingredienti Freschi",
+                "feature1Desc": "Le nostre tapas e antipasti a Los Cristianos sono preparati con prodotti di stagione di alta qualità per garantire freschezza e sapore.",
+                "feature2Title": "Atmosfera Fronte Oceano",
+                "feature2Desc": "Come destinazione per tapas e antipasti a Tenerife, il nostro ristorante offre splendide viste sul mare che rendono ogni boccone più memorabile.",
+                "feature3Title": "Calorosa Ospitalità",
+                "feature3Desc": "Il nostro team cura ogni dettaglio, assicurando che la tua esperienza con le tapas e gli antipasti a Los Cristianos sia accogliente, rilassata e piacevole."
+            },
+            "hours": {
+                "title": "Un Sapore della Cultura Mediterranea",
+                "description": "Crediamo che le migliori tapas e antipasti siano semplici, freschi e pieni di carattere. Da La Medusa, ogni piatto è preparato con cura per esaltare gli ingredienti naturali e i sapori equilibrati."
+            },
+            "kitchen": {
+                "decorative": "La Nostra Filosofia",
+                "title": "Gusto, Atmosfera e Ospitalità",
+                "p1": "Il nostro approccio alle tapas e agli antipasti a Los Cristianos unisce ispirazione mediterranea e creatività contemporanea.",
+                "p2": "Tra i tanti locali che servono tapas e antipasti a Tenerife, La Medusa si distingue per atmosfera, presentazione e attenzione ai dettagli.",
+                "p3": "Per gli ospiti che esplorano tapas e antipasti a Tenerife, il nostro ristorante offre un luogo dove gusto, atmosfera e ospitalità si incontrano."
+            },
+            "video": {
+                "title": "Spirito Mediterraneo in Ogni Piatto",
+                "description": "Condividere tapas e antipasti fa parte dello stile di vita e della tradizione mediterranea. Da La Medusa, portiamo questa cultura in vita in ogni piatto."
+            },
+            "reserve": {
+                "title": "Inizia la Tua Serata da La Medusa",
+                "p1": "Prenota il tuo tavolo e gusta tapas e antipasti raffinati a Los Cristianos in un'elegante ambientazione sul mare.",
+                "p2": "La tua esperienza con le tapas e gli antipasti a Tenerife da La Medusa sarà un momento di gusto, conversazione e fascino mediterraneo a cui vorrai tornare ancora."
+            }
+        },
+        "dessert": {
+            "meta": {
+                "title": "Dessert a Los Cristianos, Tenerife | La Medusa",
+                "description": "Gusta dessert eleganti da La Medusa a Los Cristianos. Scopri dessert raffinati a Tenerife, realizzati con cura e serviti in una splendida ambientazione sul mare."
+            },
+            "hero": {
+                "title": "L'Arte del Dessert",
+                "description": "Da La Medusa, il dessert è più dell'ultima portata — è il finale perfetto per un'esperienza culinaria memorabile. La nostra cucina crea ogni dessert con attenzione a sapore, consistenza e presentazione, trasformando momenti dolci in ricordi duraturi."
+            },
+            "why": {
+                "title": "La Nostra Filosofia del Dessert",
+                "longDesc": "Gli ospiti alla ricerca di un dessert eccezionale a Los Cristianos troveranno eleganza e creatività in ogni piatto. Se stai esplorando dessert raffinati a Tenerife, La Medusa offre un'esperienza dolce che completa la bellezza dell'ambientazione fronte oceano.",
+                "shortDesc": "Gli ospiti alla ricerca di un dessert eccezionale a Los Cristianos troveranno eleganza e creatività in ogni piatto.",
+                "feature1Title": "Ingredienti Selezionati con Cura",
+                "feature1Desc": "Ogni dessert è preparato con ingredienti freschi scelti per la loro dolcezza naturale ed equilibrio.",
+                "feature2Title": "Ispirazione Mediterranea",
+                "feature2Desc": "Gli ospiti che gustano il dessert a Tenerife noteranno sottili influenze mediterranee che rendono uniche le nostre creazioni.",
+                "feature3Title": "Il Finale Perfetto",
+                "feature3Desc": "In tutto il Mediterraneo, il dessert rappresenta celebrazione e gioia condivisa. Da La Medusa, abbracciamo questa tradizione offrendo creazioni dolci pensate per completare splendidamente la tua esperienza culinaria."
+            },
+            "hours": {
+                "title": "Atmosfera sull'Oceano",
+                "description": "Tra i tanti locali che servono dessert a Tenerife, La Medusa si distingue per la sua elegante atmosfera e la dedizione alla qualità. Ogni dessert è presentato con cura per deliziare sia gli occhi che il palato."
+            },
+            "kitchen": {
+                "decorative": "La Nostra Promessa",
+                "title": "Dolcezza con Raffinatezza",
+                "p1": "Un grande dessert inizia con l'equilibrio. Da La Medusa, uniamo ingredienti di qualità a una preparazione curata per creare sapori ricchi e delicati allo stesso tempo.",
+                "p2": "Ogni dessert riflette lo spirito della cucina mediterranea — semplice ma raffinato. I visitatori alla ricerca di un dessert memorabile a Los Cristianos scoprono spesso che le nostre creazioni uniscono tradizione e presentazione moderna.",
+                "p3": "Per chi gusta il dessert a Tenerife, La Medusa offre una dolcezza che risulta sofisticata piuttosto che eccessiva."
+            },
+            "video": {
+                "title": "Il Finale più Dolce",
+                "description": "Per gli ospiti che scoprono il dessert a Tenerife, il nostro ristorante offre un momento di piacere in cui gusto, atmosfera e ospitalità si uniscono."
+            },
+            "reserve": {
+                "title": "Concludi la Tua Serata in Stile",
+                "p1": "Prenota il tuo tavolo e gusta un dessert indimenticabile a Los Cristianos da La Medusa.",
+                "p2": "La tua esperienza con un dessert elegante a Tenerife sarà un momento che vorrai rivivere — dove dolcezza, atmosfera e fascino mediterraneo creano il finale perfetto per il tuo pasto."
+            }
+        },
+        "childrenMenu": {
+            "meta": {
+                "title": "Menù Bambini a Los Cristianos, Tenerife | La Medusa",
+                "description": "Scopri il nostro menù bambini da La Medusa a Los Cristianos. Un menù bambini curato a Tenerife, pensato per i piccoli ospiti e per una cena in famiglia rilassata."
+            },
+            "hero": {
+                "title": "Un Menù Speciale per i Giovani Ospiti",
+                "description": "Da La Medusa, crediamo che ogni ospite debba sentirsi il benvenuto — compresi i più piccoli. Il nostro menù bambini, curato con attenzione, offre opzioni semplici e deliziose che i bambini adorano, mentre i genitori si rilassano e assaporano l'atmosfera."
+            },
+            "why": {
+                "title": "La Nostra Filosofia del Menù Bambini",
+                "longDesc": "Le famiglie alla ricerca di un accogliente menù bambini a Los Cristianos troveranno il perfetto equilibrio tra ingredienti di qualità, sapori familiari e una cena confortevole. Per chi esplora ristoranti con un menù bambini curato a Tenerife, La Medusa offre un'esperienza calorosa e a misura di famiglia sull'oceano.",
+                "shortDesc": "Le famiglie alla ricerca di un accogliente menù bambini a Los Cristianos troveranno il perfetto equilibrio tra ingredienti di qualità, sapori familiari e una cena confortevole.",
+                "feature1Title": "Piatti Semplici e Gustosi",
+                "feature1Desc": "Il nostro menù bambini punta su sapori che i giovani ospiti amano, mantenendo al contempo freschezza e qualità.",
+                "feature2Title": "Atmosfera Rilassata sull'Oceano",
+                "feature2Desc": "Le famiglie che scelgono il menù bambini a Los Cristianos possono rilassarsi in una splendida ambientazione sul mare, con tanto spazio e luce.",
+                "feature3Title": "Servizio Cordiale",
+                "feature3Desc": "Il nostro team si assicura che gli ospiti che esplorano ristoranti con un menù bambini a Tenerife si sentano accolti e ben curati."
+            },
+            "hours": {
+                "title": "Un Luogo Dove le Famiglie si Sentono Benvenute",
+                "description": "Gli ospiti alla ricerca di un menù bambini a misura di famiglia a Los Cristianos scelgono spesso La Medusa perché uniamo un'ottima cucina a una tranquilla ambientazione sul mare. Tra i ristoranti che offrono un menù bambini a Tenerife, puntiamo a rendere ogni visita confortevole sia per i genitori che per i bambini."
+            },
+            "kitchen": {
+                "decorative": "Rilassati e Goditela",
+                "title": "Qualità per Ogni Età",
+                "p1": "Un ottimo menù bambini deve essere sia piacevole che curato con attenzione. Da La Medusa, puntiamo su freschezza, qualità e sapori che piacciono ai giovani ospiti, mantenendo gli stessi standard elevati del resto del nostro menù.",
+                "p2": "Il nostro menù bambini a Los Cristianos è pensato per offrire piatti equilibrati, soddisfacenti e facili da gustare.",
+                "p3": "Per le famiglie che scoprono ristoranti con un menù bambini a Tenerife, La Medusa offre un ambiente caloroso dove bambini e adulti possono godersi un pasto piacevole sul mare."
+            },
+            "video": {
+                "title": "Momenti in Famiglia sul Mare",
+                "description": "Un menù bambini curato con attenzione è parte importante di un'esperienza culinaria familiare confortevole. Da La Medusa, vogliamo che ogni visita sia rilassata, piacevole e memorabile per ospiti di tutte le età."
+            },
+            "reserve": {
+                "title": "Goditi una Cena in Famiglia da La Medusa",
+                "p1": "Prenota un tavolo e vivi un accogliente menù bambini a Los Cristianos da La Medusa.",
+                "p2": "La tua visita per gustare il nostro menù bambini a Tenerife sarà un momento rilassato e piacevole — dove buon cibo, splendide viste e tempo in famiglia si uniscono perfettamente."
+            }
+        },
+        "sauces": {
+            "meta": {
+                "title": "Salse ed Extra a Los Cristianos, Tenerife | La Medusa",
+                "description": "Scopri salse ed extra da La Medusa a Los Cristianos. Arricchisci il tuo pasto a Tenerife con salse curate con cura e aggiunte piene di sapore."
+            },
+            "hero": {
+                "title": "Il Tocco Perfetto: Salse ed Extra",
+                "description": "Da La Medusa, salse ed extra svolgono un ruolo importante nel completare il sapore di ogni piatto. Questi piccoli ma essenziali dettagli permettono agli ospiti di personalizzare i propri pasti e vivere un'esperienza culinaria più ricca."
+            },
+            "why": {
+                "title": "La Nostra Filosofia di Salse ed Extra",
+                "longDesc": "Che tu stia arricchendo un piatto principale o aggiungendo un tocco finale, le nostre salse ed extra portano equilibrio, aroma e carattere a ogni piatto. Gli ospiti alla ricerca di opzioni gustose a Los Cristianos apprezzano spesso la selezione curata disponibile da La Medusa.",
+                "shortDesc": "Che tu stia arricchendo un piatto principale o aggiungendo un tocco finale, le nostre salse ed extra portano equilibrio, aroma e carattere a ogni piatto.",
+                "feature1Title": "Realizzate con Cura",
+                "feature1Desc": "Le nostre salse ed extra sono preparate con ingredienti di qualità per garantire un sapore equilibrato e autentico.",
+                "feature2Title": "In Perfetta Armonia con Ogni Piatto",
+                "feature2Desc": "Ognuna delle nostre salse ed extra è pensata per abbinarsi perfettamente a una varietà di piatti del menù.",
+                "feature3Title": "Attenzione ai Dettagli",
+                "feature3Desc": "Crediamo che salse ed extra curati possano elevare un pasto da piacevole a indimenticabile."
+            },
+            "hours": {
+                "title": "Un Piccolo Dettaglio dal Grande Impatto",
+                "description": "Sebbene spesso trascurati, salse ed extra sono essenziali per un'esperienza culinaria completa. Da La Medusa, ci assicuriamo che questi elementi riflettano lo stesso livello di cura e creatività dei piatti principali."
+            },
+            "kitchen": {
+                "decorative": "Ogni Dettaglio Conta",
+                "title": "Il Sapore che Completa il Pasto",
+                "p1": "Una grande cucina si distingue spesso per i suoi dettagli. Da La Medusa, le nostre salse ed extra sono preparate con cura per completare i sapori naturali di ogni piatto.",
+                "p2": "Ogni elemento è pensato per esaltare, non sovrastare. I nostri chef credono che salse ed extra ben equilibrati possano trasformare un pasto.",
+                "p3": "Gli ospiti che cenano a Tenerife scoprono che le nostre salse ed extra aggiungono personalità e profondità a ogni piatto."
+            },
+            "video": {
+                "title": "Il Tocco Finale",
+                "description": "I visitatori che cenano a Los Cristianos apprezzano spesso la libertà di personalizzare i propri piatti con la nostra selezione di salse ed extra, rendendo ogni visita unica e personale."
+            },
+            "reserve": {
+                "title": "Completa il Tuo Pasto da La Medusa",
+                "p1": "Prenota il tuo tavolo ed esplora i sapori che salse ed extra curati con cura possono portare al tuo pasto.",
+                "p2": "Da La Medusa, ogni dettaglio conta — dal piatto principale alle salse ed extra preparati con cura che rendono ogni boccone memorabile."
+            }
+        },
+        "garnish": {
+            "meta": {
+                "title": "Guarnizioni a Los Cristianos, Tenerife | La Medusa",
+                "description": "Scopri guarnizioni raffinate da La Medusa a Los Cristianos. Guarnizioni eleganti a Tenerife che esaltano sapore, presentazione ed esperienza culinaria."
+            },
+            "hero": {
+                "title": "L'Arte della Guarnizione",
+                "description": "Da La Medusa, la guarnizione è più di una semplice decorazione — è un elemento essenziale che completa ogni piatto. Ingredienti scelti con cura e una presentazione curata permettono a ogni guarnizione di esaltare sia il sapore che l'aspetto visivo."
+            },
+            "why": {
+                "title": "La Nostra Filosofia della Guarnizione",
+                "longDesc": "Gli ospiti che cenano a Los Cristianos notano spesso come ogni guarnizione aggiunga carattere ed eleganza al piatto. Per i visitatori alla ricerca di esperienze culinarie raffinate a Tenerife, La Medusa offre piatti magnificamente presentati in cui la guarnizione svolge un ruolo significativo.",
+                "shortDesc": "Gli ospiti che cenano a Los Cristianos notano spesso come ogni guarnizione aggiunga carattere ed eleganza al piatto.",
+                "feature1Title": "Presentazione Curata",
+                "feature1Desc": "Ogni guarnizione è posizionata con cura per creare un piatto visivamente accattivante ed equilibrato.",
+                "feature2Title": "Ingredienti Freschi",
+                "feature2Desc": "Utilizziamo componenti freschi per garantire che ogni guarnizione contribuisca con sapore e colore naturali.",
+                "feature3Title": "Armonia Culinaria",
+                "feature3Desc": "I nostri chef progettano ogni guarnizione per completare il piatto ed esaltare l'esperienza culinaria complessiva."
+            },
+            "hours": {
+                "title": "Ogni Dettaglio Conta",
+                "description": "Una guarnizione ben preparata dovrebbe completare il piatto, non sovrastarlo. Da La Medusa, i nostri chef progettano con cura ogni guarnizione per esaltare i sapori e le consistenze naturali degli ingredienti principali."
+            },
+            "kitchen": {
+                "decorative": "Creatività e Cura",
+                "title": "Un Dettaglio che Completa il Piatto",
+                "p1": "Da La Medusa, la guarnizione fa parte della storia dietro ogni piatto. Rappresenta creatività, cura e la ricerca dell'equilibrio culinario.",
+                "p2": "Gli ospiti che gustano i pasti a Los Cristianos apprezzano il modo in cui le nostre guarnizioni valorizzano sia l'aspetto che il sapore di ogni piatto.",
+                "p3": "Gli ospiti che cenano a Tenerife scoprono che anche la più piccola guarnizione può fare una differenza significativa in termini di sapore, presentazione e piacere."
+            },
+            "video": {
+                "title": "La Bellezza dell'Attenzione ai Dettagli",
+                "description": "Nella vivace scena gastronomica di Tenerife, questi piccoli dettagli contribuiscono a creare un'esperienza davvero raffinata. Da La Medusa, i più piccoli elementi ricevono la stessa attenzione degli ingredienti principali."
+            },
+            "reserve": {
+                "title": "Vivi i Dettagli da La Medusa",
+                "p1": "Prenota un tavolo e goditi piatti in cui ogni guarnizione è preparata con cura e precisione.",
+                "p2": "Da La Medusa a Los Cristianos, ogni dettaglio — inclusa la guarnizione — contribuisce a un'esperienza culinaria definita da eleganza, sapore e ispirazione mediterranea."
+            }
+        },
+        "seafood": {
+            "meta": {
+                "title": "Pesce e Frutti di Mare a Los Cristianos, Tenerife | La Medusa",
+                "description": "Gusta pesce e frutti di mare di prima qualità a Los Cristianos da La Medusa. Scopri pesce e frutti di mare raffinati a Tenerife, serviti freschi con vista sull'oceano."
+            },
+            "hero": {
+                "title": "Scopri il Sapore dell'Oceano",
+                "description": "Da La Medusa, pesce e frutti di mare sono il cuore della nostra identità culinaria. Consegnati freschi ogni giorno e preparati con le tecniche originali dei nostri chef, i nostri piatti riflettono la ricchezza della costa mediterranea."
+            },
+            "why": {
+                "title": "La Nostra Filosofia di Pesce e Frutti di Mare",
+                "longDesc": "Se cerchi pesce e frutti di mare eccezionali a Los Cristianos, il nostro ristorante fronte oceano offre un'esperienza raffinata ma autentica. Per gli ospiti che esplorano il meglio del pesce e dei frutti di mare a Tenerife, La Medusa offre sapore, freschezza ed eleganza in ogni piatto.",
+                "shortDesc": "Se cerchi pesce e frutti di mare eccezionali a Los Cristianos, il nostro ristorante fronte oceano offre un'esperienza raffinata ma autentica.",
+                "feature1Title": "Gusto e Qualità",
+                "feature1Desc": "Utilizziamo ingredienti locali e importati selezionati con cura per preparare pesce e frutti di mare eccezionali a Los Cristianos, prestando grande attenzione all'equilibrio e alla raffinatezza dei sapori.",
+                "feature2Title": "Atmosfera con Vista sull'Oceano",
+                "feature2Desc": "Come destinazione di riferimento per pesce e frutti di mare a Tenerife, il nostro ristorante offre viste panoramiche sul mare dove luce, spazio e sapore si fondono perfettamente.",
+                "feature3Title": "Servizio con Anima",
+                "feature3Desc": "Il nostro team accoglie ogni ospite con calore e attenzione ai dettagli, arricchendo la tua esperienza con il pesce e i frutti di mare a Los Cristianos dal primo all'ultimo momento."
+            },
+            "hours": {
+                "title": "Freschezza Ispirata dal Mare",
+                "description": "L'essenza di un ottimo pesce e frutti di mare inizia con la freschezza. Da La Medusa, selezioniamo con cura gli ingredienti per garantire sapore naturale e consistenza delicata. Gli ospiti alla ricerca di pesce e frutti di mare memorabili a Los Cristianos apprezzano la nostra dedizione alla qualità. Tra i tanti ristoranti che offrono pesce e frutti di mare a Tenerife, ci distinguiamo per costanza, eleganza e maestria culinaria."
+            },
+            "kitchen": {
+                "decorative": "La Nostra Promessa",
+                "title": "Perché Scegliere Pesce e Frutti di Mare da La Medusa?",
+                "p1": "Da La Medusa, ogni ingrediente e ogni sapore è un'espressione rispettosa della tradizione mediterranea. I nostri chef si assicurano che ogni piatto di pesce e frutti di mare diventi più di un semplice cibo — diventi un'esperienza da ricordare.",
+                "p2": "Per noi, pesce e frutti di mare rappresentano storia, cultura e tradizione costiera. Gustare pesce e frutti di mare a Tenerife dovrebbe essere speciale — una pausa nel tempo in cui sapore, atmosfera e compagnia si uniscono.",
+                "p3": "Da La Medusa, gustare pesce e frutti di mare a Los Cristianos non è semplicemente pranzo o cena; è un ricordo in divenire."
+            },
+            "video": {
+                "title": "Fresco dall'Oceano, Servito con Passione",
+                "description": "Crediamo che il segreto di un pasto perfetto risieda in un pesce e frutti di mare eccezionali, spezie selezionate con cura e un equilibrio preciso di sapori. Il nostro approccio al pesce e ai frutti di mare a Los Cristianos unisce semplicità e presentazione sofisticata, garantendo che ogni boccone catturi la sensazione di una fuga sul mare. Quando si sceglie il pesce e i frutti di mare a Tenerife, qualità e autenticità fanno la differenza — ed è esattamente ciò che promettiamo da La Medusa."
+            },
+            "reserve": {
+                "title": "Rendi Speciale la Tua Cena",
+                "p1": "Prenota il tuo tavolo e vivi un'esperienza eccezionale con pesce e frutti di mare a Los Cristianos in un'elegante ambientazione sul mare.",
+                "p2": "La tua serata gustando pesce e frutti di mare premium a Tenerife da La Medusa sarà una storia che vorrai rivivere — dove sapore, ospitalità e oceano creano qualcosa di davvero indimenticabile."
+            }
+        },
+        "pasta": {
+            "meta": {
+                "title": "Pasta a Los Cristianos, Tenerife | La Medusa",
+                "description": "Gusta pasta autentica da La Medusa a Los Cristianos. Scopri pasta fresca a Tenerife con sapore mediterraneo ed elegante ristorazione fronte oceano."
+            },
+            "hero": {
+                "title": "L'Arte della Pasta",
+                "description": "Da La Medusa, la pasta è più di un piatto tradizionale — è un'arte culinaria che celebra sapore, semplicità ed eredità mediterranea. I nostri chef preparano ogni piatto di pasta con cura, creando un equilibrio di consistenza, aroma e presentazione."
+            },
+            "why": {
+                "title": "La Nostra Filosofia della Pasta",
+                "longDesc": "Gli ospiti alla ricerca di pasta eccezionale a Los Cristianos troveranno un'esperienza culinaria raffinata dove ingredienti di qualità incontrano un'atmosfera elegante. Per chi esplora pasta memorabile a Tenerife, La Medusa offre il perfetto mix di comfort e raffinatezza.",
+                "shortDesc": "Gli ospiti alla ricerca di pasta eccezionale a Los Cristianos troveranno un'esperienza culinaria raffinata dove ingredienti di qualità incontrano un'atmosfera elegante.",
+                "feature1Title": "Ingredienti Freschi",
+                "feature1Desc": "La nostra pasta è preparata con ingredienti selezionati con cura per garantire un sapore ricco e una consistenza appagante.",
+                "feature2Title": "Ispirata alla Cucina Mediterranea",
+                "feature2Desc": "Gli ospiti che gustano la pasta a Tenerife noteranno la sottile influenza mediterranea che definisce i nostri piatti.",
+                "feature3Title": "Elegante Ambientazione Fronte Oceano",
+                "feature3Desc": "Gustare la pasta a Los Cristianos diventa ancora più speciale se accompagnato da splendide viste sull'oceano e un'atmosfera accogliente."
+            },
+            "hours": {
+                "title": "Pasta Fresca, Sapore Senza Tempo",
+                "description": "La bellezza della pasta risiede nella sua semplicità. Ingredienti preparati con cura permettono ai sapori naturali di risaltare, creando piatti confortanti e allo stesso tempo raffinati. I visitatori alla ricerca di pasta memorabile a Los Cristianos apprezzano l'equilibrio che raggiungiamo tra tradizione ed eleganza. Tra i tanti locali che servono pasta a Tenerife, La Medusa si distingue per l'attenzione ai dettagli e la qualità."
+            },
+            "kitchen": {
+                "decorative": "La Nostra Promessa",
+                "title": "Perché la Pasta da La Medusa?",
+                "p1": "Da La Medusa, ogni piatto di pasta riflette la nostra dedizione all'eccellenza culinaria e all'ospitalità mediterranea.",
+                "p2": "In tutto il Mediterraneo, la pasta rappresenta comfort, tradizione e momenti condivisi intorno alla tavola. Da La Medusa, celebriamo questa tradizione offrendo piatti raffinati che creano ricordi duraturi.",
+                "p3": "Per gli ospiti che scoprono la pasta a Tenerife, il nostro ristorante offre un'esperienza in cui sapore, atmosfera e ospitalità si uniscono splendidamente."
+            },
+            "video": {
+                "title": "Sapore Mediterraneo, Maestria Senza Tempo",
+                "description": "Una grande pasta inizia con ingredienti di qualità e una preparazione curata. Da La Medusa, puntiamo su freschezza, autenticità e armonia di sapore. Ogni porzione di pasta riflette le tradizioni culinarie mediterranee abbracciando al contempo la creatività moderna. Questo approccio rende il nostro ristorante una destinazione per gli ospiti alla ricerca di una pasta eccezionale a Tenerife e di una pasta saporita a Los Cristianos."
+            },
+            "reserve": {
+                "title": "Rendi Memorabile la Tua Cena",
+                "p1": "Prenota un tavolo e gusta una pasta eccezionale a Los Cristianos da La Medusa.",
+                "p2": "La tua esperienza con la pasta autentica a Tenerife sarà un momento a cui vorrai tornare — dove gusto mediterraneo, ambientazione elegante e servizio caloroso creano una serata perfetta."
+            }
+        }
+    }
+}
