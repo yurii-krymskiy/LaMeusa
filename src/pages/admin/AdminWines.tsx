@@ -6,11 +6,16 @@ import {
     fetchWineItemsAdmin,
     updateWineItem,
     createWineItem,
+    saveEntityTranslations,
+    translationsFromRows,
+    translationCompleteness,
+    type TranslationMap,
     deleteWineItem,
     type WineWithCategory,
 } from "../../lib/admin.service";
 import type { DbWineCategory } from "../../lib/supabase";
 import { AdminSelect } from "../../components/ui/AdminSelect";
+import { TranslationTabs } from "../../components/ui/TranslationTabs";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -76,6 +81,7 @@ export const AdminWines = () => {
     // Modal state
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingItem, setEditingItem] = useState<EditingItem | null>(null);
+    const [translations, setTranslations] = useState<TranslationMap>({});
     const [isCreating, setIsCreating] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
 
@@ -123,6 +129,9 @@ export const AdminWines = () => {
             is_active: item.is_active,
             sort_order: String(item.sort_order),
         });
+        setTranslations(
+            translationsFromRows(item.wine_translations, ["description"])
+        );
         setIsCreating(false);
         setIsModalOpen(true);
     };
@@ -133,6 +142,7 @@ export const AdminWines = () => {
             ...emptyItem,
             category_id: categories[0]?.id || "",
         });
+        setTranslations({});
         setIsCreating(true);
         setIsModalOpen(true);
     };
@@ -178,14 +188,24 @@ export const AdminWines = () => {
             sort_order: parseInt(editingItem.sort_order) || 0,
         };
 
-        let result;
+        let result: { success: boolean; error?: string };
+        let savedId: string | undefined;
         if (isCreating) {
-            result = await createWineItem(itemData);
+            const created = await createWineItem(itemData);
+            result = created;
+            savedId = created.data?.id;
         } else {
             result = await updateWineItem(editingItem.id, itemData);
+            savedId = editingItem.id;
         }
 
         if (result.success) {
+            if (savedId) {
+                await saveEntityTranslations("wine", savedId, {
+                    ...translations,
+                    en: { description: editingItem.description_en || "" },
+                });
+            }
             toast.success(isCreating ? "Wine created!" : "Wine updated!");
             handleCloseModal();
             await loadData();
@@ -635,6 +655,20 @@ export const AdminWines = () => {
                                                                 BIO
                                                             </span>
                                                         )}
+                                                        <span
+                                                            className="ml-1.5 inline-block rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-500 align-middle"
+                                                            title="Languages with a translated tasting note"
+                                                        >
+                                                            🌐{" "}
+                                                            {translationCompleteness(
+                                                                "wine",
+                                                                translationsFromRows(
+                                                                    item.wine_translations,
+                                                                    ["description"]
+                                                                )
+                                                            )}
+                                                            /7
+                                                        </span>
                                                     </p>
                                                     {item.description_en && (
                                                         <p className="max-w-xs truncate text-sm text-gray-500 dark:text-gray-400">
@@ -978,6 +1012,27 @@ export const AdminWines = () => {
                                     className="admin-input"
                                     rows={2}
                                     placeholder="Tasting notes..."
+                                />
+                            </div>
+
+                            {/* Tasting-note translations (wine name, grape & region kept as-is) */}
+                            <div>
+                                <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                    Description translations
+                                </label>
+                                <TranslationTabs
+                                    fields={[
+                                        {
+                                            key: "description",
+                                            label: "Description",
+                                            multiline: true,
+                                        },
+                                    ]}
+                                    baseValues={{
+                                        description: editingItem.description_en,
+                                    }}
+                                    value={translations}
+                                    onChange={setTranslations}
                                 />
                             </div>
 

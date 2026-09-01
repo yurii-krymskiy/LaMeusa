@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { supabase, type DbMenuItem } from "../lib/supabase";
+import { pickField } from "../lib/translations";
 import type { MenuItemType, BadgeCode } from "../components/features/menu/types";
 
 export type UseMenuItemsResult = {
@@ -15,18 +17,19 @@ function toSlug(name: string): string {
         .replace(/[^a-z0-9_]/g, "");
 }
 
-function mapDbToMenuItemType(item: DbMenuItem): MenuItemType {
+function mapDbToMenuItemType(item: DbMenuItem, lang: string): MenuItemType {
     const badges: BadgeCode[] = [];
     if (item.is_top_seller) {
         badges.push("star");
     }
 
     const categorySlug = item.categories?.slug ?? toSlug(item.categories?.name ?? "");
+    const tr = item.menu_item_translations;
 
     return {
         id: item.id,
-        title: item.title,
-        description: item.description ?? undefined,
+        title: pickField(tr, lang, "title", item.title) ?? item.title,
+        description: pickField(tr, lang, "description", item.description),
         imageUrl: item.image_url ? `${item.image_url}` : undefined,
         category: categorySlug,
         price: item.price,
@@ -41,6 +44,8 @@ function mapDbToMenuItemType(item: DbMenuItem): MenuItemType {
 }
 
 export function useMenuItems(): UseMenuItemsResult {
+    const { i18n } = useTranslation();
+    const lang = i18n.language;
     const [items, setItems] = useState<MenuItemType[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -58,6 +63,11 @@ export function useMenuItems(): UseMenuItemsResult {
                         id,
                         name,
                         slug
+                    ),
+                    menu_item_translations (
+                        language,
+                        title,
+                        description
                     )
                 `)
                 .eq("is_active", true)
@@ -69,13 +79,15 @@ export function useMenuItems(): UseMenuItemsResult {
                 return;
             }
 
-            const mappedItems = (data as DbMenuItem[]).map(mapDbToMenuItemType);
+            const mappedItems = (data as DbMenuItem[]).map((item) =>
+                mapDbToMenuItemType(item, lang)
+            );
             setItems(mappedItems);
             setIsLoading(false);
         }
 
         fetchMenuItems();
-    }, []);
+    }, [lang]);
 
     return { items, isLoading, error };
 }

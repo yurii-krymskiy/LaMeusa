@@ -9,10 +9,15 @@ import {
     deleteMenuItem,
     uploadMenuImage,
     deleteMenuImage,
+    saveEntityTranslations,
+    translationsFromRows,
+    translationCompleteness,
     type MenuItemWithCategory,
+    type TranslationMap,
 } from "../../lib/admin.service";
 import type { DbCategory } from "../../lib/supabase";
 import { AdminSelect } from "../../components/ui/AdminSelect";
+import { TranslationTabs } from "../../components/ui/TranslationTabs";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -71,6 +76,7 @@ export const AdminMenu = () => {
     // Modal state
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingItem, setEditingItem] = useState<EditingItem | null>(null);
+    const [translations, setTranslations] = useState<TranslationMap>({});
     const [isCreating, setIsCreating] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [imageFile, setImageFile] = useState<File | null>(null);
@@ -128,6 +134,12 @@ export const AdminMenu = () => {
             is_delivery: item.is_delivery,
             image_url: item.image_url,
         });
+        setTranslations(
+            translationsFromRows(item.menu_item_translations, [
+                "title",
+                "description",
+            ])
+        );
         setImagePreview(item.image_url);
         setImageFile(null);
         setIsCreating(false);
@@ -140,6 +152,7 @@ export const AdminMenu = () => {
             ...emptyItem,
             category_id: categories[0]?.id || "",
         });
+        setTranslations({});
         setImagePreview(null);
         setImageFile(null);
         setIsCreating(true);
@@ -234,14 +247,27 @@ export const AdminMenu = () => {
             image_url: imageUrl,
         };
 
-        let result;
+        let result: { success: boolean; error?: string };
+        let savedId: string | undefined;
         if (isCreating) {
-            result = await createMenuItem(itemData);
+            const created = await createMenuItem(itemData);
+            result = created;
+            savedId = created.data?.id;
         } else {
             result = await updateMenuItem(editingItem.id, itemData);
+            savedId = editingItem.id;
         }
 
         if (result.success) {
+            if (savedId) {
+                await saveEntityTranslations("menuItem", savedId, {
+                    ...translations,
+                    en: {
+                        title: editingItem.title,
+                        description: editingItem.description || "",
+                    },
+                });
+            }
             toast.success(isCreating ? "Menu item created!" : "Menu item updated!");
             handleCloseModal();
             await loadData();
@@ -636,6 +662,20 @@ export const AdminMenu = () => {
                                                     <div>
                                                         <p className="font-medium text-gray-900 dark:text-white">
                                                             {item.title}
+                                                            <span
+                                                                className="ml-2 inline-block rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-500 align-middle"
+                                                                title="Languages fully translated"
+                                                            >
+                                                                🌐{" "}
+                                                                {translationCompleteness(
+                                                                    "menuItem",
+                                                                    translationsFromRows(
+                                                                        item.menu_item_translations,
+                                                                        ["title", "description"]
+                                                                    )
+                                                                )}
+                                                                /7
+                                                            </span>
                                                         </p>
                                                         {item.description && (
                                                             <p className="text-sm text-gray-500 dark:text-gray-400 truncate max-w-xs">
@@ -885,6 +925,29 @@ export const AdminMenu = () => {
                                     className="admin-input"
                                     rows={3}
                                     placeholder="Optional description"
+                                />
+                            </div>
+
+                            {/* Translations */}
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    Translations
+                                </label>
+                                <TranslationTabs
+                                    fields={[
+                                        { key: "title", label: "Title" },
+                                        {
+                                            key: "description",
+                                            label: "Description",
+                                            multiline: true,
+                                        },
+                                    ]}
+                                    baseValues={{
+                                        title: editingItem.title,
+                                        description: editingItem.description,
+                                    }}
+                                    value={translations}
+                                    onChange={setTranslations}
                                 />
                             </div>
 

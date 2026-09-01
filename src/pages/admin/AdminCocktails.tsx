@@ -6,11 +6,16 @@ import {
     fetchCocktailItemsAdmin,
     updateCocktailItem,
     createCocktailItem,
+    saveEntityTranslations,
+    translationsFromRows,
+    translationCompleteness,
+    type TranslationMap,
     deleteCocktailItem,
     type CocktailItemWithCategory,
 } from "../../lib/admin.service";
 import type { DbCocktailCategory } from "../../lib/supabase";
 import { AdminSelect } from "../../components/ui/AdminSelect";
+import { TranslationTabs } from "../../components/ui/TranslationTabs";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -51,6 +56,7 @@ export const AdminCocktails = () => {
     // Modal state
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingItem, setEditingItem] = useState<EditingItem | null>(null);
+    const [translations, setTranslations] = useState<TranslationMap>({});
     const [isCreating, setIsCreating] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
 
@@ -91,6 +97,9 @@ export const AdminCocktails = () => {
             category_id: item.category_id,
             is_active: item.is_active,
         });
+        setTranslations(
+            translationsFromRows(item.cocktail_item_translations, ["description"])
+        );
         setIsCreating(false);
         setIsModalOpen(true);
     };
@@ -101,6 +110,7 @@ export const AdminCocktails = () => {
             ...emptyItem,
             category_id: categories[0]?.id || "",
         });
+        setTranslations({});
         setIsCreating(true);
         setIsModalOpen(true);
     };
@@ -133,14 +143,24 @@ export const AdminCocktails = () => {
             is_active: editingItem.is_active,
         };
 
-        let result;
+        let result: { success: boolean; error?: string };
+        let savedId: string | undefined;
         if (isCreating) {
-            result = await createCocktailItem(itemData);
+            const created = await createCocktailItem(itemData);
+            result = created;
+            savedId = created.data?.id;
         } else {
             result = await updateCocktailItem(editingItem.id, itemData);
+            savedId = editingItem.id;
         }
 
         if (result.success) {
+            if (savedId) {
+                await saveEntityTranslations("cocktailItem", savedId, {
+                    ...translations,
+                    en: { description: editingItem.description || "" },
+                });
+            }
             toast.success(isCreating ? "Cocktail created!" : "Cocktail updated!");
             handleCloseModal();
             await loadData();
@@ -380,7 +400,23 @@ export const AdminCocktails = () => {
                                         <tr key={item.id} className="hover:bg-gray-100/50 dark:hover:bg-white/5 transition-colors">
                                             <td className="px-6 py-4">
                                                 <div>
-                                                    <p className="font-medium text-gray-900 dark:text-white">{item.title}</p>
+                                                    <p className="font-medium text-gray-900 dark:text-white">
+                                                        {item.title}
+                                                        <span
+                                                            className="ml-2 inline-block rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-500 align-middle"
+                                                            title="Languages with translated ingredients"
+                                                        >
+                                                            🌐{" "}
+                                                            {translationCompleteness(
+                                                                "cocktailItem",
+                                                                translationsFromRows(
+                                                                    item.cocktail_item_translations,
+                                                                    ["description"]
+                                                                )
+                                                            )}
+                                                            /7
+                                                        </span>
+                                                    </p>
                                                     {item.description && (
                                                         <p className="text-sm text-gray-500 dark:text-gray-400 truncate max-w-xs">{item.description}</p>
                                                     )}
@@ -522,6 +558,27 @@ export const AdminCocktails = () => {
                                     className="admin-input"
                                     rows={3}
                                     placeholder="List of ingredients"
+                                />
+                            </div>
+
+                            {/* Ingredient translations (cocktail name is kept as-is) */}
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    Ingredient translations
+                                </label>
+                                <TranslationTabs
+                                    fields={[
+                                        {
+                                            key: "description",
+                                            label: "Ingredients",
+                                            multiline: true,
+                                        },
+                                    ]}
+                                    baseValues={{
+                                        description: editingItem.description,
+                                    }}
+                                    value={translations}
+                                    onChange={setTranslations}
                                 />
                             </div>
 

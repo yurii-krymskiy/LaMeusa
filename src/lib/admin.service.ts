@@ -632,6 +632,11 @@ export const fetchMenuItemsAdmin = async (
                 id,
                 name,
                 slug
+            ),
+            menu_item_translations (
+                language,
+                title,
+                description
             )
         `)
         .order("created_at", { ascending: true });
@@ -792,7 +797,9 @@ export const fetchBarItemsAdmin = async (
 ): Promise<BarItemWithCategory[]> => {
     let query = supabase
         .from("bar_items")
-        .select("*, bar_categories (id, name, slug, sort_order)")
+        .select(
+            "*, bar_categories (id, name, slug, sort_order), bar_item_translations (language, description)"
+        )
         .order("created_at", { ascending: true });
 
     if (categoryId) {
@@ -811,15 +818,19 @@ export const fetchBarItemsAdmin = async (
 
 export const createBarItem = async (
     item: Omit<DbBarItem, "id" | "created_at" | "bar_categories">
-): Promise<{ success: boolean; error?: string }> => {
-    const { error } = await supabase.from("bar_items").insert(item);
+): Promise<{ success: boolean; error?: string; data?: DbBarItem }> => {
+    const { data, error } = await supabase
+        .from("bar_items")
+        .insert(item)
+        .select()
+        .single();
 
     if (error) {
         console.error("Error creating bar item:", error);
         return { success: false, error: error.message };
     }
 
-    return { success: true };
+    return { success: true, data };
 };
 
 export const updateBarItem = async (
@@ -889,7 +900,9 @@ export const fetchCocktailItemsAdmin = async (
 ): Promise<CocktailItemWithCategory[]> => {
     let query = supabase
         .from("cocktail_items")
-        .select("*, cocktail_categories (id, name, slug, sort_order)")
+        .select(
+            "*, cocktail_categories (id, name, slug, sort_order), cocktail_item_translations (language, description)"
+        )
         .order("created_at", { ascending: true });
 
     if (categoryId) {
@@ -908,15 +921,19 @@ export const fetchCocktailItemsAdmin = async (
 
 export const createCocktailItem = async (
     item: Omit<DbCocktailItem, "id" | "created_at" | "cocktail_categories">
-): Promise<{ success: boolean; error?: string }> => {
-    const { error } = await supabase.from("cocktail_items").insert(item);
+): Promise<{ success: boolean; error?: string; data?: DbCocktailItem }> => {
+    const { data, error } = await supabase
+        .from("cocktail_items")
+        .insert(item)
+        .select()
+        .single();
 
     if (error) {
         console.error("Error creating cocktail item:", error);
         return { success: false, error: error.message };
     }
 
-    return { success: true };
+    return { success: true, data };
 };
 
 export const updateCocktailItem = async (
@@ -986,7 +1003,9 @@ export const fetchWineItemsAdmin = async (
 ): Promise<WineWithCategory[]> => {
     let query = supabase
         .from("wines")
-        .select("*, wine_categories (id, name, slug, sort_order)")
+        .select(
+            "*, wine_categories (id, name, slug, sort_order), wine_translations (language, description)"
+        )
         .order("sort_order", { ascending: true });
 
     if (categoryId) {
@@ -1005,15 +1024,19 @@ export const fetchWineItemsAdmin = async (
 
 export const createWineItem = async (
     item: Omit<DbWine, "id" | "created_at" | "wine_categories">
-): Promise<{ success: boolean; error?: string }> => {
-    const { error } = await supabase.from("wines").insert(item);
+): Promise<{ success: boolean; error?: string; data?: DbWine }> => {
+    const { data, error } = await supabase
+        .from("wines")
+        .insert(item)
+        .select()
+        .single();
 
     if (error) {
         console.error("Error creating wine:", error);
         return { success: false, error: error.message };
     }
 
-    return { success: true };
+    return { success: true, data };
 };
 
 export const updateWineItem = async (
@@ -1056,4 +1079,168 @@ export const deleteWineItem = async (
     }
 
     return { success: true };
+};
+
+// ============================================================
+// Menu content translations (sidecar *_translations tables)
+// ============================================================
+
+export const TRANSLATION_LANGUAGES = [
+    "en",
+    "uk",
+    "es",
+    "it",
+    "fr",
+    "de",
+    "nl",
+] as const;
+export type TranslationLang = (typeof TRANSLATION_LANGUAGES)[number];
+
+export const LANGUAGE_LABELS: Record<TranslationLang, string> = {
+    en: "English",
+    uk: "Українська",
+    es: "Español",
+    it: "Italiano",
+    fr: "Français",
+    de: "Deutsch",
+    nl: "Nederlands",
+};
+
+// Each entity maps to its translation table, foreign-key column and translatable fields.
+const TRANSLATION_TABLES = {
+    menuItem: {
+        table: "menu_item_translations",
+        fk: "menu_item_id",
+        fields: ["title", "description"],
+    },
+    category: { table: "category_translations", fk: "category_id", fields: ["name"] },
+    cocktailCategory: {
+        table: "cocktail_category_translations",
+        fk: "category_id",
+        fields: ["name"],
+    },
+    cocktailItem: {
+        table: "cocktail_item_translations",
+        fk: "cocktail_item_id",
+        fields: ["description"],
+    },
+    barCategory: {
+        table: "bar_category_translations",
+        fk: "category_id",
+        fields: ["name"],
+    },
+    barItem: {
+        table: "bar_item_translations",
+        fk: "bar_item_id",
+        fields: ["description"],
+    },
+    wineCategory: {
+        table: "wine_category_translations",
+        fk: "category_id",
+        fields: ["name"],
+    },
+    wine: { table: "wine_translations", fk: "wine_id", fields: ["description"] },
+} as const;
+
+export type TranslationEntity = keyof typeof TRANSLATION_TABLES;
+
+/** language -> { field -> value }. Only non-`en` languages usually need editing. */
+export type TranslationMap = Record<string, Record<string, string>>;
+
+/** Which translatable fields an entity has (for building the editor UI). */
+export const translationFieldsFor = (entity: TranslationEntity): string[] => [
+    ...TRANSLATION_TABLES[entity].fields,
+];
+
+export const fetchEntityTranslations = async (
+    entity: TranslationEntity,
+    id: string
+): Promise<TranslationMap> => {
+    const cfg = TRANSLATION_TABLES[entity];
+    const { data, error } = await supabase
+        .from(cfg.table)
+        .select("*")
+        .eq(cfg.fk, id);
+
+    if (error) {
+        console.error(`Error fetching ${cfg.table}:`, error);
+        return {};
+    }
+
+    const map: TranslationMap = {};
+    for (const row of (data as Record<string, unknown>[]) || []) {
+        const lang = String(row.language);
+        map[lang] = {};
+        for (const f of cfg.fields) {
+            map[lang][f] = (row[f] as string | null) ?? "";
+        }
+    }
+    return map;
+};
+
+/**
+ * Upsert translation rows for an entity. Only writes languages that have at
+ * least one non-empty field, plus always keeps English (the fallback source).
+ */
+export const saveEntityTranslations = async (
+    entity: TranslationEntity,
+    id: string,
+    map: TranslationMap
+): Promise<{ success: boolean; error?: string }> => {
+    const cfg = TRANSLATION_TABLES[entity];
+    const now = new Date().toISOString();
+
+    const rows = TRANSLATION_LANGUAGES.filter((lang) => {
+        if (lang === "en") return true; // always persist English fallback
+        const values = map[lang];
+        return values && cfg.fields.some((f) => (values[f] ?? "").trim() !== "");
+    }).map((lang) => {
+        const values = map[lang] ?? {};
+        const row: Record<string, unknown> = {
+            [cfg.fk]: id,
+            language: lang,
+            updated_at: now,
+        };
+        for (const f of cfg.fields) row[f] = values[f] ?? "";
+        return row;
+    });
+
+    if (rows.length === 0) return { success: true };
+
+    const { error } = await supabase
+        .from(cfg.table)
+        .upsert(rows, { onConflict: `${cfg.fk},language` });
+
+    if (error) {
+        console.error(`Error saving ${cfg.table}:`, error);
+        return { success: false, error: error.message };
+    }
+
+    return { success: true };
+};
+
+/** Count of languages with all translatable fields filled — for admin "N/7" badges. */
+export const translationCompleteness = (
+    entity: TranslationEntity,
+    map: TranslationMap
+): number => {
+    const cfg = TRANSLATION_TABLES[entity];
+    return TRANSLATION_LANGUAGES.filter((lang) => {
+        const values = map[lang];
+        return values && cfg.fields.every((f) => (values[f] ?? "").trim() !== "");
+    }).length;
+};
+
+/** Build a TranslationMap from already-fetched nested translation rows. */
+export const translationsFromRows = (
+    rows: Array<Record<string, unknown>> | undefined,
+    fields: string[]
+): TranslationMap => {
+    const map: TranslationMap = {};
+    for (const r of rows ?? []) {
+        const lang = String(r.language);
+        map[lang] = {};
+        for (const f of fields) map[lang][f] = (r[f] as string | null) ?? "";
+    }
+    return map;
 };

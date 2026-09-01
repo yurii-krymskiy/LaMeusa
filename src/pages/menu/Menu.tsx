@@ -27,10 +27,24 @@ export const Menu = () => {
     const { t } = useTranslation();
     const location = useLocation();
     const { items: menuItems, isLoading: menuLoading } = useMenuItems();
-    const { items: barItems, isLoading: barLoading } = useBarItems();
-    const { items: cocktailItems, isLoading: cocktailLoading } =
-        useCocktailItems();
-    const { items: wineItemsRaw, isLoading: wineLoading } = useWineItems();
+    const {
+        items: barItems,
+        categoryTitles: barCatTitles,
+        categoryOrder: barCatOrder,
+        isLoading: barLoading,
+    } = useBarItems();
+    const {
+        items: cocktailItems,
+        categoryTitles: cocktailCatTitles,
+        categoryOrder: cocktailCatOrder,
+        isLoading: cocktailLoading,
+    } = useCocktailItems();
+    const {
+        items: wineItemsRaw,
+        categoryTitles: wineCatTitles,
+        categoryOrder: wineCatOrder,
+        isLoading: wineLoading,
+    } = useWineItems();
 
     const isLoading = menuLoading || barLoading || cocktailLoading || wineLoading;
 
@@ -97,22 +111,36 @@ export const Menu = () => {
         [t]
     );
 
+    // Translated category dictionaries for the drink sections (names come from DB)
+    const barDictionary = useMemo(
+        () => new CategoryDictionary(barCatOrder, barCatTitles),
+        [barCatOrder, barCatTitles]
+    );
+    const cocktailDictionary = useMemo(
+        () => new CategoryDictionary(cocktailCatOrder, cocktailCatTitles),
+        [cocktailCatOrder, cocktailCatTitles]
+    );
+    const wineDictionary = useMemo(
+        () => new CategoryDictionary(wineCatOrder, wineCatTitles),
+        [wineCatOrder, wineCatTitles]
+    );
+
     // Resolve each section independently
     const menuResolved = useMemo(
         () => new MenuResolver(menuItems, menuDictionary).resolve(),
         [menuItems, menuDictionary]
     );
     const barResolved = useMemo(
-        () => new MenuResolver(barItems).resolve(),
-        [barItems]
+        () => new MenuResolver(barItems, barDictionary).resolve(),
+        [barItems, barDictionary]
     );
     const cocktailResolved = useMemo(
-        () => new MenuResolver(cocktailItems).resolve(),
-        [cocktailItems]
+        () => new MenuResolver(cocktailItems, cocktailDictionary).resolve(),
+        [cocktailItems, cocktailDictionary]
     );
     const wineResolved = useMemo(
-        () => new MenuResolver(wineItems).resolve(),
-        [wineItems]
+        () => new MenuResolver(wineItems, wineDictionary).resolve(),
+        [wineItems, wineDictionary]
     );
 
     // Merge all categories into one continuous list

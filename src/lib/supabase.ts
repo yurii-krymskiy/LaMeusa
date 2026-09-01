@@ -9,12 +9,28 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
+// Translation row types (sidecar *_translations tables)
+export type DbMenuItemTranslation = {
+    language: string;
+    title: string;
+    description: string;
+};
+export type DbCategoryTranslation = {
+    language: string;
+    name: string;
+};
+export type DbDescriptionTranslation = {
+    language: string;
+    description: string;
+};
+
 // Database types based on the schema
 export type DbCategory = {
     id: string;
     name: string;
     slug: string;
     created_at: string;
+    category_translations?: DbCategoryTranslation[];
 };
 
 export type DbMenuItem = {
@@ -34,6 +50,7 @@ export type DbMenuItem = {
     category_id: string;
     created_at: string;
     categories?: DbCategory;
+    menu_item_translations?: DbMenuItemTranslation[];
 };
 
 // Bar drinks types
@@ -43,6 +60,7 @@ export type DbBarCategory = {
     slug: string;
     sort_order: number;
     created_at: string;
+    bar_category_translations?: DbCategoryTranslation[];
 };
 
 export type DbBarItem = {
@@ -54,6 +72,7 @@ export type DbBarItem = {
     category_id: string;
     created_at: string;
     bar_categories?: DbBarCategory;
+    bar_item_translations?: DbDescriptionTranslation[];
 };
 
 // Cocktail types
@@ -63,6 +82,7 @@ export type DbCocktailCategory = {
     slug: string;
     sort_order: number;
     created_at: string;
+    cocktail_category_translations?: DbCategoryTranslation[];
 };
 
 export type DbCocktailItem = {
@@ -74,6 +94,7 @@ export type DbCocktailItem = {
     category_id: string;
     created_at: string;
     cocktail_categories?: DbCocktailCategory;
+    cocktail_item_translations?: DbDescriptionTranslation[];
 };
 
 // Wine types
@@ -83,6 +104,7 @@ export type DbWineCategory = {
     slug: string;
     sort_order: number;
     created_at: string;
+    wine_category_translations?: DbCategoryTranslation[];
 };
 
 export type DbWine = {
@@ -101,4 +123,5 @@ export type DbWine = {
     sort_order: number;
     created_at: string;
     wine_categories?: DbWineCategory;
+    wine_translations?: DbDescriptionTranslation[];
 };
