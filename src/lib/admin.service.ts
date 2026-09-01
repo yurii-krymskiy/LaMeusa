@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { supabase, type DbMenuItem, type DbCategory, type DbBarCategory, type DbBarItem, type DbCocktailCategory, type DbCocktailItem, type DbWineCategory, type DbWine } from "./supabase";
 import type { DbReservation, DbBlockedSlot, DbTable, DbVisitor } from "./database.types";
+import { parsePhoneNumberFromString, getCountries, getCountryCallingCode } from "libphonenumber-js";
 
 // Statistics types
 export type ReservationStats = {
@@ -1243,4 +1244,102 @@ export const translationsFromRows = (
         for (const f of fields) map[lang][f] = (r[f] as string | null) ?? "";
     }
     return map;
+};
+
+// ============================================================
+// Guest country statistics (derived from booking phone numbers)
+// ============================================================
+
+export type CountryStatPoint = {
+    iso2: string; // ISO 3166-1 alpha-2, or "??" when undetermined
+    country: string; // human-readable name
+    flag: string; // emoji flag
+    count: number; // number of unique guests (distinct phone numbers)
+};
+
+// calling code -> a representative country, built once (used as a fallback
+// when a number's country can't be uniquely determined).
+const CALLING_CODE_TO_COUNTRY: Record<string, string> = (() => {
+    const map: Record<string, string> = {};
+    for (const c of getCountries()) {
+        const cc = getCountryCallingCode(c);
+        if (!(cc in map)) map[cc] = c;
+    }
+    return map;
+})();
+
+const regionNames =
+    typeof Intl !== "undefined" && "DisplayNames" in Intl
+        ? new Intl.DisplayNames(["en"], { type: "region" })
+        : null;
+
+const iso2ToName = (iso2: string): string => {
+    try {
+        return regionNames?.of(iso2) ?? iso2;
+    } catch {
+        return iso2;
+    }
+};
+
+const iso2ToFlag = (iso2: string): string =>
+    iso2
+        .toUpperCase()
+        .replace(/./g, (c) => String.fromCodePoint(127397 + c.charCodeAt(0)));
+
+const phoneToCountry = (phone: string): string | null => {
+    const trimmed = (phone ?? "").trim();
+    if (!trimmed) return null;
+    const parsed = parsePhoneNumberFromString(trimmed);
+    if (parsed?.country) return parsed.country;
+    if (parsed?.countryCallingCode)
+        return CALLING_CODE_TO_COUNTRY[parsed.countryCallingCode] ?? null;
+    return null;
+};
+
+/**
+ * Aggregates guests by country using the phone number's dialing code.
+ * Counts UNIQUE guests (distinct phone numbers), excluding cancelled bookings.
+ */
+export const fetchCountryStats = async (): Promise<CountryStatPoint[]> => {
+    // Paginate: Supabase caps a single response at 1000 rows.
+    const PAGE = 1000;
+    const rows: { phone: string | null; cancelled_at: string | null }[] = [];
+    for (let from = 0; ; from += PAGE) {
+        const { data, error } = await supabase
+            .from("reservations")
+            .select("phone, cancelled_at")
+            .order("id", { ascending: true })
+            .range(from, from + PAGE - 1);
+
+        if (error) {
+            console.error("Error fetching country stats:", error);
+            return [];
+        }
+        if (!data?.length) break;
+        rows.push(...data);
+        if (data.length < PAGE) break;
+    }
+
+    // dedupe by phone so a repeat guest counts once
+    const phoneToIso = new Map<string, string>();
+    for (const r of rows) {
+        if (r.cancelled_at) continue;
+        const phone = (r.phone ?? "").trim();
+        if (!phone || phoneToIso.has(phone)) continue;
+        phoneToIso.set(phone, phoneToCountry(phone) ?? "??");
+    }
+
+    const counts: Record<string, number> = {};
+    for (const iso of phoneToIso.values()) {
+        counts[iso] = (counts[iso] ?? 0) + 1;
+    }
+
+    return Object.entries(counts)
+        .map(([iso2, count]) => ({
+            iso2,
+            country: iso2 === "??" ? "Unknown" : iso2ToName(iso2),
+            flag: iso2 === "??" ? "🏳️" : iso2ToFlag(iso2),
+            count,
+        }))
+        .sort((a, b) => b.count - a.count);
 };

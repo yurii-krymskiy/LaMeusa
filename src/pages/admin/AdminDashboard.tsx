@@ -6,6 +6,7 @@ import {
     fetchUpcomingReservations,
     fetchChartData,
     fetchWorkloadCalendarData,
+    fetchCountryStats,
     type ReservationStats,
     type TableStats,
     type DailyReservationPoint,
@@ -14,12 +15,14 @@ import {
     type LeadTimePoint,
     type ChartPeriod,
     type WorkloadCalendarDay,
+    type CountryStatPoint,
 } from "../../lib/admin.service";
 import type { DbReservation } from "../../lib/database.types";
 import { ReservationsTrendChart } from "./charts/ReservationsTrendChart";
 import { PeakHoursChart } from "./charts/PeakHoursChart";
 import { BusiestDaysChart } from "./charts/BusiestDaysChart";
 import { LeadTimeChart } from "./charts/LeadTimeChart";
+import { TopCountriesChart } from "./charts/TopCountriesChart";
 import { ReservationsWorkloadCalendar } from "./charts/ReservationsWorkloadCalendar";
 import { AdminSelect } from "../../components/ui/AdminSelect";
 
@@ -87,6 +90,7 @@ export const AdminDashboard = () => {
     const [weekdayData, setWeekdayData] = useState<WeekdayDistributionPoint[]>([]);
     const [leadTimeData, setLeadTimeData] = useState<LeadTimePoint[]>([]);
     const [workloadData, setWorkloadData] = useState<WorkloadCalendarDay[]>([]);
+    const [countryStats, setCountryStats] = useState<CountryStatPoint[]>([]);
     const [workloadMonth, setWorkloadMonth] = useState<Date>(new Date());
     const [isLoading, setIsLoading] = useState(true);
     const [chartPeriod, setChartPeriod] = useState<ChartPeriod>("month");
@@ -97,12 +101,13 @@ export const AdminDashboard = () => {
     useEffect(() => {
         const loadData = async () => {
             setIsLoading(true);
-            const [reservationStats, tables, upcoming, charts, workload] = await Promise.all([
+            const [reservationStats, tables, upcoming, charts, workload, countries] = await Promise.all([
                 fetchReservationStats(),
                 fetchTableStats(),
                 fetchUpcomingReservations(),
                 fetchChartData(chartPeriod),
                 fetchWorkloadCalendarData(new Date()),
+                fetchCountryStats(),
             ]);
             setStats(reservationStats);
             setTableStats(tables);
@@ -112,6 +117,7 @@ export const AdminDashboard = () => {
             setWeekdayData(charts.weekday);
             setLeadTimeData(charts.leadTime);
             setWorkloadData(workload);
+            setCountryStats(countries);
             setIsLoading(false);
         };
 
@@ -355,6 +361,9 @@ export const AdminDashboard = () => {
                     <BusiestDaysChart data={weekdayData} subtitle={PERIOD_SUBTITLES[chartPeriod]} />
                 </div>
             </div>
+
+            {/* Guests by country (all-time, from booking phone codes) */}
+            <TopCountriesChart data={countryStats} />
 
             <ReservationsWorkloadCalendar
                 data={workloadData}
