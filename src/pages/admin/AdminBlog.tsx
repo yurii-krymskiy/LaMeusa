@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchArticles, deleteArticle } from "../../lib/article.service";
 import type { Article } from "../../lib/article.types";
 import { resolveTranslation } from "../../lib/article.types";
+import { sanitizeHtml } from "../../lib/sanitize";
 import { toast } from "sonner";
 import "./AdminBlog.css";
 
@@ -156,7 +157,7 @@ export const AdminBlog = () => {
 
                 <div
                   className="blog-article-content"
-                  dangerouslySetInnerHTML={{ __html: previewTranslation.article_content }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(previewTranslation.article_content) }}
                 />
               </div>
             </div>

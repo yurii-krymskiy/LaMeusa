@@ -7,6 +7,7 @@ import { resolveTranslation } from "../../lib/article.types";
 import { SEO } from "../../components/SEO";
 import { OceanLoader } from "../../components/blog/OceanLoader";
 import { dateLocaleFor } from "../../lib/dateLocale";
+import { sanitizeHtml } from "../../lib/sanitize";
 import "./BlogArticle.css";
 import "./Blog.css";
 
@@ -74,7 +75,9 @@ export const BlogArticle = () => {
     if (!translation?.article_content) return;
 
     const parser = new DOMParser();
-    const doc = parser.parseFromString(translation.article_content, "text/html");
+    // Sanitize before parsing — article HTML is stored data and must never
+    // execute scripts, even if an admin account is ever compromised.
+    const doc = parser.parseFromString(sanitizeHtml(translation.article_content), "text/html");
 
     const headers = Array.from(doc.querySelectorAll("h1, h2, h3"));
     const tocItems: TocItem[] = headers.map((el, index) => {
@@ -174,7 +177,8 @@ export const BlogArticle = () => {
       {/* Schema.org Article structured data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        // Escape "<" so meta fields can never break out of the script tag.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema).replace(/</g, "\\u003c") }}
       />
 
       <div className="blog-article-page">

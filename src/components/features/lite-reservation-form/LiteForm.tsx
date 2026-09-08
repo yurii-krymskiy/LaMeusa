@@ -14,11 +14,6 @@ import { SelectInput } from "../../ui/SelectInput";
 import { PhoneInputField } from "../../ui/PhoneInputField";
 import { useState, useEffect, useCallback } from "react";
 import { checkAvailability, createReservation } from "../../../lib/reservation.service";
-import {
-    sendReservationEmails,
-    formatDateForEmail,
-    formatTimeForEmail,
-} from "../../../lib/email.service";
 import type { AvailabilityResponse } from "../../../lib/database.types";
 import {
     FormErrors,
@@ -135,26 +130,9 @@ export const LiteForm = () => {
 
             if (result.success) {
                 setIsSuccess(true);
-
-                // Send confirmation emails
-                if (data.email) {
-                    try {
-                        const emailResult = await sendReservationEmails({
-                            customer_name: data.name,
-                            email: data.email,
-                            phone: data.phone,
-                            number_of_guests: data.guests,
-                            reservation_date: formatDateForEmail(data.date),
-                            reservation_time: formatTimeForEmail(data.time),
-                            additional_wishes: data.details,
-                        });
-                        setEmailStatus(emailResult.success ? "sent" : "failed");
-                    } catch {
-                        setEmailStatus("failed");
-                    }
-                } else {
-                    setEmailStatus("sent");
-                }
+                // Confirmation emails are sent server-side by the booking-emails
+                // edge function (triggered inside create_reservation).
+                setEmailStatus("sent");
             } else {
                 setError(result.error || t("reservation.createFailed"));
             }

@@ -14,11 +14,6 @@ import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import { createReservation } from "../../../lib/reservation.service";
 import { pushGtmEvent } from "../../../lib/gtm";
-import {
-    sendReservationEmails,
-    formatDateForEmail,
-    formatTimeForEmail,
-} from "../../../lib/email.service";
 import { FormErrors, SingleError } from "../../ui/FormErrors";
 
 export const TableConfirm = () => {
@@ -78,26 +73,9 @@ export const TableConfirm = () => {
                 setData(data);
                 pushGtmEvent("reservation_success");
                 setIsSuccess(true);
-
-                // Send confirmation emails (non-blocking - don't fail reservation if email fails)
-                if (data.email) {
-                    try {
-                        const emailResult = await sendReservationEmails({
-                            customer_name: data.name,
-                            email: data.email,
-                            phone: data.phone,
-                            number_of_guests: guests,
-                            reservation_date: formatDateForEmail(date),
-                            reservation_time: formatTimeForEmail(time),
-                            additional_wishes: details,
-                        });
-                        setEmailStatus(emailResult.success ? "sent" : "failed");
-                    } catch {
-                        setEmailStatus("failed");
-                    }
-                } else {
-                    setEmailStatus("sent"); // No email to send
-                }
+                // Confirmation emails are sent server-side by the booking-emails
+                // edge function (triggered inside create_reservation).
+                setEmailStatus("sent");
             } else {
                 setError(result.error || t("reservation.createFailed"));
             }

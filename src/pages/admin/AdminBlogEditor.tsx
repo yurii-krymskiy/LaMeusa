@@ -10,6 +10,7 @@ import {
 } from "../../lib/article.service";
 import type { ArticleLanguage, ArticleTranslation } from "../../lib/article.types";
 import { ARTICLE_LANGUAGES } from "../../lib/article.types";
+import { sanitizeHtml } from "../../lib/sanitize";
 import { toast } from "sonner";
 import "./AdminBlogEditor.css";
 
@@ -247,7 +248,7 @@ export const AdminBlogEditor = () => {
 
                 <div
                   className="blog-article-content"
-                  dangerouslySetInnerHTML={{ __html: editor?.getHTML() || "" }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(editor?.getHTML() || "") }}
                 />
               </div>
             </div>

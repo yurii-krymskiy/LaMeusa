@@ -249,7 +249,6 @@ denoRuntime.serve(async (req) => {
         }
 
         let notificationSent = false;
-        let notificationError: string | null = null;
 
         const shouldNotifyAboutFreshCancellation =
             result.success && Boolean(reservationBeforeCancel) && !reservationBeforeCancel?.cancelled_at;
@@ -277,20 +276,20 @@ denoRuntime.serve(async (req) => {
                 );
 
                 if (!emailResult.ok) {
-                    notificationError = `EmailJS ${emailResult.status}: ${emailResult.text}`;
-                    console.error(notificationError);
+                    // Log full detail server-side; never echo upstream bodies to callers.
+                    console.error(`EmailJS ${emailResult.status}: ${emailResult.text}`);
                 } else {
                     notificationSent = true;
                 }
             } catch (error) {
-                notificationError =
-                    error instanceof Error ? error.message : "Unknown notification error";
-                console.error(notificationError);
+                console.error(
+                    error instanceof Error ? error.message : "Unknown notification error"
+                );
             }
         } else if (shouldNotifyAboutFreshCancellation) {
-            notificationError =
-                "Cancellation notification email is not configured. Set EMAILJS_CANCELLATION_TEMPLATE_ID and EmailJS keys.";
-            console.error(notificationError);
+            console.error(
+                "Cancellation notification email is not configured. Set EMAILJS_CANCELLATION_TEMPLATE_ID and EmailJS keys."
+            );
         }
 
         return new Response(
@@ -299,7 +298,6 @@ denoRuntime.serve(async (req) => {
                 reservationId: result.reservation_id,
                 message: result.message,
                 notificationSent,
-                notificationError,
             }),
             {
                 headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -307,10 +305,12 @@ denoRuntime.serve(async (req) => {
             }
         );
     } catch (error) {
+        // Full detail goes to function logs only — never to the caller.
+        console.error("cancel-reservation failed:", error);
         return new Response(
             JSON.stringify({
                 ok: false,
-                message: error instanceof Error ? error.message : "Unknown error",
+                message: "Something went wrong. Please try again or contact the restaurant.",
             }),
             {
                 headers: { ...corsHeaders, "Content-Type": "application/json" },

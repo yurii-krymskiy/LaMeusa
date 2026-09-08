@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-type CancelState = "idle" | "loading" | "success" | "error";
+type CancelState = "confirm" | "loading" | "success" | "error";
 
 type CancelResponse = {
     ok: boolean;
@@ -10,62 +10,64 @@ type CancelResponse = {
 };
 
 export const CancelReservation = () => {
-    const [searchParams] = useSearchParams();
-    const [state, setState] = useState<CancelState>("idle");
-    const [message, setMessage] = useState<string>("");
-
-    const token = useMemo(() => searchParams.get("token")?.trim() || "", [searchParams]);
+    // The token is read once and kept in memory only; the URL is cleaned so the
+    // token doesn't linger in browser history, referrers, or analytics tools.
+    const [token] = useState<string>(() => {
+        const params = new URLSearchParams(window.location.search);
+        return params.get("token")?.trim() || "";
+    });
+    const [state, setState] = useState<CancelState>(() => (token ? "confirm" : "error"));
+    const [message, setMessage] = useState<string>(() =>
+        token ? "" : "Cancellation link is invalid or incomplete."
+    );
 
     useEffect(() => {
-        const cancelReservation = async () => {
-            if (!token) {
+        if (window.location.search.includes("token")) {
+            window.history.replaceState(null, "", window.location.pathname);
+        }
+    }, []);
+
+    // Cancellation runs ONLY after an explicit button click — never on page
+    // load, so email link scanners and prefetchers cannot cancel reservations.
+    const cancelReservation = async () => {
+        const supabaseUrl = import.meta.env.VITE_PUBLIC_SUPABASE_URL as string | undefined;
+        const supabaseAnonKey = import.meta.env.VITE_PUBLIC_SUPABASE_ANON_KEY as string | undefined;
+
+        if (!supabaseUrl || !supabaseAnonKey) {
+            setState("error");
+            setMessage("Missing Supabase environment variables in frontend.");
+            return;
+        }
+
+        setState("loading");
+        setMessage("Cancelling your reservation...");
+
+        try {
+            const response = await fetch(`${supabaseUrl}/functions/v1/smooth-endpoint`, {
+                method: "POST",
+                headers: {
+                    apikey: supabaseAnonKey,
+                    Authorization: `Bearer ${supabaseAnonKey}`,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ token }),
+            });
+
+            const data = (await response.json()) as CancelResponse;
+
+            if (!response.ok || !data.ok) {
                 setState("error");
-                setMessage("Cancellation link is invalid or incomplete.");
+                setMessage(data.message || "Could not cancel reservation.");
                 return;
             }
 
-            const supabaseUrl = import.meta.env.VITE_PUBLIC_SUPABASE_URL as string | undefined;
-            const supabaseAnonKey = import.meta.env.VITE_PUBLIC_SUPABASE_ANON_KEY as string | undefined;
-
-            if (!supabaseUrl || !supabaseAnonKey) {
-                setState("error");
-                setMessage("Missing Supabase environment variables in frontend.");
-                return;
-            }
-
-            setState("loading");
-            setMessage("Cancelling your reservation...");
-
-            try {
-                const response = await fetch(
-                    `${supabaseUrl}/functions/v1/smooth-endpoint?token=${encodeURIComponent(token)}`,
-                    {
-                        method: "GET",
-                        headers: {
-                            apikey: supabaseAnonKey,
-                            Authorization: `Bearer ${supabaseAnonKey}`,
-                        },
-                    }
-                );
-
-                const data = (await response.json()) as CancelResponse;
-
-                if (!response.ok || !data.ok) {
-                    setState("error");
-                    setMessage(data.message || "Could not cancel reservation.");
-                    return;
-                }
-
-                setState("success");
-                setMessage(data.message || "Your reservation has been cancelled.");
-            } catch (error) {
-                setState("error");
-                setMessage(error instanceof Error ? error.message : "Unexpected error");
-            }
-        };
-
-        void cancelReservation();
-    }, [token]);
+            setState("success");
+            setMessage(data.message || "Your reservation has been cancelled.");
+        } catch (error) {
+            setState("error");
+            setMessage(error instanceof Error ? error.message : "Unexpected error");
+        }
+    };
 
     return (
         <div className="m-0 min-h-screen bg-white">
@@ -82,6 +84,29 @@ export const CancelReservation = () => {
                 {/* Right — content panel */}
                 <div className="flex w-full flex-col items-center justify-center px-8 py-16 md:w-1/2">
                     <div className="w-full max-w-sm text-center">
+
+                        {/* Confirm — cancellation requires an explicit click */}
+                        {state === "confirm" && (
+                            <>
+                                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-royal-blue/10">
+                                    <svg className="h-8 w-8 text-royal-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <h1 className="title text-2xl text-gray-900">Cancel your reservation?</h1>
+                                <p className="description mt-3 text-gray-600">
+                                    This will free your table for other guests and cannot be undone.
+                                </p>
+                                <div className="mt-8 flex flex-col items-center gap-3">
+                                    <button onClick={() => void cancelReservation()} className="btn-primary w-full">
+                                        Yes, cancel my reservation
+                                    </button>
+                                    <Link to="/" className="btn-secondary w-full">
+                                        Keep my reservation
+                                    </Link>
+                                </div>
+                            </>
+                        )}
 
                         {/* Loading */}
                         {state === "loading" && (

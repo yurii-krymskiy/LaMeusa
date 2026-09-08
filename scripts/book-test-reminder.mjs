@@ -6,7 +6,6 @@
  */
 
 import { createClient } from "@supabase/supabase-js";
-import { randomUUID } from "crypto";
 
 const SUPABASE_URL = process.env.VITE_PUBLIC_SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.VITE_PUBLIC_SUPABASE_ANON_KEY;
@@ -47,30 +46,27 @@ console.log(`  Time: ${reservationTime} (${TIMEZONE})`);
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-const { data, error } = await supabase
-    .from("reservations")
-    .insert({
-        customer_name: "Test Reminder",
-        number_of_guests: 2,
-        reservation_date: reservationDate,
-        reservation_time: reservationTime,
-        email: TEST_REMINDER_EMAIL,
-        phone: "+34600000000",
-        additional_wishes: "Test booking for reminder system",
-        cancellation_token: randomUUID(),
-        promo_code: null,
-    })
-    .select()
-    .single();
+// Direct table inserts are blocked by RLS since the 2026-09 hardening;
+// bookings go through the validated create_reservation RPC.
+const { data, error } = await supabase.rpc("create_reservation", {
+    p_customer_name: "Test Reminder",
+    p_number_of_guests: 2,
+    p_reservation_date: reservationDate,
+    p_reservation_time: reservationTime,
+    p_email: TEST_REMINDER_EMAIL,
+    p_phone: "+34600000000",
+    p_additional_wishes: "Test booking for reminder system",
+});
 
-if (error) {
-    console.error("Failed to insert reservation:", error.message);
+const row = Array.isArray(data) ? data[0] : data;
+
+if (error || !row?.success) {
+    console.error("Failed to create reservation:", error?.message || row?.error);
     process.exit(1);
 }
 
 console.log(`\nReservation created successfully!`);
-console.log(`  ID: ${data.id}`);
-console.log(`  Cancellation token: ${data.cancellation_token}`);
+console.log(`  ID: ${row.reservation_id}`);
 console.log(
     `\nThe cron job runs every 5 min. Wait up to 5 minutes for the reminder email.`
 );
