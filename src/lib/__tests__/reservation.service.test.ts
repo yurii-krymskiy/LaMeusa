@@ -4,8 +4,12 @@ import type { DbTable, DbReservation, DbBlockedSlot } from "../database.types";
 // ── Mock Supabase ───────────────────────────────────────────────────
 // We mock the supabase module so every DB call is intercepted.
 const mockFrom = vi.fn();
+const mockRpc = vi.fn();
 vi.mock("../supabase", () => ({
-    supabase: { from: (...args: unknown[]) => mockFrom(...args) },
+    supabase: {
+        from: (...args: unknown[]) => mockFrom(...args),
+        rpc: (...args: unknown[]) => mockRpc(...args),
+    },
 }));
 
 // Import AFTER mocks are in place
@@ -17,6 +21,7 @@ import {
     checkAvailability,
     getCapacityStats,
     isSlotBlocked,
+    createReservation,
 } from "../reservation.service";
 
 // ── Helpers ─────────────────────────────────────────────────────────
@@ -101,6 +106,25 @@ function setupSupabase(
         if (mapping[table]) return mapping[table];
         return supabaseChain({ data: [], error: null });
     });
+}
+
+/** Maps DbTable[] into the row shape returned by the get_available_tables RPC */
+function toRpcRows(tables: DbTable[]) {
+    return tables.map((t) => ({
+        table_id: t.id,
+        label: t.label,
+        capacity: t.capacity,
+        is_combinable: t.is_combinable,
+    }));
+}
+
+/** Route supabase.rpc(fnName, params) to a handler returning {data,error} */
+function setupRpc(
+    handlers: Record<string, (params: Record<string, unknown>) => MockResult>
+) {
+    mockRpc.mockImplementation((fn: string, params: Record<string, unknown>) =>
+        Promise.resolve(handlers[fn] ? handlers[fn](params) : { data: [], error: null })
+    );
 }
 
 // ─────────────────────────────────────────────────────────────────────
@@ -306,34 +330,31 @@ describe("checkAvailability", () => {
         reservationTableMap: Record<number, number[]>,
         blockedSlots: DbBlockedSlot[] = []
     ) {
+        // blocked_slots is still read client-side via supabase.from(...)
         mockFrom.mockImplementation((table: string) => {
             if (table === "blocked_slots") {
                 return supabaseChain({ data: blockedSlots, error: null });
             }
-            if (table === "tables") {
-                return supabaseChain({ data: ALL_TABLES, error: null });
-            }
-            if (table === "reservations") {
-                return supabaseChain({ data: reservations, error: null });
-            }
-            if (table === "reservation_tables") {
-                // This chain needs .eq("reservation_id", X) to route
-                const chain: Record<string, unknown> = {};
-                chain.select = vi.fn().mockReturnValue(chain);
-                chain.eq = vi.fn().mockImplementation((_col: string, resId: number) => {
-                    const tableIds = reservationTableMap[resId] || [];
-                    const data = tableIds.map((tid) => ({ table_id: tid }));
-                    const result = { data, error: null };
-                    return {
-                        then: (resolve: (v: unknown) => void) => resolve(result),
-                        select: vi.fn().mockReturnValue({ then: (r: (v: unknown) => void) => r(result) }),
-                    };
-                });
-                chain.then = (resolve: (v: unknown) => void) =>
-                    resolve({ data: [], error: null });
-                return chain;
-            }
             return supabaseChain({ data: [], error: null });
+        });
+
+        // Availability is now computed server-side. We simulate the
+        // get_available_tables RPC by applying the same overlap rule the DB
+        // function uses, so these scenarios still exercise the client contract.
+        setupRpc({
+            get_available_tables: (params) => {
+                const time = params.check_time as string;
+                const occupied = new Set<number>();
+                for (const res of reservations) {
+                    if (timeRangesOverlap(res.reservation_time, time)) {
+                        for (const tid of reservationTableMap[res.id] || []) {
+                            occupied.add(tid);
+                        }
+                    }
+                }
+                const available = ALL_TABLES.filter((t) => !occupied.has(t.id));
+                return { data: toRpcRows(available), error: null };
+            },
         });
     }
 
@@ -547,27 +568,21 @@ describe("staggered booking scenarios", () => {
         mockFrom.mockImplementation((table: string) => {
             if (table === "blocked_slots")
                 return supabaseChain({ data: [], error: null });
-            if (table === "tables")
-                return supabaseChain({ data: ALL_TABLES, error: null });
-            if (table === "reservations")
-                return supabaseChain({ data: reservations, error: null });
-            if (table === "reservation_tables") {
-                const chain: Record<string, unknown> = {};
-                chain.select = vi.fn().mockReturnValue(chain);
-                chain.eq = vi.fn().mockImplementation((_col: string, resId: number) => {
-                    const tableIds = rtMap[resId] || [];
-                    const data = tableIds.map((tid) => ({ table_id: tid }));
-                    const result = { data, error: null };
-                    return {
-                        then: (resolve: (v: unknown) => void) => resolve(result),
-                        select: vi.fn().mockReturnValue({ then: (r: (v: unknown) => void) => r(result) }),
-                    };
-                });
-                chain.then = (resolve: (v: unknown) => void) =>
-                    resolve({ data: [], error: null });
-                return chain;
-            }
             return supabaseChain({ data: [], error: null });
+        });
+
+        setupRpc({
+            get_available_tables: (params) => {
+                const time = params.check_time as string;
+                const occupied = new Set<number>();
+                for (const res of reservations) {
+                    if (timeRangesOverlap(res.reservation_time, time)) {
+                        for (const tid of rtMap[res.id] || []) occupied.add(tid);
+                    }
+                }
+                const available = ALL_TABLES.filter((t) => !occupied.has(t.id));
+                return { data: toRpcRows(available), error: null };
+            },
         });
     }
 
@@ -677,21 +692,22 @@ describe("staggered booking scenarios", () => {
 // ─────────────────────────────────────────────────────────────────────
 
 describe("getCapacityStats", () => {
-    const ALL_TABLES: DbTable[] = Array.from({ length: 72 }, (_, i) =>
-        makeTable(i + 1, 4, false)
-    );
-
     beforeEach(() => vi.clearAllMocks());
 
     it("reports all tables available when no reservations", async () => {
-        mockFrom.mockImplementation((table: string) => {
-            if (table === "tables")
-                return supabaseChain({ data: ALL_TABLES, error: null });
-            if (table === "reservations")
-                return supabaseChain({ data: [], error: null });
-            if (table === "reservation_tables")
-                return supabaseChain({ data: [], error: null });
-            return supabaseChain({ data: [], error: null });
+        setupRpc({
+            get_capacity_stats: () => ({
+                data: [
+                    {
+                        total_tables: 72,
+                        occupied_tables: 0,
+                        available_tables: 72,
+                        total_capacity: 288,
+                        available_capacity: 288,
+                    },
+                ],
+                error: null,
+            }),
         });
 
         const stats = await getCapacityStats("2026-05-01", "14:00");
@@ -703,34 +719,19 @@ describe("getCapacityStats", () => {
     });
 
     it("reports correct split when half tables occupied", async () => {
-        const reservations = Array.from({ length: 36 }, (_, i) =>
-            makeReservation(i + 1, "14:00")
-        );
-
-        mockFrom.mockImplementation((table: string) => {
-            if (table === "tables")
-                return supabaseChain({ data: ALL_TABLES, error: null });
-            if (table === "reservations")
-                return supabaseChain({ data: reservations, error: null });
-            if (table === "reservation_tables") {
-                const chain: Record<string, unknown> = {};
-                chain.select = vi.fn().mockReturnValue(chain);
-                chain.eq = vi.fn().mockImplementation((_col: string, resId: number) => {
-                    const data = [{ table_id: resId }]; // 1:1 mapping
-                    return {
-                        then: (resolve: (v: unknown) => void) =>
-                            resolve({ data, error: null }),
-                        select: vi.fn().mockReturnValue({
-                            then: (r: (v: unknown) => void) =>
-                                r({ data, error: null }),
-                        }),
-                    };
-                });
-                chain.then = (resolve: (v: unknown) => void) =>
-                    resolve({ data: [], error: null });
-                return chain;
-            }
-            return supabaseChain({ data: [], error: null });
+        setupRpc({
+            get_capacity_stats: () => ({
+                data: [
+                    {
+                        total_tables: 72,
+                        occupied_tables: 36,
+                        available_tables: 36,
+                        total_capacity: 288,
+                        available_capacity: 144,
+                    },
+                ],
+                error: null,
+            }),
         });
 
         const stats = await getCapacityStats("2026-05-01", "14:00");
@@ -748,6 +749,65 @@ describe("getCapacityStats", () => {
 describe("reservation constants", () => {
     it("reservation duration is 2 hours", () => {
         expect(RESERVATION_DURATION_HOURS).toBe(2);
+    });
+});
+
+// ─────────────────────────────────────────────────────────────────────
+// SECTION 6b — createReservation (server-side RPC)
+// ─────────────────────────────────────────────────────────────────────
+
+describe("createReservation", () => {
+    beforeEach(() => vi.clearAllMocks());
+
+    const input = {
+        customer_name: "Jane Doe",
+        number_of_guests: 2,
+        reservation_time: "14:00",
+        reservation_date: "2026-05-01",
+        email: "jane@example.com",
+        phone: "+34123456789",
+    };
+
+    it("returns success + id when the RPC succeeds", async () => {
+        setupRpc({
+            create_reservation: () => ({
+                data: [{ success: true, reservation_id: 42, error: null }],
+                error: null,
+            }),
+        });
+
+        const result = await createReservation(input);
+        expect(result.success).toBe(true);
+        expect(result.reservationId).toBe(42);
+    });
+
+    it("surfaces the server error message when the RPC rejects the booking", async () => {
+        setupRpc({
+            create_reservation: () => ({
+                data: [
+                    {
+                        success: false,
+                        reservation_id: null,
+                        error: "Sorry, we do not have enough tables available for this time.",
+                    },
+                ],
+                error: null,
+            }),
+        });
+
+        const result = await createReservation(input);
+        expect(result.success).toBe(false);
+        expect(result.error).toContain("enough tables");
+    });
+
+    it("fails gracefully on a transport-level error", async () => {
+        setupRpc({
+            create_reservation: () => ({ data: null, error: { message: "network" } }),
+        });
+
+        const result = await createReservation(input);
+        expect(result.success).toBe(false);
+        expect(result.error).toBeTruthy();
     });
 });
 
@@ -787,21 +847,20 @@ describe("edge cases", () => {
             makeTable(i + 1, 4, false)
         );
 
-        // All reservations are on 2026-05-01
-
+        // The DB function (get_available_tables) filters reservations by date,
+        // so an unbooked date returns every table.
         mockFrom.mockImplementation((table: string) => {
             if (table === "blocked_slots")
                 return supabaseChain({ data: [], error: null });
-            if (table === "tables")
-                return supabaseChain({ data: ALL_TABLES, error: null });
-            if (table === "reservations")
-                // The service filters by date via .eq("reservation_date", date)
-                // We return empty for different dates
-                return supabaseChain({ data: [], error: null });
             return supabaseChain({ data: [], error: null });
         });
+        setupRpc({
+            get_available_tables: () => ({
+                data: toRpcRows(ALL_TABLES),
+                error: null,
+            }),
+        });
 
-        // Different date should be fully available
         const result = await checkAvailability("2026-05-02", "14:00", 2);
         expect(result.available).toBe(true);
         expect(result.availableTables).toHaveLength(72);

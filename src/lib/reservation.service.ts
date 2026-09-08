@@ -1,7 +1,6 @@
 import { supabase } from "./supabase";
 import type {
     DbTable,
-    DbReservation,
     DbBlockedSlot,
     CreateReservationInput,
     AvailabilityResponse,
@@ -54,68 +53,41 @@ export async function getAllTables(): Promise<DbTable[]> {
 }
 
 /**
- * Get all reservations for a specific date
+ * Get tables that are free at a given date/time via the server-side RPC.
+ *
+ * Anon can no longer read raw reservation rows (they contain customer PII), so
+ * availability is computed inside the database (see the `get_available_tables`
+ * function) and only the list of free tables is returned to the client.
  */
-export async function getReservationsForDate(
-    date: string
-): Promise<DbReservation[]> {
-    const { data, error } = await supabase
-        .from("reservations")
-        .select("*")
-        .eq("reservation_date", date)
-        .is("cancelled_at", null);
-
-    if (error) {
-        console.error("Error fetching reservations:", error);
-        throw new Error("Failed to fetch reservations");
-    }
-
-    return data || [];
-}
-
-/**
- * Get table IDs that are reserved for a specific reservation
- */
-export async function getReservedTableIds(
-    reservationId: number
-): Promise<number[]> {
-    const { data, error } = await supabase
-        .from("reservation_tables")
-        .select("table_id")
-        .eq("reservation_id", reservationId);
-
-    if (error) {
-        console.error("Error fetching reserved tables:", error);
-        throw new Error("Failed to fetch reserved tables");
-    }
-
-    return data?.map((rt) => rt.table_id) || [];
-}
-
-/**
- * Get all table IDs that are occupied at a specific date and time
- * Considers the 2-hour reservation window
- */
-export async function getOccupiedTableIds(
+export async function getAvailableTablesFromDb(
     date: string,
     time: string
-): Promise<number[]> {
-    // Get all reservations for the date
-    const reservations = await getReservationsForDate(date);
+): Promise<DbTable[]> {
+    const { data, error } = await supabase.rpc("get_available_tables", {
+        check_date: date,
+        check_time: time,
+        reservation_duration_hours: RESERVATION_DURATION_HOURS,
+    });
 
-    // Find overlapping reservations
-    const overlappingReservations = reservations.filter((res) =>
-        timeRangesOverlap(res.reservation_time, time)
-    );
-
-    // Get table IDs for each overlapping reservation
-    const occupiedTableIds: number[] = [];
-    for (const reservation of overlappingReservations) {
-        const tableIds = await getReservedTableIds(reservation.id);
-        occupiedTableIds.push(...tableIds);
+    if (error) {
+        console.error("Error fetching available tables:", error);
+        throw new Error("Failed to fetch availability");
     }
 
-    return [...new Set(occupiedTableIds)]; // Remove duplicates
+    return ((data as
+        | {
+              table_id: number;
+              label: string;
+              capacity: number;
+              is_combinable: boolean;
+          }[]
+        | null) || []).map((row) => ({
+        id: row.table_id,
+        label: row.label,
+        capacity: row.capacity,
+        is_combinable: row.is_combinable,
+        created_at: "",
+    }));
 }
 
 /**
@@ -224,16 +196,8 @@ export async function checkAvailability(
         };
     }
 
-    // Get all tables
-    const allTables = await getAllTables();
-
-    // Get occupied table IDs
-    const occupiedTableIds = await getOccupiedTableIds(date, time);
-
-    // Filter to available tables
-    const availableTables = allTables.filter(
-        (t) => !occupiedTableIds.includes(t.id)
-    );
+    // Available tables come straight from the server-side RPC.
+    const availableTables = await getAvailableTablesFromDb(date, time);
 
     // Calculate required tables for the number of guests
     const requiredTables = calculateRequiredTables(guests, availableTables);
@@ -261,68 +225,42 @@ export async function checkAvailability(
 export async function createReservation(
     input: CreateReservationInput
 ): Promise<{ success: boolean; reservationId?: number; error?: string }> {
-    // Check availability first
-    const availability = await checkAvailability(
-        input.reservation_date,
-        input.reservation_time,
-        input.number_of_guests
-    );
+    // All validation, availability checking and table assignment happens
+    // server-side in the `create_reservation` RPC. The client never inserts
+    // reservation rows directly and never reads other customers' data.
+    const { data, error } = await supabase.rpc("create_reservation", {
+        p_customer_name: input.customer_name,
+        p_number_of_guests: input.number_of_guests,
+        p_reservation_date: input.reservation_date,
+        p_reservation_time: input.reservation_time,
+        p_email: input.email,
+        p_phone: input.phone,
+        p_promo_code: input.promo_code || null,
+        p_additional_wishes: input.additional_wishes || null,
+    });
 
-    if (!availability.available) {
-        return {
-            success: false,
-            error: availability.message || "No tables available",
-        };
-    }
-
-    // Create the reservation
-    const { data: reservation, error: reservationError } = await supabase
-        .from("reservations")
-        .insert({
-            customer_name: input.customer_name,
-            number_of_guests: input.number_of_guests,
-            reservation_time: input.reservation_time,
-            reservation_date: input.reservation_date,
-            promo_code: input.promo_code || null,
-            email: input.email,
-            phone: input.phone,
-            additional_wishes: input.additional_wishes || null,
-            cancellation_token: crypto.randomUUID(),
-        })
-        .select()
-        .single();
-
-    if (reservationError || !reservation) {
-        console.error("Error creating reservation:", reservationError);
+    if (error) {
+        console.error("Error creating reservation:", error);
         return {
             success: false,
             error: "Failed to create reservation. Please try again.",
         };
     }
 
-    // Assign tables to the reservation
-    const tableAssignments = availability.requiredTables.map((table) => ({
-        reservation_id: reservation.id,
-        table_id: table.id,
-    }));
+    const row = (Array.isArray(data) ? data[0] : data) as
+        | { success: boolean; reservation_id: number | null; error: string | null }
+        | undefined;
 
-    const { error: assignmentError } = await supabase
-        .from("reservation_tables")
-        .insert(tableAssignments);
-
-    if (assignmentError) {
-        console.error("Error assigning tables:", assignmentError);
-        // Rollback the reservation
-        await supabase.from("reservations").delete().eq("id", reservation.id);
+    if (!row || !row.success) {
         return {
             success: false,
-            error: "Failed to assign tables. Please try again.",
+            error: row?.error || "No tables available",
         };
     }
 
     return {
         success: true,
-        reservationId: reservation.id,
+        reservationId: row.reservation_id ?? undefined,
     };
 }
 
@@ -369,18 +307,37 @@ export async function getCapacityStats(
     totalCapacity: number;
     availableCapacity: number;
 }> {
-    const allTables = await getAllTables();
-    const occupiedTableIds = await getOccupiedTableIds(date, time);
+    const { data, error } = await supabase.rpc("get_capacity_stats", {
+        check_date: date,
+        check_time: time,
+    });
 
-    const availableTables = allTables.filter(
-        (t) => !occupiedTableIds.includes(t.id)
-    );
+    const row = (Array.isArray(data) ? data[0] : data) as
+        | {
+              total_tables: number;
+              occupied_tables: number;
+              available_tables: number;
+              total_capacity: number;
+              available_capacity: number;
+          }
+        | undefined;
+
+    if (error || !row) {
+        console.error("Error fetching capacity stats:", error);
+        return {
+            totalTables: 0,
+            occupiedTables: 0,
+            availableTables: 0,
+            totalCapacity: 0,
+            availableCapacity: 0,
+        };
+    }
 
     return {
-        totalTables: allTables.length,
-        occupiedTables: occupiedTableIds.length,
-        availableTables: availableTables.length,
-        totalCapacity: allTables.reduce((sum, t) => sum + t.capacity, 0),
-        availableCapacity: availableTables.reduce((sum, t) => sum + t.capacity, 0),
+        totalTables: Number(row.total_tables),
+        occupiedTables: Number(row.occupied_tables),
+        availableTables: Number(row.available_tables),
+        totalCapacity: Number(row.total_capacity),
+        availableCapacity: Number(row.available_capacity),
     };
 }
