@@ -29,6 +29,7 @@ export type MenuItemType = {
 export type MenuBadge = {
     code: BadgeCode;
     label?: string;
+    labelKey?: string;
     icon?: string;
     color?: string;
 };

@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 export const TwoPersonBadge = () => {
+    const { t } = useTranslation();
     return (
         <div
             className="absolute top-2 left-0 z-10 flex items-center bg-sky/90 py-1 pr-2 pl-1 text-white lg:top-3 lg:py-1.5 lg:pr-4 lg:pl-3"
@@ -9,7 +12,7 @@ export const TwoPersonBadge = () => {
             <PersonIcon />
             <PersonIcon />
             <span className="text-[8px] font-bold tracking-wider uppercase lg:text-[11px]">
-                For Two Persons
+                {t("menu.labels.forTwoPersons")}
             </span>
         </div>
     );

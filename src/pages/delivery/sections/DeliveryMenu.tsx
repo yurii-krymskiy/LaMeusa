@@ -114,6 +114,7 @@ function MenuItemRow({ item }: { item: MenuItemType }) {
 
 // ── Accordion ─────────────────────────────────────────────────────────────────
 function CategoryAccordion({ group, defaultOpen }: { group: CategoryGroup; defaultOpen?: boolean }) {
+    const { t } = useTranslation();
     const [open, setOpen] = useState(defaultOpen ?? false);
 
     return (
@@ -125,7 +126,7 @@ function CategoryAccordion({ group, defaultOpen }: { group: CategoryGroup; defau
                 <h3 className="title text-xl font-semibold tracking-wide">{group.label}</h3>
                 <div className="flex items-center gap-3 flex-shrink-0">
                     <span className="text-sm text-gray-400 font-normal">
-                        {group.items.length} {group.items.length === 1 ? "dish" : "dishes"}
+                        {t("delivery.menu.dishes", { count: group.items.length })}
                     </span>
                     <svg
                         className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${open ? "rotate-180" : ""}`}

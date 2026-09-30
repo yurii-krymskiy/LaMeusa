@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Money } from "../../menuResolver";
 import type { MenuPrice } from "../../types";
 
@@ -6,26 +7,16 @@ type MenuItemPriceProps = {
     isTwoPerson?: boolean;
 };
 
-const unitLabels: Record<string, string> = {
-    item: "per item",
-    per_person: "per person",
-    per_100g: "per 100 g",
-    per_kg: "per kg",
-    for_2: "for 2 people",
-    "for_3+": "for 3+ people",
-};
-
-const formatUnit = (unit?: string) => {
-    if (!unit) return undefined;
-    return unitLabels[unit] ?? unit.replaceAll("_", " ");
-};
-
 export const MenuItemPrice = ({ price, isTwoPerson }: MenuItemPriceProps) => {
+    const { t } = useTranslation();
     const formatted = Money.format(price.price);
     const formattedLarge = price.priceLarge
         ? Money.format(price.priceLarge)
         : undefined;
-    const unit = formatUnit(price.unit);
+    const unit = price.unit
+        ? t(`menu.units.${price.unit}`, price.unit.replaceAll("_", " "))
+        : undefined;
+    const perPerson = t("menu.labels.perPersonShort", "P.p");
 
     if (formattedLarge) {
         return (
@@ -35,7 +26,7 @@ export const MenuItemPrice = ({ price, isTwoPerson }: MenuItemPriceProps) => {
                         {formatted}
                     </span>
                     {isTwoPerson && (
-                        <span className="text-xs font-semibold text-gray-500">P.p</span>
+                        <span className="text-xs font-semibold text-gray-500">{perPerson}</span>
                     )}
                     <span className="text-xs font-semibold text-gray-500 uppercase">S</span>
                     <span className="text-xs text-gray-300">/</span>
@@ -60,7 +51,7 @@ export const MenuItemPrice = ({ price, isTwoPerson }: MenuItemPriceProps) => {
                     {formatted}
                 </span>
                 {isTwoPerson && (
-                    <span className="text-xs font-semibold text-gray-500">P.p</span>
+                    <span className="text-xs font-semibold text-gray-500">{perPerson}</span>
                 )}
             </div>
             {unit && (

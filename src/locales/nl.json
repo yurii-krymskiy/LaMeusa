@@ -195,7 +195,30 @@
         "sections": {
             "menu": "Menu",
             "bar": "Bardranken",
-            "cocktails": "Cocktails"
+            "cocktails": "Cocktails",
+            "wines": "Wijnkaart"
+        },
+        "badges": {
+            "topSeller": "Bestseller"
+        },
+        "labels": {
+            "perPersonShort": "p.p.",
+            "servedUntil6pm": "Geserveerd tot 18:00",
+            "forTwoPersons": "Voor twee personen",
+            "spicy": "Pittig"
+        },
+        "units": {
+            "item": "per stuk",
+            "per_person": "per persoon",
+            "per_100g": "per 100 g",
+            "per_kg": "per kg",
+            "for_2": "voor 2 personen",
+            "for_3+": "voor 3+ personen",
+            "per_ball": "per bol"
+        },
+        "wine": {
+            "glass": "Glas",
+            "bottle": "Fles"
         }
     },
     "contact": {
@@ -831,7 +854,9 @@
                 "mainCourse": "Hoofdgerecht",
                 "burgers": "Burgers & Sandwiches",
                 "desserts": "Desserts"
-            }
+            },
+            "dishes_one": "{{count}} gerecht",
+            "dishes_other": "{{count}} gerechten"
         },
         "info": {
             "decorative": "Bezorgdetails",

@@ -195,7 +195,30 @@
         "sections": {
             "menu": "Меню",
             "bar": "Бар",
-            "cocktails": "Коктейлі"
+            "cocktails": "Коктейлі",
+            "wines": "Винна карта"
+        },
+        "badges": {
+            "topSeller": "Хіт продажів"
+        },
+        "labels": {
+            "perPersonShort": "з особи",
+            "servedUntil6pm": "Подається до 18:00",
+            "forTwoPersons": "На двох",
+            "spicy": "Гостре"
+        },
+        "units": {
+            "item": "за порцію",
+            "per_person": "на особу",
+            "per_100g": "за 100 г",
+            "per_kg": "за кг",
+            "for_2": "на 2 особи",
+            "for_3+": "на 3+ осіб",
+            "per_ball": "за кульку"
+        },
+        "wine": {
+            "glass": "Келих",
+            "bottle": "Пляшка"
         }
     },
     "contact": {
@@ -736,7 +759,11 @@
                 "mainCourse": "Основна Страва",
                 "burgers": "Бургери та Сендвічі",
                 "desserts": "Десерти"
-            }
+            },
+            "dishes_one": "{{count}} страва",
+            "dishes_few": "{{count}} страви",
+            "dishes_many": "{{count}} страв",
+            "dishes_other": "{{count}} страви"
         },
         "info": {
             "decorative": "Деталі Доставки",

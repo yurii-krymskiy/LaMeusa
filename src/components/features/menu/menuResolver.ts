@@ -48,10 +48,11 @@ export class Money {
 export class UnitNormalizer {
     normalize(unit?: string): PortionUnit | string | undefined {
         if (!unit) return undefined;
-        const u = unit.toLowerCase();
+        const u = unit.trim().toLowerCase().replace(/\s+/g, "_");
         if (u === "pp" || u === "per_person") return "per_person";
         if (u === "x100g" || u === "per_100g") return "per_100g";
-        return unit as PortionUnit | string;
+        if (u === "ball" || u === "per_ball" || u === "per_scoop") return "per_ball";
+        return u as PortionUnit | string;
     }
 }
 
@@ -64,6 +65,7 @@ export class BadgeCatalog {
         star: {
             code: "star",
             label: "Top seller",
+            labelKey: "menu.badges.topSeller",
             icon: "/icons/badgets/star.svg",
             color: "#FFC107"
         },

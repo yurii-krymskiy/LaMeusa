@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import type { MenuCardVM } from "../../types";
 import { MenuItemBadge } from "./MenuItemBadge";
 import { MenuItemImage } from "./MenuItemImage";
@@ -10,6 +11,7 @@ type MenuItemProps = {
 };
 
 export const MenuItem = ({ item }: MenuItemProps) => {
+    const { t } = useTranslation();
     return (
         <article
             id={item.anchorId}
@@ -24,7 +26,7 @@ export const MenuItem = ({ item }: MenuItemProps) => {
                         )}
                         <MenuItemBadge badges={item.badges} />
                         {item.isServedUntil6pm && (
-                            <span className="text-xs text-gray-500 italic">Served until 6 PM</span>
+                            <span className="text-xs text-gray-500 italic">{t("menu.labels.servedUntil6pm")}</span>
                         )}
                     </div>
 

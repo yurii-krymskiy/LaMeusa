@@ -60,8 +60,8 @@ export const Menu = () => {
 
         function winePriceLabel(w: WineItem): string {
             const tags: string[] = [];
-            if (w.priceGlass != null) tags.push(`Glass €${w.priceGlass.toFixed(2)}`);
-            if (w.priceBottle != null) tags.push(`Bottle €${w.priceBottle.toFixed(2)}`);
+            if (w.priceGlass != null) tags.push(`${t("menu.wine.glass")} €${w.priceGlass.toFixed(2)}`);
+            if (w.priceBottle != null) tags.push(`${t("menu.wine.bottle")} €${w.priceBottle.toFixed(2)}`);
             if (w.priceHalfLiter != null) tags.push(`½L €${w.priceHalfLiter.toFixed(2)}`);
             if (w.priceLiter != null) tags.push(`1L €${w.priceLiter.toFixed(2)}`);
             return tags.join(" / ");
@@ -75,7 +75,7 @@ export const Menu = () => {
             price: w.priceBottle ?? w.priceGlass ?? w.priceHalfLiter ?? 0,
             order: w.sortOrder,
         }));
-    }, [wineItemsRaw]);
+    }, [wineItemsRaw, t]);
 
     // Food menu dictionary (ordered subcategories)
     const menuDictionary = useMemo(

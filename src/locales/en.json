@@ -195,7 +195,30 @@
         "sections": {
             "menu": "Menu",
             "bar": "Bar Drinks",
-            "cocktails": "Cocktails"
+            "cocktails": "Cocktails",
+            "wines": "Wine Card"
+        },
+        "badges": {
+            "topSeller": "Top seller"
+        },
+        "labels": {
+            "perPersonShort": "P.p",
+            "servedUntil6pm": "Served until 6 PM",
+            "forTwoPersons": "For Two Persons",
+            "spicy": "Spicy"
+        },
+        "units": {
+            "item": "per item",
+            "per_person": "per person",
+            "per_100g": "per 100 g",
+            "per_kg": "per kg",
+            "for_2": "for 2 people",
+            "for_3+": "for 3+ people",
+            "per_ball": "per scoop"
+        },
+        "wine": {
+            "glass": "Glass",
+            "bottle": "Bottle"
         }
     },
     "contact": {
@@ -831,7 +854,9 @@
                 "mainCourse": "Main Course",
                 "burgers": "Burgers & Sandwiches",
                 "desserts": "Desserts"
-            }
+            },
+            "dishes_one": "{{count}} dish",
+            "dishes_other": "{{count}} dishes"
         },
         "info": {
             "decorative": "Delivery Details",
