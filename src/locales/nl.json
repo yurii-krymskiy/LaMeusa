@@ -882,6 +882,9 @@
             },
             "cta": "Klaar om te bestellen? Klik hieronder om te bestellen via Uber Eats.",
             "orderButton": "Nu Bestellen"
+        },
+        "cta": {
+            "title": "Je favoriete gerechten, thuisbezorgd"
         }
     },
     "takeaway": {

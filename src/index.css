@@ -177,7 +177,7 @@
 }
 
 .delivery-hero {
-    @apply relative flex flex-col items-center justify-center bg-[url('/images/home-bg.jpg')] bg-cover bg-center py-20;
+    @apply relative flex flex-col items-center justify-center bg-[url('/images/delivery/delivery-hero.jpg')] bg-cover bg-center py-20;
 }
 
 .delivery-hero::before {

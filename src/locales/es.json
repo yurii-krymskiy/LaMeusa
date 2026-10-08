@@ -805,6 +805,9 @@
             },
             "cta": "¿Listo para pedir? Haz clic abajo para pedir por Uber Eats.",
             "orderButton": "Pedir Ahora"
+        },
+        "cta": {
+            "title": "Tus platos favoritos, a domicilio"
         }
     },
     "takeaway": {

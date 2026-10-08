@@ -21,6 +21,8 @@ const MERGED_SLUGS: Record<string, string> = {
     meat: "main_course",
 };
 
+const EASE = "ease-[cubic-bezier(0.25,0.1,0.25,1)]";
+
 type CategoryGroup = {
     slug: string;
     label: string;
@@ -30,84 +32,139 @@ type CategoryGroup = {
 // ── Single menu row ───────────────────────────────────────────────────────────
 function MenuItemRow({ item }: { item: MenuItemType }) {
     const priceDisplay =
-        typeof item.price === "number" ? `€${item.price.toFixed(2)}` : item.price;
+        typeof item.price === "number"
+            ? `€${item.price.toFixed(2)}`
+            : item.price;
 
     return (
-        <div className="flex items-center gap-3 py-3 border-b border-gray-100 last:border-0">
+        <div className="border-sky/10 flex items-center gap-3.5 border-b py-3 last:border-0">
             {/* thumbnail */}
             {item.imageUrl ? (
                 <img
                     src={item.imageUrl}
                     alt={item.title}
-                    className="w-14 h-14 rounded-lg object-cover flex-shrink-0"
+                    loading="lazy"
+                    className="size-14 shrink-0 rounded-[10px] object-cover"
                 />
             ) : (
-                <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
+                <div className="bg-white-100 flex size-14 shrink-0 items-center justify-center rounded-[10px]">
+                    <img
+                        src="/icons/star.svg"
+                        alt=""
+                        className="size-5 opacity-30"
+                    />
                 </div>
             )}
 
             {/* info */}
-            <div className="flex-1 min-w-0">
-                <span className="font-medium text-gray-900 leading-snug">
-                    {item.title}
-                    {item.isSpicy && (
-                        <span className="ml-2 text-xs text-red-500 align-middle">🌶</span>
-                    )}
-                    {item.isTwoPerson && (
-                        <span className="ml-2 text-xs text-gray-500 align-middle">👥</span>
-                    )}
-                </span>
+            <div className="min-w-0 flex-1">
+                <div className="flex items-baseline gap-2">
+                    <span className="text-navy min-w-0 text-[16px] leading-snug font-semibold break-words md:truncate">
+                        {item.title}
+                        {item.isSpicy && (
+                            <span className="ml-2 align-middle text-xs">
+                                🌶
+                            </span>
+                        )}
+                        {item.isTwoPerson && (
+                            <span className="ml-2 align-middle text-xs">
+                                👥
+                            </span>
+                        )}
+                    </span>
+                    <span className="border-sky/40 mb-[3px] hidden min-w-4 flex-1 border-b border-dotted md:block" />
+                    <span className="title text-sky ml-auto shrink-0 text-base font-semibold whitespace-nowrap md:ml-0">
+                        {priceDisplay}
+                    </span>
+                </div>
                 {item.description && (
-                    <p className="text-sm text-gray-500 font-light mt-0.5 line-clamp-1">
+                    <p className="mt-0.5 line-clamp-1 text-sm font-light text-gray-500">
                         {item.description}
                     </p>
                 )}
             </div>
-
-            {/* price */}
-            <span className="text-sm font-semibold text-royal-blue whitespace-nowrap flex-shrink-0">
-                {priceDisplay}
-            </span>
         </div>
     );
 }
 
 // ── Accordion ─────────────────────────────────────────────────────────────────
-function CategoryAccordion({ group, defaultOpen }: { group: CategoryGroup; defaultOpen?: boolean }) {
+function CategoryAccordion({
+    group,
+    defaultOpen,
+}: {
+    group: CategoryGroup;
+    defaultOpen?: boolean;
+}) {
     const { t } = useTranslation();
     const [open, setOpen] = useState(defaultOpen ?? false);
 
     return (
-        <div className="rounded-xl border border-gray-200 overflow-hidden">
+        <div
+            className={`overflow-hidden rounded-xl border bg-white transition-colors duration-500 ${EASE} ${
+                open ? "border-navy" : "border-gray-200"
+            }`}
+        >
             <button
                 onClick={() => setOpen((o) => !o)}
-                className="w-full flex items-center justify-between px-6 py-4 bg-white hover:bg-gray-50 transition-colors duration-200 text-left"
+                aria-expanded={open}
+                className={`flex w-full cursor-pointer items-center justify-between gap-3 px-5 py-4 text-left transition-colors duration-500 ${EASE} md:px-6 ${
+                    open ? "bg-navy" : "hover:bg-sky/5 bg-white"
+                }`}
             >
-                <h3 className="title text-xl font-semibold tracking-wide">{group.label}</h3>
-                <div className="flex items-center gap-3 flex-shrink-0">
-                    <span className="text-sm text-gray-400 font-normal">
-                        {t("delivery.menu.dishes", { count: group.items.length })}
+                <h3
+                    className={`title text-lg font-semibold tracking-wide transition-colors duration-500 md:text-xl ${
+                        open ? "!text-white" : ""
+                    }`}
+                >
+                    {group.label}
+                </h3>
+                <div className="flex shrink-0 items-center gap-3">
+                    <span
+                        className={`text-sm font-light whitespace-nowrap transition-colors duration-500 ${
+                            open ? "text-white/65" : "text-gray-400"
+                        }`}
+                    >
+                        {t("delivery.menu.dishes", {
+                            count: group.items.length,
+                        })}
                     </span>
                     <svg
-                        className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+                        className={`size-5 transition-all duration-500 ${EASE} ${
+                            open ? "rotate-180 text-[#7cc3ec]" : "text-sky"
+                        }`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                     >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={1.6}
+                            d="M19 9l-7 7-7-7"
+                        />
                     </svg>
                 </div>
             </button>
-            {open && (
-                <div className="px-4 pb-4 bg-white">
-                    {group.items.map((item) => (
-                        <MenuItemRow key={item.id} item={item} />
-                    ))}
+
+            <div
+                className={`grid transition-all duration-500 ${EASE} ${
+                    open
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
+                }`}
+            >
+                <div className="overflow-hidden">
+                    <div
+                        className={`px-5 pb-4 transition-transform duration-500 ${EASE} md:px-6 ${
+                            open ? "translate-y-0" : "-translate-y-2"
+                        }`}
+                    >
+                        {group.items.map((item) => (
+                            <MenuItemRow key={item.id} item={item} />
+                        ))}
+                    </div>
                 </div>
-            )}
+            </div>
         </div>
     );
 }
@@ -151,36 +208,38 @@ export const DeliveryMenu = () => {
     return (
         <section className="section bg-white-100">
             <div className="container">
-                <div className="text-center mb-10 lg:mb-14">
-                    <span className="decorative">{t("delivery.menu.decorative")}</span>
-                    <h2 className="title section-title">{t("delivery.menu.title")}</h2>
-                    <p className="description section-description mt-3 max-w-2xl mx-auto">
+                <div className="mb-10 text-center lg:mb-14">
+                    <span className="decorative">
+                        {t("delivery.menu.decorative")}
+                    </span>
+                    <h2 className="title section-title">
+                        {t("delivery.menu.title")}
+                    </h2>
+                    <p className="description section-description mx-auto mt-3 max-w-2xl">
                         {t("delivery.menu.description")}
                     </p>
                 </div>
 
                 {isLoading && (
                     <div className="flex justify-center py-20">
-                        <div className="animate-spin h-10 w-10 border-4 border-royal-blue border-t-transparent rounded-full" />
+                        <div className="border-royal-blue h-10 w-10 animate-spin rounded-full border-4 border-t-transparent" />
                     </div>
                 )}
 
                 {error && (
-                    <p className="text-center text-red-500 py-10">{error}</p>
+                    <p className="py-10 text-center text-red-500">{error}</p>
                 )}
 
                 {!isLoading && !error && (
-                    <>
-                        <div className="space-y-4 max-w-3xl mx-auto">
-                            {categoryGroups.map((group, idx) => (
-                                <CategoryAccordion
-                                    key={group.slug}
-                                    group={group}
-                                    defaultOpen={idx === 0}
-                                />
-                            ))}
-                        </div>
-                    </>
+                    <div className="mx-auto max-w-3xl space-y-4">
+                        {categoryGroups.map((group, idx) => (
+                            <CategoryAccordion
+                                key={group.slug}
+                                group={group}
+                                defaultOpen={idx === 0}
+                            />
+                        ))}
+                    </div>
                 )}
             </div>
         </section>

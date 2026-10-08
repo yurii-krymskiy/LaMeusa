@@ -4,6 +4,7 @@ import { DeliveryHero } from "./sections/DeliveryHero";
 import { DeliveryHowTo } from "./sections/DeliveryHowTo";
 import { DeliveryMenu } from "./sections/DeliveryMenu";
 import { DeliveryInfo } from "./sections/DeliveryInfo";
+import { DeliveryCta } from "./sections/DeliveryCta";
 
 export const Delivery = () => {
     const { t } = useTranslation();
@@ -19,6 +20,7 @@ export const Delivery = () => {
             <DeliveryHowTo />
             <DeliveryMenu />
             <DeliveryInfo />
+            <DeliveryCta />
         </>
     );
 };

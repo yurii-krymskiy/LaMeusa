@@ -882,6 +882,9 @@
             },
             "cta": "Bereit zu bestellen? Klicken Sie unten, um über Uber Eats zu bestellen.",
             "orderButton": "Jetzt Bestellen"
+        },
+        "cta": {
+            "title": "Ihre Lieblingsgerichte – geliefert"
         }
     },
     "takeaway": {
