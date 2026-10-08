@@ -9,6 +9,7 @@
         "happyHours": "Happy Hours",
         "birthday": "Célébrations d'anniversaire",
         "delivery": "Livraison",
+        "takeaway": "À emporter",
         "blog": "Blog",
         "bookNow": "Réserver",
         "bookNowFull": "Réserver maintenant"
@@ -884,6 +885,55 @@
             "orderButton": "Commander maintenant"
         }
     },
+    "takeaway": {
+        "hero": {
+            "title": "Plats à emporter à Los Cristianos, Tenerife",
+            "description": "Savourez vos plats préférés de La Medusa où vous voulez : pizzas, pâtes, fruits de mer et spécialités méditerranéennes fraîchement préparés, à emporter à Los Cristianos."
+        },
+        "intro": {
+            "decorative": "Frais et Pratique",
+            "title": "Des plats à emporter fraîchement préparés chez La Medusa",
+            "p1": "Vous cherchez un plat à emporter près de chez vous à Tenerife ? Chez La Medusa, savourez un excellent repas sans passer par le restaurant.",
+            "p2": "De retour à votre appartement, à l'hôtel ou à la maison, notre service à emporter est un moyen pratique de profiter de vos plats préférés.",
+            "p3": "Chaque commande est préparée avec la même attention à la saveur, à la fraîcheur et à la qualité qu'au restaurant."
+        },
+        "location": {
+            "title": "À emporter près de Playa de Las Vistas et Los Cristianos",
+            "p1": "Un plat à emporter dans le sud de Tenerife ? La Medusa se trouve sur l'Avenida La Habana, près de la Playa de Las Vistas.",
+            "p2": "Un choix pratique pour les visiteurs séjournant à Los Cristianos et aux alentours, dont Playa de las Américas."
+        },
+        "order": {
+            "title": "Commandez vos plats à emporter La Medusa",
+            "p1": "Envie de pizza, de pâtes ou d'une touche méditerranéenne ? Choisissez les plats qui vous font envie.",
+            "p2": "Une cuisine de qualité restaurant, où que votre journée vous mène.",
+            "callButton": "Appeler le +34 603 83 95 09"
+        },
+        "faq": {
+            "title": "Questions fréquentes",
+            "items": {
+                "q1": {
+                    "question": "Où trouver un plat à emporter près de chez moi à Los Cristianos ?",
+                    "answer": "La Medusa se trouve Avenida La Habana 9, près de la Playa de Las Vistas à Los Cristianos. Parcourez notre carte ou contactez-nous."
+                },
+                "q2": {
+                    "question": "Puis-je commander une pizza à emporter chez La Medusa ?",
+                    "answer": "Oui, nous proposons une sélection de pizzas. Contactez notre équipe pour vérifier les options du moment avant de commander."
+                },
+                "q3": {
+                    "question": "Quels types de plats puis-je commander à emporter ?",
+                    "answer": "Pizzas, pâtes, fruits de mer et plats méditerranéens. La sélection à emporter peut varier, renseignez-vous lors de votre commande."
+                },
+                "q4": {
+                    "question": "La Medusa est-elle proche de la Playa de Las Vistas ?",
+                    "answer": "Oui, nous sommes situés près de la Playa de Las Vistas, une option facile pour les visiteurs de Los Cristianos et des environs."
+                },
+                "q5": {
+                    "question": "Comment commander des plats à emporter chez La Medusa ?",
+                    "answer": "Appelez-nous au +34 603 83 95 09 pour les disponibilités, la carte et le retrait."
+                }
+            }
+        }
+    },
     "blog": {
         "hero": {
             "title": "Notre blog",
@@ -912,6 +962,10 @@
         "delivery": {
             "title": "La Medusa Livraison – Commander en ligne | La Medusa Los Cristianos",
             "description": "Commandez les plats méditerranéens signature de La Medusa en livraison à Los Cristianos. Pizza fraîche, pâtes, burgers, fruits de mer et plus, livrés à votre porte."
+        },
+        "takeaway": {
+            "title": "Plats à emporter à Los Cristianos, Tenerife",
+            "description": "Envie d'un plat à emporter près de chez vous ? Savourez pizzas, pâtes, fruits de mer et plus encore de La Medusa à Los Cristianos, Tenerife. Commandez vos plats préférés à emporter."
         },
         "home": {
             "title": "La Medusa – Restaurant à Los Cristianos, Tenerife",

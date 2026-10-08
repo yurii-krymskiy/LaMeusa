@@ -9,6 +9,7 @@
         "happyHours": "Happy Hour",
         "birthday": "Geburtstagsfeiern",
         "delivery": "Lieferservice",
+        "takeaway": "Takeaway",
         "blog": "Blog",
         "bookNow": "Buchen",
         "bookNowFull": "Jetzt Buchen"
@@ -883,6 +884,55 @@
             "orderButton": "Jetzt Bestellen"
         }
     },
+    "takeaway": {
+        "hero": {
+            "title": "Takeaway in Los Cristianos, Teneriffa",
+            "description": "Genießen Sie Ihre Lieblingsgerichte von La Medusa, wo immer Sie möchten – frisch zubereitete Pizza, Pasta, Meeresfrüchte und mediterrane Spezialitäten zum Mitnehmen in Los Cristianos."
+        },
+        "intro": {
+            "decorative": "Frisch & Bequem",
+            "title": "Frisch zubereitetes Essen zum Mitnehmen bei La Medusa",
+            "p1": "Sie suchen auf Teneriffa ein Takeaway in Ihrer Nähe? Bei La Medusa genießen Sie ein großartiges Essen ganz ohne Restaurantbesuch.",
+            "p2": "Ob zurück im Apartment, im Hotel oder zu Hause – unser Takeaway-Service ist eine bequeme Art, Ihre Lieblingsgerichte zu genießen.",
+            "p3": "Jede Bestellung wird mit derselben Sorgfalt für Geschmack, Frische und Qualität zubereitet wie bei uns im Restaurant."
+        },
+        "location": {
+            "title": "Takeaway nahe Playa de Las Vistas und Los Cristianos",
+            "p1": "Essen zum Mitnehmen im Süden Teneriffas gesucht? La Medusa liegt an der Avenida La Habana, nahe der Playa de Las Vistas.",
+            "p2": "Eine praktische Wahl für Gäste in Los Cristianos und Umgebung, einschließlich Playa de las Américas."
+        },
+        "order": {
+            "title": "Bestellen Sie Ihr La Medusa Takeaway",
+            "p1": "Lust auf Pizza, Pasta oder etwas Mediterranes? Wählen Sie Ihre Lieblingsgerichte.",
+            "p2": "Essen in Restaurantqualität – wohin Ihr Tag Sie auch führt.",
+            "callButton": "Anrufen: +34 603 83 95 09"
+        },
+        "faq": {
+            "title": "Häufig gestellte Fragen",
+            "items": {
+                "q1": {
+                    "question": "Wo finde ich Takeaway in meiner Nähe in Los Cristianos?",
+                    "answer": "La Medusa befindet sich in der Avenida La Habana 9, nahe der Playa de Las Vistas in Los Cristianos. Werfen Sie einen Blick auf unsere Speisekarte oder kontaktieren Sie uns."
+                },
+                "q2": {
+                    "question": "Kann ich bei La Medusa Pizza zum Mitnehmen bestellen?",
+                    "answer": "Ja, wir bieten eine Auswahl an Pizzen. Fragen Sie unser Team vor der Bestellung nach den aktuellen Optionen."
+                },
+                "q3": {
+                    "question": "Welche Gerichte kann ich zum Mitnehmen bestellen?",
+                    "answer": "Pizza, Pasta, Meeresfrüchte und mediterrane Gerichte. Die Auswahl zum Mitnehmen kann variieren – fragen Sie einfach unser Team."
+                },
+                "q4": {
+                    "question": "Liegt La Medusa in der Nähe der Playa de Las Vistas?",
+                    "answer": "Ja, wir liegen nahe der Playa de Las Vistas – ideal für Besucher in Los Cristianos und Umgebung."
+                },
+                "q5": {
+                    "question": "Wie kann ich Essen zum Mitnehmen bei La Medusa bestellen?",
+                    "answer": "Rufen Sie uns unter +34 603 83 95 09 an – wir informieren Sie über Verfügbarkeit, Menü und Abholung."
+                }
+            }
+        }
+    },
     "blog": {
         "hero": {
             "title": "Unser Blog",
@@ -911,6 +961,10 @@
         "delivery": {
             "title": "Medusa Lieferservice – Online Bestellen | La Medusa Los Cristianos",
             "description": "Bestellen Sie die charakteristischen mediterranen Gerichte von La Medusa zur Lieferung in Los Cristianos. Frische Pizza, Pasta, Burger, Meeresfrüchte und mehr direkt vor Ihre Tür."
+        },
+        "takeaway": {
+            "title": "Takeaway in Los Cristianos, Teneriffa",
+            "description": "Essen zum Mitnehmen gesucht? Genießen Sie Pizza, Pasta, Meeresfrüchte und mehr von La Medusa in Los Cristianos, Teneriffa. Bestellen Sie Ihr Lieblingsessen zum Mitnehmen."
         },
         "home": {
             "title": "La Medusa – Restaurant in Los Cristianos, Teneriffa",

@@ -10,11 +10,13 @@ export const Footer = () => {
                 <div className="container flex flex-wrap justify-between gap-5">
                     <div className="w-full md:max-w-[320px]">
                         <div>
-                            <img
-                                src="/icons/logo.svg"
-                                alt="La Medusa"
-                                className="mb-2.5"
-                            />
+                            <Link to="/" className="block">
+                                <img
+                                    src="/icons/logo.svg"
+                                    alt="La Medusa"
+                                    className="mb-2.5"
+                                />
+                            </Link>
                             <div className="mt-5 flex flex-wrap md:flex-nowrap gap-8">
                                 <a href="https://maps.app.goo.gl/BPYTGnnVsCb3d8Ss8" target="_blank" rel="noreferrer" className="block hover:opacity-80 transition-opacity duration-200">
                                     <div className="flex items-center gap-2.5">
@@ -29,7 +31,7 @@ export const Footer = () => {
                                         />
                                     </div>
                                     <span className="description text-xs">
-                                        <b>2,692</b> {t("footer.reviews")}
+                                        <b>3,464</b> {t("footer.reviews")}
                                     </span>
                                 </a>
                                 <a href="https://www.tripadvisor.com/Restaurant_Review-g187479-d20257413-Reviews-or15-Restaurant_La_Medusa_Cocktail_Bar-Tenerife_Canary_Islands.html" target="_blank" rel="noreferrer" className="block hover:opacity-80 transition-opacity duration-200">
@@ -45,7 +47,7 @@ export const Footer = () => {
                                         />
                                     </div>
                                     <span className="description text-xs">
-                                        <b>532</b> {t("footer.reviews")}
+                                        <b>678</b> {t("footer.reviews")}
                                     </span>
                                 </a>
                             </div>
@@ -159,12 +161,12 @@ export const Footer = () => {
                 </div>
             </footer>
             <div className="bg-royal-blue">
-                <div className="container flex flex-col justify-between py-5 text-xs text-white md:flex-row md:text-lg">
+                <div className="container flex flex-col-reverse justify-between py-5 text-xs text-white md:flex-row md:text-lg">
                     <p className="flex-1 text-center md:text-left">
                         {t("footer.copyright", { year: new Date().getFullYear() })}
                     </p>
 
-                    <div className="mt-4 flex flex-1 items-center justify justify-between md:gap-10 md:mt-0 md:justify-end">
+                    <div className="mb-4 flex flex-1 items-center justify-between md:mb-0 md:gap-10 md:justify-end">
                         <Link to="/terms-of-service" className="hover:underline transition-opacity duration-200">{t("footer.terms")}</Link>
                         <Link to="/privacy-policy" className="hover:underline transition-opacity duration-200">{t("footer.privacy")}</Link>
                         <Link to="/cookies-settings" className="hover:underline transition-opacity duration-200">{t("footer.cookies")}</Link>

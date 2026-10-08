@@ -27,43 +27,6 @@ type CategoryGroup = {
     items: MenuItemType[];
 };
 
-// ── Featured photo grid ───────────────────────────────────────────────────────
-function FeaturedGrid({ items }: { items: MenuItemType[] }) {
-    const withImages = items.filter((i) => i.imageUrl).slice(0, 6);
-    if (withImages.length === 0) return null;
-
-    return (
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10">
-            {withImages.map((item) => {
-                const price =
-                    typeof item.price === "number"
-                        ? `€${item.price.toFixed(2)}`
-                        : item.price;
-                return (
-                    <div
-                        key={item.id}
-                        className="relative rounded-xl overflow-hidden aspect-square group"
-                    >
-                        <img
-                            src={item.imageUrl}
-                            alt={item.title}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                        {/* gradient overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                        <div className="absolute bottom-0 left-0 right-0 p-3">
-                            <p className="text-white text-sm font-semibold leading-tight line-clamp-2">
-                                {item.title}
-                            </p>
-                            <p className="text-white text-sm font-bold mt-0.5">{price}</p>
-                        </div>
-                    </div>
-                );
-            })}
-        </div>
-    );
-}
-
 // ── Single menu row ───────────────────────────────────────────────────────────
 function MenuItemRow({ item }: { item: MenuItemType }) {
     const priceDisplay =

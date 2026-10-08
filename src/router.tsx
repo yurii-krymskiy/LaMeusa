@@ -40,6 +40,7 @@ import SeoChildrenMenu from "./pages/seo/SeoChildrenMenu";
 import SeoSauces from "./pages/seo/SeoSauces";
 import SeoGarnish from "./pages/seo/SeoGarnish";
 import { Delivery } from "./pages/delivery/Delivery";
+import { Takeaway } from "./pages/takeaway/Takeaway";
 import ErrorPage from "./pages/ErrorPage";
 
 export const pages = [
@@ -56,6 +57,7 @@ export const pages = [
             { path: "pasta", element: <Pasta /> },
             { path: "menu", element: <Menu /> },
             { path: "delivery", element: <Delivery /> },
+            { path: "takeaway", element: <Takeaway /> },
             { path: "blog", element: <Blog /> },
             { path: "blog/:id", element: <BlogArticle /> },
             { path: "privacy-policy", element: <PrivacyPolicy /> },
@@ -72,7 +74,10 @@ export const pages = [
             { path: "tapas-appetizers-los-cristianos", element: <SeoTapas /> },
             { path: "pasta-los-cristianos", element: <SeoPasta /> },
             { path: "dessert-los-cristianos", element: <SeoDessert /> },
-            { path: "children-menu-los-cristianos", element: <SeoChildrenMenu /> },
+            {
+                path: "children-menu-los-cristianos",
+                element: <SeoChildrenMenu />,
+            },
             { path: "sauces-adds-los-cristianos", element: <SeoSauces /> },
             { path: "garnish-los-cristianos", element: <SeoGarnish /> },
         ],
@@ -111,6 +116,7 @@ export const Paths = {
     menu: "/menu",
     happyHours: "/happy-hours",
     delivery: "/delivery",
+    takeaway: "/takeaway",
     blog: "/blog",
     booking: "/booking",
     privacyPolicy: "/privacy-policy",
@@ -130,5 +136,6 @@ export const pagesLabels = [
     { path: Paths.pasta, label: "nav.pasta" },
     { path: Paths.menu, label: "nav.menu" },
     { path: Paths.delivery, label: "nav.delivery" },
+    { path: Paths.takeaway, label: "nav.takeaway" },
     // { path: Paths.blog, label: "nav.blog" },
 ];

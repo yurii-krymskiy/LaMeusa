@@ -9,6 +9,7 @@
         "happyHours": "Happy Hours",
         "birthday": "Birthday Celebrations",
         "delivery": "Delivery",
+        "takeaway": "Takeaway",
         "blog": "Blog",
         "bookNow": "Book",
         "bookNowFull": "Book Now"
@@ -883,6 +884,55 @@
             "orderButton": "Order Now"
         }
     },
+    "takeaway": {
+        "hero": {
+            "title": "Takeaway in Los Cristianos, Tenerife",
+            "description": "Enjoy your favourite La Medusa dishes wherever you like — fresh pizza, pasta, seafood and Mediterranean specialities to take away in Los Cristianos."
+        },
+        "intro": {
+            "decorative": "Fresh & Convenient",
+            "title": "Freshly Prepared Takeaway Food at La Medusa",
+            "p1": "Looking for a takeaway near me in Tenerife? At La Medusa, enjoying a great meal without sitting down in a restaurant is easy.",
+            "p2": "Heading back to your apartment, relaxing at your hotel or eating at home — our takeaway service is a convenient way to enjoy your favourite dishes.",
+            "p3": "Every order is prepared with the same attention to flavour, freshness and quality as when dining with us."
+        },
+        "location": {
+            "title": "Takeaway Near Playa de Las Vistas and Los Cristianos",
+            "p1": "Searching for take away food near me in southern Tenerife? La Medusa is on Avenida La Habana, close to Playa de Las Vistas.",
+            "p2": "A practical choice for guests staying in Los Cristianos and nearby areas, including Playa de las Américas."
+        },
+        "order": {
+            "title": "Order Your La Medusa Takeaway",
+            "p1": "Craving pizza, pasta or something Mediterranean? Choose the dishes you fancy.",
+            "p2": "Restaurant-quality food wherever your day takes you.",
+            "callButton": "Call +34 603 83 95 09"
+        },
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "items": {
+                "q1": {
+                    "question": "Where can I find takeaway near me in Los Cristianos?",
+                    "answer": "La Medusa is at Avenida La Habana 9, close to Playa de Las Vistas in Los Cristianos. Explore our menu or contact us to see what's available."
+                },
+                "q2": {
+                    "question": "Can I order pizza takeaway from La Medusa?",
+                    "answer": "Yes — we offer a selection of pizzas. Contact our team to check the current options before ordering."
+                },
+                "q3": {
+                    "question": "What types of food can I order for takeaway?",
+                    "answer": "Pizza, pasta, seafood and Mediterranean dishes. The takeaway selection may vary, so check with our team when ordering."
+                },
+                "q4": {
+                    "question": "Is La Medusa close to Playa de Las Vistas?",
+                    "answer": "Yes, we're located near Playa de Las Vistas — an easy option for visitors staying in Los Cristianos and the surrounding area."
+                },
+                "q5": {
+                    "question": "How can I order takeaway food from La Medusa?",
+                    "answer": "Call us on +34 603 83 95 09 to ask about availability, menu options and collection."
+                }
+            }
+        }
+    },
     "blog": {
         "hero": {
             "title": "Our Blog",
@@ -911,6 +961,10 @@
         "delivery": {
             "title": "Medusa Delivery – Order Online | La Medusa Los Cristianos",
             "description": "Order La Medusa's signature Mediterranean dishes for delivery in Los Cristianos. Fresh pizza, pasta, burgers, seafood and more delivered to your door."
+        },
+        "takeaway": {
+            "title": "Takeaway in Los Cristianos, Tenerife",
+            "description": "Looking for takeaway near me? Enjoy pizza, pasta, seafood and more from La Medusa in Los Cristianos, Tenerife. Order your favourite food to take away."
         },
         "home": {
             "title": "La Medusa – Restaurant in Los Cristianos, Tenerife",

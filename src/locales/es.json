@@ -9,6 +9,7 @@
         "happyHours": "Happy Hours",
         "birthday": "Celebraciones de cumpleaños",
         "delivery": "A Domicilio",
+        "takeaway": "Para llevar",
         "blog": "Blog",
         "bookNow": "Reservar",
         "bookNowFull": "Reservar ahora"
@@ -806,6 +807,55 @@
             "orderButton": "Pedir Ahora"
         }
     },
+    "takeaway": {
+        "hero": {
+            "title": "Comida para llevar en Los Cristianos, Tenerife",
+            "description": "Disfruta de tus platos favoritos de La Medusa donde quieras: pizza, pasta, mariscos y especialidades mediterráneas recién preparadas para llevar en Los Cristianos."
+        },
+        "intro": {
+            "decorative": "Fresco y Cómodo",
+            "title": "Comida para llevar recién preparada en La Medusa",
+            "p1": "¿Buscas comida para llevar cerca de ti en Tenerife? En La Medusa es fácil disfrutar de una gran comida sin sentarte en un restaurante.",
+            "p2": "Ya sea de vuelta a tu apartamento, en tu hotel o en casa, nuestro servicio para llevar es una forma cómoda de disfrutar de tus platos favoritos.",
+            "p3": "Preparamos cada pedido con la misma atención al sabor, la frescura y la calidad que al comer con nosotros."
+        },
+        "location": {
+            "title": "Comida para llevar cerca de Playa de Las Vistas y Los Cristianos",
+            "p1": "¿Buscas comida para llevar en el sur de Tenerife? La Medusa está en la Avenida La Habana, cerca de Playa de Las Vistas.",
+            "p2": "Una opción práctica para quienes se alojan en Los Cristianos y alrededores, incluida Playa de las Américas."
+        },
+        "order": {
+            "title": "Pide tu comida para llevar de La Medusa",
+            "p1": "¿Te apetece pizza, pasta o algo mediterráneo? Elige los platos que más te gusten.",
+            "p2": "Comida con calidad de restaurante dondequiera que te lleve el día.",
+            "callButton": "Llamar al +34 603 83 95 09"
+        },
+        "faq": {
+            "title": "Preguntas frecuentes",
+            "items": {
+                "q1": {
+                    "question": "¿Dónde puedo encontrar comida para llevar cerca de mí en Los Cristianos?",
+                    "answer": "La Medusa está en Avenida La Habana 9, cerca de Playa de Las Vistas en Los Cristianos. Explora nuestro menú o contáctanos para saber qué hay disponible."
+                },
+                "q2": {
+                    "question": "¿Puedo pedir pizza para llevar en La Medusa?",
+                    "answer": "Sí, ofrecemos una selección de pizzas. Contacta con nuestro equipo para consultar las opciones actuales antes de pedir."
+                },
+                "q3": {
+                    "question": "¿Qué tipos de comida puedo pedir para llevar?",
+                    "answer": "Pizza, pasta, mariscos y platos mediterráneos. La selección para llevar puede variar; consulta con nuestro equipo al pedir."
+                },
+                "q4": {
+                    "question": "¿Está La Medusa cerca de Playa de Las Vistas?",
+                    "answer": "Sí, estamos cerca de Playa de Las Vistas, una opción fácil para quienes se alojan en Los Cristianos y alrededores."
+                },
+                "q5": {
+                    "question": "¿Cómo puedo pedir comida para llevar en La Medusa?",
+                    "answer": "Llámanos al +34 603 83 95 09 para consultar disponibilidad, menú y recogida."
+                }
+            }
+        }
+    },
     "blog": {
         "hero": {
             "title": "Nuestro Blog",
@@ -834,6 +884,10 @@
         "delivery": {
             "title": "Medusa a Domicilio – Pedir Online | La Medusa Los Cristianos",
             "description": "Pide los platos mediterráneos de La Medusa para entrega a domicilio en Los Cristianos. Pizza, pasta, hamburguesas, mariscos y más, entregados frescos."
+        },
+        "takeaway": {
+            "title": "Comida para llevar en Los Cristianos, Tenerife",
+            "description": "¿Buscas comida para llevar cerca de ti? Disfruta de pizza, pasta, mariscos y más de La Medusa en Los Cristianos, Tenerife. Pide tus platos favoritos para llevar."
         },
         "home": {
             "title": "La Medusa – Restaurante en Los Cristianos, Tenerife",

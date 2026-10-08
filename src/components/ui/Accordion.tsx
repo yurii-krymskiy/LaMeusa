@@ -24,7 +24,7 @@ export const Accordion = ({ list }: Props) => {
                             aria-expanded={isActive}
                         >
                             <span
-                                className={`relative flex h-8 w-8 items-center justify-center transition-transform duration-300 ${
+                                className={`relative flex h-8 w-8 items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
                                     isActive ? "rotate-90" : "rotate-0"
                                 }`}
                             >
@@ -35,13 +35,13 @@ export const Accordion = ({ list }: Props) => {
                                 />
                                 <span className="bg-sky absolute h-4 w-[1.5px]" />
                             </span>
-                            <div className="title normal-case text-left md:text-xl">
+                            <div className="title text-left normal-case md:text-xl">
                                 {item.title}
                             </div>
                         </button>
                         <div
                             className={[
-                                "grid transition-[grid-template-rows,opacity] duration-300 ease-out",
+                                "grid transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]",
                                 isActive
                                     ? "grid-rows-[1fr] opacity-100"
                                     : "grid-rows-[0fr] opacity-0",

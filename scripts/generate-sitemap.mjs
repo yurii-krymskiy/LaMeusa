@@ -13,9 +13,20 @@ const OUTPUT_PATH = resolve(__dirname, "../public/sitemap.xml");
 
 const BASE_URL = "https://www.lamedusa-restaurant.com";
 const DEFAULT_LANGUAGE = "en";
-const LANGUAGE_PREFIXES = { uk: "ua", es: "es", it: "it", fr: "fr", de: "de", nl: "nl" };
-const SUPPORTED_LANGUAGES = [DEFAULT_LANGUAGE, ...Object.keys(LANGUAGE_PREFIXES)];
-const prefixFor = (lang) => (LANGUAGE_PREFIXES[lang] ? `/${LANGUAGE_PREFIXES[lang]}` : "");
+const LANGUAGE_PREFIXES = {
+    uk: "ua",
+    es: "es",
+    it: "it",
+    fr: "fr",
+    de: "de",
+    nl: "nl",
+};
+const SUPPORTED_LANGUAGES = [
+    DEFAULT_LANGUAGE,
+    ...Object.keys(LANGUAGE_PREFIXES),
+];
+const prefixFor = (lang) =>
+    LANGUAGE_PREFIXES[lang] ? `/${LANGUAGE_PREFIXES[lang]}` : "";
 
 const STATIC_PATHS = [
     "/",
@@ -26,6 +37,7 @@ const STATIC_PATHS = [
     "/pasta",
     "/menu",
     "/delivery",
+    "/takeaway",
     "/booking",
     "/privacy-policy",
     "/terms-of-service",
@@ -52,12 +64,16 @@ const fetchBlogArticleIds = async () => {
     const supabaseAnonKey = process.env.VITE_PUBLIC_SUPABASE_ANON_KEY;
 
     if (!supabaseUrl || !supabaseAnonKey) {
-        console.warn("[sitemap] Supabase env vars missing, skipping blog article URLs.");
+        console.warn(
+            "[sitemap] Supabase env vars missing, skipping blog article URLs."
+        );
         return [];
     }
 
     const supabase = createClient(supabaseUrl, supabaseAnonKey);
-    const { data, error } = await supabase.from("articles").select("id, updated_date, created_date");
+    const { data, error } = await supabase
+        .from("articles")
+        .select("id, updated_date, created_date");
 
     if (error) {
         console.warn(`[sitemap] Failed to fetch articles: ${error.message}`);
@@ -73,12 +89,16 @@ const fetchBlogArticleIds = async () => {
 const alternateLinks = (path) =>
     [
         ...SUPPORTED_LANGUAGES.map(
-            (lang) => `        <xhtml:link rel="alternate" hreflang="${lang}" href="${BASE_URL}${prefixFor(lang)}${path}" />`
+            (lang) =>
+                `        <xhtml:link rel="alternate" hreflang="${lang}" href="${BASE_URL}${prefixFor(lang)}${path}" />`
         ),
         `        <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${path}" />`,
     ].join("\n");
 
-const urlEntry = (path, { priority, changefreq, lastmod, lang = DEFAULT_LANGUAGE }) => {
+const urlEntry = (
+    path,
+    { priority, changefreq, lastmod, lang = DEFAULT_LANGUAGE }
+) => {
     const loc = `${BASE_URL}${prefixFor(lang)}${path}`;
     return [
         "    <url>",
@@ -100,14 +120,27 @@ const buildSitemap = async () => {
 
     for (const lang of SUPPORTED_LANGUAGES) {
         for (const path of STATIC_PATHS) {
-            entries.push(urlEntry(path, { priority: 1.0, changefreq: "weekly", lang }));
+            entries.push(
+                urlEntry(path, { priority: 1.0, changefreq: "weekly", lang })
+            );
         }
 
-        entries.push(urlEntry(BLOG_LIST_PATH, { priority: 0.5, changefreq: "weekly", lang }));
+        entries.push(
+            urlEntry(BLOG_LIST_PATH, {
+                priority: 0.5,
+                changefreq: "weekly",
+                lang,
+            })
+        );
 
         for (const article of blogArticles) {
             entries.push(
-                urlEntry(article.path, { priority: 0.5, changefreq: "weekly", lastmod: article.lastmod, lang })
+                urlEntry(article.path, {
+                    priority: 0.5,
+                    changefreq: "weekly",
+                    lastmod: article.lastmod,
+                    lang,
+                })
             );
         }
     }
