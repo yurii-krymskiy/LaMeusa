@@ -230,10 +230,81 @@ export type WorkloadCalendarDay = {
     cancelledReservations: number;
 };
 
-// Fetch all reservations for chart analytics
-export const fetchChartData = async (period: ChartPeriod = "month") => {
-    const today = new Date();
+export type PartySizePoint = {
+    size: string; // "1", "2", ... "7+"
+    count: number;
+};
 
+export type OccupancyPoint = {
+    date: string; // same label format as DailyReservationPoint
+    occupancy: number; // % of total seats booked that day
+};
+
+export type PeriodSummary = {
+    reservations: number;
+    guests: number;
+    avgPartySize: number; // 1 decimal
+    cancellationRate: number; // % of all bookings in period, 1 decimal
+};
+
+export type LoyaltyStats = {
+    newGuests: number;
+    returningGuests: number;
+    returningShare: number; // % of period reservations made by repeat guests
+};
+
+export type AnalyticsBundle = {
+    daily: DailyReservationPoint[];
+    hourly: HourDistributionPoint[];
+    weekday: WeekdayDistributionPoint[];
+    leadTime: LeadTimePoint[];
+    partySize: PartySizePoint[];
+    occupancy: OccupancyPoint[];
+    loyalty: LoyaltyStats;
+    summary: PeriodSummary;
+    previousSummary: PeriodSummary;
+};
+
+// Normalized identity for a guest: phone digits if present, otherwise email
+const guestKey = (phone: string | null, email: string | null): string | null => {
+    const digits = (phone ?? "").replace(/\D/g, "");
+    if (digits.length >= 7) return `p:${digits}`;
+    const mail = (email ?? "").trim().toLowerCase();
+    if (mail) return `e:${mail}`;
+    return null;
+};
+
+// Earliest booking timestamp per guest across ALL non-cancelled reservations
+const fetchFirstSeenMap = async (): Promise<Map<string, string>> => {
+    const PAGE = 1000;
+    const firstSeen = new Map<string, string>();
+    for (let from = 0; ; from += PAGE) {
+        const { data, error } = await supabase
+            .from("reservations")
+            .select("phone, email, created_at")
+            .is("cancelled_at", null)
+            .order("id", { ascending: true })
+            .range(from, from + PAGE - 1);
+
+        if (error) {
+            console.error("Error fetching loyalty history:", error);
+            return firstSeen;
+        }
+        if (!data?.length) break;
+        for (const r of data) {
+            const key = guestKey(r.phone, r.email);
+            if (!key) continue;
+            const prev = firstSeen.get(key);
+            if (!prev || r.created_at < prev) firstSeen.set(key, r.created_at);
+        }
+        if (data.length < PAGE) break;
+    }
+    return firstSeen;
+};
+
+const dateToStr = (d: Date) => d.toISOString().split("T")[0];
+
+const getPeriodRange = (period: ChartPeriod, today: Date) => {
     let startDate: Date;
     let endDate: Date = new Date(today);
 
@@ -267,27 +338,110 @@ export const fetchChartData = async (period: ChartPeriod = "month") => {
             break;
     }
 
-    const startStr = startDate.toISOString().split("T")[0];
-    const endStr = endDate.toISOString().split("T")[0];
+    return { startDate, endDate };
+};
 
-    const { data, error } = await supabase
-        .from("reservations")
-        .select("reservation_date, reservation_time, number_of_guests, created_at")
-        .gte("reservation_date", startStr)
-        .lte("reservation_date", endStr)
-        .is("cancelled_at", null)
-        .order("reservation_date", { ascending: true });
+// The equivalent window immediately before the current one (for Δ comparison)
+const getPreviousRange = (period: ChartPeriod, today: Date) => {
+    const { startDate, endDate } = getPeriodRange(period, today);
 
-    const { data: cancelledData, error: cancelledError } = await supabase
-        .from("reservations")
-        .select("reservation_date")
-        .gte("reservation_date", startStr)
-        .lte("reservation_date", endStr)
-        .not("cancelled_at", "is", null);
+    if (period === "month" || period === "last_month") {
+        const prevStart = new Date(startDate.getFullYear(), startDate.getMonth() - 1, 1);
+        const prevEnd = new Date(startDate.getFullYear(), startDate.getMonth(), 0);
+        return { startDate: prevStart, endDate: prevEnd };
+    }
+
+    const dayMs = 24 * 60 * 60 * 1000;
+    const lengthDays = Math.round((endDate.getTime() - startDate.getTime()) / dayMs);
+    const prevEnd = new Date(startDate);
+    prevEnd.setDate(prevEnd.getDate() - 1);
+    const prevStart = new Date(prevEnd);
+    prevStart.setDate(prevStart.getDate() - lengthDays);
+    return { startDate: prevStart, endDate: prevEnd };
+};
+
+const summarize = (
+    active: { number_of_guests: number }[],
+    cancelledCount: number
+): PeriodSummary => {
+    const reservations = active.length;
+    const guests = active.reduce((s, r) => s + r.number_of_guests, 0);
+    const total = reservations + cancelledCount;
+    return {
+        reservations,
+        guests,
+        avgPartySize: reservations ? Math.round((guests / reservations) * 10) / 10 : 0,
+        cancellationRate: total ? Math.round((cancelledCount / total) * 1000) / 10 : 0,
+    };
+};
+
+// Fetch all analytics for the selected period in one consistent bundle.
+// Every returned dataset is driven by the SAME period range, so the whole
+// Analytics section reacts to the filter together.
+export const fetchAnalytics = async (
+    period: ChartPeriod = "month",
+    totalCapacity = 0
+): Promise<AnalyticsBundle> => {
+    const today = new Date();
+    const { startDate, endDate } = getPeriodRange(period, today);
+    const prev = getPreviousRange(period, today);
+
+    const startStr = dateToStr(startDate);
+    const endStr = dateToStr(endDate);
+
+    const empty: AnalyticsBundle = {
+        daily: [],
+        hourly: [],
+        weekday: [],
+        leadTime: [],
+        partySize: [],
+        occupancy: [],
+        loyalty: { newGuests: 0, returningGuests: 0, returningShare: 0 },
+        summary: summarize([], 0),
+        previousSummary: summarize([], 0),
+    };
+
+    const [
+        { data, error },
+        { data: cancelledData, error: cancelledError },
+        { data: prevData, error: prevError },
+        { count: prevCancelledCount, error: prevCancelledError },
+        firstSeen,
+    ] = await Promise.all([
+        supabase
+            .from("reservations")
+            .select("reservation_date, reservation_time, number_of_guests, created_at, phone, email")
+            .gte("reservation_date", startStr)
+            .lte("reservation_date", endStr)
+            .is("cancelled_at", null)
+            .order("reservation_date", { ascending: true }),
+        supabase
+            .from("reservations")
+            .select("reservation_date")
+            .gte("reservation_date", startStr)
+            .lte("reservation_date", endStr)
+            .not("cancelled_at", "is", null),
+        supabase
+            .from("reservations")
+            .select("number_of_guests")
+            .gte("reservation_date", dateToStr(prev.startDate))
+            .lte("reservation_date", dateToStr(prev.endDate))
+            .is("cancelled_at", null),
+        supabase
+            .from("reservations")
+            .select("id", { count: "exact", head: true })
+            .gte("reservation_date", dateToStr(prev.startDate))
+            .lte("reservation_date", dateToStr(prev.endDate))
+            .not("cancelled_at", "is", null),
+        fetchFirstSeenMap(),
+    ]);
 
     if (error || !data || cancelledError || !cancelledData) {
-        console.error("Error fetching chart data:", error);
-        return { daily: [], hourly: [], weekday: [], leadTime: [] };
+        console.error("Error fetching chart data:", error ?? cancelledError);
+        return empty;
+    }
+    if (prevError || prevCancelledError) {
+        console.error("Error fetching previous period data:", prevError ?? prevCancelledError);
     }
 
     // --- Daily trend ---
@@ -382,7 +536,178 @@ export const fetchChartData = async (period: ChartPeriod = "month") => {
         count: leadCounts[i],
     }));
 
-    return { daily, hourly, weekday, leadTime };
+    // --- Party size distribution ---
+    const sizeCounts = new Map<string, number>();
+    const sizeLabels = ["1", "2", "3", "4", "5", "6", "7+"];
+    for (const label of sizeLabels) sizeCounts.set(label, 0);
+    for (const r of data) {
+        const label = r.number_of_guests >= 7 ? "7+" : String(r.number_of_guests);
+        sizeCounts.set(label, (sizeCounts.get(label) ?? 0) + 1);
+    }
+    const partySize: PartySizePoint[] = sizeLabels.map((size) => ({
+        size,
+        count: sizeCounts.get(size) ?? 0,
+    }));
+
+    // --- Seat occupancy per day (booked guests vs total seats) ---
+    const occupancy: OccupancyPoint[] = totalCapacity
+        ? daily.map((d) => ({
+              date: d.date,
+              occupancy: Math.round((d.guests / totalCapacity) * 100),
+          }))
+        : [];
+
+    // --- Loyalty: share of period bookings made by guests seen before ---
+    let newGuests = 0;
+    let returningGuests = 0;
+    for (const r of data) {
+        const key = guestKey(r.phone, r.email);
+        if (!key) continue;
+        const first = firstSeen.get(key);
+        if (first && first < r.created_at) {
+            returningGuests++;
+        } else {
+            newGuests++;
+        }
+    }
+    const loyaltyTotal = newGuests + returningGuests;
+    const loyalty: LoyaltyStats = {
+        newGuests,
+        returningGuests,
+        returningShare: loyaltyTotal
+            ? Math.round((returningGuests / loyaltyTotal) * 1000) / 10
+            : 0,
+    };
+
+    // --- Period summary + previous period for Δ comparison ---
+    const summary = summarize(data, cancelledData.length);
+    const previousSummary = summarize(prevData ?? [], prevCancelledCount ?? 0);
+
+    return { daily, hourly, weekday, leadTime, partySize, occupancy, loyalty, summary, previousSummary };
+};
+
+// ── Next-week load forecast ───────────────────────────────────────────────────
+// Method: on-the-books guests per day, grown by the historical booking pace
+// (share of final guests already booked D days ahead over the last 8 weeks),
+// blended 50/50 with the 8-week average for that weekday. Never below the
+// guests already booked.
+export type ForecastDay = {
+    date: string; // "Mon 13"
+    onBooksGuests: number;
+    onBooksReservations: number;
+    expectedExtra: number; // forecast - onBooks
+    forecastGuests: number;
+    occupancy: number; // % of total seats
+};
+
+export const fetchWeekForecast = async (
+    totalCapacity = 0
+): Promise<ForecastDay[]> => {
+    const today = new Date();
+    const todayStr = dateToStr(today);
+
+    const historyStart = new Date(today);
+    historyStart.setDate(historyStart.getDate() - 56); // 8 weeks
+
+    const futureStart = new Date(today);
+    futureStart.setDate(futureStart.getDate() + 1);
+    const futureEnd = new Date(today);
+    futureEnd.setDate(futureEnd.getDate() + 7);
+
+    const [{ data: history, error: histError }, { data: future, error: futError }] =
+        await Promise.all([
+            supabase
+                .from("reservations")
+                .select("reservation_date, created_at, number_of_guests")
+                .gte("reservation_date", dateToStr(historyStart))
+                .lt("reservation_date", todayStr)
+                .is("cancelled_at", null),
+            supabase
+                .from("reservations")
+                .select("reservation_date, number_of_guests")
+                .gte("reservation_date", dateToStr(futureStart))
+                .lte("reservation_date", dateToStr(futureEnd))
+                .is("cancelled_at", null),
+        ]);
+
+    if (histError || futError || !history || !future) {
+        console.error("Error fetching forecast data:", histError ?? futError);
+        return [];
+    }
+
+    // Booking pace: share of final guests already booked >= D days ahead
+    const dayMs = 24 * 60 * 60 * 1000;
+    let totalHistGuests = 0;
+    const guestsByLead = new Array(8).fill(0); // index = lead days 0..7
+    for (const r of history) {
+        const created = new Date(r.created_at.split("T")[0] + "T00:00:00");
+        const resDate = new Date(r.reservation_date + "T00:00:00");
+        const lead = Math.min(
+            7,
+            Math.max(0, Math.floor((resDate.getTime() - created.getTime()) / dayMs))
+        );
+        guestsByLead[lead] += r.number_of_guests;
+        totalHistGuests += r.number_of_guests;
+    }
+    // bookedShareAt[D] = share of final guests booked with lead >= D
+    const bookedShareAt = new Array(8).fill(1);
+    let cumulative = 0;
+    for (let d = 7; d >= 0; d--) {
+        cumulative += guestsByLead[d];
+        bookedShareAt[d] = totalHistGuests ? cumulative / totalHistGuests : 1;
+    }
+
+    // Weekday seasonality: average final guests per weekday over the window
+    const weekdayGuests = new Array(7).fill(0);
+    const weekdayDays = new Array(7).fill(0);
+    for (let d = new Date(historyStart); d < today; d.setDate(d.getDate() + 1)) {
+        weekdayDays[d.getDay()]++;
+    }
+    for (const r of history) {
+        weekdayGuests[new Date(r.reservation_date + "T00:00:00").getDay()] +=
+            r.number_of_guests;
+    }
+
+    // On-the-books per future day
+    const onBooks = new Map<string, { guests: number; reservations: number }>();
+    for (const r of future) {
+        const entry = onBooks.get(r.reservation_date) ?? { guests: 0, reservations: 0 };
+        entry.guests += r.number_of_guests;
+        entry.reservations += 1;
+        onBooks.set(r.reservation_date, entry);
+    }
+
+    const result: ForecastDay[] = [];
+    for (let i = 1; i <= 7; i++) {
+        const d = new Date(today);
+        d.setDate(d.getDate() + i);
+        const key = dateToStr(d);
+        const books = onBooks.get(key) ?? { guests: 0, reservations: 0 };
+
+        const share = Math.min(1, Math.max(0.15, bookedShareAt[Math.min(i, 7)]));
+        const pickupEstimate = books.guests / share;
+        const weekdayAvg = weekdayDays[d.getDay()]
+            ? weekdayGuests[d.getDay()] / weekdayDays[d.getDay()]
+            : 0;
+
+        const forecastGuests = Math.max(
+            books.guests,
+            Math.round(0.5 * pickupEstimate + 0.5 * weekdayAvg)
+        );
+
+        result.push({
+            date: d.toLocaleDateString("en-US", { weekday: "short", day: "numeric" }),
+            onBooksGuests: books.guests,
+            onBooksReservations: books.reservations,
+            expectedExtra: forecastGuests - books.guests,
+            forecastGuests,
+            occupancy: totalCapacity
+                ? Math.round((forecastGuests / totalCapacity) * 100)
+                : 0,
+        });
+    }
+
+    return result;
 };
 
 // Fetch reservation/persons/cancellation workload for a calendar month

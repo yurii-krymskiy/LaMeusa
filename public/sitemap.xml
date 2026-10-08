@@ -105,6 +105,19 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/delivery" />
     </url>
     <url>
+        <loc>https://www.lamedusa-restaurant.com/takeaway</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.lamedusa-restaurant.com/takeaway" />
+        <xhtml:link rel="alternate" hreflang="uk" href="https://www.lamedusa-restaurant.com/ua/takeaway" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.lamedusa-restaurant.com/es/takeaway" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.lamedusa-restaurant.com/it/takeaway" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.lamedusa-restaurant.com/fr/takeaway" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.lamedusa-restaurant.com/de/takeaway" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://www.lamedusa-restaurant.com/nl/takeaway" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/takeaway" />
+    </url>
+    <url>
         <loc>https://www.lamedusa-restaurant.com/booking</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -428,6 +441,19 @@
         <xhtml:link rel="alternate" hreflang="de" href="https://www.lamedusa-restaurant.com/de/delivery" />
         <xhtml:link rel="alternate" hreflang="nl" href="https://www.lamedusa-restaurant.com/nl/delivery" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/delivery" />
+    </url>
+    <url>
+        <loc>https://www.lamedusa-restaurant.com/ua/takeaway</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.lamedusa-restaurant.com/takeaway" />
+        <xhtml:link rel="alternate" hreflang="uk" href="https://www.lamedusa-restaurant.com/ua/takeaway" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.lamedusa-restaurant.com/es/takeaway" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.lamedusa-restaurant.com/it/takeaway" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.lamedusa-restaurant.com/fr/takeaway" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.lamedusa-restaurant.com/de/takeaway" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://www.lamedusa-restaurant.com/nl/takeaway" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/takeaway" />
     </url>
     <url>
         <loc>https://www.lamedusa-restaurant.com/ua/booking</loc>
@@ -755,6 +781,19 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/delivery" />
     </url>
     <url>
+        <loc>https://www.lamedusa-restaurant.com/es/takeaway</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.lamedusa-restaurant.com/takeaway" />
+        <xhtml:link rel="alternate" hreflang="uk" href="https://www.lamedusa-restaurant.com/ua/takeaway" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.lamedusa-restaurant.com/es/takeaway" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.lamedusa-restaurant.com/it/takeaway" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.lamedusa-restaurant.com/fr/takeaway" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.lamedusa-restaurant.com/de/takeaway" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://www.lamedusa-restaurant.com/nl/takeaway" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/takeaway" />
+    </url>
+    <url>
         <loc>https://www.lamedusa-restaurant.com/es/booking</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -1078,6 +1117,19 @@
         <xhtml:link rel="alternate" hreflang="de" href="https://www.lamedusa-restaurant.com/de/delivery" />
         <xhtml:link rel="alternate" hreflang="nl" href="https://www.lamedusa-restaurant.com/nl/delivery" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/delivery" />
+    </url>
+    <url>
+        <loc>https://www.lamedusa-restaurant.com/it/takeaway</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.lamedusa-restaurant.com/takeaway" />
+        <xhtml:link rel="alternate" hreflang="uk" href="https://www.lamedusa-restaurant.com/ua/takeaway" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.lamedusa-restaurant.com/es/takeaway" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.lamedusa-restaurant.com/it/takeaway" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.lamedusa-restaurant.com/fr/takeaway" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.lamedusa-restaurant.com/de/takeaway" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://www.lamedusa-restaurant.com/nl/takeaway" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/takeaway" />
     </url>
     <url>
         <loc>https://www.lamedusa-restaurant.com/it/booking</loc>
@@ -1405,6 +1457,19 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/delivery" />
     </url>
     <url>
+        <loc>https://www.lamedusa-restaurant.com/fr/takeaway</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.lamedusa-restaurant.com/takeaway" />
+        <xhtml:link rel="alternate" hreflang="uk" href="https://www.lamedusa-restaurant.com/ua/takeaway" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.lamedusa-restaurant.com/es/takeaway" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.lamedusa-restaurant.com/it/takeaway" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.lamedusa-restaurant.com/fr/takeaway" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.lamedusa-restaurant.com/de/takeaway" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://www.lamedusa-restaurant.com/nl/takeaway" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/takeaway" />
+    </url>
+    <url>
         <loc>https://www.lamedusa-restaurant.com/fr/booking</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -1730,6 +1795,19 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/delivery" />
     </url>
     <url>
+        <loc>https://www.lamedusa-restaurant.com/de/takeaway</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.lamedusa-restaurant.com/takeaway" />
+        <xhtml:link rel="alternate" hreflang="uk" href="https://www.lamedusa-restaurant.com/ua/takeaway" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.lamedusa-restaurant.com/es/takeaway" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.lamedusa-restaurant.com/it/takeaway" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.lamedusa-restaurant.com/fr/takeaway" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.lamedusa-restaurant.com/de/takeaway" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://www.lamedusa-restaurant.com/nl/takeaway" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/takeaway" />
+    </url>
+    <url>
         <loc>https://www.lamedusa-restaurant.com/de/booking</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -2053,6 +2131,19 @@
         <xhtml:link rel="alternate" hreflang="de" href="https://www.lamedusa-restaurant.com/de/delivery" />
         <xhtml:link rel="alternate" hreflang="nl" href="https://www.lamedusa-restaurant.com/nl/delivery" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/delivery" />
+    </url>
+    <url>
+        <loc>https://www.lamedusa-restaurant.com/nl/takeaway</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.lamedusa-restaurant.com/takeaway" />
+        <xhtml:link rel="alternate" hreflang="uk" href="https://www.lamedusa-restaurant.com/ua/takeaway" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.lamedusa-restaurant.com/es/takeaway" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.lamedusa-restaurant.com/it/takeaway" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.lamedusa-restaurant.com/fr/takeaway" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.lamedusa-restaurant.com/de/takeaway" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://www.lamedusa-restaurant.com/nl/takeaway" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lamedusa-restaurant.com/takeaway" />
     </url>
     <url>
         <loc>https://www.lamedusa-restaurant.com/nl/booking</loc>

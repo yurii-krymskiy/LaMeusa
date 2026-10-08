@@ -4,16 +4,15 @@ import {
     fetchReservationStats,
     fetchTableStats,
     fetchUpcomingReservations,
-    fetchChartData,
+    fetchAnalytics,
+    fetchWeekForecast,
     fetchWorkloadCalendarData,
     fetchCountryStats,
     type ReservationStats,
     type TableStats,
-    type DailyReservationPoint,
-    type HourDistributionPoint,
-    type WeekdayDistributionPoint,
-    type LeadTimePoint,
     type ChartPeriod,
+    type AnalyticsBundle,
+    type ForecastDay,
     type WorkloadCalendarDay,
     type CountryStatPoint,
 } from "../../lib/admin.service";
@@ -22,6 +21,10 @@ import { ReservationsTrendChart } from "./charts/ReservationsTrendChart";
 import { PeakHoursChart } from "./charts/PeakHoursChart";
 import { BusiestDaysChart } from "./charts/BusiestDaysChart";
 import { LeadTimeChart } from "./charts/LeadTimeChart";
+import { PartySizeChart } from "./charts/PartySizeChart";
+import { OccupancyChart } from "./charts/OccupancyChart";
+import { WeekForecastChart } from "./charts/WeekForecastChart";
+import { ReturningGuestsCard } from "./charts/ReturningGuestsCard";
 import { TopCountriesChart } from "./charts/TopCountriesChart";
 import { ReservationsWorkloadCalendar } from "./charts/ReservationsWorkloadCalendar";
 import { AdminSelect } from "../../components/ui/AdminSelect";
@@ -42,6 +45,15 @@ const PERIOD_SUBTITLES: Record<ChartPeriod, string> = {
     last_month: "Last month",
     "6months": "Last 6 months",
     year: "Last 12 months",
+};
+
+const PERIOD_COMPARISONS: Record<ChartPeriod, string> = {
+    today: "vs yesterday",
+    week: "vs previous week",
+    month: "vs previous month",
+    last_month: "vs month before",
+    "6months": "vs previous 6 months",
+    year: "vs previous 12 months",
 };
 
 type StatCardProps = {
@@ -81,14 +93,86 @@ const StatCard = ({ title, value, subtitle, icon, color }: StatCardProps) => {
     );
 };
 
+// ── Period summary tile with Δ vs previous period ────────────────────────────
+const formatDelta = (
+    current: number,
+    previous: number,
+    opts: { invert?: boolean; pp?: boolean } = {}
+) => {
+    const neutral = "text-gray-400 dark:text-gray-500";
+    if (!previous && !current) return { text: "—", cls: neutral };
+    if (!previous) return { text: "new", cls: neutral };
+
+    const diff = opts.pp
+        ? current - previous
+        : ((current - previous) / previous) * 100;
+    const rounded = Math.round(diff * 10) / 10;
+    if (rounded === 0) return { text: opts.pp ? "±0 pp" : "±0%", cls: neutral };
+
+    const up = rounded > 0;
+    const good = opts.invert ? !up : up;
+    return {
+        text: `${up ? "▲" : "▼"} ${Math.abs(rounded)}${opts.pp ? " pp" : "%"}`,
+        cls: good
+            ? "text-emerald-600 dark:text-emerald-400"
+            : "text-red-500 dark:text-red-400",
+    };
+};
+
+type SummaryTileProps = {
+    label: string;
+    value: string | number;
+    current: number;
+    previous: number;
+    comparison: string;
+    invert?: boolean;
+    pp?: boolean;
+};
+
+const SummaryTile = ({ label, value, current, previous, comparison, invert, pp }: SummaryTileProps) => {
+    const delta = formatDelta(current, previous, { invert, pp });
+    return (
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 sm:p-5">
+            <p className="text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500">
+                {label}
+            </p>
+            <p className="mt-1 text-2xl font-semibold text-gray-900 dark:text-white tabular-nums">
+                {value}
+            </p>
+            <p className={`mt-1 text-xs font-medium ${delta.cls}`}>
+                {delta.text}
+                <span className="ml-1 font-normal text-gray-400 dark:text-gray-500">
+                    {comparison}
+                </span>
+            </p>
+        </div>
+    );
+};
+
+const SectionHeading = ({
+    title,
+    subtitle,
+    children,
+}: {
+    title: string;
+    subtitle: string;
+    children?: React.ReactNode;
+}) => (
+    <div className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">{title}</h2>
+            <p className="mt-0.5 text-xs text-gray-400 dark:text-gray-500">{subtitle}</p>
+        </div>
+        {children}
+    </div>
+);
+
 export const AdminDashboard = () => {
     const [stats, setStats] = useState<ReservationStats | null>(null);
     const [tableStats, setTableStats] = useState<TableStats | null>(null);
     const [upcomingReservations, setUpcomingReservations] = useState<DbReservation[]>([]);
-    const [dailyData, setDailyData] = useState<DailyReservationPoint[]>([]);
-    const [hourlyData, setHourlyData] = useState<HourDistributionPoint[]>([]);
-    const [weekdayData, setWeekdayData] = useState<WeekdayDistributionPoint[]>([]);
-    const [leadTimeData, setLeadTimeData] = useState<LeadTimePoint[]>([]);
+    const [analytics, setAnalytics] = useState<AnalyticsBundle | null>(null);
+    const [forecast, setForecast] = useState<ForecastDay[]>([]);
     const [workloadData, setWorkloadData] = useState<WorkloadCalendarDay[]>([]);
     const [countryStats, setCountryStats] = useState<CountryStatPoint[]>([]);
     const [workloadMonth, setWorkloadMonth] = useState<Date>(new Date());
@@ -97,25 +181,25 @@ export const AdminDashboard = () => {
     const [chartsLoading, setChartsLoading] = useState(false);
     const [workloadLoading, setWorkloadLoading] = useState(false);
 
-    // Load stats + initial charts
+    // Load snapshot + initial analytics
     useEffect(() => {
         const loadData = async () => {
             setIsLoading(true);
-            const [reservationStats, tables, upcoming, charts, workload, countries] = await Promise.all([
-                fetchReservationStats(),
-                fetchTableStats(),
-                fetchUpcomingReservations(),
-                fetchChartData(chartPeriod),
-                fetchWorkloadCalendarData(new Date()),
-                fetchCountryStats(),
-            ]);
-            setStats(reservationStats);
+            const tables = await fetchTableStats();
+            const [reservationStats, upcoming, analyticsBundle, weekForecast, workload, countries] =
+                await Promise.all([
+                    fetchReservationStats(),
+                    fetchUpcomingReservations(),
+                    fetchAnalytics(chartPeriod, tables.totalCapacity),
+                    fetchWeekForecast(tables.totalCapacity),
+                    fetchWorkloadCalendarData(new Date()),
+                    fetchCountryStats(),
+                ]);
             setTableStats(tables);
+            setStats(reservationStats);
             setUpcomingReservations(upcoming);
-            setDailyData(charts.daily);
-            setHourlyData(charts.hourly);
-            setWeekdayData(charts.weekday);
-            setLeadTimeData(charts.leadTime);
+            setAnalytics(analyticsBundle);
+            setForecast(weekForecast);
             setWorkloadData(workload);
             setCountryStats(countries);
             setIsLoading(false);
@@ -125,20 +209,19 @@ export const AdminDashboard = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    // Reload charts when period changes (skip initial load)
-    const loadCharts = useCallback(async (period: ChartPeriod) => {
-        setChartsLoading(true);
-        const charts = await fetchChartData(period);
-        setDailyData(charts.daily);
-        setHourlyData(charts.hourly);
-        setWeekdayData(charts.weekday);
-        setLeadTimeData(charts.leadTime);
-        setChartsLoading(false);
-    }, []);
+    const loadAnalytics = useCallback(
+        async (period: ChartPeriod, capacity: number) => {
+            setChartsLoading(true);
+            const bundle = await fetchAnalytics(period, capacity);
+            setAnalytics(bundle);
+            setChartsLoading(false);
+        },
+        []
+    );
 
     const handlePeriodChange = (period: ChartPeriod) => {
         setChartPeriod(period);
-        loadCharts(period);
+        loadAnalytics(period, tableStats?.totalCapacity ?? 0);
     };
 
     const loadWorkloadForMonth = useCallback(async (month: Date) => {
@@ -185,8 +268,19 @@ export const AdminDashboard = () => {
         return `${hour12}:${minutes} ${ampm}`;
     };
 
+    const subtitle = PERIOD_SUBTITLES[chartPeriod];
+    const comparison = PERIOD_COMPARISONS[chartPeriod];
+    const summary = analytics?.summary;
+    const previousSummary = analytics?.previousSummary;
+
     return (
         <div className="space-y-6">
+            {/* ════ Overview — live snapshot, independent of the analytics filter ════ */}
+            <SectionHeading
+                title="Overview"
+                subtitle="Live snapshot — always current, not affected by the analytics period"
+            />
+
             {/* Stats Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <StatCard
@@ -275,9 +369,8 @@ export const AdminDashboard = () => {
                 />
             </div>
 
-            {/* Upcoming Reservations & Charts */}
+            {/* Upcoming reservations + all-time countries */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-                {/* Upcoming reservations */}
                 <div className="flex sm:h-[340px] flex-col bg-white dark:bg-gray-800 rounded-xl shadow-sm outline-none">
                     <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
                         <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
@@ -333,38 +426,100 @@ export const AdminDashboard = () => {
                     </div>
                 </div>
 
-                {/* Lead Time Chart */}
-                <LeadTimeChart data={leadTimeData} subtitle={PERIOD_SUBTITLES[chartPeriod]} />
+                <TopCountriesChart data={countryStats} />
             </div>
 
-            {/* Period selector */}
-            <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-                    Analytics
-                </h2>
-                <AdminSelect
-                    value={chartPeriod}
-                    onChange={(v) => handlePeriodChange(v as ChartPeriod)}
-                    options={PERIOD_OPTIONS}
-                    compact
-                />
+            {/* Forward-looking: next week forecast (live, independent of filter) */}
+            <WeekForecastChart
+                data={forecast}
+                totalCapacity={tableStats?.totalCapacity ?? 0}
+            />
+
+            {/* ════ Analytics — everything below follows one period filter ════ */}
+            <div className="pt-2">
+                <SectionHeading
+                    title="Analytics"
+                    subtitle="Every chart and number below follows the selected period"
+                >
+                    <AdminSelect
+                        value={chartPeriod}
+                        onChange={(v) => handlePeriodChange(v as ChartPeriod)}
+                        options={PERIOD_OPTIONS}
+                        compact
+                    />
+                </SectionHeading>
             </div>
 
-            {/* Charts — show loading overlay when switching periods */}
             <div className={`space-y-4 sm:space-y-6 transition-opacity ${chartsLoading ? "pointer-events-none opacity-50" : ""}`}>
-                {/* Full-width trend chart */}
-                <ReservationsTrendChart data={dailyData} subtitle={PERIOD_SUBTITLES[chartPeriod]} />
+                {/* Period summary with comparison to the previous period */}
+                {summary && previousSummary && (
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                        <SummaryTile
+                            label="Reservations"
+                            value={summary.reservations}
+                            current={summary.reservations}
+                            previous={previousSummary.reservations}
+                            comparison={comparison}
+                        />
+                        <SummaryTile
+                            label="Guests"
+                            value={summary.guests}
+                            current={summary.guests}
+                            previous={previousSummary.guests}
+                            comparison={comparison}
+                        />
+                        <SummaryTile
+                            label="Avg. Party Size"
+                            value={summary.avgPartySize}
+                            current={summary.avgPartySize}
+                            previous={previousSummary.avgPartySize}
+                            comparison={comparison}
+                        />
+                        <SummaryTile
+                            label="Cancellation Rate"
+                            value={`${summary.cancellationRate}%`}
+                            current={summary.cancellationRate}
+                            previous={previousSummary.cancellationRate}
+                            comparison={comparison}
+                            invert
+                            pp
+                        />
+                    </div>
+                )}
 
-                {/* Two charts side by side */}
+                {/* Full-width trend chart */}
+                <ReservationsTrendChart data={analytics?.daily ?? []} subtitle={subtitle} />
+
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-                    <PeakHoursChart data={hourlyData} subtitle={PERIOD_SUBTITLES[chartPeriod]} />
-                    <BusiestDaysChart data={weekdayData} subtitle={PERIOD_SUBTITLES[chartPeriod]} />
+                    <PeakHoursChart data={analytics?.hourly ?? []} subtitle={subtitle} />
+                    <BusiestDaysChart data={analytics?.weekday ?? []} subtitle={subtitle} />
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+                    <LeadTimeChart data={analytics?.leadTime ?? []} subtitle={subtitle} />
+                    <PartySizeChart data={analytics?.partySize ?? []} subtitle={subtitle} />
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+                    <ReturningGuestsCard
+                        data={
+                            analytics?.loyalty ?? {
+                                newGuests: 0,
+                                returningGuests: 0,
+                                returningShare: 0,
+                            }
+                        }
+                        subtitle={subtitle}
+                    />
+                    <OccupancyChart
+                        data={analytics?.occupancy ?? []}
+                        totalCapacity={tableStats?.totalCapacity ?? 0}
+                        subtitle={subtitle}
+                    />
                 </div>
             </div>
 
-            {/* Guests by country (all-time, from booking phone codes) */}
-            <TopCountriesChart data={countryStats} />
-
+            {/* ════ Monthly workload — its own month navigation ════ */}
             <ReservationsWorkloadCalendar
                 data={workloadData}
                 monthDate={workloadMonth}
