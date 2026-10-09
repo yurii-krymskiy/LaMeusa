@@ -9,7 +9,7 @@ export const HomeDelivery = () => {
         <section className="section">
             <div className="container">
                 <div className="relative overflow-hidden rounded-3xl bg-[url('/images/delivery/delivery-hero.jpg')] bg-cover bg-center px-6 py-14 md:px-16 md:py-24">
-                    <div className="absolute inset-0 bg-black/30" />
+                    <div className="absolute inset-0 bg-black/40" />
                     <div className="relative mx-auto flex max-w-xl flex-col items-center text-center">
                         <span className="decorative !text-white">
                             {t("home.delivery.decorative")}
