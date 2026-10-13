@@ -25,7 +25,7 @@ export const HappyHoursHero = () => {
                         className="!text-white"
                     >
                         <span>{t("happy.hero.reserveTable")}</span>
-                        <img src="/icons/arrow-right.svg" className="size-7" />
+                        <img src="/icons/arrow-right.svg" className="size-7" width={30} height={30} />
                     </ButtonOpenReservation>
                 </div>
             </div>

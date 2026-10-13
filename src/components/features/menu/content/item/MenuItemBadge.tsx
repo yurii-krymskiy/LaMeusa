@@ -23,7 +23,13 @@ export const MenuItemBadge = ({ badges }: MenuItemBadgeProps) => {
                     >
                         {badge.icon && (
                             <div className="size-5">
-                                <img src={badge.icon} />
+                                <img
+                                    src={badge.icon}
+                                    alt=""
+                                    className="size-5"
+                                    width={20}
+                                    height={20}
+                                />
                             </div>
                         )}
                         {label && (

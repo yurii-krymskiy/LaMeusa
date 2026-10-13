@@ -52,6 +52,8 @@ function MenuItemRow({ item }: { item: MenuItemType }) {
                         src="/icons/star.svg"
                         alt=""
                         className="size-5 opacity-30"
+                        width={22}
+                        height={22}
                     />
                 </div>
             )}

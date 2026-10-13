@@ -22,6 +22,8 @@ export const HomeFoodStory = () => {
                             alt="image"
                             className="h-auto w-full object-contain lg:object-cover"
                             loading="lazy"
+                            width={1008}
+                            height={1608}
                         />
                         <div className="flex flex-col gap-[15px] lg:gap-6 self-end">
                             <img
@@ -29,12 +31,16 @@ export const HomeFoodStory = () => {
                                 alt="image"
                                 className="mt-10 h-auto w-full object-contain"
                                 loading="lazy"
+                                width={927}
+                                height={813}
                             />
                             <img
                                 src="/images/home/image-13.jpg"
                                 alt="image"
                                 className="h-auto w-full object-contain"
                                 loading="lazy"
+                                width={927}
+                                height={1146}
                             />
                         </div>
                     </div>

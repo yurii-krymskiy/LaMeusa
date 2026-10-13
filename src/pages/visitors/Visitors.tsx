@@ -45,6 +45,8 @@ export const Visitors = () => {
                         src="/icons/logo.svg"
                         alt="La Medusa"
                         className="h-16 mx-auto mb-4"
+                        width={252}
+                        height={56}
                     />
                     <h1 className="text-2xl font-bold text-gray-900">
                         Record Visitors

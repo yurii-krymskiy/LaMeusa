@@ -10,6 +10,8 @@ export const SeafoodReserve = () => {
                     src="/images/seafood/image-6.webp"
                     alt="image"
                     className="max-w-[610px]"
+                    width={1228}
+                    height={1000}
                 />
 
                 <div className="lg:-ml-10">

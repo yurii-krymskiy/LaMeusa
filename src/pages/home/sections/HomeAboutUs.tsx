@@ -28,6 +28,8 @@ export const HomeAboutUs = () => {
                         alt="image"
                         className="object-cover"
                         loading="lazy"
+                        width={1980}
+                        height={1530}
                     />
                 </div>
             </div>

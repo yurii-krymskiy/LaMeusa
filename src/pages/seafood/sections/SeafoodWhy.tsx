@@ -12,6 +12,8 @@ export const SeafoodWhy = () => {
                         src="/icons/star.svg"
                         alt="star"
                         className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
+                        width={22}
+                        height={22}
                     />
                     <h2 className="title section-title">
                         {t("seafood.why.title")}
@@ -23,6 +25,8 @@ export const SeafoodWhy = () => {
                 <img
                     src="/images/seafood/image-5.webp"
                     className="mb-10  min-h-[226px] object-cover"
+                    width={2640}
+                    height={1120}
                 />
 
                 <div className="mb-10 flex flex-col gap-5 lg:gap-14 md:flex-row">
@@ -30,6 +34,8 @@ export const SeafoodWhy = () => {
                         <img
                             src="/icons/crepe-icon.svg"
                             className="mx-auto mb-2.5 size-[100px]"
+                            width={100}
+                            height={100}
                         />
                         <div>
                             <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
@@ -44,6 +50,8 @@ export const SeafoodWhy = () => {
                         <img
                             src="/icons/sunrise-icon.svg"
                             className="mx-auto mb-2.5 size-[100px]"
+                            width={100}
+                            height={100}
                         />
                         <div>
                             <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
@@ -58,6 +66,8 @@ export const SeafoodWhy = () => {
                         <img
                             src="/icons/taste-icon.svg"
                             className="mx-auto mb-2.5 size-[100px]"
+                            width={100}
+                            height={100}
                         />
                         <div>
                             <h3 className="title mb-2.5 inline-block text-lg md:text-xl">

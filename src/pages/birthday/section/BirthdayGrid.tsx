@@ -24,6 +24,8 @@ export const BirthdayGrid = () => {
                         loading="lazy"
                         src="/images/birthday/image-8.webp"
                         className="max-w-full h-[270px] lg:h-auto lg:max-w-[620px] object-cover"
+                        width={1220}
+                        height={980}
                     />
                 </div>
                 <div className="flex flex-col items-center gap-5 lg:gap-14 lg:mb-24 lg:flex-row">
@@ -31,6 +33,8 @@ export const BirthdayGrid = () => {
                         loading="lazy"
                         src="/images/birthday/image-10.webp"
                         className="max-w-full h-[270px] lg:h-auto lg:max-w-[620px] object-cover"
+                        width={1220}
+                        height={980}
                     />
                     <div>
                         <div className="mb-5 lg:mb-10">
@@ -58,6 +62,8 @@ export const BirthdayGrid = () => {
                         loading="lazy"
                         src="/images/birthday/image-9.webp"
                         className="max-w-full h-[270px] lg:h-auto lg:max-w-[620px] object-cover"
+                        width={1220}
+                        height={980}
                     />
                 </div>
 

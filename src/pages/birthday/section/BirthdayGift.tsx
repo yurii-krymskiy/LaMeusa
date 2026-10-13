@@ -15,6 +15,8 @@ export const BirthdayGift = () => {
                             alt="image"
                             className="h-auto w-full object-contain lg:object-cover"
                             loading="lazy"
+                            width={672}
+                            height={1072}
                         />
                         <div className="flex flex-col gap-6 self-end">
                             <img
@@ -22,12 +24,16 @@ export const BirthdayGift = () => {
                                 alt="image"
                                 className="mt-10 h-auto w-full object-contain"
                                 loading="lazy"
+                                width={620}
+                                height={540}
                             />
                             <img
                                 src="/images/birthday/image-7.webp"
                                 alt="image"
                                 className="h-auto w-full object-contain"
                                 loading="lazy"
+                                width={620}
+                                height={760}
                             />
                         </div>
                     </div>

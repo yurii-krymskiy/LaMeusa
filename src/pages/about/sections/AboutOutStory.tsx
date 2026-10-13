@@ -9,6 +9,8 @@ export const AboutOutStory = () => {
                 <img
                     src="/images/about/teamate-3.jpg"
                     className="max-w-full h-[500px] lg:h-[620px] lg:max-w-[610px] self-stretch object-cover"
+                    width={2274}
+                    height={3468}
                 />
 
                 <div>
@@ -23,13 +25,13 @@ export const AboutOutStory = () => {
 
                     <div className="flex gap-3.5 py-3">
                         <div className="max-w-[190px]">
-                            <img src="/images/about/image-5.jpg" />
+                            <img src="/images/about/image-5.jpg" width={380} height={380} />
                         </div>
                         <div className="max-w-[190px]">
-                            <img src="/images/about/image-6.jpg" />
+                            <img src="/images/about/image-6.jpg" width={380} height={380} />
                         </div>
                         <div className="max-w-[190px]">
-                            <img src="/images/about/image-4.jpg" />
+                            <img src="/images/about/image-4.jpg" width={380} height={380} />
                         </div>
                     </div>
                     <p className="description section-description">

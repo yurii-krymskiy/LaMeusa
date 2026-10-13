@@ -35,6 +35,8 @@ export const TakeawayFaq = () => {
                         src="/icons/star.svg"
                         alt="star"
                         className="mx-auto mb-1.5 h-[22px] w-[22px] lg:mb-6"
+                        width={22}
+                        height={22}
                     />
                     <h2 className="title section-title !mb-5 text-center lg:!mb-6">
                         {t("takeaway.faq.title")}

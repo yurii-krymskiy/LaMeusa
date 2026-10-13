@@ -13,6 +13,8 @@ export const TakeawayLocation = () => {
                     loading="lazy"
                     alt={t("takeaway.location.title")}
                     className="max-h-[500px] max-w-full object-cover lg:max-w-[620px]"
+                    width={1400}
+                    height={939}
                 />
 
                 <div>

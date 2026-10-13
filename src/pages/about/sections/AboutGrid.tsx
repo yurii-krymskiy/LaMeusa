@@ -11,6 +11,8 @@ export const AboutGrid = () => {
                     <img
                         src="/images/about/IMG_3159.jpeg"
                         className="max-w-full h-[270px] lg:h-auto lg:max-w-[550px] xl:max-w-[620px] object-cover"
+                        width={4032}
+                        height={2688}
                     />
                     <div>
                         <div className="mb-5 lg:mb-10">
@@ -41,6 +43,8 @@ export const AboutGrid = () => {
                             <img
                                 src="/images/about/IMG_3184.jpeg"
                                 className="mb-5 max-w-full h-[215px] lg:h-auto lg:max-w-[515px] object-cover"
+                                width={3896}
+                                height={2598}
                             />
                             <h2 className="section-title title mb-7 inline-block">
                                 {t("about.grid.vocal.title")}
@@ -62,6 +66,8 @@ export const AboutGrid = () => {
                     <img
                         src="/images/about/example.jpg"
                         className="max-w-full h-[400px] lg:h-[600px] lg:max-w-[690px] object-cover"
+                        width={2690}
+                        height={4032}
                     />
                 </div>
 
@@ -69,6 +75,8 @@ export const AboutGrid = () => {
                     <img
                         src="/images/about/image-8.jpg"
                         className="max-w-full h-[270px] lg:h-auto lg:max-w-[620px] object-cover"
+                        width={1340}
+                        height={980}
                     />
                     <div>
                         <div className="mb-5 lg:mb-10">

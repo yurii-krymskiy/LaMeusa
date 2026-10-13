@@ -54,6 +54,8 @@ export const Menu = () => {
                     src="/icons/burger-menu.svg"
                     alt="Open menu"
                     className="w-[50px] cursor-pointer"
+                    width={70}
+                    height={70}
                 />
                 <p className="title hidden cursor-pointer font-bold text-[#1B1B1B] uppercase md:block">
                     Menu
@@ -86,16 +88,22 @@ export const Menu = () => {
                                 src="/icons/close-icon.svg"
                                 className="w-[40px]"
                                 alt="Close"
+                                width={37}
+                                height={37}
                             />
                         </button>
 
                         <img
                             src="/icons/Mint.svg"
                             className="absolute -top-30 -right-10 w-[200px] rotate-12 cursor-pointer md:w-[300px]"
+                            width={175}
+                            height={222}
                         />
                         <img
                             src="/icons/Orange.svg"
                             className="absolute bottom-0 left-0 hidden cursor-pointer md:block md:w-[180px]"
+                            width={186}
+                            height={374}
                         />
 
                         <div className="overflow-y-auto w-full">
@@ -128,6 +136,8 @@ export const Menu = () => {
                                                     src="/icons/phone 1.svg"
                                                     className="w-[30px]"
                                                     alt="Phone"
+                                                    width={30}
+                                                    height={31}
                                                 />
                                                 +34 603 83 95 09
                                             </a>
@@ -141,6 +151,8 @@ export const Menu = () => {
                                                     src="/icons/email-white.svg"
                                                     className="w-[30px]"
                                                     alt="Email"
+                                                    width={30}
+                                                    height={31}
                                                 />
                                                 lamedusarestaurants@gmail.com
                                             </a>
@@ -156,6 +168,8 @@ export const Menu = () => {
                                                     src="/icons/location-white.svg"
                                                     className="w-[30px]"
                                                     alt="Location"
+                                                    width={30}
+                                                    height={31}
                                                 />
                                                 Avenida La Habana 9
                                             </a>
@@ -194,6 +208,8 @@ export const Menu = () => {
                                                         src={it.src}
                                                         alt={it.alt}
                                                         className="w-[30px]"
+                                                        width={35}
+                                                        height={36}
                                                     />
                                                 </a>
                                             </li>
@@ -229,6 +245,8 @@ export const Menu = () => {
                                                     src="/icons/phone 1.svg"
                                                     className="w-[30px]"
                                                     alt="Phone"
+                                                    width={30}
+                                                    height={31}
                                                 />
                                                 +34 603 83 95 09
                                             </a>
@@ -242,6 +260,8 @@ export const Menu = () => {
                                                     src="/icons/email-white.svg"
                                                     className="w-[30px]"
                                                     alt="Email"
+                                                    width={30}
+                                                    height={31}
                                                 />
                                                 lamedusarestaurants@gmail.com
                                             </a>
@@ -257,6 +277,8 @@ export const Menu = () => {
                                                     src="/icons/location-white.svg"
                                                     className="w-[30px]"
                                                     alt="Location"
+                                                    width={30}
+                                                    height={31}
                                                 />
                                                 Avenida La Habana 9
                                             </a>

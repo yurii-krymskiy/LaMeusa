@@ -21,7 +21,7 @@ export const SeafoodHero = () => {
                     <Button variant="white-outline" onClick={() => navigate("/menu#fish")}>{t("seafood.hero.exploreMenu")}</Button>
                     <ButtonOpenReservation variant="default" className="!text-white">
                         <span>{t("seafood.hero.reserveTable")}</span>
-                        <img src="/icons/arrow-right.svg" className="size-7" />
+                        <img src="/icons/arrow-right.svg" className="size-7" width={30} height={30} />
                     </ButtonOpenReservation>
                 </div>
             </div>

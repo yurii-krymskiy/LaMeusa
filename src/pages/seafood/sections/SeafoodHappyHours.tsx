@@ -11,6 +11,8 @@ export const SeafoodHappyHours = () => {
                         src="/images/seafood/image-4.webp"
                         loading="lazy"
                         className="max-w-[620px]"
+                        width={1248}
+                        height={1440}
                     />
 
                     <div>

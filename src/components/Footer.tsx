@@ -15,6 +15,8 @@ export const Footer = () => {
                                     src="/icons/logo.svg"
                                     alt="La Medusa"
                                     className="mb-2.5"
+                                    width={252}
+                                    height={56}
                                 />
                             </Link>
                             <div className="mt-5 flex flex-wrap md:flex-nowrap gap-8">
@@ -24,10 +26,14 @@ export const Footer = () => {
                                             src="/images/google.png"
                                             alt="Google"
                                             className="max-w-[90px]"
+                                            width={180}
+                                            height={60}
                                         />
                                         <img
                                             src="/icons/arrow-more.svg"
                                             className="w-[30px]"
+                                            width={30}
+                                            height={30}
                                         />
                                     </div>
                                     <span className="description text-xs">
@@ -40,10 +46,14 @@ export const Footer = () => {
                                             src="/images/tripadvisor.png"
                                             alt="TripAdvisor"
                                             className="max-w-[120px]"
+                                            width={250}
+                                            height={60}
                                         />
                                         <img
                                             src="/icons/arrow-more.svg"
                                             className="w-[30px]"
+                                            width={30}
+                                            height={30}
                                         />
                                     </div>
                                     <span className="description text-xs">
@@ -88,6 +98,8 @@ export const Footer = () => {
                                     <img
                                         src="/icons/phone-blue.svg"
                                         className="w-[30px]"
+                                        width={30}
+                                        height={30}
                                     />
                                     +34 603 83 95 09
                                 </a>
@@ -100,6 +112,8 @@ export const Footer = () => {
                                     <img
                                         src="/icons/email-blue.svg"
                                         className="w-[30px]"
+                                        width={30}
+                                        height={30}
                                     />
                                     lamedusarestaurants@gmail.com
                                 </a>
@@ -114,6 +128,8 @@ export const Footer = () => {
                                     <img
                                         src="/icons/location-pin 1.svg"
                                         className="w-[30px]"
+                                        width={30}
+                                        height={30}
                                     />
                                     Avenida La Habana 9
                                 </a>
@@ -126,6 +142,8 @@ export const Footer = () => {
                                         src="/icons/facebook-blue.svg"
                                         alt="Facebook"
                                         className="w-[30px]"
+                                        width={30}
+                                        height={30}
                                     />
                                 </a>
                             </li>
@@ -135,6 +153,8 @@ export const Footer = () => {
                                         src="/icons/instagram-blue.svg"
                                         alt="Instagram"
                                         className="w-[30px]"
+                                        width={30}
+                                        height={30}
                                     />
                                 </a>
                             </li>
@@ -144,6 +164,8 @@ export const Footer = () => {
                                         src="/icons/whatsapp-blue.svg"
                                         alt="Whatsapp"
                                         className="w-[30px]"
+                                        width={30}
+                                        height={30}
                                     />
                                 </a>
                             </li>
@@ -153,6 +175,8 @@ export const Footer = () => {
                                         src="/icons/tik-tok-blue.svg"
                                         alt="TikTok"
                                         className="w-[30px]"
+                                        width={30}
+                                        height={30}
                                     />
                                 </a>
                             </li>

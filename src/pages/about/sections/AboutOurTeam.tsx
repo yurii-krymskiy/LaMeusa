@@ -100,6 +100,8 @@ export const AboutOutTeam = () => {
                             <img
                                 src="/icons/arrow-active-slider.svg"
                                 className="size-8 rotate-180 md:size-10"
+                                width={44}
+                                height={24}
                             />
                         </button>
                         <button
@@ -109,6 +111,8 @@ export const AboutOutTeam = () => {
                             <img
                                 src="/icons/arrow-active-slider.svg"
                                 className="size-8 md:size-10"
+                                width={44}
+                                height={24}
                             />
                         </button>
                     </div>

@@ -15,6 +15,8 @@ export const MenuItemTitle = ({ title, isSpicy }: MenuItemTitleProps) => {
                     src="/icons/badgets/spicy-icon.svg"
                     alt={t("menu.labels.spicy")}
                     className="size-5 md:size-7 shrink-0"
+                    width={35}
+                    height={35}
                 />
             )}
         </div>

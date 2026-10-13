@@ -62,6 +62,8 @@ export const MenuDelicios = ({ categorySlug }: MenuDeliciosProps = {}) => {
                                 src="/icons/star.svg"
                                 alt="star"
                                 className="mx-auto mb-1.5 size-[22px] lg:mb-6"
+                                width={22}
+                                height={22}
                             />
                         ) : (
                             <p className="decorative">Menu</p>
@@ -93,6 +95,8 @@ export const MenuDelicios = ({ categorySlug }: MenuDeliciosProps = {}) => {
                             src="/icons/star.svg"
                             alt="star"
                             className="mx-auto mb-1.5 size-[22px] lg:mb-6"
+                            width={22}
+                            height={22}
                         />
                     ) : (
                         <p className="decorative">Menu</p>

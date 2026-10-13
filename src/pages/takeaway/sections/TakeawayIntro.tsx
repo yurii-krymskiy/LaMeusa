@@ -15,6 +15,8 @@ export const TakeawayIntro = () => {
                         src="/icons/star.svg"
                         alt="star"
                         className="mx-auto mb-1.5 size-[22px] lg:mb-6"
+                        width={22}
+                        height={22}
                     />
                     <h2 className="title section-title">
                         {t("takeaway.intro.title")}
@@ -30,6 +32,8 @@ export const TakeawayIntro = () => {
                         loading="lazy"
                         alt={t("takeaway.intro.title")}
                         className="max-h-[500px] max-w-full object-cover lg:max-w-[620px]"
+                        width={1400}
+                        height={939}
                     />
 
                     <div>

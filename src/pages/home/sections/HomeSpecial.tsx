@@ -34,6 +34,8 @@ export const HomeSpecial = () => {
                         src="/icons/star.svg"
                         alt="star"
                         className="mx-auto mb-1.5 lg:mb-6 h-[22px] w-[22px]"
+                        width={22}
+                        height={22}
                     />
                     <h2 className="title section-title !mb-5 lg:!mb-6 text-center text-[48px]">
                         {t("home.special.title")}

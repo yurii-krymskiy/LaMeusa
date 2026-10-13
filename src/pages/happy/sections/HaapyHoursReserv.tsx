@@ -12,6 +12,8 @@ export const HappyHoursReserve = () => {
                     src="/images/happy-hours/image-5.webp"
                     alt="image"
                     className="max-w-[510px]"
+                    width={1000}
+                    height={1000}
                 />
 
                 <div className="">

@@ -138,11 +138,15 @@ export const AdminLayout = () => {
                             src="/icons/logo.svg"
                             alt="La Medusa"
                             className="h-10 dark:hidden"
+                            width={252}
+                            height={56}
                         />
                         <img
                             src="/icons/logo-white.svg"
                             alt="La Medusa"
                             className="h-10 hidden dark:block"
+                            width={320}
+                            height={70}
                         />
                     </Link>
                 </div>

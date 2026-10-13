@@ -59,7 +59,7 @@ export const ContactUs = () => {
                         </div>
                     </div>
                     <div className="w-full max-w-[700px] min-w-[100px]">
-                        <img src="/images/contact/Rectangle 132.jpg" />
+                        <img src="/images/contact/Rectangle 132.jpg" width={1400} height={1000} />
                     </div>
                 </div>
             </div>

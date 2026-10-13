@@ -32,6 +32,8 @@ export const HappyHoursSpecial = () => {
                         src="/icons/star.svg"
                         alt="star"
                         className="mx-auto lg:mb-6 h-[22px] w-[22px]"
+                        width={22}
+                        height={22}
                     />
                     <h2 className="title section-title mb-6 text-center text-[48px]">
                         {t("happy.special.title")}
@@ -46,6 +48,8 @@ export const HappyHoursSpecial = () => {
                                     alt="image"
                                     className="mb-3.5 object-cover"
                                     loading="lazy"
+                                    width={800}
+                                    height={830}
                                 />
                                 <div className="text-center">
                                     <h3 className="title mb-2 inline-block text-2xl font-bold capitalize">
@@ -72,6 +76,8 @@ export const HappyHoursSpecial = () => {
                                 alt="image"
                                 className="mb-3.5 object-cover"
                                 loading="lazy"
+                                width={800}
+                                height={830}
                             />
                             <div className="mb-7 text-center">
                                 <h3 className="title mb-2 inline-block text-2xl font-bold capitalize">

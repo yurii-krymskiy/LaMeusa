@@ -17,6 +17,8 @@ export const HomeGallery = () => {
                     src="/icons/star.svg"
                     alt="star"
                     className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
+                    width={22}
+                    height={22}
                 />
                 <h2 className="title section-title my-3.5 lg:my-6 mt-1.5 lg:mt-0 text-center text-[48px]">
                     {t("home.gallery.title")}

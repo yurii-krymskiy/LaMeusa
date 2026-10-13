@@ -21,6 +21,8 @@ export const PastaMeets = () => {
                                 src="/images/pasta/image-6.webp"
                                 alt=""
                                 className="mb-6 min-h-[200px] object-cover"
+                                width={1460}
+                                height={680}
                             />
                             <p className="section-description description mb-4">
                                 {t("pasta.meets.p1")}
@@ -36,6 +38,8 @@ export const PastaMeets = () => {
                             <img
                                 src="/images/pasta/image-7.webp"
                                 className="h-full object-cover"
+                                width={1060}
+                                height={1320}
                             />
                         </div>
                     </div>

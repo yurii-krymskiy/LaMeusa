@@ -1,4 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
+import { Suspense, lazy, type ComponentType } from "react";
 import { BaseLayout } from "./components/layout/BaseLayout";
 import About from "./pages/about/About";
 import { Booking } from "./pages/booking/Booking";
@@ -11,18 +12,6 @@ import { Pasta } from "./pages/pasta/Pasta";
 import Seafood from "./pages/seafood/Seafood";
 import { Blog } from "./pages/blog/Blog";
 import { BlogArticle } from "./pages/blog/BlogArticle";
-import { AdminLogin } from "./pages/admin/AdminLogin";
-import { AdminLayout } from "./pages/admin/AdminLayout";
-import { AdminDashboard } from "./pages/admin/AdminDashboard";
-import { AdminBlockedSlots } from "./pages/admin/AdminBlockedSlots";
-import { AdminReservations } from "./pages/admin/AdminReservations";
-import { AdminVisitors } from "./pages/admin/AdminVisitors";
-import { AdminMenu } from "./pages/admin/AdminMenu";
-import { AdminBar } from "./pages/admin/AdminBar";
-import { AdminCocktails } from "./pages/admin/AdminCocktails";
-import { AdminWines } from "./pages/admin/AdminWines";
-import { AdminBlog } from "./pages/admin/AdminBlog";
-import { AdminBlogEditor } from "./pages/admin/AdminBlogEditor";
 import { Visitors } from "./pages/visitors/Visitors";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
@@ -42,6 +31,34 @@ import SeoGarnish from "./pages/seo/SeoGarnish";
 import { Delivery } from "./pages/delivery/Delivery";
 import { Takeaway } from "./pages/takeaway/Takeaway";
 import ErrorPage from "./pages/ErrorPage";
+
+// Admin pages are loaded on demand so the public bundle stays small
+// (they pull in the editor and chart libraries).
+const lazyAdmin = <T extends object>(
+    loader: () => Promise<T>,
+    name: keyof T
+) => {
+    const Component = lazy(() =>
+        loader().then((m) => ({ default: m[name] as unknown as ComponentType }))
+    );
+    return (
+        <Suspense fallback={null}>
+            <Component />
+        </Suspense>
+    );
+};
+const AdminLoginPage = lazyAdmin(() => import("./pages/admin/AdminLogin"), "AdminLogin");
+const AdminLayoutPage = lazyAdmin(() => import("./pages/admin/AdminLayout"), "AdminLayout");
+const AdminDashboardPage = lazyAdmin(() => import("./pages/admin/AdminDashboard"), "AdminDashboard");
+const AdminBlockedSlotsPage = lazyAdmin(() => import("./pages/admin/AdminBlockedSlots"), "AdminBlockedSlots");
+const AdminReservationsPage = lazyAdmin(() => import("./pages/admin/AdminReservations"), "AdminReservations");
+const AdminVisitorsPage = lazyAdmin(() => import("./pages/admin/AdminVisitors"), "AdminVisitors");
+const AdminMenuPage = lazyAdmin(() => import("./pages/admin/AdminMenu"), "AdminMenu");
+const AdminBarPage = lazyAdmin(() => import("./pages/admin/AdminBar"), "AdminBar");
+const AdminCocktailsPage = lazyAdmin(() => import("./pages/admin/AdminCocktails"), "AdminCocktails");
+const AdminWinesPage = lazyAdmin(() => import("./pages/admin/AdminWines"), "AdminWines");
+const AdminBlogPage = lazyAdmin(() => import("./pages/admin/AdminBlog"), "AdminBlog");
+const AdminBlogEditorPage = lazyAdmin(() => import("./pages/admin/AdminBlogEditor"), "AdminBlogEditor");
 
 export const pages = [
     {
@@ -85,23 +102,23 @@ export const pages = [
     { path: "booking", element: <Booking />, errorElement: <ErrorPage /> },
     { path: "visitors", element: <Visitors />, errorElement: <ErrorPage /> },
     // Admin routes
-    { path: "admin", element: <AdminLogin />, errorElement: <ErrorPage /> },
+    { path: "admin", element: AdminLoginPage, errorElement: <ErrorPage /> },
     {
         path: "admin",
-        element: <AdminLayout />,
+        element: AdminLayoutPage,
         errorElement: <ErrorPage />,
         children: [
-            { path: "dashboard", element: <AdminDashboard /> },
-            { path: "blocked-slots", element: <AdminBlockedSlots /> },
-            { path: "reservations", element: <AdminReservations /> },
-            { path: "visitors", element: <AdminVisitors /> },
-            { path: "menu", element: <AdminMenu /> },
-            { path: "bar", element: <AdminBar /> },
-            { path: "cocktails", element: <AdminCocktails /> },
-            { path: "wines", element: <AdminWines /> },
-            { path: "blog", element: <AdminBlog /> },
-            { path: "blog/create", element: <AdminBlogEditor /> },
-            { path: "blog/edit/:id", element: <AdminBlogEditor /> },
+            { path: "dashboard", element: AdminDashboardPage },
+            { path: "blocked-slots", element: AdminBlockedSlotsPage },
+            { path: "reservations", element: AdminReservationsPage },
+            { path: "visitors", element: AdminVisitorsPage },
+            { path: "menu", element: AdminMenuPage },
+            { path: "bar", element: AdminBarPage },
+            { path: "cocktails", element: AdminCocktailsPage },
+            { path: "wines", element: AdminWinesPage },
+            { path: "blog", element: AdminBlogPage },
+            { path: "blog/create", element: AdminBlogEditorPage },
+            { path: "blog/edit/:id", element: AdminBlogEditorPage },
         ],
     },
     { path: "*", element: <ErrorPage /> },

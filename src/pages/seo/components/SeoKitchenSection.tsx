@@ -6,6 +6,13 @@ interface SeoKitchenSectionProps {
     paragraphs: string[];
 }
 
+// Intrinsic sizes of the photos used on the SEO pages, so the browser can
+// reserve space before they load (avoids layout shift).
+const IMAGE_SIZES: Record<string, { width: number; height: number }> = {
+    "/IMG_3440.jpeg": { width: 3908, height: 2606 },
+    "/IMG_3438.jpeg": { width: 2690, height: 4032 },
+};
+
 export const SeoKitchenSection = ({
     decorative,
     title,
@@ -27,6 +34,7 @@ export const SeoKitchenSection = ({
                             src={image1}
                             alt=""
                             className="mb-6 max-h-[350px] object-cover"
+                            {...IMAGE_SIZES[image1]}
                         />
                         {paragraphs.map((paragraph, index) => (
                             <p
@@ -38,7 +46,12 @@ export const SeoKitchenSection = ({
                         ))}
                     </div>
                     <div className="flex-1">
-                        <img src={image2} className="h-full object-cover" />
+                        <img
+                            src={image2}
+                            alt=""
+                            className="h-full object-cover"
+                            {...IMAGE_SIZES[image2]}
+                        />
                     </div>
                 </div>
             </div>

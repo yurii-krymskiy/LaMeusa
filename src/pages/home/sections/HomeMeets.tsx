@@ -22,6 +22,8 @@ export const HomeMeets = () => {
                                 src="/images/home/image-14.jpg"
                                 alt=""
                                 className="mb-6 h-[200px] object-cover lg:h-[340px]"
+                                width={4032}
+                                height={2688}
                             />
 
                             <p className="description section-description mb-2.5">
@@ -43,6 +45,8 @@ export const HomeMeets = () => {
                             src="/images/home/image-15.jpg"
                             alt=""
                             className="w-full h-[400px] lg:h-auto object-cover lg:max-w-[530px]"
+                            width={2688}
+                            height={4032}
                         />
                     </div>
                 </div>

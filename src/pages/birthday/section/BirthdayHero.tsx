@@ -27,7 +27,7 @@ export const BirthdayHero = () => {
                         className="!text-white"
                     >
                         <span>{t("birthday.hero.menuButton")}</span>
-                        <img src="/icons/arrow-right.svg" className="size-7" />
+                        <img src="/icons/arrow-right.svg" className="size-7" width={30} height={30} />
                     </Button>
                 </div>
             </div>

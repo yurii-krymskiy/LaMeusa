@@ -12,6 +12,8 @@ export const HomeOurMenu = () => {
                     alt="Image"
                     className="w-full object-cover h-[360px] md:h-[400px] lg:h-full lg:w-[530px]"
                     fetchPriority="high"
+                    width={1590}
+                    height={2085}
                 />
                 <div className="flex flex-col justify-between">
                     <div className="mb-3.5">
@@ -36,24 +38,32 @@ export const HomeOurMenu = () => {
                             alt="img"
                             className="h-[140px] min-w-[180px] snap-center object-cover transition-transform duration-300 hover:scale-[1.02] md:h-[160px] md:min-w-0 md:w-full"
                             loading="lazy"
+                            width={480}
+                            height={480}
                         />
                         <img
                             src="/images/home/image-7.jpg"
                             alt="img"
                             className="h-[140px] min-w-[180px] snap-center object-cover transition-transform duration-300 hover:scale-[1.02] md:h-[160px] md:min-w-0 md:w-full"
                             loading="lazy"
+                            width={480}
+                            height={480}
                         />
                         <img
                             src="/images/home/image-8.jpg"
                             alt="img"
                             className="h-[140px] min-w-[180px] snap-center object-cover transition-transform duration-300 hover:scale-[1.02] md:h-[160px] md:min-w-0 md:w-full"
                             loading="lazy"
+                            width={480}
+                            height={480}
                         />
                         <img
                             src="/images/home/image-9.jpg"
                             alt="img"
                             className="h-[140px] min-w-[180px] snap-center object-cover transition-transform duration-300 hover:scale-[1.02] md:h-[160px] md:min-w-0 md:w-full"
                             loading="lazy"
+                            width={480}
+                            height={480}
                         />
                     </div>
                 </div>

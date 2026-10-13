@@ -11,6 +11,8 @@ export const HomeReserve = () => {
                     src="/images/home/image-16.png"
                     alt="image"
                     className="max-w-[610px]"
+                    width={1228}
+                    height={1000}
                 />
 
                 <div className="md:-ml-10">

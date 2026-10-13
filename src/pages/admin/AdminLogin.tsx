@@ -44,6 +44,8 @@ export const AdminLogin = () => {
                         src="/icons/logo-white.svg"
                         alt="La Medusa"
                         className="h-16 mx-auto mb-4"
+                        width={320}
+                        height={70}
                     />
                     <h1 className="text-2xl font-semibold text-white">
                         Admin Dashboard

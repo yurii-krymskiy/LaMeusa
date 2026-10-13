@@ -28,6 +28,8 @@ export const AboutCuisine = () => {
                         alt="image"
                         className="max-w-full h-[400px] lg:h-auto lg:max-w-[660px] object-cover"
                         fetchPriority="high"
+                        width={1320}
+                        height={1020}
                     />
                 </div>
             </div>

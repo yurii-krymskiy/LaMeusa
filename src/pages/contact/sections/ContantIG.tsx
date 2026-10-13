@@ -14,21 +14,23 @@ export const ContactIG = () => {
                         src="/icons/star.svg"
                         alt="star"
                         className="mx-auto mb-1.5 lg:mb-6 size-[22px]"
+                        width={22}
+                        height={22}
                     />
                     <h2 className="title section-title">{t("contact.instagram.title")}</h2>
                 </div>
 
                 <div className="hidden gap-5 xl:gap-10 lg:flex">
                     <div className="max-w-[560px] min-w-[315px] xl:min-w-[340px] min-h-[315px] xl:min-h-[340px]">
-                        <img src="/images/contact/meat-vegetables-stew-black-pan.jpg" />
+                        <img src="/images/contact/meat-vegetables-stew-black-pan.jpg" width={1120} height={1120} />
                     </div>
                     <div className="flex flex-col justify-between gap-3">
                         <div className="flex gap-5 xl:gap-10">
                             <div className="size-[315px] xl:size-[340px]">
-                                <img src="/images/contact/vegetarian-buddha-bowl-raw-vegetables-baked-potatoes-bowl-vegan-meal-healthy-detox-food-concept-top-view-flat-lay.jpg" className="w-full h-full object-cover" />
+                                <img src="/images/contact/vegetarian-buddha-bowl-raw-vegetables-baked-potatoes-bowl-vegan-meal-healthy-detox-food-concept-top-view-flat-lay.jpg" className="w-full h-full object-cover" width={4032} height={2688} />
                             </div>
                             <div className="size-[315px] xl:size-[340px]">
-                                <img src="/images/contact/delicious-lobster-gourmet-seafood.jpg" className="w-full h-full object-cover" />
+                                <img src="/images/contact/delicious-lobster-gourmet-seafood.jpg" className="w-full h-full object-cover" width={680} height={680} />
                             </div>
                         </div>
                         <a href="https://www.instagram.com/la_medusa_tenerife?igsh=MWRxa212a3N4aXlrdQ==" target="_blank" rel="noreferrer" className="title button button-blue-outline self-end">
@@ -41,13 +43,13 @@ export const ContactIG = () => {
                     <div className="mb-5">
                         <BasicSwiper>
                             <SwiperSlide>
-                                <img src="/images/contact/meat-vegetables-stew-black-pan.jpg" className="w-full h-[300px] object-cover" />
+                                <img src="/images/contact/meat-vegetables-stew-black-pan.jpg" className="w-full h-[300px] object-cover" width={1120} height={1120} />
                             </SwiperSlide>
                             <SwiperSlide>
-                                <img src="/images/contact/vegetarian-buddha-bowl-raw-vegetables-baked-potatoes-bowl-vegan-meal-healthy-detox-food-concept-top-view-flat-lay.jpg" className="w-full h-[300px] object-cover" />
+                                <img src="/images/contact/vegetarian-buddha-bowl-raw-vegetables-baked-potatoes-bowl-vegan-meal-healthy-detox-food-concept-top-view-flat-lay.jpg" className="w-full h-[300px] object-cover" width={4032} height={2688} />
                             </SwiperSlide>
                             <SwiperSlide>
-                                <img src="/images/contact/delicious-lobster-gourmet-seafood.jpg" className="w-full h-[300px] object-cover" />
+                                <img src="/images/contact/delicious-lobster-gourmet-seafood.jpg" className="w-full h-[300px] object-cover" width={680} height={680} />
                             </SwiperSlide>
                         </BasicSwiper>
                     </div>

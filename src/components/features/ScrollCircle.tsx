@@ -5,6 +5,8 @@ const ScrollCircle = () => {
                 src="/icons/arrow-bottom-header.svg"
                 alt="arrow-bottom-header"
                 className="h-4 md:h-8"
+                width={16}
+                height={32}
             />
         </div>
     );

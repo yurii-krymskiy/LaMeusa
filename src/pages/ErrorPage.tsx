@@ -19,6 +19,8 @@ export default function ErrorPage() {
                 src="/icons/logo.svg"
                 alt="La Medusa"
                 className="h-14 w-auto mb-10 opacity-90"
+                width={252}
+                height={56}
             />
 
             {/* Big number / icon */}

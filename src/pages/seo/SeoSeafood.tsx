@@ -47,6 +47,8 @@ const SeoSeafood = () => {
                             <img
                                 src="/icons/arrow-right.svg"
                                 className="size-7"
+                                width={30}
+                                height={30}
                             />
                         </ButtonOpenReservation>
                     </div>
@@ -62,6 +64,8 @@ const SeoSeafood = () => {
                             src="/icons/star.svg"
                             alt="star"
                             className="mx-auto mb-1.5 size-[22px] lg:mb-6"
+                            width={22}
+                            height={22}
                         />
                         <h2 className="title section-title">
                             {t("seoPages.seafood.why.title")}
@@ -77,6 +81,8 @@ const SeoSeafood = () => {
                         src="/images/home-slider/img9.jpeg"
                         alt={t("seoPages.seafood.hero.title")}
                         className="mb-5 max-h-[500px] min-h-[225px] object-cover lg:mb-10"
+                        width={2560}
+                        height={1884}
                     />
 
                     <div className="mb-5 flex flex-col gap-5 md:flex-row lg:mb-10 lg:gap-14">
@@ -84,6 +90,8 @@ const SeoSeafood = () => {
                             <img
                                 src="/icons/fruit.svg"
                                 className="mx-auto mb-2.5 size-[100px]"
+                                width={100}
+                                height={100}
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
@@ -98,6 +106,8 @@ const SeoSeafood = () => {
                             <img
                                 src="/icons/flour.svg"
                                 className="mx-auto mb-2.5 size-[100px]"
+                                width={101}
+                                height={101}
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
@@ -112,6 +122,8 @@ const SeoSeafood = () => {
                             <img
                                 src="/icons/marinara-sauce.svg"
                                 className="mx-auto mb-2.5 size-[100px]"
+                                width={100}
+                                height={100}
                             />
                             <div>
                                 <h3 className="title mb-2.5 inline-block text-lg md:text-xl">
@@ -144,6 +156,8 @@ const SeoSeafood = () => {
                             loading="lazy"
                             alt={t("seoPages.seafood.hours.title")}
                             className="max-h-[500px] max-w-[620px] object-cover lg:max-h-[600px]"
+                            width={2690}
+                            height={4032}
                         />
 
                         <div>
@@ -205,6 +219,8 @@ const SeoSeafood = () => {
                         src="/images/seafood/image-6.webp"
                         alt="image"
                         className="max-w-[610px]"
+                        width={1228}
+                        height={1000}
                     />
 
                     <div className="lg:-ml-10">

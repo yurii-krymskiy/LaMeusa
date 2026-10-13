@@ -9,7 +9,7 @@ export const MenuReserve = () => {
             <div className="container">
                 <div className="flex flex-col gap-20 md:flex-row">
                     <div className="max-w-[588px]">
-                        <img src="/images/birthday/image-11.webp" />
+                        <img src="/images/birthday/image-11.webp" width={1194} height={1232} />
                     </div>
 
                     <div className="flex-1">

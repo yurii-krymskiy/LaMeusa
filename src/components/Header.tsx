@@ -14,6 +14,8 @@ const Header = () => {
                     src="/icons/logo.svg"
                     alt="logo"
                     className="absolute top-1/2 left-1/2 w-[150px] -translate-x-1/2 -translate-y-1/2 cursor-pointer md:w-[200px]"
+                    width={252}
+                    height={56}
                 />
             </Link>
             <div className="flex flex-row items-center gap-2 lg:gap-5">

@@ -32,6 +32,8 @@ export const Booking = () => {
                     <img
                         src="/icons/logo-white.svg"
                         className="w-[100%]"
+                        width={320}
+                        height={70}
                     />
 
                     <div className="text-center">
@@ -52,6 +54,8 @@ export const Booking = () => {
                         <img
                             src="/icons/arrow-lang.svg"
                             className="rotate-90"
+                            width={20}
+                            height={20}
                         />
                         {t("booking.back")}
                     </button>

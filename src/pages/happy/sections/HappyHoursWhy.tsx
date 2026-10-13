@@ -33,6 +33,8 @@ export const HappyHoursWhy = () => {
                     <img
                         src="/images/happy-hours/image-1.webp"
                         className="max-w-full h-[400px] lg:h-auto object-cover lg:max-w-[620px]"
+                        width={1320}
+                        height={1020}
                     />
                 </div>
             </div>

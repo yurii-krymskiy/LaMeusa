@@ -305,34 +305,6 @@ export const Menu = () => {
         };
     }, [allCategories, slugToSectionMap]);
 
-    if (isLoading) {
-        return (
-            <main>
-                <MobileCategoryTabsSkeleton />
-                <section className="hero menu-hero hidden bg-white md:block">
-                    <div className="container flex max-w-[1050px] flex-col items-start text-left">
-                        <h1 className="title hero-title !ml-0 !text-left text-4xl md:text-5xl">
-                            {t("menu.hero.title")}
-                        </h1>
-                        <p className="description hero-description !ml-0 max-w-2xl !text-left text-base md:text-lg">
-                            {t("menu.hero.description")}
-                        </p>
-                    </div>
-                </section>
-
-                <section className="bg-white-100 relative pt-2 pb-6 lg:pt-6 lg:pb-16">
-                    <div className="container">
-                        <Breadcrumb />
-                        <div className="flex flex-col gap-10 lg:flex-row">
-                            <SidebarSkeleton />
-                            <MenuListSkeleton />
-                        </div>
-                    </div>
-                </section>
-            </main>
-        );
-    }
-
     return (
         <main>
             <SEO
@@ -343,25 +315,33 @@ export const Menu = () => {
                     "/images/menu/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp",
                 ]}
             />
-            {/* Mobile: dual navigation — section tabs + subcategory tabs */}
+            {/* Mobile: dual navigation — section tabs + subcategory tabs.
+                The wrapper is shared between the loading and loaded states so
+                React keeps the same DOM structure and nothing shifts. */}
             <div className="sticky top-0 z-40 bg-white/90 backdrop-blur md:hidden will-change-transform">
-                <MobileSectionTabs
-                    sections={sidebarSections}
-                    activeSection={activeSection}
-                    onSelect={handleSectionSelect}
-                    scrollLockRef={isScrollingToSection}
-                />
-                <div className="border-t border-gray-200/50">
-                    <MobileCategoryTabs
-                        items={activeSectionItems}
-                        activeSlug={activeSlug}
-                        onSelect={setActiveSlug}
-                        headerOffset={96}
-                        scrollLockRef={isScrollingToSection}
-                    />
-                </div>
+                {isLoading ? (
+                    <MobileCategoryTabsSkeleton />
+                ) : (
+                    <>
+                        <MobileSectionTabs
+                            sections={sidebarSections}
+                            activeSection={activeSection}
+                            onSelect={handleSectionSelect}
+                            scrollLockRef={isScrollingToSection}
+                        />
+                        <div className="border-t border-gray-200/50">
+                            <MobileCategoryTabs
+                                items={activeSectionItems}
+                                activeSlug={activeSlug}
+                                onSelect={setActiveSlug}
+                                headerOffset={96}
+                                scrollLockRef={isScrollingToSection}
+                            />
+                        </div>
+                    </>
+                )}
             </div>
-            <section className="hero menu-hero hidden bg-white md:block">
+            <section className="hero menu-hero bg-white">
                 <div className="container flex max-w-[1050px] flex-col items-start text-left">
                     <h1 className="title hero-title !ml-0 !text-left text-4xl md:text-5xl">
                         {t("menu.hero.title")}
@@ -376,19 +356,28 @@ export const Menu = () => {
                 <div className="container">
                     <Breadcrumb />
                     <div className="flex flex-col gap-10 lg:flex-row">
-                        <MenuSidebar
-                            sections={sidebarSections}
-                            activeSlug={activeSlug}
-                            activeSection={activeSection}
-                            onSelect={setActiveSlug}
-                            onSectionSelect={(key) => {
-                                setActiveSection(key);
-                            }}
-                        />
-                        <MenuList categories={allCategories} />
+                        {isLoading ? (
+                            <SidebarSkeleton key="sidebar-skeleton" />
+                        ) : (
+                            <MenuSidebar
+                                key="sidebar"
+                                sections={sidebarSections}
+                                activeSlug={activeSlug}
+                                activeSection={activeSection}
+                                onSelect={setActiveSlug}
+                                onSectionSelect={(key) => {
+                                    setActiveSection(key);
+                                }}
+                            />
+                        )}
+                        {isLoading ? (
+                            <MenuListSkeleton key="list-skeleton" />
+                        ) : (
+                            <MenuList key="list" categories={allCategories} />
+                        )}
                     </div>
                 </div>
-                <MenuReserve />
+                {!isLoading && <MenuReserve />}
             </section>
         </main>
     );
