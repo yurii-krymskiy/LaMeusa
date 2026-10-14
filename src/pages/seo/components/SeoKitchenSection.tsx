@@ -9,8 +9,8 @@ interface SeoKitchenSectionProps {
 // Intrinsic sizes of the photos used on the SEO pages, so the browser can
 // reserve space before they load (avoids layout shift).
 const IMAGE_SIZES: Record<string, { width: number; height: number }> = {
-    "/IMG_3440.jpeg": { width: 3908, height: 2606 },
-    "/IMG_3438.jpeg": { width: 2690, height: 4032 },
+    "/images/seo/IMG_3440.webp": { width: 1600, height: 1067 },
+    "/images/seo/IMG_3438.webp": { width: 801, height: 1200 },
 };
 
 export const SeoKitchenSection = ({

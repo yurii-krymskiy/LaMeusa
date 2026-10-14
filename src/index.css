@@ -198,7 +198,7 @@
 }
 
 .delivery-hero {
-    @apply relative flex flex-col items-center justify-center bg-[url('/images/delivery/delivery-hero.jpg')] bg-cover bg-center py-20;
+    @apply relative flex flex-col items-center justify-center bg-[url('/images/delivery/delivery-hero.webp')] bg-cover bg-center py-20;
 }
 
 .delivery-hero::before {
@@ -207,7 +207,7 @@
 }
 
 .takeaway-hero {
-    @apply relative flex flex-col items-center justify-center bg-[url('/images/takeaway/takeaway-hero.jpg')] bg-cover bg-center py-20;
+    @apply relative flex flex-col items-center justify-center bg-[url('/images/takeaway/takeaway-hero.webp')] bg-cover bg-center py-20;
 }
 
 .takeaway-hero::before {
@@ -220,7 +220,7 @@
 }
 
 .blog-hero-banner {
-    @apply relative flex flex-col items-center justify-center bg-[url('/IMG_3390.jpeg')] bg-cover bg-center py-20;
+    @apply relative flex flex-col items-center justify-center bg-[url('/images/blog/IMG_3390.webp')] bg-cover bg-center py-20;
 }
 
 .blog-hero-banner::before {

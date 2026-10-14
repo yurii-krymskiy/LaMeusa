@@ -4,7 +4,7 @@ export const DeliveryCta = () => {
     const { t } = useTranslation();
 
     return (
-        <section className="grid items-center bg-[linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('/images/delivery/delivery-cta.jpg')] bg-cover bg-center bg-no-repeat px-4 py-9 md:py-28">
+        <section className="grid items-center bg-[linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('/images/delivery/delivery-cta.webp')] bg-cover bg-center bg-no-repeat px-4 py-9 md:py-28">
             <div className="mx-auto flex max-w-[850px] flex-col items-center text-center">
                 <h2 className="section-title title mb-7 text-white">
                     {t("delivery.cta.title")}

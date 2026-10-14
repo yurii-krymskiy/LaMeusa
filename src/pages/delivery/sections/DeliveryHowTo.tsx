@@ -25,7 +25,7 @@ export const DeliveryHowTo = () => {
 
                 <div className="flex flex-col items-center gap-8 lg:flex-row lg:gap-24">
                     <img
-                        src="/images/delivery/delivery-howto.jpg"
+                        src="/images/delivery/delivery-howto.webp"
                         loading="lazy"
                         alt={t("delivery.howto.title")}
                         className="max-h-[500px] max-w-full object-cover lg:max-w-[620px]"

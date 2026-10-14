@@ -26,10 +26,10 @@ export const SeafoodPhilosophy = () => {
                 <div className="mb-5 lg:mb-10 flex flex-col justify-between gap-5 lg:gap-14 md:flex-row">
                     <div className="w-full">
 
-                        <img src="/images/seafood/image-2.jpg" className="h-[300px] lg:h-[600px] w-full object-cover" width={2688} height={4032} />
+                        <img src="/images/seafood/image-2.webp" className="h-[300px] lg:h-[600px] w-full object-cover" width={800} height={1200} />
                     </div>
                     <div className="w-full">
-                        <img src="/images/seafood/image-1.jpg" className="h-[300px] lg:h-[600px] w-full object-cover" width={2688} height={3988} />
+                        <img src="/images/seafood/image-1.webp" className="h-[300px] lg:h-[600px] w-full object-cover" width={809} height={1200} />
                     </div>
                 </div>
 

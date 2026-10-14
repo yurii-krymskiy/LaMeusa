@@ -28,7 +28,7 @@ export const TakeawayIntro = () => {
 
                 <div className="flex flex-col items-center gap-5 lg:flex-row lg:gap-24">
                     <img
-                        src="/images/takeaway/takeaway-intro.jpg"
+                        src="/images/takeaway/takeaway-intro.webp"
                         loading="lazy"
                         alt={t("takeaway.intro.title")}
                         className="max-h-[500px] max-w-full object-cover lg:max-w-[620px]"

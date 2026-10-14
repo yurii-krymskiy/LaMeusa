@@ -15,7 +15,7 @@ export const Takeaway = () => {
                 title={t("seo.takeaway.title")}
                 description={t("seo.takeaway.description")}
                 path="/takeaway"
-                image="/images/takeaway/takeaway-hero.jpg"
+                image="/images/takeaway/takeaway-hero.webp"
             />
             <TakeawayHero />
             <TakeawayIntro />

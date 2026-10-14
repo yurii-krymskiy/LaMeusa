@@ -9,7 +9,7 @@ export const TakeawayLocation = () => {
         <section className="section">
             <div className="container flex flex-col items-center gap-5 lg:flex-row-reverse lg:gap-24">
                 <img
-                    src="/images/takeaway/takeaway-location.jpg"
+                    src="/images/takeaway/takeaway-location.webp"
                     loading="lazy"
                     alt={t("takeaway.location.title")}
                     className="max-h-[500px] max-w-full object-cover lg:max-w-[620px]"

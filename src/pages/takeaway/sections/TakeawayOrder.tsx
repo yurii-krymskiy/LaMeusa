@@ -7,7 +7,7 @@ export const TakeawayOrder = () => {
     const { t } = useTranslation();
 
     return (
-        <section className="grid items-center bg-[linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),url('/images/takeaway/takeaway-order.jpg')] bg-cover bg-center bg-no-repeat px-4 py-9 md:py-28">
+        <section className="grid items-center bg-[linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),url('/images/takeaway/takeaway-order.webp')] bg-cover bg-center bg-no-repeat px-4 py-9 md:py-28">
             <div className="mx-auto flex max-w-[850px] flex-col items-center text-center">
                 <h2 className="section-title title mb-7 text-white">
                     {t("takeaway.order.title")}

@@ -152,12 +152,12 @@ const SeoBurgers = () => {
                 <div className="container">
                     <div className="flex flex-col items-center gap-5 lg:flex-row lg:gap-24">
                         <img
-                            src="/IMG_3093.jpeg"
+                            src="/images/seo/IMG_3093.webp"
                             loading="lazy"
                             alt={t("seoPages.burgers.hours.title")}
                             className="max-h-[500px] max-w-[620px] object-cover lg:max-h-[600px]"
-                            width={2690}
-                            height={4032}
+                            width={801}
+                            height={1200}
                         />
 
                         <div>
@@ -189,8 +189,8 @@ const SeoBurgers = () => {
             <SeoKitchenSection
                 decorative={t("seoPages.burgers.kitchen.decorative")}
                 title={t("seoPages.burgers.kitchen.title")}
-                image1="/IMG_3440.jpeg"
-                image2="/IMG_3438.jpeg"
+                image1="/images/seo/IMG_3440.webp"
+                image2="/images/seo/IMG_3438.webp"
                 paragraphs={[
                     t("seoPages.burgers.kitchen.p1"),
                     t("seoPages.burgers.kitchen.p2"),
@@ -199,7 +199,7 @@ const SeoBurgers = () => {
             />
 
             {/* Video */}
-            <section className="grid items-center bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/IMG_3083.jpeg')] bg-cover bg-no-repeat px-4 py-9 md:py-[151px]">
+            <section className="grid items-center bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/images/seo/IMG_3083.webp')] bg-cover bg-no-repeat px-4 py-9 md:py-[151px]">
                 <div className="mx-auto flex max-w-[850px] flex-col items-center text-center">
                     <h2 className="section-title title mb-7 text-white">
                         {t("seoPages.burgers.video.title")}
