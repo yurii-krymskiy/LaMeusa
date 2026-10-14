@@ -7,10 +7,10 @@ export const AboutOutStory = () => {
         <section className="section">
             <div className="container flex flex-col items-end gap-5 lg:gap-10 lg:flex-row">
                 <img
-                    src="/images/about/teamate-3.jpg"
+                    src="/images/about/teamate-3.webp"
                     className="max-w-full h-[500px] lg:h-[620px] lg:max-w-[610px] self-stretch object-cover"
-                    width={2274}
-                    height={3468}
+                    width={525}
+                    height={800}
                 />
 
                 <div>
@@ -25,13 +25,13 @@ export const AboutOutStory = () => {
 
                     <div className="flex gap-3.5 py-3">
                         <div className="max-w-[190px]">
-                            <img src="/images/about/image-5.jpg" width={380} height={380} />
+                            <img src="/images/about/image-5.webp" width={380} height={380} />
                         </div>
                         <div className="max-w-[190px]">
-                            <img src="/images/about/image-6.jpg" width={380} height={380} />
+                            <img src="/images/about/image-6.webp" width={380} height={380} />
                         </div>
                         <div className="max-w-[190px]">
-                            <img src="/images/about/image-4.jpg" width={380} height={380} />
+                            <img src="/images/about/image-4.webp" width={380} height={380} />
                         </div>
                     </div>
                     <p className="description section-description">

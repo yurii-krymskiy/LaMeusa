@@ -13,7 +13,7 @@ interface SEOProps {
 
 const SITE_NAME = "La Medusa";
 const BASE_URL = "https://www.lamedusa-restaurant.com";
-const DEFAULT_IMAGE = "/images/home/home-hero.jpg";
+const DEFAULT_IMAGE = "/images/og-image.jpg"; // 1200x630 JPEG for social previews (WebP is not supported by every scraper)
 
 export const SEO = ({ title, description, path = "", image, preloadImages, type = "website" }: SEOProps) => {
     const { i18n } = useTranslation();

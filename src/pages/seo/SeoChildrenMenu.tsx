@@ -79,11 +79,11 @@ const SeoChildrenMenu = () => {
                         </p>
                     </div>
                     <img
-                        src="/images/home-slider/img9.jpeg"
+                        src="/images/home-slider/img9.webp"
                         alt={t("seoPages.childrenMenu.hero.title")}
                         className="mb-5 max-h-[500px] min-h-[225px] object-cover lg:mb-10"
-                        width={2560}
-                        height={1884}
+                        width={1600}
+                        height={1178}
                     />
 
                     <div className="mb-5 flex flex-col gap-5 md:flex-row lg:mb-10 lg:gap-14">

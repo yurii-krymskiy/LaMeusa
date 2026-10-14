@@ -8,12 +8,12 @@ export const HomeOurMenu = () => {
         <section className="bg-white-100 section">
             <div className="container flex flex-col gap-5 lg:gap-15 lg:flex-row">
                 <img
-                    src="/images/home/image-3.jpg"
+                    src="/images/home/image-3.webp"
                     alt="Image"
                     className="w-full object-cover h-[360px] md:h-[400px] lg:h-full lg:w-[530px]"
                     fetchPriority="high"
-                    width={1590}
-                    height={2085}
+                    width={915}
+                    height={1200}
                 />
                 <div className="flex flex-col justify-between">
                     <div className="mb-3.5">
@@ -34,7 +34,7 @@ export const HomeOurMenu = () => {
 
                     <div className="no-scrollbar -mx-5 flex w-[calc(100%+40px)] flex-row gap-2 overflow-x-auto scroll-smooth px-5 pb-2 snap-x snap-mandatory md:mx-0 md:w-full md:overflow-visible md:px-0 md:pb-0">
                         <img
-                            src="/images/home/image-6.jpg"
+                            src="/images/home/image-6.webp"
                             alt="img"
                             className="h-[140px] min-w-[180px] snap-center object-cover transition-transform duration-300 hover:scale-[1.02] md:h-[160px] md:min-w-0 md:w-full"
                             loading="lazy"
@@ -42,7 +42,7 @@ export const HomeOurMenu = () => {
                             height={480}
                         />
                         <img
-                            src="/images/home/image-7.jpg"
+                            src="/images/home/image-7.webp"
                             alt="img"
                             className="h-[140px] min-w-[180px] snap-center object-cover transition-transform duration-300 hover:scale-[1.02] md:h-[160px] md:min-w-0 md:w-full"
                             loading="lazy"
@@ -50,7 +50,7 @@ export const HomeOurMenu = () => {
                             height={480}
                         />
                         <img
-                            src="/images/home/image-8.jpg"
+                            src="/images/home/image-8.webp"
                             alt="img"
                             className="h-[140px] min-w-[180px] snap-center object-cover transition-transform duration-300 hover:scale-[1.02] md:h-[160px] md:min-w-0 md:w-full"
                             loading="lazy"
@@ -58,7 +58,7 @@ export const HomeOurMenu = () => {
                             height={480}
                         />
                         <img
-                            src="/images/home/image-9.jpg"
+                            src="/images/home/image-9.webp"
                             alt="img"
                             className="h-[140px] min-w-[180px] snap-center object-cover transition-transform duration-300 hover:scale-[1.02] md:h-[160px] md:min-w-0 md:w-full"
                             loading="lazy"

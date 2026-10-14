@@ -73,7 +73,7 @@ export const CancelReservation = () => {
         <div className="m-0 min-h-screen bg-white">
             <div className="flex min-h-screen flex-col md:flex-row">
                 {/* Left — image panel */}
-                <div className="relative flex w-full flex-col items-center justify-center bg-[url('/images/restoran.jpg')] bg-cover bg-center px-12 py-16 md:w-1/2 md:min-h-screen">
+                <div className="relative flex w-full flex-col items-center justify-center bg-[url('/images/restoran.webp')] bg-cover bg-center px-12 py-16 md:w-1/2 md:min-h-screen">
                     <div className="absolute inset-0 bg-[#13265a]/70" />
                     <div className="relative z-10 text-center">
                         <img src="/icons/logo-white.svg" className="mx-auto mb-6 w-36" alt="La Medusa" width={320} height={70} />

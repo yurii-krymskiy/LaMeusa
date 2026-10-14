@@ -9,7 +9,7 @@ export const ContactReserve = () => {
             <div className="container">
                 <div className="flex flex-col items-center gap-20 lg:flex-row">
                     <div className="max-w-[588px]">
-                        <img src="/images/contact/Group4.png" width={1194} height={1232} />
+                        <img src="/images/contact/Group4.webp" width={1163} height={1200} />
                     </div>
 
                     <div className="flex-1 w-full">

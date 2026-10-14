@@ -23,7 +23,7 @@ export const Footer = () => {
                                 <a href="https://maps.app.goo.gl/BPYTGnnVsCb3d8Ss8" target="_blank" rel="noreferrer" className="block hover:opacity-80 transition-opacity duration-200">
                                     <div className="flex items-center gap-2.5">
                                         <img
-                                            src="/images/google.png"
+                                            src="/images/google.webp"
                                             alt="Google"
                                             className="max-w-[90px]"
                                             width={180}
@@ -43,7 +43,7 @@ export const Footer = () => {
                                 <a href="https://www.tripadvisor.com/Restaurant_Review-g187479-d20257413-Reviews-or15-Restaurant_La_Medusa_Cocktail_Bar-Tenerife_Canary_Islands.html" target="_blank" rel="noreferrer" className="block hover:opacity-80 transition-opacity duration-200">
                                     <div className="flex items-center gap-2.5">
                                         <img
-                                            src="/images/tripadvisor.png"
+                                            src="/images/tripadvisor.webp"
                                             alt="TripAdvisor"
                                             className="max-w-[120px]"
                                             width={250}

@@ -24,7 +24,7 @@ export const AboutCuisine = () => {
                         <Button to="/menu" variant="blue">{t("about.cuisine.button")}</Button>
                     </div>
                     <img
-                        src="/images/about/image-1.jpg"
+                        src="/images/about/image-1.webp"
                         alt="image"
                         className="max-w-full h-[400px] lg:h-auto lg:max-w-[660px] object-cover"
                         fetchPriority="high"

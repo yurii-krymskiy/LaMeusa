@@ -5,9 +5,9 @@ export const HomeGallery = () => {
     const { t } = useTranslation();
 
     const slides = [
-        { src: "/images/home/gallery-1.jpg", alt: "Gallery image 1" },
-        { src: "/images/home/gallery-2.jpg", alt: "Gallery image 2" },
-        { src: "/images/home/gallery-3.jpg", alt: "Gallery image 3" },
+        { src: "/images/home/gallery-1.webp", alt: "Gallery image 1" },
+        { src: "/images/home/gallery-2.webp", alt: "Gallery image 2" },
+        { src: "/images/home/gallery-3.webp", alt: "Gallery image 3" },
     ];
 
     return (

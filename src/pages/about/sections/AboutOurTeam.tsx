@@ -23,47 +23,47 @@ export const AboutOutTeam = () => {
 
     const team = [
         {
-            src: "/images/about/teamate-1.jpg",
+            src: "/images/about/teamate-1.webp",
             name: "Ruslan",
             role: "Manager",
         },
         {
-            src: "/images/about/teamate-2.jpg",
+            src: "/images/about/teamate-2.webp",
             name: "Tanya",
             role: "Waitress",
         },
         {
-            src: "/images/about/teamate-3.jpg",
+            src: "/images/about/teamate-3.webp",
             name: "Anton",
             role: "Chef",
         },
         {
-            src: "/images/about/teamate-4.jpg",
+            src: "/images/about/teamate-4.webp",
             name: "Helen",
             role: "Manager",
         },
         {
-            src: "/images/about/teamate-5.jpg",
+            src: "/images/about/teamate-5.webp",
             name: "Oleh",
             role: "Cook",
         },
         {
-            src: "/images/about/teamate-6.jpg",
+            src: "/images/about/teamate-6.webp",
             name: "Mary",
             role: "Waitress",
         },
         {
-            src: "/images/about/teamate-7.jpg",
+            src: "/images/about/teamate-7.webp",
             name: "Aisha",
             role: "Bartender",
         },
         {
-            src: "/images/about/teamate-8.jpg",
+            src: "/images/about/teamate-8.webp",
             name: "Andrew",
             role: "Cook",
         },
         {
-            src: "/images/about/teamate-9.jpg",
+            src: "/images/about/teamate-9.webp",
             name: "Stan",
             role: "Piar",
         },

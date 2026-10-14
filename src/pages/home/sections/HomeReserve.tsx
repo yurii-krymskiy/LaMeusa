@@ -8,7 +8,7 @@ export const HomeReserve = () => {
         <section className="section">
             <div className="container flex flex-col items-center lg:flex-row">
                 <img
-                    src="/images/home/image-16.png"
+                    src="/images/home/image-16.webp"
                     alt="image"
                     className="max-w-[610px]"
                     width={1228}

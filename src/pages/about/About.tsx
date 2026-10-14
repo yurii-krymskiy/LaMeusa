@@ -18,7 +18,7 @@ const About = () => {
                 title={t("seo.about.title")}
                 description={t("seo.about.description")}
                 path="/about"
-                preloadImages={["/images/about/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.jpg", "/images/about/image-1.jpg"]}
+                preloadImages={["/images/about/top-view-seafood-side-dish-plates-with-shrimp-crab-meat-anchovy.webp", "/images/about/image-1.webp"]}
             />
             <AboutHero />
             <AboutCuisine />

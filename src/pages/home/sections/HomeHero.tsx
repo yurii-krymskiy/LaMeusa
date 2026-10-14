@@ -15,10 +15,11 @@ export const HomeHero = () => {
                 loop
                 playsInline
                 preload="none"
-                poster="/images/home-bg.jpg"
+                poster="/images/home-bg.webp"
             >
-                <source src="/video/hero.webm" type="video/webm" />
+                {/* mp4 first: it is the smaller encode and every browser plays it */}
                 <source src="/video/hero.mp4" type="video/mp4" />
+                <source src="/video/hero.webm" type="video/webm" />
             </video>
 
             {/* Dark overlay */}

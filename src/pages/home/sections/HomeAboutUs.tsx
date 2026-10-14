@@ -24,12 +24,12 @@ export const HomeAboutUs = () => {
                 </div>
                 <div className="flex-1">
                     <img
-                        src="/images/home/image-10.jpg"
+                        src="/images/home/image-10.webp"
                         alt="image"
                         className="object-cover"
                         loading="lazy"
-                        width={1980}
-                        height={1530}
+                        width={1600}
+                        height={1236}
                     />
                 </div>
             </div>

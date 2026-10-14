@@ -22,10 +22,10 @@ export const AboutChooseUs = () => {
                     </p>
                 </div>
                 <img
-                    src="/images/about/image-2.jpg"
+                    src="/images/about/image-2.webp"
                     className="mb-5 lg:mb-10 min-h-[226px] max-h-[600px] object-cover"
-                    width={2688}
-                    height={4032}
+                    width={800}
+                    height={1200}
                 />
 
                 <div className="mb-10 flex flex-col gap-5 lg:gap-14 md:flex-row">

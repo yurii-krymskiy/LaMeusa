@@ -8,17 +8,17 @@ export const HappyHoursSpecial = () => {
     const { t } = useTranslation();
     const specials = [
         {
-            src: "/images/home/special-1.jpg",
+            src: "/images/home/special-1.webp",
             title: t("home.special.deal1Title"),
             description: t("home.special.deal1Desc"),
         },
         {
-            src: "/images/home/special-2.jpg",
+            src: "/images/home/special-2.webp",
             title: t("home.special.deal2Title"),
             description: t("home.special.deal2Desc"),
         },
         {
-            src: "/images/home/special-3.jpg",
+            src: "/images/home/special-3.webp",
             title: t("home.special.deal3Title"),
             description: t("home.special.deal3Desc"),
         },

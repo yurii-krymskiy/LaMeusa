@@ -19,11 +19,11 @@ export const HomeMeets = () => {
                     <div className="flex flex-col gap-5 md:gap-16 lg:flex-row">
                         <div className="w-full lg:max-w-[730px]">
                             <img
-                                src="/images/home/image-14.jpg"
+                                src="/images/home/image-14.webp"
                                 alt=""
                                 className="mb-6 h-[200px] object-cover lg:h-[340px]"
-                                width={4032}
-                                height={2688}
+                                width={1600}
+                                height={1067}
                             />
 
                             <p className="description section-description mb-2.5">
@@ -42,11 +42,11 @@ export const HomeMeets = () => {
                         </div>
 
                         <img
-                            src="/images/home/image-15.jpg"
+                            src="/images/home/image-15.webp"
                             alt=""
                             className="w-full h-[400px] lg:h-auto object-cover lg:max-w-[530px]"
-                            width={2688}
-                            height={4032}
+                            width={800}
+                            height={1200}
                         />
                     </div>
                 </div>

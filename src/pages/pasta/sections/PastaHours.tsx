@@ -11,8 +11,8 @@ export const PastaHours = () => {
                         src="/images/pasta/image-5.webp"
                         loading="lazy"
                         className="max-w-[620px]"
-                        width={1248}
-                        height={1441}
+                        width={1039}
+                        height={1200}
                     />
 
                     <div>
